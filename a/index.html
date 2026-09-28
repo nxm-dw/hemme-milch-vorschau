@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hemme Milch · Entwurf A „Frisch gezapft“</title>
+<meta name="description" content="Vorschau Startseite Hemme Milch, Entwurf A. Frische Milchprodukte aus der eigenen Hofmolkerei in der Uckermark.">
+<link rel="icon" href="../assets/img/kuh-kopf.svg">
+<link rel="preload" href="../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../assets/css/gemeinsam.css">
+<link rel="stylesheet" href="../assets/css/a.css">
+</head>
+<body class="a">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<nav class="vorschau" aria-label="Entwürfe">
+  <span class="vorschau__hinweis">Vorschau Startseite · Stand 02.10.2026</span>
+  <a href="../a/" aria-current="page">Entwurf A · Frisch gezapft</a>
+  <a href="../b/">Entwurf B · Kuhle Welt</a>
+</nav>
+
+<!-- Aktions-Banner: erscheint nur, solange eine Aktion läuft -->
+<aside class="aktion" data-aktion hidden aria-label="Aktuelle Aktion">
+  <span class="aktion__marke" data-aktion-marke></span>
+  <span data-aktion-text></span>
+  <a data-aktion-link></a>
+  <span class="aktion__bis" data-aktion-bis></span>
+</aside>
+
+<header class="kopf">
+  <a class="kopf__logo" href="./" aria-label="Hemme Milch, zur Startseite">
+    <img src="../assets/img/logo.webp" alt="Hemme Milch" width="120" height="80">
+  </a>
+  <nav class="kopf__nav" id="hauptmenue" aria-label="Hauptmenü">
+    <a href="#produkte">Produkte</a>
+    <a href="#kaufen">Wo kaufen</a>
+    <a href="#hof">Hof erleben</a>
+    <a href="#kette">Philosophie</a>
+    <a href="#event">Eventlocation</a>
+    <a href="#team">Über uns</a>
+    <a class="kopf__nav-neben" href="#karriere">Karriere</a>
+    <a class="kopf__nav-neben" href="#fuss">Kontakt</a>
+  </nav>
+  <a class="knopf knopf--klein kopf__cta" href="#gastro">Für Gastro &amp; Handel</a>
+  <button class="kopf__burger" data-menue-knopf aria-controls="hauptmenue" aria-expanded="false">
+    <span></span><span></span><span class="nur-sr">Menü</span>
+  </button>
+</header>
+
+<main id="inhalt">
+
+  <!-- HERO: Die Kuh schaut dich an, die Milch steht daneben -->
+  <section class="held">
+    <div class="held__text">
+      <p class="held__ort">Hofmolkerei · Schmargendorf · Uckermark</p>
+      <h1 class="held__titel">
+        <span>Ganz frisch.</span>
+        <span>Ganz nah.</span>
+        <span>Ganz <em>Hemme.</em></span>
+      </h1>
+      <p class="held__lead">Milch, Joghurt und Butter von unseren eigenen Kühen, abgefüllt in unserer eigenen Molkerei. Von der Kuh zu dir in 24&nbsp;Stunden.</p>
+      <div class="held__knoepfe">
+        <a class="knopf" href="#produkte">Produkte entdecken</a>
+        <a class="knopf knopf--rand" href="#kaufen">Wo gibt's Hemme?</a>
+      </div>
+    </div>
+    <div class="held__bild">
+      <div class="held__foto">
+        <img src="../assets/img/foto/kuhnase.webp" srcset="../assets/img/foto/kuhnase-s.webp 900w, ../assets/img/foto/kuhnase.webp 1800w" sizes="(max-width: 900px) 100vw, 55vw" alt="Eine schwarz-weiße Kuh schaut neugierig direkt in die Kamera, dahinter die Weide in der Uckermark" fetchpriority="high">
+      </div>
+      <img class="held__beutel" src="../assets/img/produkte/vollmilch-3-5.webp" alt="Hemme Vollmilch 3,7 % im Standbeutel" width="280" height="420">
+      <img class="held__siegel" src="../assets/img/siegel/siegel.webp" alt="Siegel: Eigenes Futter, eigene Kühe, eigene Molkerei" width="150" height="150">
+    </div>
+  </section>
+
+  <!-- Drei Wahrheiten in einer Zeile -->
+  <ul class="fakten" aria-label="Hemme in Zahlen">
+    <li><b>600</b> Kühe, eigene und von vier Partnerhöfen</li>
+    <li><b>90 %</b> des Futters wächst auf unseren Feldern</li>
+    <li><b>24 h</b> vom Melken bis ins Kühlregal</li>
+    <li><b>0</b> H-Milch. Nur schonend pasteurisiert</li>
+  </ul>
+
+  <!-- PRODUKTE -->
+  <section class="produkte" id="produkte" aria-labelledby="produkte-titel">
+    <div class="abschnitt-kopf">
+      <h2 id="produkte-titel">Was aus unserer Milch wird</h2>
+      <div class="umschalter" role="tablist" aria-label="Sortiment für">
+        <button role="tab" aria-selected="true" aria-controls="sortiment-zuhause" id="tab-zuhause" tabindex="0">Für zuhause</button>
+        <button role="tab" aria-selected="false" aria-controls="sortiment-gastro" id="tab-gastro" tabindex="-1">Für Gastro &amp; Handel</button>
+      </div>
+    </div>
+
+    <div class="sortiment" id="sortiment-zuhause" role="tabpanel" aria-labelledby="tab-zuhause" tabindex="-1">
+      <a class="gruppe gruppe--milch" href="#produkte" data-rein>
+        <span class="gruppe__name">Frischmilch</span>
+        <span class="gruppe__info">1,8 % und 3,7 %, im Standbeutel</span>
+        <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/teilrahmen-milch.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/vollmilch-3-5.webp" alt="" loading="lazy">
+        </span>
+      </a>
+      <a class="gruppe gruppe--joghurt" href="#produkte" data-rein>
+        <span class="gruppe__name">Joghurt</span>
+        <span class="gruppe__info">Natur, mild und neun Fruchtsorten</span>
+        <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/jo-kirsche-400.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/beerenfest-200g.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/jo-heidelbeere-400.webp" alt="" loading="lazy">
+        </span>
+      </a>
+      <a class="gruppe gruppe--getraenke" href="#produkte" data-rein>
+        <span class="gruppe__name">Milchgetränke</span>
+        <span class="gruppe__info">Schoko, Vanille, Erdbeere, Eiskaffee</span>
+        <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/schokomilch-230.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/erdbeermilch.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/vanillemilch-230.webp" alt="" loading="lazy">
+        </span>
+      </a>
+      <a class="gruppe gruppe--butter" href="#produkte" data-rein>
+        <span class="gruppe__name">Butter &amp; Buttermilch</span>
+        <span class="gruppe__info">Fassbutter aus gesäuertem Rahm</span>
+        <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/fassbutter.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/buttermilch-zitrone-600.webp" alt="" loading="lazy">
+        </span>
+      </a>
+      <a class="gruppe gruppe--quark" href="#produkte" data-rein>
+        <span class="gruppe__name">Quark</span>
+        <span class="gruppe__info">Alsahna Speisequark natur</span>
+        <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/alsahna-quark.webp" alt="" loading="lazy">
+        </span>
+      </a>
+      <a class="gruppe gruppe--dessert" href="#produkte" data-rein>
+        <span class="gruppe__name">Dessert</span>
+        <span class="gruppe__info">Pudding und Porridge</span>
+        <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/schokopudding.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/porridge-vegan.webp" alt="" loading="lazy">
+        </span>
+      </a>
+    </div>
+
+    <div class="sortiment sortiment--gastro" id="sortiment-gastro" role="tabpanel" aria-labelledby="tab-gastro" tabindex="-1" hidden>
+      <div class="gastro-karte">
+        <img src="../assets/img/produkte/vollmilch-3-5.webp" alt="" loading="lazy">
+        <h3>Frischmilch im 10-Liter-Beutel</h3>
+        <p>Für Siebträger, Milchschaum und Küche. 1,8 % oder 3,7 %.</p>
+      </div>
+      <div class="gastro-karte">
+        <img src="../assets/img/produkte/fassbutter.webp" alt="" loading="lazy">
+        <h3>Fassbutter im 12-kg-Block</h3>
+        <p>Für Bäckereien und Konditoreien, die den Unterschied im Teig merken.</p>
+      </div>
+      <div class="gastro-karte">
+        <img src="../assets/img/produkte/schokomilch-600.webp" alt="" loading="lazy">
+        <h3>Milchgetränke 230 ml to go</h3>
+        <p>Für Kühltheke, Kantine und Café. Acht Stück pro Karton.</p>
+      </div>
+      <div class="gastro-karte gastro-karte--text" id="gastro">
+        <h3>Der Milchmann kommt vorbei</h3>
+        <p>Wir beliefern Läden, Cafés, Bäckereien und Eisdielen in Brandenburg selbst. Einmalig in der Region.</p>
+        <a class="knopf knopf--hell" href="#fuss">Vertrieb anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILCHBEUTEL -->
+  <section class="beutel" aria-labelledby="beutel-titel">
+    <div class="beutel__bild" data-rein>
+      <img src="../assets/img/produkte/vanillemilch-600.webp" alt="Hemme Vanillemilch im Standbeutel" loading="lazy">
+    </div>
+    <div class="beutel__text">
+      <h2 id="beutel-titel">Warum Beutel?<br>Weil er's besser kann.</h2>
+      <ul class="beutel__liste">
+        <li data-rein><b>14 g</b> leicht. Halb so viel Material wie eine übliche Milchverpackung.</li>
+        <li data-rein><b>40 %</b> Kreide im Material. Weniger Kunststoff, weniger Müllvolumen.</li>
+        <li data-rein><b>Steht</b> von allein im Kühlschrank und lässt sich einfach öffnen.</li>
+        <li data-rein><b>Warm</b> machen direkt im Beutel: Er ist mikrowellengeeignet.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SIGNATUR: 24-Stunden-Band. Scrollen treibt die Uhr. -->
+  <section class="kette" id="kette" aria-labelledby="kette-titel">
+    <div class="kette__klebt">
+      <div class="kette__kopf">
+        <h2 id="kette-titel">Von der Kuh zu dir.<br><span>In 24 Stunden.</span></h2>
+        <div class="uhr" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" class="uhr__ring"/><circle cx="50" cy="50" r="44" class="uhr__lauf" pathLength="100"/></svg>
+          <span class="uhr__zahl" data-uhr>0</span><span class="uhr__h">h</span>
+        </div>
+      </div>
+      <ol class="kette__band" data-band tabindex="0" aria-label="Der Weg der Milch in fünf Stationen">
+        <li class="station">
+          <img src="../assets/img/foto/ernte-s.webp" alt="Häckselernte auf den eigenen Feldern" loading="lazy">
+          <h3>Eigenes Futter</h3>
+          <p>Rund 90 % von dem, was unsere Kühe fressen, wächst auf unseren Feldern im Biosphärenreservat.</p>
+        </li>
+        <li class="station">
+          <img src="../assets/img/foto/kuehe-weide-s.webp" alt="Kühe auf der Weide" loading="lazy">
+          <h3>Eigene Kühe</h3>
+          <p>600 Kühe, auf unserem Hof und bei vier Partnerbetrieben aus der Nachbarschaft.</p>
+        </li>
+        <li class="station">
+          <img src="../assets/img/foto/kuh-stall-s.webp" alt="Kuh im Stall" loading="lazy">
+          <h3>Stunde 0: Melken</h3>
+          <p>Jeden Tag rund 33.000 Liter. Die Uhr beginnt zu laufen.</p>
+        </li>
+        <li class="station station--platzhalter">
+          <div class="station__leer">Foto Molkerei folgt</div>
+          <h3>Eigene Molkerei</h3>
+          <p>Schonend pasteurisiert, 15 bis 20 Sekunden bei rund 75 °C. Keine H-Milch.</p>
+        </li>
+        <li class="station">
+          <img src="../assets/img/foto/milchmann-s.webp" alt="Hemme-Lieferwagen vor dem Hof" loading="lazy">
+          <h3>Stunde 24: bei dir</h3>
+          <p>Im Kühlregal in Berlin und Brandenburg, im Milchladen und beim Milchmann.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- HOF ERLEBEN -->
+  <section class="hof" id="hof" aria-labelledby="hof-titel">
+    <div class="abschnitt-kopf">
+      <h2 id="hof-titel">Komm vorbei.<br>Die Kälbchen warten schon.</h2>
+      <p>Hofcafé und Milchladen: Mittwoch bis Sonntag, 11 bis 18 Uhr</p>
+    </div>
+    <div class="hof__raster">
+      <figure class="kachel kachel--gross" data-rein>
+        <img src="../assets/img/foto/kalb-zunge-s.webp" alt="Ein Kälbchen streckt die Zunge heraus" loading="lazy">
+        <figcaption><b>Kälbchen besuchen</b> Der Lieblingsort aller Kinder auf dem Hof.</figcaption>
+      </figure>
+      <figure class="kachel" data-rein>
+        <img src="../assets/img/foto/hofcafe-kuchen-s.webp" alt="Käsekuchen und Kaffee im Hofcafé" loading="lazy">
+        <figcaption><b>Hofcafé &amp; Milchladen</b> Kuchen, Kakao und das ganze Sortiment.</figcaption>
+      </figure>
+      <figure class="kachel" data-rein>
+        <img src="../assets/img/foto/kind-kuh-s.webp" alt="Ein Junge füttert eine Kuh auf der Weide" loading="lazy">
+        <figcaption><b>Hofführungen</b> Für Familien, Kitas, Schulklassen und Teams.</figcaption>
+      </figure>
+      <figure class="kachel" data-rein>
+        <img src="../assets/img/foto/hof-erleben-s.webp" alt="Bauerngarten auf dem Hemme-Hof" loading="lazy">
+        <figcaption><b>Spielplatz &amp; Sommerattraktion</b> Toben, klettern, Mais entdecken. <span class="offen">Inhalte folgen</span></figcaption>
+      </figure>
+      <a class="kachel kachel--cam" href="#hof" data-rein>
+        <img src="../assets/img/foto/kuehe-liegen-s.webp" alt="" loading="lazy">
+        <span class="live">Live</span>
+        <span class="kachel__cam-text"><b>KuhCam</b> Schau jetzt in den Stall.</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- WO KAUFEN -->
+  <section class="kaufen" id="kaufen" aria-labelledby="kaufen-titel">
+    <div class="kaufen__text">
+      <h2 id="kaufen-titel">Wo gibt's Hemme bei dir?</h2>
+      <p>In Berlin und Brandenburg stehen wir bei Edeka, Rewe und vielen kleinen Läden im Kühlregal. Gib deine Postleitzahl ein.</p>
+      <form class="plz" data-haendlersuche>
+        <label class="nur-sr" for="plz-a">Postleitzahl</label>
+        <input id="plz-a" inputmode="numeric" autocomplete="off" data-1p-ignore data-lpignore="true" maxlength="5" placeholder="Postleitzahl">
+        <button class="knopf" type="submit">Märkte finden</button>
+        <p class="plz__ergebnis" data-haendler-ergebnis aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="kaufen__karte" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <path class="land" d="M70 40 L190 20 L262 60 L278 150 L248 238 L160 282 L78 262 L30 190 L36 100 Z"/>
+        <circle class="stadt" cx="138" cy="170" r="30"/>
+        <text x="138" y="175" text-anchor="middle">Berlin</text>
+        <circle class="hof-punkt" cx="196" cy="84" r="9"/>
+        <text x="196" y="66" text-anchor="middle">Hemme-Hof</text>
+      </svg>
+      <p class="kaufen__hinweis">Karte und Händlerliste als Platzhalter</p>
+    </div>
+  </section>
+
+  <!-- EVENT + KARRIERE -->
+  <section class="duo">
+    <a class="duo__karte" id="event" href="#event" data-rein>
+      <img src="../assets/img/foto/hofcafe-s.webp" alt="" loading="lazy">
+      <span class="duo__text">
+        <span class="duo__marke">Eventlocation</span>
+        <b>Feiern mit Uckermark-Blick</b>
+        <span>Bis 120 Gäste. Familienfeier, Seminar, Hochzeit.</span>
+      </span>
+    </a>
+    <a class="duo__karte" id="karriere" href="#karriere" data-rein>
+      <img src="../assets/img/foto/weide-team-s.webp" alt="" loading="lazy">
+      <span class="duo__text">
+        <span class="duo__marke">Karriere</span>
+        <b>Hier tun wir das, was wir lieben</b>
+        <span>Stall, Molkerei, Café, Fahrer. Wir freuen uns auf dich.</span>
+      </span>
+    </a>
+  </section>
+
+  <!-- TEAM / ÜBER UNS -->
+  <section class="team" id="team" aria-labelledby="team-titel">
+    <img class="team__bild" src="../assets/img/foto/gunnar-hemme-s.webp" alt="Gunnar Hemme auf der Weide" loading="lazy">
+    <div>
+      <h2 id="team-titel">„Von der Erzeugung des Futters bis zum fertigen Produkt machen wir alles selbst.“</h2>
+      <p>Gunnar Hemme, Gründer. Seit dem 17. November 1998 in Schmargendorf. Die Familie führt ihren Hof in der Wedemark seit 1589.</p>
+      <a class="knopf knopf--rand" href="#team">Unser Team kennenlernen</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss" id="fuss">
+  <img class="fuss__kuh" src="../assets/img/kuh-kopf.svg" alt="" width="220" height="220" loading="lazy">
+
+  <p class="fuss__slogan"><span>Ganz frisch. Ganz nah.</span> <span>Ganz Hemme.</span></p>
+
+  <div class="fuss__raster">
+    <div class="fuss__block">
+      <h2 id="fuss-besuch">Besuch uns</h2>
+      <p>Hemme Milch GmbH &amp; Co. KG<br>Heideweg 4<br>16278 Angermünde, OT Schmargendorf</p>
+      <p class="fuss__klein">Mit der Bahn: RE3 bis Angermünde, dann Bus 491 bis „Hemme Milch Schmargendorf“ (April bis Oktober)</p>
+      <a class="fuss__knopf" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hemme+Milch,+Heideweg+4,+16278+Angerm%C3%BCnde" rel="noopener">Route planen</a>
+    </div>
+    <div class="fuss__block">
+      <h2 id="fuss-cafe">Hofcafé &amp; Milchladen</h2>
+      <p class="status" data-oeffnung aria-live="polite">Mittwoch bis Sonntag geöffnet</p>
+      <dl class="zeiten">
+        <div><dt>Mittwoch bis Sonntag</dt><dd>11 bis 18 Uhr</dd></div>
+        <div><dt>Montag und Dienstag</dt><dd>geschlossen</dd></div>
+      </dl>
+    </div>
+    <div class="fuss__block">
+      <h2 id="fuss-kontakt">Kontakt</h2>
+      <p><a class="fuss__tel" href="tel:+493331252525">03331 252525</a></p>
+      <p class="fuss__klein">Hof, Eventlocation und Vertrieb. Wir rufen gern zurück.</p>
+      <p class="sozial__titel">Folge dem Hof</p>
+      <ul class="sozial" aria-label="Hemme Milch in sozialen Netzwerken">
+        <li><a href="https://www.instagram.com/hemmemilchuckermark/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" class="voll"/></svg>Instagram</a></li>
+        <li><a href="https://www.facebook.com/HemmeMilchUM" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="voll" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>Facebook</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7Z6yfD0LKxSftKxOLrbPeQ" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path class="voll" d="M10 9.2v5.6l4.8-2.8z"/></svg>YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fuss__siegel">
+    <p class="fuss__siegel-titel">Geprüft und ausgezeichnet</p>
+    <ul>
+      <li><img src="../assets/img/siegel/ohne_gene_siegel.webp" alt="Ohne Gentechnik" loading="lazy"></li>
+      <li><img src="../assets/img/siegel/pro_agro_siegel.webp" alt="pro agro, natürlich Brandenburg" loading="lazy"></li>
+      <li><img src="../assets/img/siegel/uckermark_siegel.webp" alt="Regionalmarke Uckermark" loading="lazy"></li>
+      <li><img src="../assets/img/siegel/schorfheide.webp" alt="Partnerbetrieb Biosphärenreservat Schorfheide-Chorin" loading="lazy"></li>
+      <li><img src="../assets/img/siegel/siegel.webp" alt="Hemme-Siegel: Eigenes Futter, eigene Kühe, eigene Molkerei" loading="lazy"></li>
+    </ul>
+  </div>
+
+  <div class="fuss__unten">
+    <p>© <span data-jahr>2026</span> Hemme Milch</p>
+    <nav aria-label="Weitere Seiten"><a href="#karriere">Karriere</a><a href="#event">Eventlocation</a><a href="#fuss">FAQ</a><a href="#fuss">Partner</a></nav>
+    <nav aria-label="Rechtliches"><a href="#fuss">Impressum</a><a href="#fuss">Datenschutz</a><a href="#fuss">Barrierefreiheit</a><a href="#fuss">AGB</a><a href="#fuss">EU-Förderung</a></nav>
+  </div>
+</footer>
+
+<script src="../assets/js/gemeinsam.js" defer></script>
+<script src="../assets/js/a.js" defer></script>
+</body>
+</html>
