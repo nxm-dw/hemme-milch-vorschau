@@ -235,6 +235,21 @@
 .gruppen button[aria-pressed="true"] { background: var(--tief); color: #fff; }
 .sorten__gastro-hinweis { font-weight: 800; font-size: 18px; }
 .sorten__fuss .knopf[aria-pressed="true"] { background: var(--gelb); color: var(--tief); }
+/* Kategorie-Karten: ganze Karte ist ein Knopf, mehrere Packungen gefächert */
+.sorte--kategorie { padding: 0; }
+.sorte--kategorie button { all: unset; box-sizing: border-box; position: relative; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; height: 100%; padding: 22px; border-radius: 34px; cursor: pointer; color: var(--t, var(--tief)); }
+.sorte--kategorie button:focus-visible { outline: 3px solid var(--tief); outline-offset: 4px; }
+.kategorie__bilder { position: absolute; left: 50%; top: -80px; width: 240px; height: 230px; transform: translateX(-50%); display: flex; justify-content: center; align-items: flex-end; pointer-events: none; }
+.sorte--kategorie .kategorie__bilder img { position: static; transform: none; width: 50%; height: auto; max-height: 100%; object-fit: contain; margin: 0 -9%; filter: drop-shadow(0 16px 14px rgba(0,0,0,.22)); transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
+.sorte--kategorie .kategorie__bilder img:nth-child(1) { transform: rotate(-8deg); }
+.sorte--kategorie .kategorie__bilder img:nth-child(2) { transform: translateY(-12px) rotate(3deg); z-index: 1; }
+.sorte--kategorie .kategorie__bilder img:nth-child(3) { transform: rotate(9deg); }
+.sorte--kategorie .kategorie__bilder img:only-child { width: 70%; transform: rotate(-4deg); }
+.sorte--kategorie:hover .kategorie__bilder img:nth-child(1) { transform: translate(-10px, -10px) rotate(-14deg); }
+.sorte--kategorie:hover .kategorie__bilder img:nth-child(2) { transform: translateY(-26px) rotate(0); }
+.sorte--kategorie:hover .kategorie__bilder img:nth-child(3) { transform: translate(10px, -10px) rotate(15deg); }
+.kategorie__mehr { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 12px; padding: 8px 14px; border-radius: 99px; background: var(--tief); color: #fff; font-weight: 800; font-size: 15px; transition: gap .2s; }
+.sorte--kategorie:hover .kategorie__mehr { gap: 12px; }
 .sorte--milchmann { background: var(--tief); color: #fff; justify-content: center; gap: 8px; }
 .sorte--milchmann b { color: var(--gelb); }
 .sorte--milchmann span { color: #fff; }
@@ -327,28 +342,30 @@
 /* Fuß: Slogan mit gelbem Etikett, drei Sticker-Karten, Siegel über volle Breite */
 .fuss { --fokus: var(--gelb); background: var(--tief); color: #dbe7f8; padding: clamp(72px, 9vw, 120px) var(--seite) 30px; overflow: hidden; }
 .fuss__kopf { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; margin-bottom: 64px; }
-.fuss__gross { margin: 0; font-family: "Bagel Fat One"; font-size: clamp(52px, 8.4vw, 140px); line-height: .9; color: #fff; }
-.fuss__gross span { display: block; }
-.fuss__etikett { display: inline-block !important; margin-top: .08em; padding: .02em .2em .08em; border-radius: .14em; background: var(--gelb); color: var(--tief); transform: rotate(-2deg); transform-origin: left; box-shadow: .05em .06em 0 #001d3d; }
+.fuss__gross { margin: 0; font-family: "Bagel Fat One"; font-size: clamp(44px, 6.2vw, 108px); line-height: .92; color: #fff; }
+.fuss__gross span { display: block; white-space: nowrap; }
+.fuss__etikett { display: inline-block !important; margin-top: .12em; padding: .04em .22em .1em; border-radius: .14em; background: var(--gelb); color: var(--tief); transform: rotate(-2deg); transform-origin: left; box-shadow: .05em .06em 0 #001d3d; }
 .fuss__folgen { display: grid; justify-items: center; gap: 12px; padding-bottom: 10px; }
-.fuss__kuh { width: 130px; height: auto; padding: 16px; border-radius: 50%; background: #fff; transform: rotate(-8deg); transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
+.fuss__kuh { width: 170px; height: auto; padding: 16px; border-radius: 50%; background: #fff; transform: rotate(-8deg); transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
 .fuss__folgen:hover .fuss__kuh { transform: rotate(6deg) scale(1.04); }
-.fuss__folgen-titel { margin: 6px 0 0; font-weight: 800; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--gelb); }
-.sozial { list-style: none; display: flex; gap: 10px; margin: 0; padding: 0; }
+.fuss__folgen-titel { margin: 20px 0 10px; font-weight: 800; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--tief); }
+.fuss__karte--weiss { container-type: inline-size; }
+.sozial { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 0; align-self: stretch; }
+@container (max-width: 330px) { .sozial a span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .sozial a { justify-content: center; padding: 10px; } .sozial svg { width: 24px; height: 24px; } }
 .sozial a {
-  display: flex; align-items: center; gap: 8px; padding: 10px 16px 10px 12px; border-radius: 99px;
-  background: #fff; color: var(--tief); font-weight: 800; font-size: 15px; text-decoration: none;
-  border: 3px solid #fff; box-shadow: 3px 4px 0 var(--gelb); transition: transform .15s, box-shadow .15s;
+  display: flex; justify-content: center; align-items: center; gap: 6px; min-height: 48px; padding: 8px 8px; border-radius: 99px; white-space: nowrap;
+  background: #fff; color: var(--tief); font-weight: 800; font-size: 14px; text-decoration: none;
+  border: 2.5px solid var(--tief); box-shadow: 3px 4px 0 var(--tief); transition: transform .15s, box-shadow .15s;
 }
-.sozial a:hover { transform: translate(-2px, -2px); box-shadow: 5px 6px 0 var(--gelb); }
-.sozial svg { width: 22px; height: 22px; fill: none; stroke: var(--tief); stroke-width: 1.9; flex: none; }
+.sozial a:hover { transform: translate(-2px, -2px); box-shadow: 5px 6px 0 var(--tief); background: var(--gelb); }
+.sozial svg { width: 19px; height: 19px; fill: none; stroke: var(--tief); stroke-width: 1.9; flex: none; }
 .sozial .voll { fill: var(--tief); stroke: none; }
 
 .fuss__karten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.fuss__karte { padding: 28px; border-radius: 30px; border: 3px solid #001d3d; box-shadow: 6px 7px 0 #001d3d; color: var(--tief); }
-.fuss__karte--gelb { background: var(--gelb); transform: rotate(-1deg); }
+.fuss__karte { display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border-radius: 30px; border: 3px solid #001d3d; box-shadow: 6px 7px 0 #001d3d; color: var(--tief); }
+.fuss__karte--gelb { background: var(--gelb); }
 .fuss__karte--gruen { background: var(--gruen); }
-.fuss__karte--weiss { background: #fff; transform: rotate(1deg); }
+.fuss__karte--weiss { background: #fff; }
 .fuss__karte h2 { margin: 0 0 14px; font-family: "Bagel Fat One"; font-weight: 400; font-size: 28px; line-height: 1; color: var(--tief); }
 .fuss__karte p { margin: 0 0 12px; font-weight: 600; }
 .fuss__karte a { color: var(--tief); }
@@ -359,7 +376,7 @@
 .status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 99px; background: #fff; border: 2.5px solid var(--tief); font-weight: 800; }
 .status::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: #8a9bb0; }
 .status.ist-offen::before { background: #1f9d1f; box-shadow: 0 0 0 4px rgba(31, 157, 31, .2); }
-.zeiten { margin: 16px 0 0; }
+.zeiten { margin: 16px 0 0; align-self: stretch; }
 .zeiten div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 2px solid rgba(0, 55, 110, .2); }
 .zeiten dd { margin: 0; font-weight: 800; }
 
@@ -381,15 +398,13 @@
 @media (max-width: 1000px) {
   .fuss__kopf { grid-template-columns: 1fr; }
   .fuss__folgen { justify-items: start; }
-  .fuss__kuh { display: none; }
+  .fuss__kuh { width: 120px; }
   .fuss__karten { grid-template-columns: 1fr; }
-  .fuss__karte--gelb, .fuss__karte--weiss { transform: none; }
   .fuss__siegel ul { grid-template-columns: repeat(3, 1fr); row-gap: 18px; }
   .fuss__siegel li:nth-child(4) { border-left: 0; }
   .fuss__unten { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 520px) {
-  .sozial { flex-wrap: wrap; }
   .fuss__siegel ul { grid-template-columns: 1fr 1fr; }
   .fuss__siegel li { height: 84px; border-left: 0 !important; }
   .fuss__siegel img { max-height: 74px; } .fuss__siegel li:nth-child(3) img { max-height: 48px; }

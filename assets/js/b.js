@@ -60,7 +60,9 @@
     var zahl = 0;
     Array.prototype.forEach.call(reihe0.children, function (k) {
       var fuer = k.getAttribute("data-fuer");
-      var an = zustand.gastro ? fuer === "gastro" : (fuer === "zuhause" && (zustand.gruppe === "alle" || k.getAttribute("data-gruppe") === zustand.gruppe));
+      var an = zustand.gastro ? fuer === "gastro"
+        : zustand.gruppe === "alle" ? fuer === "kategorie"
+        : (fuer === "zuhause" && k.getAttribute("data-gruppe") === zustand.gruppe);
       k.hidden = !an; if (an) zahl++;
     });
     filter.hidden = zustand.gastro; hinweis.hidden = !zustand.gastro;
@@ -70,7 +72,8 @@
     gastroKnopf.setAttribute("aria-pressed", String(zustand.gastro));
     gastroKnopf.textContent = zustand.gastro ? "Zurück zu allen Sorten" : "Für Gastro & Handel";
     filter.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-gruppe") === zustand.gruppe)); });
-    status.textContent = zahl + (zustand.gastro ? " Angebote für Gastro und Handel" : " Sorten") + " angezeigt";
+    status.textContent = zustand.gastro ? zahl + " Angebote für Gastro und Handel angezeigt"
+      : zustand.gruppe === "alle" ? "Übersicht mit " + zahl + " Produktgruppen" : zahl + " Sorten angezeigt";
     reihe0.scrollLeft = 0;
     sortenMessen();
     /* An den Anfang des Abschnitts, damit die Reihe von vorn beginnt */
@@ -83,6 +86,12 @@
       zustand.gruppe = b.getAttribute("data-gruppe"); anwenden();
     });
     gastroKnopf.addEventListener("click", function () { zustand.gastro = !zustand.gastro; zustand.gruppe = "alle"; anwenden(); });
+    /* Kategorie-Karte öffnet ihre Sorten, Fokus springt auf den passenden Filterknopf */
+    reihe0.addEventListener("click", function (ev) {
+      var k = ev.target.closest("[data-ziel]"); if (!k) return;
+      zustand.gruppe = k.getAttribute("data-ziel"); anwenden();
+      var f = filter.querySelector('[data-gruppe="' + zustand.gruppe + '"]'); if (f) f.focus({ preventScroll: true });
+    });
     /* Links von außen (z. B. #gastro) schalten direkt auf Gastro */
     if (location.hash === "#gastro") { zustand.gastro = true; anwenden(); }
   }
