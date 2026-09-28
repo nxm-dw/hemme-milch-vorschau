@@ -236,10 +236,12 @@
 .sorten__gastro-hinweis { font-weight: 800; font-size: 18px; }
 .sorten__fuss .knopf[aria-pressed="true"] { background: var(--gelb); color: var(--tief); }
 /* Kategorie-Karten: ganze Karte ist ein Knopf, mehrere Packungen gefächert */
-.sorte--kategorie { padding: 0; }
-.sorte--kategorie button { all: unset; box-sizing: border-box; position: relative; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; height: 100%; padding: 22px; border-radius: 34px; cursor: pointer; color: var(--t, var(--tief)); }
+.sorte--kategorie { padding: 0; flex-basis: 310px; height: 390px; }
+.sorte--kategorie b { font-size: 32px; line-height: 1; margin-bottom: 4px; }
+.sorte--kategorie .kategorie__bilder { width: 270px; height: 240px; top: -70px; }
+.sorte--kategorie button { all: unset; box-sizing: border-box; position: relative; display: flex; flex-direction: column; justify-content: flex-end; width: 100%; height: 100%; padding: 28px 28px 26px; border-radius: 34px; cursor: pointer; color: var(--t, var(--tief)); }
 .sorte--kategorie button:focus-visible { outline: 3px solid var(--tief); outline-offset: 4px; }
-.kategorie__bilder { position: absolute; left: 50%; top: -80px; width: 240px; height: 230px; transform: translateX(-50%); display: flex; justify-content: center; align-items: flex-end; pointer-events: none; }
+.kategorie__bilder { position: absolute; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: flex-end; pointer-events: none; }
 .sorte--kategorie .kategorie__bilder img { position: static; transform: none; width: 50%; height: auto; max-height: 100%; object-fit: contain; margin: 0 -9%; filter: drop-shadow(0 16px 14px rgba(0,0,0,.22)); transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
 .sorte--kategorie .kategorie__bilder img:nth-child(1) { transform: rotate(-8deg); }
 .sorte--kategorie .kategorie__bilder img:nth-child(2) { transform: translateY(-12px) rotate(3deg); z-index: 1; }
