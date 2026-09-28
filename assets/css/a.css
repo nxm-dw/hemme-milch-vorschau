@@ -105,7 +105,7 @@
   border-radius: 46% 46% 28px 28px / 26% 26% 28px 28px;
   box-shadow: 0 30px 60px -30px rgba(0, 55, 110, .45);
 }
-.held__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; transform: scale(1.04); animation: heran 1.6s cubic-bezier(.2,.7,.2,1) both; }
+.held__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 83% 40%; transform: scale(1.04); animation: heran 1.6s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes heran { from { transform: scale(1.14); } }
 .held__beutel {
   position: absolute; left: -9%; bottom: -6%; width: 34%; height: auto;
@@ -118,7 +118,35 @@
 .held__bild:hover .held__siegel { transform: rotate(180deg); }
 @keyframes dreh { from { transform: rotate(-200deg) scale(.6); opacity: 0; } }
 
+/* Hero-Grundgerüst: Inhalt liegt in .held__klebt, damit er beim Effekt stehen bleiben kann */
+.a .held { display: block; min-height: 0; padding: 0; }
+.held__klebt {
+  position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(24px, 4vw, 64px); align-items: center;
+  min-height: min(84vh, 800px); padding: clamp(24px, 3vw, 48px) max(var(--rand), calc((100vw - var(--breite)) / 2)) clamp(56px, 6vw, 96px);
+}
+.held__weide { display: none; }
+
+/* WOW-Effekt „Der Beutel öffnet sich zur Weide“ (nur Desktop, nur ohne reduzierte Bewegung):
+   Der Abschnitt bleibt stehen, der Beutel-Rahmen wächst zum Vollbild. a.js setzt --clip, --zoom, --p. */
+.held.ist-buehne { height: 210vh; }
+.held.ist-buehne .held__klebt { position: sticky; top: 0; height: 100vh; min-height: 0; overflow: hidden; padding-top: 70px; padding-bottom: 40px; }
+.held.ist-buehne .held__foto { visibility: hidden; }
+.held.ist-buehne .held__weide { display: block; pointer-events: none; position: absolute; inset: 0; z-index: 0; clip-path: var(--clip); will-change: clip-path; }
+.held__weide img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 42%; transform: scale(var(--zoom, 1.12)); transform-origin: 62% 45%; }
+.held.ist-buehne .held__text { position: relative; z-index: 2; opacity: calc(1 - var(--p, 0) * 2.4); transform: translateY(calc(var(--p, 0) * -60px)); }
+.held.ist-buehne .held__bild { z-index: 2; }
+.held.ist-buehne .held__beutel, .held.ist-buehne .held__siegel { opacity: calc(1 - var(--p, 0) * 3); }
+/* Text auf der Weide: erscheint, wenn das Bild fast voll ist. Heller Verlauf links sichert den Kontrast. */
+.held__weide-text {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 28px; padding: 60px max(var(--rand), calc((100vw - var(--breite)) / 2)) 0;
+  background: linear-gradient(90deg, rgba(245, 249, 255, .94) 0%, rgba(245, 249, 255, .7) 26%, rgba(245, 249, 255, 0) 44%);
+  opacity: clamp(0, calc((var(--p, 0) - .55) * 3.3), 1);
+}
+.held__weide-titel { margin: 0; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(44px, 4.6vw, 78px); line-height: .95; letter-spacing: -.035em; color: var(--tief); transform: translateY(calc((1 - var(--p, 0)) * 40px)); }
+.held__weide-titel span { color: var(--blau); }
+
 @media (max-width: 900px) {
+  .held__klebt { grid-template-columns: 1fr; min-height: 0; }
   .a .held { grid-template-columns: 1fr; min-height: 0; }
   .held__bild { order: -1; margin: 0 6% 16px 10%; }
 }

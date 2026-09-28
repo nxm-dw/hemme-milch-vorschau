@@ -26,6 +26,44 @@
     });
   });
 
+  /* WOW-Effekt im Hero: Der Beutel-Rahmen wächst beim Scrollen zum Vollbild der Weide */
+  (function () {
+    var held = document.querySelector("[data-held]");
+    if (!held) return;
+    var klebt = held.querySelector(".held__klebt");
+    var rahmen = held.querySelector(".held__foto");
+    var bedingung = matchMedia("(min-width: 1001px) and (prefers-reduced-motion: no-preference)");
+    var r = null;
+    function messen() {
+      held.classList.toggle("ist-buehne", bedingung.matches);
+      if (!bedingung.matches) { held.style.removeProperty("--clip"); return; }
+      var k = klebt.getBoundingClientRect(), f = rahmen.getBoundingClientRect();
+      r = { t: f.top - k.top, l: f.left - k.left, rt: k.right - f.right, b: k.bottom - f.bottom, w: f.width, h: f.height };
+      zeichnen();
+    }
+    function zeichnen() {
+      if (!bedingung.matches || !r) return;
+      var box = held.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, -box.top / Math.max(1, box.height - window.innerHeight)));
+      var e = 1 - Math.pow(1 - Math.min(1, p / .85), 3); // weich auslaufen, ab 85 % steht das Vollbild
+      var z = 1 - e;
+      var rx = .46 * r.w * z, ry = .26 * r.h * z, ru = 28 * z;
+      held.style.setProperty("--clip", "inset(" + (r.t * z).toFixed(1) + "px " + (r.rt * z).toFixed(1) + "px " + (r.b * z).toFixed(1) + "px " + (r.l * z).toFixed(1) + "px round " +
+        rx.toFixed(1) + "px " + rx.toFixed(1) + "px " + ru.toFixed(1) + "px " + ru.toFixed(1) + "px / " + ry.toFixed(1) + "px " + ry.toFixed(1) + "px " + ru.toFixed(1) + "px " + ru.toFixed(1) + "px)");
+      held.style.setProperty("--zoom", (1.12 - .12 * e).toFixed(4));
+      held.style.setProperty("--p", p.toFixed(3));
+    }
+    var wartetH = false;
+    window.addEventListener("scroll", function () {
+      if (wartetH) return; wartetH = true;
+      requestAnimationFrame(function () { wartetH = false; zeichnen(); });
+    }, { passive: true });
+    window.addEventListener("resize", messen);
+    window.addEventListener("load", messen);
+    bedingung.addEventListener("change", messen);
+    messen();
+  })();
+
   /* 24-Stunden-Band: Auf großen Bildschirmen bleibt der Abschnitt stehen,
      das Band wandert quer und die Uhr zählt von 0 bis 24 Stunden.
      Auf dem Handy und bei reduzierter Bewegung: normales Wischband. */

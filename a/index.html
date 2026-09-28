@@ -56,7 +56,15 @@
 <main id="inhalt">
 
   <!-- HERO: Die Kuh schaut dich an, die Milch steht daneben -->
-  <section class="held">
+  <section class="held" data-held>
+    <div class="held__klebt">
+    <!-- Weide: gleiches Foto bildschirmfüllend, per clip-path zuerst auf den Beutel-Rahmen zugeschnitten -->
+    <div class="held__weide" aria-hidden="true">
+      <img src="../assets/img/foto/kuhnase.webp" alt="">
+      <div class="held__weide-text">
+        <p class="held__weide-titel">Von der Kuh<br>zu dir.<br><span>In 24 Stunden.</span></p>
+      </div>
+    </div>
     <div class="held__text">
       <p class="held__ort">Hofmolkerei · Schmargendorf · Uckermark</p>
       <h1 class="held__titel">
@@ -76,6 +84,7 @@
       </div>
       <img class="held__beutel" src="../assets/img/produkte/vollmilch-3-5.webp" alt="Hemme Vollmilch 3,7 % im Standbeutel" width="280" height="420">
       <img class="held__siegel" src="../assets/img/siegel/siegel.webp" alt="Siegel: Eigenes Futter, eigene Kühe, eigene Molkerei" width="150" height="150">
+    </div>
     </div>
   </section>
 
