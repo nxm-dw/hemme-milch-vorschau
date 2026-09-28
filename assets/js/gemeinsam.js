@@ -17,12 +17,14 @@
       von: "2026-09-01", bis: "2026-10-31",
       marke: "Neu im Kühlregal",
       text: "Porridge Apfel-Zimt, vegan und frisch aus Schmargendorf.",
-      link: "#produkte", linktext: "Ansehen"
+      bild: "../assets/img/produkte/porridge-vegan.webp",
+      link: "#produkte", linktext: "Jetzt entdecken"
     },
     {
       von: "2026-11-01", bis: "2026-12-23",
       marke: "Advent auf dem Hof",
       text: "Heiße Schokolade im Hofcafé, Mi bis So von 11 bis 18 Uhr.",
+      bild: "../assets/img/produkte/schokomilch-600.webp",
       link: "#hof", linktext: "Zum Hofcafé"
     }
   ];
@@ -47,15 +49,29 @@
     return t[2] + "." + t[1] + ".";
   }
 
+  /* Ausgeblendete Aktion bleibt für diese Sitzung weg. Speicher kann fehlen (privates Fenster). */
+  function gemerkt(schluessel) { try { return sessionStorage.getItem(schluessel) === "zu"; } catch (e) { return false; } }
+  function merken(schluessel) { try { sessionStorage.setItem(schluessel, "zu"); } catch (e) {} }
+
   document.querySelectorAll("[data-aktion]").forEach(function (el) {
     var a = aktiveAktion();
-    if (!a) { el.remove(); return; }
+    var schluessel = a ? "aktion-" + a.von + "-" + a.bis : "";
+    if (!a || gemerkt(schluessel)) { el.remove(); return; }
     el.querySelector("[data-aktion-marke]").textContent = a.marke;
     el.querySelector("[data-aktion-text]").textContent = a.text;
     var l = el.querySelector("[data-aktion-link]");
-    l.href = a.link; l.textContent = a.linktext;
+    l.href = a.link; l.querySelector("[data-aktion-linktext]").textContent = a.linktext;
+    var bild = el.querySelector("[data-aktion-bild]");
+    if (bild && a.bild) bild.src = a.bild; else if (bild) bild.remove();
     var b = el.querySelector("[data-aktion-bis]");
-    if (b) b.textContent = "bis " + datumKurz(a.bis);
+    if (b) b.textContent = "Nur bis " + datumKurz(a.bis);
+    var zu = el.querySelector("[data-aktion-zu]");
+    if (zu) zu.addEventListener("click", function () {
+      merken(schluessel);
+      el.remove();
+      var ziel = document.querySelector(".kopf a, main a"); if (ziel) ziel.focus();
+      window.dispatchEvent(new Event("resize")); // Hero-Höhe in Entwurf B neu messen
+    });
     el.hidden = false;
   });
 

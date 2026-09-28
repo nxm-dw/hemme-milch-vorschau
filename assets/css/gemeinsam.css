@@ -71,3 +71,22 @@ body.menue-offen { overflow: hidden; }
 
 /* Sprungziele nicht unter der klebenden Kopfzeile verstecken (WCAG 2.4.11) */
 [id] { scroll-margin-top: 120px; }
+
+/* Aktions-Streifen: Grundgerüst für beide Entwürfe, Farben setzen a.css und b.css */
+.aktion { position: relative; z-index: 60; padding: 10px 60px 10px 16px; }
+.aktion__inhalt { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; max-width: 1320px; margin: 0 auto; text-align: left; }
+.aktion__bild { width: 58px; height: 58px; object-fit: contain; margin: -18px 0 -22px; transform: rotate(-10deg); filter: drop-shadow(0 6px 6px rgba(0, 30, 70, .3)); transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
+.aktion:hover .aktion__bild { transform: rotate(0) translateY(-3px) scale(1.06); }
+.aktion__text { font-weight: 600; font-size: 16px; }
+.aktion__link { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 99px; font-weight: 700; font-size: 15px; text-decoration: none; transition: gap .2s, background .2s; }
+.aktion__link:hover { gap: 12px; }
+.aktion__bis { font-size: 14px; font-weight: 700; padding: 4px 11px; border-radius: 99px; border: 1.5px solid currentColor; }
+.aktion__zu { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(0, 55, 110, .12); color: inherit; font-size: 22px; line-height: 1; cursor: pointer; }
+.aktion__zu:hover { background: rgba(0, 55, 110, .22); }
+@media (max-width: 700px) {
+  .aktion { padding: 12px 52px 12px 14px; }
+  .aktion__inhalt { justify-content: flex-start; }
+  .aktion__bild { width: 44px; height: 44px; margin: -6px 0; }
+  .aktion__text { flex-basis: calc(100% - 60px); font-size: 15px; }
+  .aktion__zu { top: 12px; transform: none; }
+}

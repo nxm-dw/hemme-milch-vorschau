@@ -38,12 +38,10 @@
 .knopf--blau { background: var(--blau-text); color: #fff; }
 
 /* Aktions-Banner */
-.aktion {
-  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: center;
-  padding: 10px var(--rand); background: var(--gruen); color: var(--tief); font-weight: 700; text-align: center;
-}
-.aktion__marke { font-family: "Caveat Brush"; font-size: 24px; line-height: 1; transform: rotate(-3deg); }
-.aktion__bis { font-weight: 600; font-size: 14px; }
+.aktion { background: var(--gruen); color: var(--tief); }
+.aktion__marke { font-family: "Bagel Fat One"; font-size: 17px; padding: 4px 14px; border-radius: 99px; background: #fff; border: 2.5px solid var(--tief); transform: rotate(-3deg); }
+.aktion__link { background: var(--tief); color: #fff; }
+.aktion__link:hover { background: var(--blau-text); }
 
 /* Kopf */
 .kopf {

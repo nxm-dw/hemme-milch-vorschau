@@ -23,10 +23,14 @@
 
 <!-- Aktions-Banner: erscheint nur, solange eine Aktion läuft -->
 <aside class="aktion" data-aktion hidden aria-label="Aktuelle Aktion">
-  <span class="aktion__marke" data-aktion-marke></span>
-  <span data-aktion-text></span>
-  <a data-aktion-link></a>
-  <span class="aktion__bis" data-aktion-bis></span>
+  <div class="aktion__inhalt">
+    <img class="aktion__bild" data-aktion-bild src="" alt="" width="60" height="60">
+    <span class="aktion__marke" data-aktion-marke></span>
+    <span class="aktion__text" data-aktion-text></span>
+    <a class="aktion__link" data-aktion-link><span data-aktion-linktext></span><span aria-hidden="true">→</span></a>
+    <span class="aktion__bis" data-aktion-bis></span>
+  </div>
+  <button class="aktion__zu" type="button" data-aktion-zu aria-label="Aktion ausblenden">×</button>
 </aside>
 
 <header class="kopf">

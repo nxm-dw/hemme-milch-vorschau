@@ -38,13 +38,10 @@
 .knopf--klein { padding: 10px 18px; font-size: 15px; }
 
 /* Aktions-Banner */
-.aktion {
-  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: center;
-  padding: 10px var(--rand); background: var(--gelb); color: var(--tief); font-weight: 500; text-align: center;
-}
-.aktion__marke { font-family: "Bricolage Grotesque"; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; background: var(--tief); color: #fff; padding: 3px 10px; border-radius: 99px; }
-.aktion a { font-weight: 700; }
-.aktion__bis { font-size: 14px; }
+.aktion { background: var(--gelb); color: var(--tief); }
+.aktion__marke { font-family: "Bricolage Grotesque"; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 13.5px; background: var(--tief); color: #fff; padding: 5px 12px; border-radius: 99px; }
+.aktion__link { background: var(--tief); color: #fff; }
+.aktion__link:hover { background: #002a55; }
 
 /* Kopf */
 .kopf {
