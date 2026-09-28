@@ -80,7 +80,7 @@
   height: calc(100svh - var(--ueber-hero, 0px));
   min-height: 500px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; column-gap: clamp(24px, 4vw, 72px);
   background: var(--blau); color: #fff; overflow: hidden;
-  padding-top: 24px; padding-bottom: 150px;
+  padding-top: 24px; padding-bottom: 96px;
 }
 .buehne__titel { position: relative; z-index: 2; font-size: clamp(48px, min(8.6vw, 10svh), 150px); line-height: .88; max-width: 9.5em; pointer-events: none; }
 .buehne__titel span { display: block; }
@@ -94,7 +94,7 @@
 
 /* Flache Bildschirme (Laptops): alles etwas enger, damit der Hero in eine Bildschirmhöhe passt */
 @media (min-width: 901px) and (max-height: 800px) {
-  .b .buehne { padding-top: 12px; padding-bottom: 136px; }
+  .b .buehne { padding-top: 12px; padding-bottom: 84px; }
   .buehne__titel { font-size: clamp(44px, min(7.6vw, 8.6svh), 150px); }
   .buehne__lead { max-width: 34em; font-size: 17px; }
 }
@@ -169,27 +169,37 @@
   .buehne__notiz { margin-left: 1em; }
 }
 
-/* Klebebänder */
-.baender { position: relative; z-index: 5; height: 150px; margin: -110px 0 -30px; overflow: hidden; pointer-events: none; }
-.baender.ist-pausiert .band span { animation-play-state: paused; }
-.band-pause {
-  position: absolute; z-index: 6; right: var(--seite); top: 106px; pointer-events: auto;
-  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px;
-  border: 2px solid var(--tief); background: #fff; color: var(--tief); font-weight: 800; font-size: 14px; cursor: pointer;
-}
-.band-pause span { display: inline-block; width: 10px; height: 12px; border-left: 3.5px solid currentColor; border-right: 3.5px solid currentColor; }
-.baender.ist-pausiert .band-pause span { width: 0; height: 0; border: 0; border-left: 11px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
-@media (prefers-reduced-motion: reduce) { .band-pause { display: none; } }
+/* Laufband: liegt genau auf der Naht zwischen Hero und Sorten, leicht schräg,
+   so dick, dass die Kante auf voller Breite verdeckt ist */
+.baender { position: relative; z-index: 5; height: 0; }
 .band {
-  position: absolute; left: -5%; width: 110%; display: flex; white-space: nowrap; padding: 14px 0;
-  font-family: "Bagel Fat One"; font-size: clamp(22px, 2.4vw, 34px); color: var(--tief);
+  position: absolute; left: -4%; width: 108%; top: -44px; height: 88px;
+  display: flex; align-items: center; overflow: hidden; white-space: nowrap;
+  background: var(--gelb); border-block: 3px solid var(--tief); transform: rotate(-1.4deg);
+  box-shadow: 0 14px 24px -14px rgba(0, 30, 70, .45);
 }
-.band span { animation: laufen 38s linear infinite; padding-right: .3em; }
-.band--gelb { top: 40px; background: var(--gelb); transform: rotate(-2deg); }
+.band__lauf { display: flex; align-items: center; flex: none; animation: laufen 42s linear infinite; }
+.baender.ist-pausiert .band__lauf { animation-play-state: paused; }
+.band b { font-family: "Bagel Fat One"; font-weight: 400; font-size: clamp(26px, 2.6vw, 40px); color: var(--tief); padding: 0 .55em; }
+/* Trenner: kleine Hemme-Kuh auf weißer Plakette */
+.band i { flex: none; width: 50px; height: 50px; border-radius: 50%; border: 2.5px solid var(--tief); background: #fff url("../img/kuh-kopf.svg") center / 74% no-repeat; }
+.band i:nth-of-type(odd) { transform: rotate(-12deg); } .band i:nth-of-type(even) { transform: rotate(10deg); }
+.band-pause {
+  position: absolute; z-index: 6; right: var(--seite); top: -46px;
+  display: grid; place-content: center; width: 46px; height: 46px; border-radius: 50%;
+  border: 3px solid var(--tief); background: #fff; color: var(--tief); cursor: pointer; box-shadow: 3px 4px 0 var(--tief);
+  transition: transform .15s;
+}
+.band-pause:hover { transform: translate(-1px, -1px); }
+.band-pause__symbol { display: block; width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; }
+.baender.ist-pausiert .band-pause__symbol { width: 0; height: 0; margin-left: 4px; border: 0; border-left: 13px solid currentColor; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+@media (prefers-reduced-motion: reduce) { .band-pause { display: none; } }
+@media (max-width: 700px) { .band { height: 70px; top: -35px; } .band i { width: 38px; height: 38px; } .band-pause { width: 40px; height: 40px; top: -38px; } }
 @keyframes laufen { to { transform: translateX(-100%); } }
 
 /* Sorten */
 .b .sorten { padding-left: 0; padding-right: 0; }
+.b .sorten:not(.ist-gepinnt) { padding-top: calc(clamp(72px, 10vw, 140px) + 20px); }
 .sorten.ist-gepinnt { padding: 0; height: var(--sorten-hoehe, 300vh); }
 .sorten.ist-gepinnt .sorten__klebt { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding-top: 70px; }
 .sorten.ist-gepinnt h2 { font-size: clamp(40px, min(5.4vw, 8svh), 90px); }
@@ -307,15 +317,74 @@
 .karte:hover { transform: translateY(-6px); }
 @media (max-width: 900px) { .b .trio { grid-template-columns: 1fr; } .karte { aspect-ratio: 4 / 3; } }
 
-/* Fuß */
-.fuss { --fokus: var(--gelb); background: var(--tief); color: #d6e6fb; padding: 90px var(--seite) 30px; overflow: hidden; }
-.fuss__gross { font-family: "Bagel Fat One"; font-size: clamp(54px, 10vw, 170px); line-height: .86; color: #fff; margin: 0 0 60px; }
-.fuss__gross { background: linear-gradient(90deg, #fff 0 60%, var(--gelb) 60%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.fuss__raster { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-.fuss__raster b { color: #fff; }
-.fuss a { color: #fff; }
-.fuss__siegel { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px clamp(20px, 4vw, 56px); margin: 50px 0 28px; padding: 24px 26px; border-radius: 30px; background: #fff; }
-.fuss__siegel img { width: 140px; height: 76px; object-fit: contain; }
-.fuss__recht { font-size: 15px; }
-@media (max-width: 900px) { .fuss__raster { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .fuss__raster { grid-template-columns: 1fr; } }
+/* Fuß: Slogan mit gelbem Etikett, drei Sticker-Karten, Siegel über volle Breite */
+.fuss { --fokus: var(--gelb); background: var(--tief); color: #dbe7f8; padding: clamp(72px, 9vw, 120px) var(--seite) 30px; overflow: hidden; }
+.fuss__kopf { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; margin-bottom: 64px; }
+.fuss__gross { margin: 0; font-family: "Bagel Fat One"; font-size: clamp(52px, 8.4vw, 140px); line-height: .9; color: #fff; }
+.fuss__gross span { display: block; }
+.fuss__etikett { display: inline-block !important; margin-top: .08em; padding: .02em .2em .08em; border-radius: .14em; background: var(--gelb); color: var(--tief); transform: rotate(-2deg); transform-origin: left; box-shadow: .05em .06em 0 #001d3d; }
+.fuss__folgen { display: grid; justify-items: center; gap: 12px; padding-bottom: 10px; }
+.fuss__kuh { width: 130px; height: auto; padding: 16px; border-radius: 50%; background: #fff; transform: rotate(-8deg); transition: transform .5s cubic-bezier(.3,1.6,.5,1); }
+.fuss__folgen:hover .fuss__kuh { transform: rotate(6deg) scale(1.04); }
+.fuss__folgen-titel { margin: 6px 0 0; font-weight: 800; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--gelb); }
+.sozial { list-style: none; display: flex; gap: 10px; margin: 0; padding: 0; }
+.sozial a {
+  display: flex; align-items: center; gap: 8px; padding: 10px 16px 10px 12px; border-radius: 99px;
+  background: #fff; color: var(--tief); font-weight: 800; font-size: 15px; text-decoration: none;
+  border: 3px solid #fff; box-shadow: 3px 4px 0 var(--gelb); transition: transform .15s, box-shadow .15s;
+}
+.sozial a:hover { transform: translate(-2px, -2px); box-shadow: 5px 6px 0 var(--gelb); }
+.sozial svg { width: 22px; height: 22px; fill: none; stroke: var(--tief); stroke-width: 1.9; flex: none; }
+.sozial .voll { fill: var(--tief); stroke: none; }
+
+.fuss__karten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.fuss__karte { padding: 28px; border-radius: 30px; border: 3px solid #001d3d; box-shadow: 6px 7px 0 #001d3d; color: var(--tief); }
+.fuss__karte--gelb { background: var(--gelb); transform: rotate(-1deg); }
+.fuss__karte--gruen { background: var(--gruen); }
+.fuss__karte--weiss { background: #fff; transform: rotate(1deg); }
+.fuss__karte h2 { margin: 0 0 14px; font-family: "Bagel Fat One"; font-weight: 400; font-size: 28px; line-height: 1; color: var(--tief); }
+.fuss__karte p { margin: 0 0 12px; font-weight: 600; }
+.fuss__karte a { color: var(--tief); }
+.fuss__karte .knopf { margin-top: 6px; padding: 11px 22px; }
+.fuss__klein { font-size: 15px; font-weight: 500 !important; }
+.fuss__tel { display: inline-block; font-family: "Bagel Fat One"; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.05; text-decoration: none; }
+.fuss__tel:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 99px; background: #fff; border: 2.5px solid var(--tief); font-weight: 800; }
+.status::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: #8a9bb0; }
+.status.ist-offen::before { background: #1f9d1f; box-shadow: 0 0 0 4px rgba(31, 157, 31, .2); }
+.zeiten { margin: 16px 0 0; }
+.zeiten div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 2px solid rgba(0, 55, 110, .2); }
+.zeiten dd { margin: 0; font-weight: 800; }
+
+.fuss__siegel { margin: 64px 0 32px; padding: 26px clamp(20px, 3vw, 40px) 30px; border-radius: 30px; background: #fff; }
+.fuss__siegel-titel { margin: 0 0 18px; text-align: center; font-weight: 800; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--tief); }
+.fuss__siegel ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); }
+.fuss__siegel li { display: grid; place-items: center; height: 104px; padding: 0 clamp(10px, 2vw, 28px); }
+.fuss__siegel li + li { border-left: 2px dashed #d7e2ef; }
+.fuss__siegel img { max-width: 100%; max-height: 92px; width: auto; height: auto; object-fit: contain; }
+.fuss__siegel li:nth-child(2) img, .fuss__siegel li:nth-child(4) img { max-height: 84px; }
+.fuss__siegel li:nth-child(3) img { max-height: 60px; }
+
+.fuss__unten { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 28px; font-size: 15px; font-weight: 600; }
+.fuss__unten p { margin: 0; }
+.fuss__unten nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.fuss__unten a { color: #fff; text-decoration: none; }
+.fuss__unten a:hover { color: var(--gelb); }
+
+@media (max-width: 1000px) {
+  .fuss__kopf { grid-template-columns: 1fr; }
+  .fuss__folgen { justify-items: start; }
+  .fuss__kuh { display: none; }
+  .fuss__karten { grid-template-columns: 1fr; }
+  .fuss__karte--gelb, .fuss__karte--weiss { transform: none; }
+  .fuss__siegel ul { grid-template-columns: repeat(3, 1fr); row-gap: 18px; }
+  .fuss__siegel li:nth-child(4) { border-left: 0; }
+  .fuss__unten { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 520px) {
+  .sozial { flex-wrap: wrap; }
+  .fuss__siegel ul { grid-template-columns: 1fr 1fr; }
+  .fuss__siegel li { height: 84px; border-left: 0 !important; }
+  .fuss__siegel img { max-height: 74px; } .fuss__siegel li:nth-child(3) img { max-height: 48px; }
+  .fuss__siegel li:nth-child(5) { grid-column: 1 / -1; }
+}
