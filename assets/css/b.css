@@ -226,12 +226,19 @@
 }
 .sorte:hover { transform: rotate(0) translateY(-8px); }
 .sorte:hover img { transform: translateX(-50%) translateY(-14px) rotate(0) scale(1.04); }
-.sorte b { font-family: "Bagel Fat One"; font-weight: 400; font-size: 34px; line-height: .95; hyphens: manual; }
+.sorte b { font-family: "Bagel Fat One"; font-weight: 400; font-size: 30px; line-height: .95; hyphens: manual; }
 .sorte span { margin-top: 6px; font-size: 16px; font-weight: 700; }
 .sorten__fuss { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 36px var(--seite) 0; }
 .gruppen { display: flex; flex-wrap: wrap; gap: 10px; }
-.gruppen a { padding: 9px 18px; border-radius: 99px; border: 2.5px solid var(--tief); text-decoration: none; font-weight: 800; transition: background .2s, transform .2s; }
-.gruppen a:hover { background: var(--gelb); }
+.gruppen button { font: inherit; font-weight: 800; padding: 9px 18px; border-radius: 99px; border: 2.5px solid var(--tief); background: #fff; color: var(--tief); cursor: pointer; transition: background .2s; }
+.gruppen button:hover { background: var(--gelb); }
+.gruppen button[aria-pressed="true"] { background: var(--tief); color: #fff; }
+.sorten__gastro-hinweis { font-weight: 800; font-size: 18px; }
+.sorten__fuss .knopf[aria-pressed="true"] { background: var(--gelb); color: var(--tief); }
+.sorte--milchmann { background: var(--tief); color: #fff; justify-content: center; gap: 8px; }
+.sorte--milchmann b { color: var(--gelb); }
+.sorte--milchmann span { color: #fff; }
+.sorte--milchmann .knopf { margin-top: 12px; align-self: flex-start; box-shadow: 3px 4px 0 #001d3d; padding: 10px 18px; }
 
 /* Milchbeutel */
 .b .beutel { background: var(--gelb); overflow: hidden; padding-top: clamp(56px, 7svh, 96px); padding-bottom: clamp(56px, 7svh, 96px); }

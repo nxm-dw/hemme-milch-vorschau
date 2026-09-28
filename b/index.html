@@ -105,24 +105,46 @@
     <div class="sorten__kopf">
       <h2 id="sorten-titel">Such dir<br>deine Sorte aus.</h2>
     </div>
-    <ul class="sorten__reihe" data-reihe tabindex="0" aria-label="Unsere Sorten, seitlich scrollbar">
-      <li class="sorte" style="--f:#ff9fbe"><img src="../assets/img/produkte/erdbeermilch.webp" alt="" loading="lazy"><b>Erdbeer&shy;milch</b><span>600 ml</span></li>
-      <li class="sorte" style="--f:#8a5a3c;--t:#fff"><img src="../assets/img/produkte/schokomilch-600.webp" alt="" loading="lazy"><b>Schoko&shy;milch</b><span>230 ml und 600 ml</span></li>
-      <li class="sorte" style="--f:#9fd0ff"><img src="../assets/img/produkte/vollmilch-3-5.webp" alt="" loading="lazy"><b>Frisch&shy;milch</b><span>1,8 % und 3,7 %</span></li>
-      <li class="sorte" style="--f:#b9a3f0"><img src="../assets/img/produkte/jo-heidelbeere-400.webp" alt="" loading="lazy"><b>Heidel&shy;beere</b><span>Joghurt mild, 200 g und 400 g</span></li>
-      <li class="sorte" style="--f:#ffd35c"><img src="../assets/img/produkte/vanillemilch-600.webp" alt="" loading="lazy"><b>Vanille&shy;milch</b><span>230 ml und 600 ml</span></li>
-      <li class="sorte" style="--f:#c8102e;--t:#fff"><img src="../assets/img/produkte/jo-kirsche-400.webp" alt="" loading="lazy"><b>Kirsche</b><span>Joghurt mild, 400 g</span></li>
-      <li class="sorte" style="--f:#fff1b8"><img src="../assets/img/produkte/fassbutter.webp" alt="" loading="lazy"><b>Fass&shy;butter</b><span>aus gesäuertem Rahm</span></li>
-      <li class="sorte" style="--f:#c9a27a"><img src="../assets/img/produkte/porridge-vegan.webp" alt="" loading="lazy"><b>Porridge</b><span>Apfel-Zimt, vegan</span></li>
-      <li class="sorte" style="--f:#d8f5c4"><img src="../assets/img/produkte/buttermilch-zitrone-600.webp" alt="" loading="lazy"><b>Butter&shy;milch</b><span>Zitrone &amp; Limette</span></li>
-      <li class="sorte" style="--f:#7a4a36;--t:#fff"><img src="../assets/img/produkte/eiskaffe-230.webp" alt="" loading="lazy"><b>Eis&shy;kaffee</b><span>April bis September</span></li>
+    <ul class="sorten__reihe" data-reihe tabindex="0" aria-label="Unsere Sorten, seitlich scrollbar" id="sorten-reihe">
+      <li class="sorte" data-gruppe="milch" data-fuer="zuhause" style="--f:#9fd0ff"><img src="../assets/img/produkte/vollmilch-3-5.webp" alt="" loading="lazy"><b>Vollmilch</b><span>3,7 %, 1 Liter</span></li>
+      <li class="sorte" data-gruppe="milch" data-fuer="zuhause" style="--f:#cfe6ff"><img src="../assets/img/produkte/teilrahmen-milch.webp" alt="" loading="lazy"><b>Teilentrahmte Milch</b><span>1,8 %, 1 Liter</span></li>
+      <li class="sorte" data-gruppe="getraenke" data-fuer="zuhause" style="--f:#ff9fbe"><img src="../assets/img/produkte/erdbeermilch.webp" alt="" loading="lazy"><b>Erdbeer&shy;milch</b><span>600 ml</span></li>
+      <li class="sorte" data-gruppe="getraenke" data-fuer="zuhause" style="--f:#8a5a3c;--t:#fff"><img src="../assets/img/produkte/schokomilch-600.webp" alt="" loading="lazy"><b>Schoko&shy;milch</b><span>230 ml und 600 ml</span></li>
+      <li class="sorte" data-gruppe="getraenke" data-fuer="zuhause" style="--f:#ffd35c"><img src="../assets/img/produkte/vanillemilch-600.webp" alt="" loading="lazy"><b>Vanille&shy;milch</b><span>230 ml und 600 ml</span></li>
+      <li class="sorte" data-gruppe="getraenke" data-fuer="zuhause" style="--f:#7a4a36;--t:#fff"><img src="../assets/img/produkte/eiskaffe-230.webp" alt="" loading="lazy"><b>Eis&shy;kaffee</b><span>April bis September</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#bfe0ff"><img src="../assets/img/produkte/naturjoghurt-3-7-prozent.webp" alt="" loading="lazy"><b>Natur&shy;joghurt</b><span>1,8 % und 3,7 %, 400 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#e0efff"><img src="../assets/img/produkte/naturjogurt-600.webp" alt="" loading="lazy"><b>Joghurt mild</b><span>3,7 %, 600 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#b9a3f0"><img src="../assets/img/produkte/jo-heidelbeere-400.webp" alt="" loading="lazy"><b>Heidel&shy;beere</b><span>200 g und 400 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#c8102e;--t:#fff"><img src="../assets/img/produkte/jo-kirsche-400.webp" alt="" loading="lazy"><b>Kirsche</b><span>400 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#9c2f6b;--t:#fff"><img src="../assets/img/produkte/beerenfest-200g.webp" alt="" loading="lazy"><b>Beeren&shy;fest</b><span>200 g, Jubiläumssorte</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#ffb3c6"><img src="../assets/img/produkte/erdbeer-joghurt.webp" alt="" loading="lazy"><b>Erdbeere</b><span>200 g und 400 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#e8dccf"><img src="../assets/img/produkte/jo-stracciatella-200.webp" alt="" loading="lazy"><b>Stracciatella</b><span>200 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#fff0b3"><img src="../assets/img/produkte/jo-vanille-400.webp" alt="" loading="lazy"><b>Vanille</b><span>400 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#ffc27a"><img src="../assets/img/produkte/pfirsich-maracuja-400.webp" alt="" loading="lazy"><b>Pfirsich-Maracuja</b><span>400 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#e9cfa8"><img src="../assets/img/produkte/birchler-muesli.webp" alt="" loading="lazy"><b>Bircher-Müsli</b><span>200 g</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="zuhause" style="--f:#ffcf8a"><img src="../assets/img/produkte/joghurt-saison-marille.webp" alt="" loading="lazy"><b>Saison: Marille</b><span>200 g, wechselnde Sorte</span></li>
+      <li class="sorte" data-gruppe="butter" data-fuer="zuhause" style="--f:#fff1b8"><img src="../assets/img/produkte/fassbutter.webp" alt="" loading="lazy"><b>Fass&shy;butter</b><span>200 g, aus gesäuertem Rahm</span></li>
+      <li class="sorte" data-gruppe="butter" data-fuer="zuhause" style="--f:#dff0ff"><img src="../assets/img/produkte/buttermilch-600.webp" alt="" loading="lazy"><b>Butter&shy;milch</b><span>natur, 600 g</span></li>
+      <li class="sorte" data-gruppe="butter" data-fuer="zuhause" style="--f:#d8f5c4"><img src="../assets/img/produkte/buttermilch-zitrone-600.webp" alt="" loading="lazy"><b>Butter&shy;milch Zitrone</b><span>Zitrone &amp; Limette, 600 g</span></li>
+      <li class="sorte" data-gruppe="quark" data-fuer="zuhause" style="--f:#d4f1c0"><img src="../assets/img/produkte/alsahna-quark.webp" alt="" loading="lazy"><b>Speise&shy;quark</b><span>Alsahna natur, 250 g</span></li>
+      <li class="sorte" data-gruppe="dessert" data-fuer="zuhause" style="--f:#7d5236;--t:#fff"><img src="../assets/img/produkte/schokopudding.webp" alt="" loading="lazy"><b>Schoko&shy;pudding</b><span>200 g</span></li>
+      <li class="sorte" data-gruppe="dessert" data-fuer="zuhause" style="--f:#ffe89a"><img src="../assets/img/produkte/vanillepudding.webp" alt="" loading="lazy"><b>Vanille&shy;pudding</b><span>200 g</span></li>
+      <li class="sorte" data-gruppe="dessert" data-fuer="zuhause" style="--f:#c9a27a"><img src="../assets/img/produkte/porridge-vegan.webp" alt="" loading="lazy"><b>Porridge</b><span>Apfel-Zimt, vegan, 200 g</span></li>
+      <li class="sorte" data-gruppe="milch" data-fuer="gastro" hidden style="--f:#9fd0ff"><img src="../assets/img/produkte/vollmilch-3-5.webp" alt="" loading="lazy"><b>Frischmilch 10&nbsp;Liter</b><span>1,8 % und 3,7 %, für Siebträger und Küche</span></li>
+      <li class="sorte" data-gruppe="butter" data-fuer="gastro" hidden style="--f:#fff1b8"><img src="../assets/img/produkte/fassbutter.webp" alt="" loading="lazy"><b>Fassbutter 12&nbsp;kg</b><span>Block für Bäckerei und Konditorei</span></li>
+      <li class="sorte" data-gruppe="getraenke" data-fuer="gastro" hidden style="--f:#ffd35c"><img src="../assets/img/produkte/vanillemilch-600.webp" alt="" loading="lazy"><b>Milchgetränke 600&nbsp;ml</b><span>6 Stück pro Tray</span></li>
+      <li class="sorte" data-gruppe="getraenke" data-fuer="gastro" hidden style="--f:#8a5a3c;--t:#fff"><img src="../assets/img/produkte/schokomilch-230.webp" alt="" loading="lazy"><b>To go 230&nbsp;ml</b><span>8 Stück pro Karton, für die Kühltheke</span></li>
+      <li class="sorte" data-gruppe="joghurt" data-fuer="gastro" hidden style="--f:#e0efff"><img src="../assets/img/produkte/naturjogurt-600.webp" alt="" loading="lazy"><b>Joghurt mild 600&nbsp;g</b><span>für Frühstück und Buffet</span></li>
+      <li class="sorte sorte--milchmann" data-fuer="gastro" hidden><b>Der Milchmann kommt vorbei</b><span>Wir beliefern Läden, Cafés, Bäckereien und Eisdielen in Brandenburg selbst.</span><a class="knopf knopf--gelb" href="#fuss">Vertrieb anfragen</a></li>
     </ul>
     <div class="sorten__fuss">
-      <div class="gruppen" aria-label="Produktgruppen">
-        <a href="#sorten">Milch</a><a href="#sorten">Joghurt</a><a href="#sorten">Butter &amp; Buttermilch</a><a href="#sorten">Quark</a><a href="#sorten">Milchgetränke</a><a href="#sorten">Dessert</a>
+      <div class="gruppen" role="group" aria-label="Sorten filtern" data-filter>
+        <button type="button" aria-pressed="true" data-gruppe="alle" aria-controls="sorten-reihe">Alle</button><button type="button" aria-pressed="false" data-gruppe="milch" aria-controls="sorten-reihe">Milch</button><button type="button" aria-pressed="false" data-gruppe="joghurt" aria-controls="sorten-reihe">Joghurt</button><button type="button" aria-pressed="false" data-gruppe="butter" aria-controls="sorten-reihe">Butter &amp; Buttermilch</button><button type="button" aria-pressed="false" data-gruppe="quark" aria-controls="sorten-reihe">Quark</button><button type="button" aria-pressed="false" data-gruppe="getraenke" aria-controls="sorten-reihe">Milchgetränke</button><button type="button" aria-pressed="false" data-gruppe="dessert" aria-controls="sorten-reihe">Dessert</button>
       </div>
-      <a class="knopf knopf--blau" id="gastro" href="#fuss">Für Gastro &amp; Handel</a>
+      <p class="sorten__gastro-hinweis" data-gastro-hinweis hidden>Großgebinde und Service für Gastronomie und Handel</p>
+      <button type="button" class="knopf knopf--blau" id="gastro" aria-pressed="false" aria-controls="sorten-reihe" data-gastro>Für Gastro &amp; Handel</button>
     </div>
+    <p class="nur-sr" aria-live="polite" data-sorten-status></p>
     </div>
   </section>
 

@@ -34,7 +34,9 @@
     reihe0.style.setProperty("--versatz", "0");
     if (!gross.matches) return;
     var rand = parseFloat(getComputedStyle(reihe0).paddingLeft) || 16;
-    var rechts = reihe0.lastElementChild.getBoundingClientRect().right - reihe0.getBoundingClientRect().left;
+    var sichtbar = Array.prototype.filter.call(reihe0.children, function (k) { return !k.hidden; });
+    var letzte = sichtbar[sichtbar.length - 1] || reihe0;
+    var rechts = letzte.getBoundingClientRect().right - reihe0.getBoundingClientRect().left;
     sortenWeg = Math.max(0, Math.ceil(rechts + rand - document.documentElement.clientWidth));
     var nachlauf = Math.round(window.innerHeight * 0.3);
     sorten.style.setProperty("--sorten-hoehe", (window.innerHeight + sortenWeg + nachlauf) + "px");
@@ -46,6 +48,43 @@
     var strecke = Math.max(1, r.height - window.innerHeight - Math.round(window.innerHeight * 0.3));
     var anteil = Math.min(1, Math.max(0, -r.top / strecke));
     reihe0.style.setProperty("--versatz", (anteil * sortenWeg).toFixed(1));
+  }
+
+  /* Filter: Gruppen und Umschalter Gastro & Handel */
+  var filter = document.querySelector("[data-filter]");
+  var gastroKnopf = document.querySelector("[data-gastro]");
+  var hinweis = document.querySelector("[data-gastro-hinweis]");
+  var status = document.querySelector("[data-sorten-status]");
+  var zustand = { gruppe: "alle", gastro: false };
+  function anwenden() {
+    var zahl = 0;
+    Array.prototype.forEach.call(reihe0.children, function (k) {
+      var fuer = k.getAttribute("data-fuer");
+      var an = zustand.gastro ? fuer === "gastro" : (fuer === "zuhause" && (zustand.gruppe === "alle" || k.getAttribute("data-gruppe") === zustand.gruppe));
+      k.hidden = !an; if (an) zahl++;
+    });
+    filter.hidden = zustand.gastro; hinweis.hidden = !zustand.gastro;
+    var titel = document.getElementById("sorten-titel");
+    if (!titel.dataset.original) titel.dataset.original = titel.innerHTML;
+    titel.innerHTML = zustand.gastro ? "Für Küche,<br>Theke und Regal." : titel.dataset.original;
+    gastroKnopf.setAttribute("aria-pressed", String(zustand.gastro));
+    gastroKnopf.textContent = zustand.gastro ? "Zurück zu allen Sorten" : "Für Gastro & Handel";
+    filter.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-gruppe") === zustand.gruppe)); });
+    status.textContent = zahl + (zustand.gastro ? " Angebote für Gastro und Handel" : " Sorten") + " angezeigt";
+    reihe0.scrollLeft = 0;
+    sortenMessen();
+    /* An den Anfang des Abschnitts, damit die Reihe von vorn beginnt */
+    var oben = sorten.getBoundingClientRect().top + window.scrollY;
+    if (Math.abs(window.scrollY - oben) > 4 && gross.matches) window.scrollTo({ top: oben, behavior: ruhig.matches ? "auto" : "smooth" });
+  }
+  if (filter && gastroKnopf) {
+    filter.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button"); if (!b) return;
+      zustand.gruppe = b.getAttribute("data-gruppe"); anwenden();
+    });
+    gastroKnopf.addEventListener("click", function () { zustand.gastro = !zustand.gastro; zustand.gruppe = "alle"; anwenden(); });
+    /* Links von außen (z. B. #gastro) schalten direkt auf Gastro */
+    if (location.hash === "#gastro") { zustand.gastro = true; anwenden(); }
   }
 
   /* Vom Gras zur Milch: Linie zeichnet sich mit dem Scrollen */
