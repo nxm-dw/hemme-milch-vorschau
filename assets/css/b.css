@@ -264,14 +264,21 @@
 .beutel__bild { width: auto; max-width: 70%; max-height: min(460px, 52svh); margin: 0 auto; transform: rotate(-6deg); filter: drop-shadow(0 36px 34px rgba(90, 50, 0, .32)); transition: transform .6s cubic-bezier(.3,1.6,.5,1); }
 .beutel__inhalt:hover .beutel__bild { transform: rotate(-2deg) translateY(-6px); }
 .beutel__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.beutel__liste li { padding: 13px 20px; border-radius: 22px; background: #fff; border: 3px solid var(--tief); box-shadow: 4px 5px 0 var(--tief); font-weight: 600; font-size: 17.5px; }
-.beutel__liste b { font-family: "Bagel Fat One"; font-weight: 400; font-size: 26px; margin-right: 8px; }
+.beutel__liste li {
+  /* Stichwort in fester Spalte, Satz auf derselben Grundlinie: liest sich als eine Zeile */
+  display: grid; grid-template-columns: 5.2em 1fr; align-items: baseline; column-gap: 14px;
+  padding: 14px 22px; border-radius: 22px; background: #fff; border: 3px solid var(--tief); box-shadow: 4px 5px 0 var(--tief);
+  font-weight: 600; font-size: 17.5px; line-height: 1.4;
+}
+.beutel__liste b { font-family: "Bagel Fat One"; font-weight: 400; font-size: 24px; line-height: 1.1; white-space: nowrap; }
+@media (max-width: 520px) { .beutel__liste li { grid-template-columns: 1fr; row-gap: 2px; } }
 @media (max-width: 800px) { .beutel__inhalt { grid-template-columns: 1fr; } .beutel__bild { width: 60%; } }
 
 /* Der Weg */
 .b .weg { --fokus: var(--gelb); background: var(--tief); color: #fff; overflow: hidden; }
 .weg h2 { color: var(--gruen); }
-.weg__lead { margin-top: 18px; max-width: 24em; font-size: 20px; }
+.weg__lead { margin-top: 18px; font-size: 20px; }
+@media (min-width: 801px) { .weg h2, .weg__lead { white-space: nowrap; } }
 .weg__pfad { position: absolute; left: var(--seite); top: 300px; width: calc(100% - 2 * var(--seite)); height: calc(100% - 360px); overflow: visible; }
 .weg__linie { fill: none; stroke: var(--gelb); stroke-width: 5; stroke-dasharray: 2 16; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 /* Maske: durchgehender Strich, dessen sichtbare Länge das Skript beim Scrollen setzt */
