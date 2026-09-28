@@ -163,20 +163,40 @@
 .gruppe--quark { grid-column: 3; grid-row: 3; }
 /* Frischmilch-Kachel ist doppelt hoch: Beutel groß und mittig statt klein am unteren Rand */
 .gruppe--milch .gruppe__bilder { align-items: center; }
-.gruppe--milch .gruppe__bilder img { width: 76%; max-width: 400px; margin: 0 -15%; }
-.gruppe--milch .gruppe__bilder::after { bottom: 14%; }
-/* Tiefe: Lichtkreis hinter den Produkten, Schatten auf dem Boden */
-.gruppe__bilder::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(86%, 380px); aspect-ratio: 1; transform: translate(-50%, -46%); border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,255,255,.5) 45%, rgba(255,255,255,0) 70%); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-.gruppe__bilder::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: -4px; height: 22px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 30, 70, .22), transparent); }
-.gruppe:hover .gruppe__bilder::before { transform: translate(-50%, -46%) scale(1.08); }
+/* Farbige Scheibe hinter den Produkten, eine Stufe kräftiger als die Kachel */
+.gruppe { --scheibe: #bcdcff; }
+.gruppe--joghurt { --scheibe: #ffc4d6; }
+.gruppe--getraenke { --scheibe: #edcaa9; }
+.gruppe--butter { --scheibe: #ffd766; }
+.gruppe--quark { --scheibe: #b8e89a; }
+.gruppe--dessert { --scheibe: #d6c2f2; }
+.gruppe__bilder::before {
+  /* Größe richtet sich nach der Höhe des Bildbereichs, damit die Scheibe nie in den Text wächst */
+  content: ""; position: absolute; left: 50%; bottom: 0; height: min(100%, 330px); width: auto; aspect-ratio: 1;
+  transform: translateX(-50%); border-radius: 50%; background: var(--scheibe);
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.gruppe:hover .gruppe__bilder::before { transform: translateX(-50%) scale(1.06); }
 .gruppe__bilder img { position: relative; z-index: 1; }
-/* Sorten als kleine Etiketten */
-.gruppe__sorten { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.gruppe__sorten span { padding: 5px 11px; border-radius: 99px; background: rgba(255,255,255,.75); border: 1.5px solid rgba(0, 55, 110, .14); font-size: 14px; font-weight: 600; color: var(--tief); }
-.gruppe--milch .gruppe__sorten { order: 3; margin-top: 18px; }
+/* Sorten: ruhige Zeile direkt unter der Beschreibung */
+.gruppe__sorten { display: block; margin-top: 10px; font-size: 15px; font-weight: 600; color: var(--tief); line-height: 1.45; }
+.gruppe__sorten span:not(:last-child)::after { content: " · "; color: rgba(0, 55, 110, .45); }
+.gruppe__mehr {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+  padding: 11px 18px; border-radius: 99px; background: var(--tief); color: #fff; font-weight: 700; font-size: 15px; transition: gap .2s;
+}
+.gruppe:hover .gruppe__mehr { gap: 12px; }
+/* Kacheln mit Knopf brauchen den runden Pfeil oben rechts nicht */
+.gruppe.gruppe--milch::after, .gruppe.gruppe--butter::after, .gruppe.gruppe--dessert::after { display: none; }
+.gruppe--milch .gruppe__name, .gruppe--butter .gruppe__name, .gruppe--dessert .gruppe__name { padding-right: 0; }
+.gruppe--milch .gruppe__mehr { order: 4; }
+.gruppe--milch .gruppe__bilder::before { height: min(88%, 400px); bottom: 6%; }
+.gruppe--milch .gruppe__bilder img { width: 76%; max-width: 400px; margin: 0 -15%; }
+
 /* Breite Kacheln (Butter, Dessert): Text links, Produkte rechts */
-.gruppe--butter, .gruppe--dessert { display: grid; grid-template-columns: .9fr 1.1fr; grid-template-rows: auto 1fr; align-content: start; }
-.gruppe--butter .gruppe__bilder, .gruppe--dessert .gruppe__bilder { grid-row: 1 / span 2; grid-column: 2; margin: 0; align-self: stretch; align-items: center; }
+.gruppe--butter, .gruppe--dessert { display: grid; grid-template-columns: .9fr 1.1fr; grid-template-rows: auto auto auto 1fr; align-content: stretch; }
+.gruppe--butter .gruppe__mehr, .gruppe--dessert .gruppe__mehr { align-self: end; justify-self: start; }
+.gruppe--butter .gruppe__bilder, .gruppe--dessert .gruppe__bilder { grid-row: 1 / -1; grid-column: 2; margin: 0; align-self: stretch; align-items: center; }
 .gruppe--butter .gruppe__bilder img, .gruppe--dessert .gruppe__bilder img { width: 50%; max-width: 270px; }
 .gruppe--quark .gruppe__bilder img { width: 62%; max-width: 250px; }
 
@@ -208,6 +228,7 @@
 @media (max-width: 560px) {
   .sortiment { grid-template-columns: 1fr; } .gruppe { min-height: 300px; }
   .gruppe--butter, .gruppe--dessert { display: flex; }
+  .gruppe--butter .gruppe__mehr, .gruppe--dessert .gruppe__mehr { align-self: flex-start; order: 4; }
   .gruppe--butter .gruppe__bilder img, .gruppe--dessert .gruppe__bilder img { width: 46%; }
 }
 
@@ -343,7 +364,7 @@
 }
 .fuss__slogan span { display: block; }
 .fuss__slogan span + span { color: var(--gelb); }
-.fuss__raster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fuss__raster { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 20px; }
 .fuss__block { padding: 26px; border-radius: 24px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12); }
 .fuss h2 { font-family: "Bricolage Grotesque"; font-size: 20px; font-weight: 800; color: #fff; margin: 0 0 14px; letter-spacing: -.01em; }
 .fuss p { margin: 0 0 12px; }
@@ -368,14 +389,14 @@
 .fuss__block { container-type: inline-size; }
 .sozial { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 0; }
 .sozial a {
-  display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 48px; padding: 10px 8px; border-radius: 99px; font-size: 15px;
+  display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 48px; padding: 10px 16px; border-radius: 99px; font-size: 15px; white-space: nowrap;
   background: #fff; color: var(--tief) !important; font-weight: 700; text-decoration: none;
   transition: background .2s, transform .2s;
 }
 .sozial a:hover { background: var(--gelb); transform: translateY(-2px); }
 .sozial svg { width: 22px; height: 22px; fill: none; stroke: var(--tief); stroke-width: 1.8; flex: none; }
 .sozial .voll { fill: var(--tief); stroke: none; }
-@container (max-width: 340px) { .sozial__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .sozial svg { width: 24px; height: 24px; } }
+@container (max-width: 400px) { .sozial__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .sozial svg { width: 24px; height: 24px; } }
 
 /* Siegel: über die ganze Breite verteilt, gleich große Felder mit feinen Trennlinien */
 .fuss__siegel { margin: 56px 0 32px; padding: 28px clamp(20px, 3vw, 40px) 32px; border-radius: 28px; background: #fff; }
