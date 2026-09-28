@@ -163,11 +163,22 @@
 .gruppe--quark { grid-column: 3; grid-row: 3; }
 /* Frischmilch-Kachel ist doppelt hoch: Beutel groß und mittig statt klein am unteren Rand */
 .gruppe--milch .gruppe__bilder { align-items: center; }
-.gruppe--milch .gruppe__bilder img { width: 66%; max-width: 340px; margin: 0 -11%; }
+.gruppe--milch .gruppe__bilder img { width: 76%; max-width: 400px; margin: 0 -15%; }
+.gruppe--milch .gruppe__bilder::after { bottom: 14%; }
+/* Tiefe: Lichtkreis hinter den Produkten, Schatten auf dem Boden */
+.gruppe__bilder::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(86%, 380px); aspect-ratio: 1; transform: translate(-50%, -46%); border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,255,255,.5) 45%, rgba(255,255,255,0) 70%); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.gruppe__bilder::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: -4px; height: 22px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 30, 70, .22), transparent); }
+.gruppe:hover .gruppe__bilder::before { transform: translate(-50%, -46%) scale(1.08); }
+.gruppe__bilder img { position: relative; z-index: 1; }
+/* Sorten als kleine Etiketten */
+.gruppe__sorten { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.gruppe__sorten span { padding: 5px 11px; border-radius: 99px; background: rgba(255,255,255,.75); border: 1.5px solid rgba(0, 55, 110, .14); font-size: 14px; font-weight: 600; color: var(--tief); }
+.gruppe--milch .gruppe__sorten { order: 3; margin-top: 18px; }
 /* Breite Kacheln (Butter, Dessert): Text links, Produkte rechts */
 .gruppe--butter, .gruppe--dessert { display: grid; grid-template-columns: .9fr 1.1fr; grid-template-rows: auto 1fr; align-content: start; }
 .gruppe--butter .gruppe__bilder, .gruppe--dessert .gruppe__bilder { grid-row: 1 / span 2; grid-column: 2; margin: 0; align-self: stretch; align-items: center; }
-.gruppe--butter .gruppe__bilder img, .gruppe--dessert .gruppe__bilder img { width: 48%; max-width: 240px; }
+.gruppe--butter .gruppe__bilder img, .gruppe--dessert .gruppe__bilder img { width: 50%; max-width: 270px; }
+.gruppe--quark .gruppe__bilder img { width: 62%; max-width: 250px; }
 
 .gruppe__name { padding-right: 56px; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(28px, 2.6vw, 38px); line-height: 1; letter-spacing: -.02em; color: var(--tief); }
 .gruppe__info { margin-top: 8px; font-size: 15px; }
