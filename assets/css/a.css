@@ -242,18 +242,57 @@
 @media (max-width: 1000px) { .sortiment--gastro { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .sortiment--gastro { grid-template-columns: 1fr; } }
 
-/* Milchbeutel */
+/* Milchbeutel: eigene Bühne für das wichtigste Verpackungs-USP */
 .a .beutel {
-  display: grid; grid-template-columns: .8fr 1fr; gap: clamp(24px, 5vw, 80px); align-items: center;
-  --fokus: #fff;
-  background: var(--blau); color: #fff; overflow: hidden;
+  --fokus: #fff; position: relative; overflow: hidden; text-align: center;
+  background: radial-gradient(60% 55% at 50% 52%, #1a86ee 0%, var(--blau) 60%, #005fc2 100%); color: #fff;
 }
-.beutel h2 { color: #fff; }
-.beutel__bild img { width: min(100%, 420px); margin: 0 auto; transform: rotate(-6deg); filter: drop-shadow(0 40px 40px rgba(0, 30, 80, .45)); }
-.beutel__liste { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 14px; }
-.beutel__liste li { padding: 16px 20px; border-radius: 20px; background: rgba(0, 30, 80, .3); font-size: 17.5px; }
-.beutel__liste b { display: inline-block; font-family: "Bricolage Grotesque"; font-size: 22px; line-height: 1; padding: 6px 12px; border-radius: 99px; background: var(--gelb); color: var(--tief); margin-right: 8px; transform: rotate(-3deg); }
-@media (max-width: 800px) { .a .beutel { grid-template-columns: 1fr; } .beutel__bild img { width: 60%; } }
+.beutel__marke { display: inline-block; margin-bottom: 14px; padding: 6px 14px; border-radius: 99px; background: var(--gelb); color: var(--tief); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.beutel h2 { color: #fff; font-size: clamp(38px, 5vw, 72px); }
+.beutel__buehne { display: grid; grid-template-columns: 1fr minmax(260px, 380px) 1fr; align-items: center; gap: clamp(16px, 3vw, 48px); margin-top: clamp(36px, 5vw, 64px); }
+.beutel__mitte { position: relative; }
+/* Lichtkreis hinter dem Beutel */
+.beutel__mitte::before { content: ""; position: absolute; left: 50%; top: 52%; width: 125%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.28) 0%, rgba(255,255,255,.08) 45%, rgba(255,255,255,0) 70%); }
+.beutel__mitte img { position: relative; width: 100%; transform: rotate(-5deg); filter: drop-shadow(0 40px 40px rgba(0, 20, 60, .5)); transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.beutel__mitte:hover img { transform: rotate(0) translateY(-8px); }
+.beutel__fakten { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.beutel__fakten li {
+  position: relative; display: grid; gap: 4px; padding: 20px 22px; border-radius: 22px;
+  background: rgba(0, 30, 80, .32); border: 1px solid rgba(255,255,255,.18); text-align: left;
+}
+.beutel__fakten b { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(34px, 3.2vw, 48px); line-height: 1; letter-spacing: -.03em; color: var(--gelb); }
+.beutel__fakten span { font-size: 16.5px; line-height: 1.45; }
+/* Verbindungslinie mit Punkt Richtung Beutel */
+.beutel__fakten li::after { content: ""; position: absolute; top: 50%; width: clamp(16px, 3vw, 48px); border-top: 2px dashed rgba(255,255,255,.55); }
+.beutel__fakten li::before { content: ""; position: absolute; top: calc(50% - 5px); width: 10px; height: 10px; border-radius: 50%; background: var(--gelb); box-shadow: 0 0 0 4px rgba(255,166,17,.3); }
+.beutel__fakten--links li::after { left: 100%; }
+.beutel__fakten--links li::before { left: calc(100% + clamp(16px, 3vw, 48px) - 5px); }
+.beutel__fakten--rechts li::after { right: 100%; }
+.beutel__fakten--rechts li::before { right: calc(100% + clamp(16px, 3vw, 48px) - 5px); }
+.beutel__fakten--links li:nth-child(2) { margin-right: -24px; }
+.beutel__fakten--rechts li:nth-child(2) { margin-left: -24px; }
+
+/* Gewichtsvergleich: Balken wachsen beim Hereinscrollen */
+.vergleich { max-width: 760px; margin: clamp(40px, 5vw, 64px) auto 0; padding: 24px 28px; border-radius: 24px; background: #fff; color: var(--tief); text-align: left; }
+.vergleich figcaption { font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+.vergleich__zeile { display: grid; grid-template-columns: 200px 1fr; align-items: center; gap: 16px; padding: 7px 0; }
+.vergleich__name { font-weight: 600; }
+.vergleich__balken { display: flex; align-items: center; height: 40px; width: calc(var(--anteil) * 100%); padding: 0 14px; border-radius: 10px; background: #dbe5f1; transform-origin: left; transition: transform 1.2s .3s cubic-bezier(.2,.7,.2,1); }
+.vergleich__balken b { white-space: nowrap; font-weight: 700; font-size: 15px; }
+.vergleich__zeile--hemme .vergleich__balken { background: var(--gelb); }
+.vergleich__zeile--hemme .vergleich__balken b { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 18px; }
+.js .vergleich:not(.ist-drin) .vergleich__balken { transform: scaleX(.05); }
+
+@media (max-width: 1000px) {
+  .beutel__buehne { grid-template-columns: 1fr 1fr; }
+  .beutel__mitte { grid-column: 1 / -1; grid-row: 1; width: min(70%, 340px); margin: 0 auto; }
+  .beutel__fakten li::after, .beutel__fakten li::before { display: none; }
+  .beutel__fakten li:nth-child(2) { margin: 0 !important; }
+}
+@media (max-width: 600px) {
+  .beutel__buehne { grid-template-columns: 1fr; }
+  .vergleich__zeile { grid-template-columns: 1fr; gap: 6px; }
+}
 
 /* SIGNATUR: 24-Stunden-Band */
 .a .kette { padding: 0; background: #fff; }

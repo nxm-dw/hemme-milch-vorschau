@@ -100,7 +100,7 @@
     <div class="sortiment" id="sortiment-zuhause" role="tabpanel" aria-labelledby="tab-zuhause" tabindex="-1">
       <a class="gruppe gruppe--milch" href="#produkte" data-rein>
         <span class="gruppe__name">Frischmilch</span>
-        <span class="gruppe__info">1,8 % und 3,7 %, im Standbeutel</span>
+        <span class="gruppe__info">Schonend pasteurisiert, nie H-Milch</span>
         <span class="gruppe__sorten"><span>1,8 %</span><span>3,7 %</span><span>1 Liter</span><span>10 Liter für Gastro</span></span>
         <span class="gruppe__mehr">Alle Sorten ansehen <span aria-hidden="true">→</span></span>
         <span class="gruppe__bilder">
@@ -128,7 +128,7 @@
       </a>
       <a class="gruppe gruppe--butter" href="#produkte" data-rein>
         <span class="gruppe__name">Butter &amp; Buttermilch</span>
-        <span class="gruppe__info">Fassbutter aus gesäuertem Rahm</span>
+        <span class="gruppe__info">Aus natürlich gesäuertem Rahm, wie früher</span>
         <span class="gruppe__sorten"><span>Fassbutter 200 g</span><span>Buttermilch natur</span><span>Buttermilch Zitrone &amp; Limette</span></span>
         <span class="gruppe__mehr">Alle Sorten ansehen <span aria-hidden="true">→</span></span>
         <span class="gruppe__bilder">
@@ -138,15 +138,15 @@
       </a>
       <a class="gruppe gruppe--quark" href="#produkte" data-rein>
         <span class="gruppe__name">Quark</span>
-        <span class="gruppe__info">Alsahna Speisequark natur</span>
-        <span class="gruppe__sorten"><span>Alsahna 250 g</span><span>Zum Backen und Frühstücken</span></span>
+        <span class="gruppe__info">Cremig, zum Backen und Frühstücken</span>
+        <span class="gruppe__sorten"><span>Alsahna natur, 250 g</span></span>
         <span class="gruppe__bilder">
           <img src="../assets/img/produkte/alsahna-quark.webp" alt="" loading="lazy">
         </span>
       </a>
       <a class="gruppe gruppe--dessert" href="#produkte" data-rein>
         <span class="gruppe__name">Dessert</span>
-        <span class="gruppe__info">Pudding und Porridge</span>
+        <span class="gruppe__info">Aus frischer Hemme-Vollmilch</span>
         <span class="gruppe__sorten"><span>Schokopudding</span><span>Vanillepudding</span><span>Porridge Apfel-Zimt, vegan</span></span>
         <span class="gruppe__mehr">Alle Sorten ansehen <span aria-hidden="true">→</span></span>
         <span class="gruppe__bilder">
@@ -181,19 +181,33 @@
   </section>
 
   <!-- MILCHBEUTEL -->
-  <section class="beutel" aria-labelledby="beutel-titel">
-    <div class="beutel__bild" data-rein>
-      <img src="../assets/img/produkte/vanillemilch-600.webp" alt="Hemme Vanillemilch im Standbeutel" loading="lazy">
-    </div>
-    <div class="beutel__text">
+  <section class="beutel" id="beutel" aria-labelledby="beutel-titel">
+    <div class="beutel__kopf">
+      <p class="beutel__marke">Unsere Verpackung</p>
       <h2 id="beutel-titel">Warum Beutel?<br>Weil er's besser kann.</h2>
-      <ul class="beutel__liste">
-        <li data-rein><b>14 g</b> leicht. Halb so viel Material wie eine übliche Milchverpackung.</li>
-        <li data-rein><b>40 %</b> Kreide im Material. Weniger Kunststoff, weniger Müllvolumen.</li>
-        <li data-rein><b>Steht</b> von allein im Kühlschrank und lässt sich einfach öffnen.</li>
-        <li data-rein><b>Warm</b> machen direkt im Beutel: Er ist mikrowellengeeignet.</li>
+    </div>
+
+    <div class="beutel__buehne">
+      <ul class="beutel__fakten beutel__fakten--links">
+        <li data-rein><b>14 g</b><span>Gewicht. So leicht ist ein Liter Hemme-Verpackung.</span></li>
+        <li data-rein><b>40 %</b><span>Kreide im Material statt Kunststoff.</span></li>
+        <li data-rein><b>Steht</b><span>von allein im Kühlschrank, ganz ohne Kanne.</span></li>
+      </ul>
+      <div class="beutel__mitte" data-rein>
+        <img src="../assets/img/produkte/vollmilch-3-5.webp" alt="Hemme Vollmilch im Standbeutel" loading="lazy">
+      </div>
+      <ul class="beutel__fakten beutel__fakten--rechts">
+        <li data-rein><b>Halb</b><span>so viel Material wie eine übliche Milchverpackung.</span></li>
+        <li data-rein><b>Klein</b><span>gefaltet nach dem Leeren. Weniger Müllvolumen in der Tonne.</span></li>
+        <li data-rein><b>Warm</b><span>machen direkt im Beutel. Er ist mikrowellengeeignet.</span></li>
       </ul>
     </div>
+
+    <figure class="vergleich" data-rein>
+      <figcaption>Verpackungsgewicht pro Liter</figcaption>
+      <div class="vergleich__zeile vergleich__zeile--hemme"><span class="vergleich__name">Hemme-Beutel</span><span class="vergleich__balken" style="--anteil:.5"><b>14 g</b></span></div>
+      <div class="vergleich__zeile"><span class="vergleich__name">Übliche Milchverpackung</span><span class="vergleich__balken" style="--anteil:1"><b>doppelt so schwer</b></span></div>
+    </figure>
   </section>
 
   <!-- SIGNATUR: 24-Stunden-Band. Scrollen treibt die Uhr. -->
