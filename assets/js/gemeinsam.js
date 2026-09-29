@@ -166,6 +166,18 @@
     el.textContent = ohneWaise(text);
   });
 
+  /* Kurzer Live-Status neben den Öffnungszeiten: geöffnet / geschlossen */
+  document.querySelectorAll("[data-live-status]").forEach(function (el) {
+    var teile = {};
+    new Intl.DateTimeFormat("de-DE", { timeZone: "Europe/Berlin", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(function (t) { teile[t.type] = t.value; });
+    var tag = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"].indexOf(teile.weekday.replace(".", ""));
+    var min = parseInt(teile.hour, 10) * 60 + parseInt(teile.minute, 10);
+    var offen = (tag === 0 || tag >= 3) && min >= 660 && min < 1080;
+    el.textContent = offen ? "Jetzt geöffnet" : "Gerade geschlossen";
+    el.classList.toggle("ist-offen", offen);
+  });
+
   /* Jahreszahl im Fuß */
   document.querySelectorAll("[data-jahr]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();

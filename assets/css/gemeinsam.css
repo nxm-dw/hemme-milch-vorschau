@@ -103,3 +103,9 @@ body.menue-offen { overflow: hidden; }
 /* Keine einzelnen Wörter allein in einer Zeile: Überschriften ausbalanciert, Fließtext mit schönem Umbruch */
 h1, h2, h3, figcaption, .knopf, b, strong { text-wrap: balance; }
 p, li, dd, dt, span, label { text-wrap: pretty; }
+
+/* Live-Status-Punkt neben Öffnungszeiten */
+.live-status { display: inline-flex; align-items: center; gap: 7px; margin-right: 12px; padding: 4px 11px; border-radius: 99px; background: #fbe3e3; color: #8a1c1c; font-weight: 800; font-size: 14px; white-space: nowrap; vertical-align: 1px; }
+.live-status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #c8102e; }
+.live-status.ist-offen { background: #e2f4d6; color: #1f5a12; }
+.live-status.ist-offen::before { background: #2f9a1f; box-shadow: 0 0 0 3px rgba(47,154,31,.25); animation: puls 1.6s 3; }

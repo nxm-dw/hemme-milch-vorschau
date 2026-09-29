@@ -529,3 +529,25 @@
 .fuss__wiese img { object-position: 50% 100%;
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.08) 22%, rgba(0,0,0,.35) 42%, rgba(0,0,0,.75) 62%, #000 80%);
           mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.08) 22%, rgba(0,0,0,.35) 42%, rgba(0,0,0,.75) 62%, #000 80%); }
+
+/* Gemüsefach: Hemme-Schriftzug aus dem Logo, hell wie eingeprägt */
+.kuehlschrank__schublade img { width: 46%; height: auto; opacity: .9; }
+/* Kategorie-Titel höchstens zweizeilig */
+.sorte--kategorie b { white-space: nowrap; }
+.kuehlschrank__schublade { display: flex; justify-content: center; align-items: center; }
+.kuehlschrank__schublade img { width: auto; height: 58%; max-width: 60%; }
+
+/* Hof-Headline genau zweizeilig */
+@media (min-width: 801px) { .hof h2 { max-width: none; white-space: nowrap; font-size: clamp(36px, 5.4vw, 96px); } }
+
+/* Polaroids sichtbar leicht gedreht, beim Darüberfahren gerade */
+.polaroids { gap: 34px 30px; }
+.polaroid { transform: rotate(var(--r)); }
+.polaroid:hover { transform: rotate(0) translateY(-6px) scale(1.02); }
+@media (max-width: 560px) { .polaroid { transform: rotate(calc(var(--r) * .6)) !important; } }
+/* „Wo gibt's Hemme?“ kleiner, damit sie neben der Suchkarte Luft hat */
+.kaufen h2 { font-size: clamp(44px, 5.4vw, 92px); }
+
+/* Einblend-Regel setzt transform zurück: Drehung dort ausdrücklich behalten */
+.js .polaroid[data-rein].ist-drin, .polaroid { transform: rotate(var(--r)); }
+.js .polaroid[data-rein].ist-drin:hover { transform: rotate(0) translateY(-6px) scale(1.02); }
