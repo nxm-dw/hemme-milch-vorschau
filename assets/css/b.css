@@ -551,3 +551,15 @@
 /* Einblend-Regel setzt transform zurück: Drehung dort ausdrücklich behalten */
 .js .polaroid[data-rein].ist-drin, .polaroid { transform: rotate(var(--r)); }
 .js .polaroid[data-rein].ist-drin:hover { transform: rotate(0) translateY(-6px) scale(1.02); }
+
+/* Beutel-Liste: Stichwort-Spalte nur so breit wie das längste Stichwort (subgrid), Text rückt heran */
+.beutel__liste { grid-template-columns: max-content 1fr; }
+.beutel__liste li { grid-column: 1 / -1; grid-template-columns: subgrid; column-gap: 16px; }
+.kuehlschrank__schublade img { height: 52%; }
+
+/* Hof-Kopf mittig, Headline kleiner */
+.b .hof { text-align: center; }
+.b .hof h2 { margin-inline: auto; }
+@media (min-width: 801px) { .b .hof h2 { font-size: clamp(34px, 4vw, 68px); } }
+.hof__zeiten { text-align: left; }
+.polaroid { text-align: left; }
