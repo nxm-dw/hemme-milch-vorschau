@@ -520,3 +520,6 @@
 .b .kaufen { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
 .plz { width: 100%; max-width: 560px; justify-self: end; box-sizing: border-box; }
 @media (max-width: 800px) { .plz { justify-self: stretch; max-width: none; } }
+
+/* Welle sitzt direkt auf dem Footer, keine Lücke */
+.welle + .fuss { margin-top: 0; }
