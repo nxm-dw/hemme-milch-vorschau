@@ -15,13 +15,13 @@
   --seite: max(var(--rand), calc((100vw - var(--breite)) / 2));
   background: #fff;
   color: var(--tief);
-  font: 500 17px/1.5 "Figtree", system-ui, sans-serif;
+  font: 500 17px/1.5 "Akko Rounded", system-ui, sans-serif;
 }
-.b h1, .b h2 { font-family: "Bagel Fat One", system-ui, sans-serif; font-weight: 400; margin: 0; letter-spacing: -.01em; }
+.b h1, .b h2 { font-family: "True North Dots", system-ui, sans-serif; font-weight: 400; margin: 0; letter-spacing: .01em; }
 .b h2 { font-size: clamp(44px, 6.4vw, 104px); line-height: .92; }
 :where(.b) p { margin: 0; }
 .b section { position: relative; padding: clamp(72px, 10vw, 140px) var(--seite); }
-.notiz { font-family: "Caveat Brush", cursive; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; color: var(--gelb); }
+.notiz { font-family: "Akko Rounded", sans-serif; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.1; color: var(--gelb); }
 .notiz--blau { color: var(--blau-text); }
 
 /* Knöpfe: dicke Kontur und harter Schatten, wie aufgeklebt */
@@ -39,7 +39,7 @@
 
 /* Aktions-Banner */
 .aktion { background: var(--gruen); color: var(--tief); }
-.aktion__marke { font-family: "Bagel Fat One"; font-size: 17px; padding: 4px 14px; border-radius: 99px; background: #fff; border: 2.5px solid var(--tief); transform: rotate(-3deg); }
+.aktion__marke { font-family: "True North Dots"; font-size: 17px; padding: 4px 14px; border-radius: 99px; background: #fff; border: 2.5px solid var(--tief); transform: rotate(-3deg); }
 .aktion__link { background: var(--tief); color: #fff; }
 .aktion__link:hover { background: var(--blau-text); }
 
@@ -68,7 +68,7 @@
     transition: clip-path .5s cubic-bezier(.2,.7,.2,1), visibility 0s .5s;
   }
   .kopf__nav.ist-offen { clip-path: circle(150% at calc(100% - 60px) 40px); visibility: visible; transition: clip-path .5s cubic-bezier(.2,.7,.2,1); }
-  .kopf__nav a { font-family: "Bagel Fat One"; font-weight: 400; font-size: 36px; padding: 4px 0; }
+  .kopf__nav a { font-family: "True North Dots"; font-weight: 400; font-size: 36px; padding: 4px 0; }
 }
 
 /* HERO: Stickerwand */
@@ -145,7 +145,7 @@
   box-shadow: inset 0 -10px 16px -10px rgba(0, 40, 90, .2);
   display: grid; place-content: center;
 }
-.kuehlschrank__schublade span { font-family: "Bagel Fat One"; font-size: 22px; color: #9db8d6; letter-spacing: .04em; }
+.kuehlschrank__schublade span { font-family: "True North Dots"; font-size: 22px; color: #9db8d6; letter-spacing: .04em; }
 /* Tür */
 .kuehlschrank__tuer {
   position: absolute; top: 0; left: calc(100% - 6px); width: 78%; height: 100%;
@@ -180,9 +180,9 @@
 }
 .band__lauf { display: flex; align-items: center; flex: none; animation: laufen 42s linear infinite; }
 .baender.ist-pausiert .band__lauf { animation-play-state: paused; }
-.band b { font-family: "Bagel Fat One"; font-weight: 400; font-size: clamp(26px, 2.6vw, 40px); color: var(--tief); padding: 0 .55em; }
+.band b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(26px, 2.6vw, 40px); color: var(--tief); padding: 0 .55em; }
 /* Trenner: kleine Hemme-Kuh auf weißer Plakette */
-.band i { flex: none; width: 50px; height: 50px; border-radius: 50%; border: 2.5px solid var(--tief); background: #fff url("../img/kuh-kopf.svg") center / 74% no-repeat; }
+.band i { flex: none; width: 50px; height: 50px; border-radius: 50%; border: 2.5px solid var(--tief); background: #fff url("../img/marke/label-eigen.webp") center / 86% no-repeat; }
 .band i:nth-of-type(odd) { transform: rotate(-12deg); } .band i:nth-of-type(even) { transform: rotate(10deg); }
 .band-pause {
   position: absolute; z-index: 6; right: var(--seite); top: -46px;
@@ -226,7 +226,7 @@
 }
 .sorte:hover { transform: rotate(0) translateY(-8px); }
 .sorte:hover img { transform: translateX(-50%) translateY(-14px) rotate(0) scale(1.04); }
-.sorte b { font-family: "Bagel Fat One"; font-weight: 400; font-size: 30px; line-height: .95; hyphens: manual; }
+.sorte b { font-family: "True North Dots"; font-weight: 400; font-size: 30px; line-height: .95; hyphens: manual; }
 .sorte span { margin-top: 6px; font-size: 16px; font-weight: 700; }
 .sorten__fuss { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 36px var(--seite) 0; }
 .gruppen { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -270,7 +270,7 @@
   padding: 14px 22px; border-radius: 22px; background: #fff; border: 3px solid var(--tief); box-shadow: 4px 5px 0 var(--tief);
   font-weight: 600; font-size: 17.5px; line-height: 1.4;
 }
-.beutel__liste b { font-family: "Bagel Fat One"; font-weight: 400; font-size: 24px; line-height: 1.1; white-space: nowrap; }
+.beutel__liste b { font-family: "True North Dots"; font-weight: 400; font-size: 24px; line-height: 1.1; white-space: nowrap; }
 @media (max-width: 520px) { .beutel__liste li { grid-template-columns: 1fr; row-gap: 2px; } }
 @media (max-width: 800px) { .beutel__inhalt { grid-template-columns: 1fr; } .beutel__bild { width: 60%; } }
 
@@ -291,7 +291,7 @@
 .s2 img { border-radius: 41% 59% 38% 62% / 57% 42% 58% 43%; transform: rotate(2deg); }
 .s3 .schritt__leer { border-radius: 55% 45% 63% 37% / 42% 60% 40% 58%; display: grid; place-content: center; background: repeating-linear-gradient(45deg, #0a4a8a 0 14px, #0d5399 14px 28px); font-weight: 700; }
 .s4 img { border-radius: 47% 53% 36% 64% / 60% 39% 61% 40%; transform: rotate(-1deg); }
-.schritt b { font-family: "Bagel Fat One"; font-weight: 400; font-size: clamp(30px, 3vw, 44px); line-height: 1; color: var(--gelb); }
+.schritt b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(30px, 3vw, 44px); line-height: 1; color: var(--gelb); }
 .schritt span { font-size: 19px; }
 @media (max-width: 700px) {
   .weg__liste { grid-template-columns: 1fr; }
@@ -323,10 +323,10 @@
 .kaufen h2 { font-size: clamp(56px, 9vw, 150px); }
 .kaufen__kette { margin-top: 20px; font-weight: 800; font-size: 18px; }
 .plz { padding: clamp(24px, 3vw, 36px); border-radius: 34px; background: #fff; border: 3px solid var(--tief); box-shadow: 8px 9px 0 var(--tief); }
-.plz label { display: block; font-family: "Bagel Fat One"; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.1; margin-bottom: 18px; }
+.plz label { display: block; font-family: "True North Dots"; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.1; margin-bottom: 18px; }
 .plz__zeile { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 22px; border-radius: 99px; border: 3px solid var(--tief); background: #f3f8ff; }
 .plz__zeile:focus-within { outline: 3px solid var(--blau-text); outline-offset: 3px; }
-.plz input { flex: 1; min-width: 0; border: 0; background: none; padding: 10px 0; font-family: "Bagel Fat One"; font-size: 28px; letter-spacing: .12em; color: var(--tief); }
+.plz input { flex: 1; min-width: 0; border: 0; background: none; padding: 10px 0; font-family: "True North Dots"; font-size: 28px; letter-spacing: .12em; color: var(--tief); }
 .plz input:focus-visible { outline: none; }
 .plz input::placeholder { color: #6b7f96; }
 .plz__zeile .knopf { box-shadow: none; padding: 13px 24px; }
@@ -343,7 +343,7 @@
 .karte::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0, 30, 70, .9) 85%); }
 .karte b, .karte span { text-shadow: 0 1px 3px rgba(0,0,0,.4); }
 .karte b, .karte span { position: absolute; left: 24px; right: 24px; z-index: 1; }
-.karte b { bottom: 58px; font-family: "Bagel Fat One"; font-weight: 400; font-size: clamp(28px, 2.6vw, 40px); line-height: 1; }
+.karte b { bottom: 58px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(28px, 2.6vw, 40px); line-height: 1; }
 .karte span { bottom: 24px; font-weight: 700; }
 .karte:hover { transform: translateY(-6px); }
 @media (max-width: 900px) { .b .trio { grid-template-columns: 1fr; } .karte { aspect-ratio: 4 / 3; } }
@@ -351,7 +351,7 @@
 /* Fuß: Slogan mit gelbem Etikett, drei Sticker-Karten, Siegel über volle Breite */
 .fuss { --fokus: var(--gelb); background: var(--tief); color: #dbe7f8; padding: clamp(72px, 9vw, 120px) var(--seite) 30px; overflow: hidden; }
 .fuss__kopf { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; margin-bottom: 64px; }
-.fuss__gross { margin: 0; font-family: "Bagel Fat One"; font-size: clamp(44px, 6.2vw, 108px); line-height: .92; color: #fff; }
+.fuss__gross { margin: 0; font-family: "True North Dots"; font-size: clamp(44px, 6.2vw, 108px); line-height: .92; color: #fff; }
 .fuss__gross span { display: block; white-space: nowrap; }
 .fuss__etikett { display: inline-block !important; margin-top: .12em; padding: .04em .22em .1em; border-radius: .14em; background: var(--gelb); color: var(--tief); transform: rotate(-2deg); transform-origin: left; box-shadow: .05em .06em 0 #001d3d; }
 .fuss__folgen { display: grid; justify-items: center; gap: 12px; padding-bottom: 10px; }
@@ -375,12 +375,12 @@
 .fuss__karte--gelb { background: var(--gelb); }
 .fuss__karte--gruen { background: var(--gruen); }
 .fuss__karte--weiss { background: #fff; }
-.fuss__karte h2 { margin: 0 0 14px; font-family: "Bagel Fat One"; font-weight: 400; font-size: 28px; line-height: 1; color: var(--tief); }
+.fuss__karte h2 { margin: 0 0 14px; font-family: "True North Dots"; font-weight: 400; font-size: 28px; line-height: 1; color: var(--tief); }
 .fuss__karte p { margin: 0 0 12px; font-weight: 600; }
 .fuss__karte a { color: var(--tief); }
 .fuss__karte .knopf { margin-top: 6px; padding: 11px 22px; }
 .fuss__klein { font-size: 15px; font-weight: 500 !important; }
-.fuss__tel { display: inline-block; font-family: "Bagel Fat One"; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.05; text-decoration: none; }
+.fuss__tel { display: inline-block; font-family: "True North Dots"; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.05; text-decoration: none; }
 .fuss__tel:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
 .status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 99px; background: #fff; border: 2.5px solid var(--tief); font-weight: 800; }
 .status::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: #8a9bb0; }
@@ -419,3 +419,36 @@
   .fuss__siegel img { max-height: 74px; } .fuss__siegel li:nth-child(3) img { max-height: 48px; }
   .fuss__siegel li:nth-child(5) { grid-column: 1 / -1; }
 }
+
+/* ===== Markenauftritt laut Brandbook 2026 ===== */
+.b h1, .b h2, .b h3, .sorte b, .band b, .fuss__karte h2, .fuss__tel, .beutel__liste b, .schritt b, .plz input, .kaufen h2 { font-weight: 400; }
+.aktion__marke { font-weight: 900; font-size: 15px; }
+.notiz { font-weight: 900; }
+.b .weg, .fuss { background: var(--hm-verlauf); }
+.fuss__gross { margin: 0; }
+.fuss__gross img { width: min(100%, 560px); height: auto; }
+.fuss__kuh { width: 220px; padding: 0; border-radius: 0; background: none; filter: drop-shadow(0 14px 22px rgba(0, 20, 60, .4)); }
+.kuehlschrank__magnet { padding: 0; background: none; box-shadow: none; border-radius: 50%; width: 112px; }
+
+/* Beutel: Icons aus dem Brandbook */
+.beutel__icons { list-style: none; margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.beutel__icons li { display: grid; justify-items: center; gap: 10px; padding: 18px 14px; border-radius: 22px; background: #fff; border: 3px solid var(--tief); box-shadow: 4px 5px 0 var(--tief); text-align: center; font-weight: 700; font-size: 16px; line-height: 1.3; }
+.beutel__icons img { width: 72px; height: 72px; object-fit: contain; }
+@media (max-width: 560px) { .beutel__icons { grid-template-columns: 1fr; } .beutel__icons li { grid-template-columns: 56px 1fr; justify-items: start; text-align: left; align-items: center; } .beutel__icons img { width: 56px; height: 56px; } }
+
+/* Werte als farbige Karten, Herz im Hintergrund */
+.b .werte { position: relative; overflow: hidden; background: var(--blau); color: #fff; }
+.werte__herz { position: absolute; left: 50%; top: 52%; width: min(70vw, 820px); transform: translate(-50%, -50%) rotate(-6deg); opacity: .12; pointer-events: none; }
+.werte h2 { position: relative; color: #fff; }
+.werte__liste { position: relative; list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.werte__liste li { padding: 26px 24px; border-radius: 30px; background: var(--f); color: var(--tief); border: 3px solid #001d3d; box-shadow: 6px 7px 0 #001d3d; }
+.werte__liste li:nth-child(odd) { transform: rotate(-1.2deg); }
+.werte__liste li:nth-child(even) { transform: rotate(1.2deg) translateY(14px); }
+.werte__liste h3 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(24px, 2vw, 30px); line-height: 1; margin-bottom: 12px; color: var(--tief); }
+.werte__liste p { font-size: 16.5px; line-height: 1.5; font-weight: 500; }
+.werte__liste b { font-weight: 900; }
+.werte__herzlich { position: relative; margin-top: 56px; text-align: center; font-size: 19px; font-weight: 600; }
+.werte__herz-zeile { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 8px; font-family: "True North Dots"; font-size: clamp(38px, 4vw, 60px); line-height: 1; }
+.werte__herz-zeile img { width: 1.1em; height: auto; }
+@media (max-width: 1000px) { .werte__liste { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .werte__liste { grid-template-columns: 1fr; } .werte__liste li { transform: none !important; } }

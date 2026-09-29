@@ -15,11 +15,11 @@
   --breite: 1320px;
   background: var(--milch);
   color: var(--tinte);
-  font: 400 17px/1.55 "Instrument Sans", system-ui, sans-serif;
+  font: 400 17px/1.55 "Akko Rounded", system-ui, sans-serif;
 }
-.a h1, .a h2, .a h3 { font-family: "Bricolage Grotesque", system-ui, sans-serif; color: var(--tief); margin: 0; }
-.a h2 { font-size: clamp(34px, 4.6vw, 64px); font-weight: 800; line-height: .98; letter-spacing: -.025em; }
-.a h3 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.a h1, .a h2, .a h3 { font-family: "True North Dots", system-ui, sans-serif; color: var(--tief); margin: 0; }
+.a h2 { font-size: clamp(34px, 4.6vw, 64px); font-weight: 800; line-height: .98; letter-spacing: .01em; }
+.a h3 { font-size: 22px; font-weight: 700; letter-spacing: .01em; }
 :where(.a) p { margin: 0; }
 .a section { padding: clamp(64px, 9vw, 128px) max(var(--rand), calc((100vw - var(--breite)) / 2)); }
 
@@ -39,7 +39,7 @@
 
 /* Aktions-Banner */
 .aktion { background: var(--gelb); color: var(--tief); }
-.aktion__marke { font-family: "Bricolage Grotesque"; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 13.5px; background: var(--tief); color: #fff; padding: 5px 12px; border-radius: 99px; }
+.aktion__marke { font-family: "True North Dots"; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 13.5px; background: var(--tief); color: #fff; padding: 5px 12px; border-radius: 99px; }
 .aktion__link { background: var(--tief); color: #fff; }
 .aktion__link:hover { background: #002a55; }
 
@@ -51,7 +51,7 @@
   background: rgba(245, 249, 255, .9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 55, 110, .08);
 }
-.kopf__logo img { width: 92px; height: auto; }
+.kopf__logo img { width: 112px; height: auto; }
 .kopf__nav { display: flex; gap: 22px; flex: 1; font-weight: 600; font-size: 15.5px; }
 .kopf__nav a { text-decoration: none; color: var(--tief); padding: 6px 0; background: linear-gradient(var(--gelb), var(--gelb)) 0 100% / 0 3px no-repeat; transition: background-size .25s; }
 .kopf__nav a:hover { background-size: 100% 3px; }
@@ -78,7 +78,7 @@
     transition: transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s .35s;
   }
   .kopf__nav.ist-offen { transform: none; visibility: visible; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
-  .kopf__nav a { color: #fff; font-family: "Bricolage Grotesque"; font-size: 34px; font-weight: 800; }
+  .kopf__nav a { color: #fff; font-family: "True North Dots"; font-size: 34px; font-weight: 800; }
   .kopf__nav-neben { margin-left: 0; font-size: 22px; }
   .kopf__nav-neben:first-of-type { margin-top: 20px; }
 }
@@ -89,7 +89,8 @@
   min-height: min(84vh, 800px); padding-top: clamp(24px, 3vw, 48px); padding-bottom: clamp(56px, 6vw, 96px);
 }
 .held__ort { font-weight: 600; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--blau-text); margin-bottom: 20px; }
-.held__titel { font-size: clamp(46px, 6.3vw, 104px); font-weight: 800; line-height: .9; letter-spacing: -.04em; }
+.held__titel { font-size: clamp(52px, 7vw, 116px); font-weight: 400; line-height: .92; letter-spacing: .01em; }
+.held__slogan { display: block; width: min(92%, 470px); height: auto; margin: .14em 0 0 -.02em; }
 .held__titel span { display: block; white-space: nowrap; }
 .held__titel em { font-style: normal; color: var(--blau); position: relative; white-space: nowrap; }
 .held__titel em::after {
@@ -130,7 +131,7 @@
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   background: var(--tief); color: #dfeaff; font-size: 15px;
 }
-.fakten b { display: block; font-family: "Bricolage Grotesque"; font-size: 44px; font-weight: 800; line-height: 1; color: #fff; margin-bottom: 6px; }
+.fakten b { display: block; font-family: "True North Dots"; font-size: 44px; font-weight: 800; line-height: 1; color: #fff; margin-bottom: 6px; }
 .fakten li:nth-child(odd) b { color: var(--gelb); }
 @media (max-width: 800px) { .fakten { grid-template-columns: 1fr 1fr; } }
 
@@ -200,7 +201,7 @@
 .gruppe--butter .gruppe__bilder img, .gruppe--dessert .gruppe__bilder img { width: 50%; max-width: 270px; }
 .gruppe--quark .gruppe__bilder img { width: 62%; max-width: 250px; }
 
-.gruppe__name { padding-right: 56px; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(28px, 2.6vw, 38px); line-height: 1; letter-spacing: -.02em; color: var(--tief); }
+.gruppe__name { padding-right: 56px; font-family: "True North Dots"; font-weight: 800; font-size: clamp(28px, 2.6vw, 38px); line-height: 1; letter-spacing: .01em; color: var(--tief); }
 .gruppe__info { margin-top: 8px; font-size: 15px; }
 .gruppe__bilder { position: relative; flex: 1; display: flex; justify-content: center; align-items: flex-end; margin-top: 16px; }
 .gruppe__bilder img {
@@ -260,7 +261,7 @@
   position: relative; display: grid; gap: 4px; padding: 20px 22px; border-radius: 22px;
   background: rgba(0, 30, 80, .32); border: 1px solid rgba(255,255,255,.18); text-align: left;
 }
-.beutel__fakten b { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(34px, 3.2vw, 48px); line-height: 1; letter-spacing: -.03em; color: var(--gelb); }
+.beutel__fakten b { font-family: "True North Dots"; font-weight: 800; font-size: clamp(34px, 3.2vw, 48px); line-height: 1; letter-spacing: .01em; color: var(--gelb); }
 .beutel__fakten span { font-size: 16.5px; line-height: 1.45; }
 /* Verbindungslinie mit Punkt Richtung Beutel */
 .beutel__fakten li::after { content: ""; position: absolute; top: 50%; width: clamp(16px, 3vw, 48px); border-top: 2px dashed rgba(255,255,255,.55); }
@@ -280,7 +281,7 @@
 .vergleich__balken { display: flex; align-items: center; height: 40px; width: calc(var(--anteil) * 100%); padding: 0 14px; border-radius: 10px; background: #dbe5f1; transform-origin: left; transition: transform 1.2s .3s cubic-bezier(.2,.7,.2,1); }
 .vergleich__balken b { white-space: nowrap; font-weight: 700; font-size: 15px; }
 .vergleich__zeile--hemme .vergleich__balken { background: var(--gelb); }
-.vergleich__zeile--hemme .vergleich__balken b { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 18px; }
+.vergleich__zeile--hemme .vergleich__balken b { font-family: "True North Dots"; font-weight: 800; font-size: 18px; }
 .js .vergleich:not(.ist-drin) .vergleich__balken { transform: scaleX(.05); }
 
 @media (max-width: 1000px) {
@@ -304,7 +305,7 @@
 .uhr circle { fill: none; stroke-width: 7; }
 .uhr__ring { stroke: #d5e3f5; }
 .uhr__lauf { stroke: var(--gelb); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--lauf, 0) * 100); }
-.uhr__zahl { position: absolute; inset: 0; display: grid; place-content: center; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 54px; color: var(--tief); letter-spacing: -.04em; }
+.uhr__zahl { position: absolute; inset: 0; display: grid; place-content: center; font-family: "True North Dots"; font-weight: 800; font-size: 54px; color: var(--tief); letter-spacing: .01em; }
 .uhr__h { position: absolute; right: 30px; bottom: 44px; font-weight: 700; color: var(--blau-text); }
 
 .kette__band {
@@ -334,7 +335,7 @@
   position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 20px 18px;
   background: linear-gradient(transparent, rgba(0, 25, 55, .9) 60%); font-size: 16px; text-shadow: 0 1px 2px rgba(0,0,0,.4);
 }
-.kachel b { display: block; font-family: "Bricolage Grotesque"; font-size: 22px; }
+.kachel b { display: block; font-family: "True North Dots"; font-size: 22px; }
 .live { position: absolute; top: 16px; left: 16px; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 99px; background: #c8102e; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: puls 1.4s 3; }
 @keyframes puls { 50% { opacity: .2; } }
@@ -359,7 +360,7 @@
 .land { fill: #fff; stroke: var(--klee, #3fab3c); stroke-width: 3; stroke-dasharray: 2 6; stroke-linecap: round; }
 .stadt { fill: var(--blau); opacity: .18; }
 .hof-punkt { fill: var(--gelb); stroke: var(--tief); stroke-width: 3; }
-.kaufen__karte text { font: 700 14px "Instrument Sans"; fill: var(--tief); }
+.kaufen__karte text { font: 700 14px "Akko Rounded"; fill: var(--tief); }
 .kaufen__hinweis { text-align: center; font-size: 14px; color: #3d5470; margin-top: 8px; }
 @media (max-width: 800px) { .a .kaufen { grid-template-columns: 1fr; } }
 
@@ -371,7 +372,7 @@
 .duo__text { position: absolute; inset: auto 0 0 0; display: flex; flex-direction: column; gap: 6px; padding: 90px 28px 28px; background: linear-gradient(transparent, rgba(0, 25, 55, .9) 55%); text-shadow: 0 1px 2px rgba(0,0,0,.35); }
 .duo__marke { text-shadow: none; }
 .duo__karte { container-type: inline-size; }
-.duo__text b { font-family: "Bricolage Grotesque"; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.02; }
+.duo__text b { font-family: "True North Dots"; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.02; }
 /* Desktop: Überschrift immer einzeilig, Größe wächst mit der Kartenbreite */
 @media (min-width: 1001px) { .duo__text b { white-space: nowrap; font-size: clamp(22px, 5.2cqi, 38px); } }
 .duo__marke { align-self: flex-start; padding: 4px 12px; border-radius: 99px; background: var(--gelb); color: var(--tief); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; }
@@ -398,14 +399,14 @@
 }
 .fuss:hover .fuss__kuh { transform: rotate(4deg) translateY(-8px); }
 .fuss__slogan {
-  margin: 0 0 56px; padding-right: 200px; font-family: "Bricolage Grotesque"; font-weight: 800;
-  font-size: clamp(40px, 6.4vw, 96px); line-height: .92; letter-spacing: -.035em; color: #fff;
+  margin: 0 0 56px; padding-right: 200px; font-family: "True North Dots"; font-weight: 800;
+  font-size: clamp(40px, 6.4vw, 96px); line-height: .92; letter-spacing: .01em; color: #fff;
 }
 .fuss__slogan span { display: block; }
 .fuss__slogan span + span { color: var(--gelb); }
 .fuss__raster { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 20px; }
 .fuss__block { padding: 26px; border-radius: 24px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12); }
-.fuss h2 { font-family: "Bricolage Grotesque"; font-size: 20px; font-weight: 800; color: #fff; margin: 0 0 14px; letter-spacing: -.01em; }
+.fuss h2 { font-family: "True North Dots"; font-size: 20px; font-weight: 800; color: #fff; margin: 0 0 14px; letter-spacing: .01em; }
 .fuss p { margin: 0 0 12px; }
 .fuss a { color: #fff; }
 .fuss__klein { font-size: 15px; color: #c3d6ef; }
@@ -414,7 +415,7 @@
   background: var(--gelb); color: var(--tief) !important; font-weight: 700; text-decoration: none; transition: transform .2s;
 }
 .fuss__knopf:hover { transform: translateY(-2px); }
-.fuss__tel { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 30px; letter-spacing: -.02em; text-decoration: none; }
+.fuss__tel { font-family: "True North Dots"; font-weight: 800; font-size: 30px; letter-spacing: .01em; text-decoration: none; }
 .fuss__tel:hover { text-decoration: underline; text-decoration-color: var(--gelb); text-underline-offset: 5px; }
 .status { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 99px; background: rgba(255,255,255,.1); font-weight: 700; color: #fff; }
 .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #9fb3c8; }
@@ -462,3 +463,38 @@
 }
 @media (max-width: 900px) { .fuss__siegel ul { grid-template-columns: repeat(3, 1fr); row-gap: 20px; } .fuss__siegel li:nth-child(4) { border-left: 0; } }
 @media (max-width: 520px) { .fuss__siegel ul { grid-template-columns: 1fr 1fr; } .fuss__siegel li { height: 84px; border-left: 0 !important; } .fuss__siegel li:nth-child(5) { grid-column: 1 / -1; } }
+
+/* ===== Markenauftritt laut Brandbook 2026 ===== */
+/* Kleine Auszeichnungen in Akko Rounded Black, True North Dots nur ab Headline-Größe */
+.aktion__marke { font-family: "Akko Rounded", sans-serif; font-weight: 900; }
+.gruppe__name, .fakten b, .beutel__fakten b, .uhr__zahl { font-weight: 400; }
+.a h2, .a h3 { font-weight: 400; }
+/* Dunkle Flächen im Marken-Verlauf */
+.fakten, .fuss { background: var(--hm-verlauf); }
+.fuss__block { background: rgba(12, 41, 117, .45); border-color: rgba(255,255,255,.18); }
+.fuss__kuh { width: 230px; padding: 0; border-radius: 0; background: none; box-shadow: none; top: -92px; filter: drop-shadow(0 16px 24px rgba(0, 20, 60, .35)); }
+.fuss__slogan { padding-right: 260px; }
+.fuss__slogan img { width: min(100%, 520px); height: auto; }
+@media (max-width: 900px) { .fuss__kuh { width: 150px; top: -64px; } .fuss__slogan { padding-right: 0; } }
+
+/* Beutel: Vorteile mit den Icons aus dem Brandbook */
+.beutel__fakten li.mit-icon { grid-template-columns: 64px 1fr; align-items: center; column-gap: 16px; }
+.beutel__fakten li.mit-icon img { width: 64px; height: 64px; object-fit: contain; }
+.beutel__fakten li.mit-icon strong { display: block; font-family: "True North Dots"; font-weight: 400; font-size: clamp(22px, 1.9vw, 28px); line-height: 1.05; color: var(--gelb); margin-bottom: 2px; }
+
+/* Werte: Texte aus Brandbook und Verpackung, Herz als Gestaltungselement im Hintergrund */
+.a .werte { position: relative; overflow: hidden; background: var(--hm-verlauf); color: #fff; }
+.werte__herz { position: absolute; right: -6%; top: 50%; width: min(58vw, 760px); transform: translateY(-50%) rotate(-8deg); opacity: .09; pointer-events: none; }
+.werte__kopf { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 44px; }
+.werte h2 { color: #fff; }
+.werte__siegel { width: 150px; height: auto; flex: none; }
+.werte__liste { position: relative; list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.werte__liste li { flex: 0 1 calc((100% - 40px) / 3); padding: 26px; border-radius: 24px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
+.werte__liste h3 { color: var(--gelb); font-size: clamp(24px, 2vw, 30px); margin-bottom: 10px; }
+.werte__liste p { font-size: 17px; line-height: 1.5; }
+.werte__liste b { font-weight: 700; }
+.werte__herzlich { position: relative; margin-top: 40px; font-size: 19px; text-align: center; }
+.werte__herz-zeile { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 8px; font-family: "True North Dots"; font-size: clamp(34px, 3.4vw, 52px); line-height: 1; }
+.werte__herz-zeile img { width: 1.1em; height: auto; }
+@media (max-width: 900px) { .werte__liste li { flex-basis: calc((100% - 20px) / 2); } .werte__siegel { width: 110px; } }
+@media (max-width: 560px) { .werte__liste li { flex-basis: 100%; } }

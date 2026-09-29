@@ -1,6 +1,13 @@
 /* Gemeinsame Grundlage beider Entwürfe: Schriften, Reset, Vorschauleiste.
    Farben und Typografie sind vorläufig, bis das Brandbook von Hemme vorliegt. */
 
+/* Hausschriften laut Brandbook 2026: True North Dots für Headlines und Produktnamen,
+   Akko Rounded für Texte. Vor dem Livegang Web-Lizenzen bei MyFonts/Linotype klären. */
+@font-face { font-family: "True North Dots"; src: url("../fonts/marke/TrueNorthDots-Black.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Medium.woff2") format("woff2"); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
+@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Black.woff2") format("woff2"); font-weight: 800 900; font-display: swap; }
 @font-face { font-family: "Bricolage Grotesque"; src: url("../fonts/bricolage.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
 @font-face { font-family: "Instrument Sans"; src: url("../fonts/instrument-sans.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
 @font-face { font-family: "Bagel Fat One"; src: url("../fonts/bagel-fat-one.woff2") format("woff2"); font-weight: 400; font-display: swap; }
@@ -12,9 +19,11 @@
      #008fff erreicht mit weißer Schrift nur 3,3:1. Für Schrift und Flächen mit Schrift
      gibt es deshalb zwei barrierearme Abstufungen (WCAG AA, mindestens 4,5:1). */
   --hm-blau: #008fff;
-  --hm-blau-flaeche: #0070e0; /* weiße Schrift darauf 4,8:1 */
+  --hm-blau-flaeche: #006ec6; /* Logo-Blau (Pantone 300C), weiße Schrift darauf 5,2:1 */
   --hm-blau-text: #0066cc;    /* auf Weiß 5,6:1 */
-  --hm-tiefblau: #00376e;
+  --hm-tiefblau: #0c2975;     /* Tiefblau aus dem Marken-Hintergrund */
+  /* Marken-Hintergrund aus dem Brandbook: Tiefblau außen, helles Blau in der Mitte. Weiße Schrift überall ≥ 5:1 */
+  --hm-verlauf: linear-gradient(90deg, #0c2975 0%, #083c87 22%, #0173ba 50%, #064d97 78%, #0c2975 100%);
   --hm-gruen: #6eff00;
   --hm-klee: #3fab3c;
   --hm-gelb: #ffa611;
