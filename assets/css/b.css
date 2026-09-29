@@ -104,7 +104,9 @@
    Tür: rechts angeschlagen, per perspective geöffnet, mit zwei Türfächern. */
 .kuehlschrank {
   position: relative; z-index: 3; justify-self: start;
-  width: min(62%, 370px); height: min(100%, 560px); max-height: calc(100svh - var(--ueber-hero, 0px) - 190px);
+  /* Feste Proportion: wächst als Ganzes, statt nur höher zu werden */
+  width: min(21vw, calc((100svh - var(--ueber-hero, 0px) - 190px) * .66), 440px);
+  height: auto; aspect-ratio: .66; max-height: none;
   margin-left: 0; perspective: 1400px; perspective-origin: 30% 50%;
 }
 /* Schatten auf dem Boden */
@@ -439,7 +441,7 @@
 /* Werte als farbige Karten, Herz im Hintergrund */
 .b .werte { position: relative; overflow: hidden; background: var(--blau); color: #fff; }
 .werte__herz { position: absolute; left: 50%; top: 52%; width: min(70vw, 820px); transform: translate(-50%, -50%) rotate(-6deg); opacity: .12; pointer-events: none; }
-.werte h2 { position: relative; color: #fff; }
+.werte h2 { position: relative; color: #fff; text-align: center; }
 .werte__liste { position: relative; list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .werte__liste li { padding: 26px 24px; border-radius: 30px; background: var(--f); color: var(--tief); border: 3px solid #001d3d; box-shadow: 6px 7px 0 #001d3d; }
 .werte__liste li:nth-child(odd) { transform: rotate(-1.2deg); }
@@ -452,3 +454,22 @@
 .werte__herz-zeile img { width: 1.1em; height: auto; }
 @media (max-width: 1000px) { .werte__liste { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .werte__liste { grid-template-columns: 1fr; } .werte__liste li { transform: none !important; } }
+
+/* Kühlschrank-Inhalt: größere Produkte, Fächer gefüllt, Tür-Beutel groß */
+.kuehlschrank__innen { padding-top: 20px; }
+.fach { gap: 0; padding: 0 3% 14px; }
+.fach img { width: 36%; max-height: 96%; margin: 0 -2%; }
+.fach:nth-child(2) img { width: 38%; }
+.kuehlschrank__schublade { height: 13%; min-height: 48px; }
+.tuerfach img { width: 58%; margin: 0 -8%; }
+.kuehlschrank__magnet { width: clamp(90px, 22%, 130px); top: -34px; left: -40px; }
+
+/* Footer-Kopf: Logo und Slogan als ruhiger Markenblock, mittig, mit Trennlinie */
+.fuss__marke { display: flex; justify-content: center; align-items: center; gap: clamp(28px, 5vw, 72px); margin: 0 0 clamp(48px, 5vw, 72px); }
+.fuss__marke-logo { width: clamp(150px, 16vw, 230px); height: auto; filter: drop-shadow(0 14px 22px rgba(0, 20, 60, .35)); }
+.fuss__marke-slogan { width: clamp(200px, 26vw, 380px); height: auto; padding-left: clamp(28px, 5vw, 72px); border-left: 2px solid rgba(255,255,255,.35); }
+@media (max-width: 600px) { .fuss__marke { flex-direction: column; gap: 24px; } .fuss__marke-slogan { padding: 24px 0 0; border-left: 0; border-top: 2px solid rgba(255,255,255,.35); } }
+
+/* Trio: Überschriften einzeilig, Größe wächst mit der Karte */
+.karte { container-type: inline-size; }
+.karte b { white-space: nowrap; font-size: min(40px, 7cqi); }

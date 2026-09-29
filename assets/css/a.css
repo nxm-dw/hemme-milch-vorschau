@@ -498,3 +498,9 @@
 .werte__herz-zeile img { width: 1.1em; height: auto; }
 @media (max-width: 900px) { .werte__liste li { flex-basis: calc((100% - 20px) / 2); } .werte__siegel { width: 110px; } }
 @media (max-width: 560px) { .werte__liste li { flex-basis: 100%; } }
+
+/* Footer-Kopf: Logo und Slogan als ruhiger Markenblock, mittig, mit Trennlinie */
+.fuss__marke { display: flex; justify-content: center; align-items: center; gap: clamp(28px, 5vw, 72px); margin: 0 0 clamp(48px, 5vw, 72px); }
+.fuss__marke-logo { width: clamp(150px, 16vw, 230px); height: auto; filter: drop-shadow(0 14px 22px rgba(0, 20, 60, .35)); }
+.fuss__marke-slogan { width: clamp(200px, 26vw, 380px); height: auto; padding-left: clamp(28px, 5vw, 72px); border-left: 2px solid rgba(255,255,255,.35); }
+@media (max-width: 600px) { .fuss__marke { flex-direction: column; gap: 24px; } .fuss__marke-slogan { padding: 24px 0 0; border-left: 0; border-top: 2px solid rgba(255,255,255,.35); } }
