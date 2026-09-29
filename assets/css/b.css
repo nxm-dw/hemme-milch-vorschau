@@ -512,3 +512,6 @@
 .fuss__wiese img { object-position: 50% 70%;
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 45%);
           mask-image: linear-gradient(180deg, transparent 0%, #000 45%); }
+
+/* „Kühlschrank.“-Etikett: Platz für Umlaut-Punkte, Schrift optisch mittig im Balken */
+.buehne__titel .z4 { line-height: 1; padding: .2em .26em .1em; }
