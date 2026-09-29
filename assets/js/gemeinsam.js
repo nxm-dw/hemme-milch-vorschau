@@ -7,6 +7,9 @@
 (function () {
   "use strict";
 
+  /* Letztes Wort an das vorletzte binden: kein Wort steht allein in der letzten Zeile */
+  function ohneWaise(t) { return String(t).replace(/\s+(\S+)\s*$/, "\u00a0$1"); }
+
   /* ---------- 1. Aktions-Banner ----------
      Jede Aktion hat ein Start- und ein Enddatum. Ist keine Aktion aktiv,
      bleibt der Banner weg und die Startseite zeigt die Standardansicht.
@@ -58,7 +61,7 @@
     var schluessel = a ? "aktion-" + a.von + "-" + a.bis : "";
     if (!a || gemerkt(schluessel)) { el.remove(); return; }
     el.querySelector("[data-aktion-marke]").textContent = a.marke;
-    el.querySelector("[data-aktion-text]").textContent = a.text;
+    el.querySelector("[data-aktion-text]").textContent = ohneWaise(a.text);
     var l = el.querySelector("[data-aktion-link]");
     l.href = a.link; l.querySelector("[data-aktion-linktext]").textContent = a.linktext;
     var bild = el.querySelector("[data-aktion-bild]");
@@ -135,13 +138,13 @@
       ev.preventDefault();
       var plz = (form.querySelector("input").value || "").trim();
       if (!/^\d{5}$/.test(plz)) {
-        ausgabe.textContent = "Bitte eine fünfstellige Postleitzahl eingeben, zum Beispiel 10115.";
+        ausgabe.textContent = ohneWaise("Bitte eine fünfstellige Postleitzahl eingeben, zum Beispiel 10115.");
         return;
       }
       var imGebiet = /^(1[0-6]|1[7-9]|03|04|14|15)/.test(plz);
-      ausgabe.textContent = imGebiet
+      ausgabe.textContent = ohneWaise(imGebiet
         ? "Vorschau: Hier erscheinen die Märkte rund um " + plz + ", sobald Hemme die Liste der Verkaufsstellen geliefert hat."
-        : "Vorschau: " + plz + " liegt außerhalb von Berlin und Brandenburg. Hier steht später der Hinweis auf den Milchladen und den Milchmann-Service.";
+        : "Vorschau: " + plz + " liegt außerhalb von Berlin und Brandenburg. Hier steht später der Hinweis auf den Milchladen und den Milchmann-Service.");
     });
   });
 
@@ -160,7 +163,7 @@
     else if (offenerTag && min < 660) text = "Heute ab 11 Uhr geöffnet";
     else if (tag === 1 || tag === 2 || (tag === 0 && min >= 1080)) text = "Wieder offen ab Mittwoch, 11 Uhr";
     else text = "Morgen ab 11 Uhr geöffnet";
-    el.textContent = text;
+    el.textContent = ohneWaise(text);
   });
 
   /* Jahreszahl im Fuß */

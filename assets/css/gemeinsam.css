@@ -19,9 +19,11 @@
   --hm-tiefblau: #0c2975;     /* Tiefblau aus dem Marken-Hintergrund */
   /* Marken-Hintergrund aus dem Brandbook: Tiefblau außen, helles Blau in der Mitte. Weiße Schrift überall ≥ 5:1 */
   --hm-verlauf: linear-gradient(90deg, #0c2975 0%, #083c87 22%, #0173ba 50%, #064d97 78%, #0c2975 100%);
-  --hm-gruen: #6eff00;
+  /* Grün und Gelb wie in den Brandbook-Grafiken und im Druck (Pantone 368C / 137C).
+     Die im Brandbook genannten HEX-Werte #6EFF00 / #FFA611 wären deutlich greller. */
+  --hm-gruen: #61bf1a;
   --hm-klee: #3fab3c;
-  --hm-gelb: #ffa611;
+  --hm-gelb: #f7a30a;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -43,13 +45,13 @@ button, input { font: inherit; }
   position: absolute; left: 16px; top: -100px; z-index: 200; padding: 12px 20px; border-radius: 12px;
   background: #00376e; color: #fff; font: 700 16px/1 "Akko Rounded", system-ui, sans-serif; text-decoration: none;
 }
-.sprung:focus { top: 12px; --fokus: #ffa611; }
+.sprung:focus { top: 12px; --fokus: #f7a30a; }
 .nur-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 body.menue-offen { overflow: hidden; }
 
 /* Vorschauleiste: nur in der Abstimmungsphase, fliegt vor dem Livegang raus */
 .vorschau {
-  --fokus: #ffa611;
+  --fokus: #f7a30a;
   position: relative; z-index: 100;
   display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap;
   padding: 7px 16px; background: #111; color: #eee;
@@ -94,3 +96,10 @@ body.menue-offen { overflow: hidden; }
   .aktion__text { flex-basis: calc(100% - 60px); font-size: 15px; }
   .aktion__zu { top: 12px; transform: none; }
 }
+
+/* Maßeinheiten in Akko Rounded, weil True North Dots nur Versalien hat (14 g statt 14 G) */
+.einheit { font-family: "Akko Rounded", sans-serif; font-weight: 900; font-size: .72em; letter-spacing: 0; text-transform: none; }
+
+/* Keine einzelnen Wörter allein in einer Zeile: Überschriften ausbalanciert, Fließtext mit schönem Umbruch */
+h1, h2, h3, figcaption, .knopf, b, strong { text-wrap: balance; }
+p, li, dd, dt, span, label { text-wrap: pretty; }
