@@ -473,3 +473,16 @@
 /* Trio: Überschriften einzeilig, Größe wächst mit der Karte */
 .karte { container-type: inline-size; }
 .karte b { white-space: nowrap; font-size: min(40px, 7cqi); }
+
+/* Siegelleiste: vier Siegel (natürlich Brandenburg entfällt, Wunsch Hemme 29.09.2026) */
+.fuss__siegel ul { grid-template-columns: repeat(4, 1fr); }
+.fuss__siegel li img { max-height: 96px !important; }
+.fuss__siegel li:nth-child(2) img { max-height: 60px !important; }
+.fuss__siegel li:nth-child(3) img { max-height: 90px !important; }
+.fuss__siegel li:nth-child(4), .fuss__siegel li:nth-child(5) { grid-column: auto; }
+@media (max-width: 900px) { .fuss__siegel ul { grid-template-columns: repeat(4, 1fr); } .fuss__siegel li:nth-child(4) { border-left: inherit; } }
+@media (max-width: 600px) {
+  .fuss__siegel ul { grid-template-columns: 1fr 1fr; row-gap: 18px; }
+  .fuss__siegel li { height: 84px; border-left: 0 !important; }
+  .fuss__siegel li img { max-height: 76px !important; } .fuss__siegel li:nth-child(2) img { max-height: 46px !important; }
+}

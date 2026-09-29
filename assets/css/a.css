@@ -504,3 +504,16 @@
 .fuss__marke-logo { width: clamp(150px, 16vw, 230px); height: auto; filter: drop-shadow(0 14px 22px rgba(0, 20, 60, .35)); }
 .fuss__marke-slogan { width: clamp(200px, 26vw, 380px); height: auto; padding-left: clamp(28px, 5vw, 72px); border-left: 2px solid rgba(255,255,255,.35); }
 @media (max-width: 600px) { .fuss__marke { flex-direction: column; gap: 24px; } .fuss__marke-slogan { padding: 24px 0 0; border-left: 0; border-top: 2px solid rgba(255,255,255,.35); } }
+
+/* Siegelleiste: vier Siegel (natürlich Brandenburg entfällt, Wunsch Hemme 29.09.2026) */
+.fuss__siegel ul { grid-template-columns: repeat(4, 1fr); }
+.fuss__siegel li img { max-height: 96px !important; }
+.fuss__siegel li:nth-child(2) img { max-height: 60px !important; }
+.fuss__siegel li:nth-child(3) img { max-height: 90px !important; }
+.fuss__siegel li:nth-child(4), .fuss__siegel li:nth-child(5) { grid-column: auto; }
+@media (max-width: 900px) { .fuss__siegel ul { grid-template-columns: repeat(4, 1fr); } .fuss__siegel li:nth-child(4) { border-left: inherit; } }
+@media (max-width: 600px) {
+  .fuss__siegel ul { grid-template-columns: 1fr 1fr; row-gap: 18px; }
+  .fuss__siegel li { height: 84px; border-left: 0 !important; }
+  .fuss__siegel li img { max-height: 76px !important; } .fuss__siegel li:nth-child(2) img { max-height: 46px !important; }
+}
