@@ -558,3 +558,9 @@
 .fuss__wiese img { object-position: 50% 100%;
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.08) 22%, rgba(0,0,0,.35) 42%, rgba(0,0,0,.75) 62%, #000 80%);
           mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.08) 22%, rgba(0,0,0,.35) 42%, rgba(0,0,0,.75) 62%, #000 80%); }
+
+/* Sorten als Liste untereinander, mit kleinem Punkt in der Scheibenfarbe */
+.gruppe__sorten { display: grid; gap: 6px; margin-top: 14px; font-size: 16px; }
+.gruppe__sorten span { display: flex; align-items: center; gap: 10px; }
+.gruppe__sorten span::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--scheibe); box-shadow: 0 0 0 2px var(--tief); }
+.gruppe__sorten span:not(:last-child)::after { content: none; }
