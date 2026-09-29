@@ -552,3 +552,9 @@
 
 /* Welle sitzt direkt auf dem Footer, keine Lücke */
 .welle + .fuss { margin-top: 0; }
+
+/* Wiese läuft weich aus dem Verlauf heraus: langer, gestufter Übergang statt harter Kante */
+.fuss__wiese { height: clamp(180px, 22vw, 380px); margin-top: clamp(8px, 1vw, 16px); }
+.fuss__wiese img { object-position: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.08) 22%, rgba(0,0,0,.35) 42%, rgba(0,0,0,.75) 62%, #000 80%);
+          mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.08) 22%, rgba(0,0,0,.35) 42%, rgba(0,0,0,.75) 62%, #000 80%); }
