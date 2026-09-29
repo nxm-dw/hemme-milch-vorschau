@@ -515,3 +515,8 @@
 
 /* „Kühlschrank.“-Etikett: Platz für Umlaut-Punkte, Schrift optisch mittig im Balken */
 .buehne__titel .z4 { line-height: 1; padding: .2em .26em .1em; }
+
+/* PLZ-Karte: innerhalb des Seitenrasters, nicht bis an den Rand */
+.b .kaufen { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+.plz { width: 100%; max-width: 560px; justify-self: end; box-sizing: border-box; }
+@media (max-width: 800px) { .plz { justify-self: stretch; max-width: none; } }
