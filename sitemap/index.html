@@ -15,7 +15,7 @@
   .s p { margin: 0 0 12px; }
 
   .kopf { position: relative; overflow: hidden; margin: 0 -16px 56px; padding: 56px 16px 64px; background: var(--hm-verlauf); color: #fff; text-align: center; }
-  .kopf img.logo { width: 150px; margin: 0 auto 18px; filter: drop-shadow(0 12px 20px rgba(0,20,60,.35)); }
+  .kopf img.logo { width: 170px; height: auto; margin: 0 auto 18px; filter: drop-shadow(0 12px 20px rgba(0,20,60,.35)); }
   .kopf h1 { color: #fff; font-size: clamp(40px, 5.6vw, 80px); line-height: 1; }
   .kopf p { max-width: 40em; margin: 18px auto 0; color: #e3eeff; }
   .termin { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 8px 18px; border-radius: 99px; background: var(--hm-gelb); color: var(--tief); font-weight: 900; }
@@ -106,6 +106,31 @@
   }
   .menue .ast .nr { justify-self: start; }
   .menue .ast { min-width: 0; }
+
+  /* Wege als Ablauf: eine Zeile je Besucher, Schritte mit Pfeilen nebeneinander */
+  .unter { width: fit-content; }
+  .wege { grid-template-columns: 1fr; gap: 12px; max-width: 1040px; margin: 0 auto; }
+  .weg { display: grid; grid-template-columns: 230px 1fr; align-items: center; gap: 16px 24px; padding: 18px 22px; }
+  .weg h3 { margin: 0; font-size: 22px; line-height: 1.1; }
+  .weg ol { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 0; }
+  .weg li { align-items: center; padding: 10px 14px; border-radius: 14px; background: #f0f5fc; border: 1px solid #dbe6f3; font-weight: 700; }
+  .weg li:last-child { background: #e2f4d6; border-color: #bfe3a8; }
+  .weg li + li { margin-left: 34px; position: relative; }
+  .weg li + li::after { content: "→"; position: absolute; left: -26px; top: 50%; transform: translateY(-50%); color: var(--hm-blau-flaeche); font-weight: 900; font-size: 18px; }
+  @media (max-width: 800px) {
+    .weg { grid-template-columns: 1fr; }
+    .weg ol { flex-direction: column; align-items: stretch; gap: 22px; }
+    .weg li + li { margin-left: 0; }
+    .weg li + li::after { content: "↓"; left: 50%; top: -20px; transform: translateX(-50%); }
+  }
+
+  @media (min-width: 801px) {
+    .wege { max-width: 1180px; }
+    .weg { grid-template-columns: 200px 1fr; }
+    .weg ol { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 34px; }
+    .weg li + li { margin-left: 0; }
+    .weg li { height: 100%; }
+  }
   @media print { .vorschau { display: none; } .kopf { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 </style>
 </head>
@@ -268,7 +293,7 @@
   </div>
 
   <h2>Wege durch die Seite</h2>
-  <p class="unter">So finden die wichtigsten Besuchergruppen in wenigen Klicks ans&nbsp;Ziel.</p>
+  <p class="unter">So finden die wichtigsten Besuchergruppen in drei Schritten ans&nbsp;Ziel.</p>
   <div class="wege">
     <div class="weg"><h3>Familie aus&nbsp;Berlin</h3><ol><li>Instagram-Beitrag mit&nbsp;Kälbchen</li><li>Startseite, Hof&nbsp;erleben</li><li>Öffnungszeiten und&nbsp;Anfahrt</li></ol></div>
     <div class="weg"><h3>Kundin im Supermarkt</h3><ol><li>Sucht „Hemme Milch&nbsp;kaufen“</li><li>Wo&nbsp;kaufen</li><li>Postleitzahl, nächster&nbsp;Markt</li></ol></div>
