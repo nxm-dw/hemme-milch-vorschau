@@ -76,6 +76,36 @@
 
   @media (max-width: 1100px) { .menue { grid-template-columns: repeat(3, 1fr); } .menue::before, .ast::before { display: none; } .linie { display: none; } .start { margin-bottom: 20px; } }
   @media (max-width: 640px) { .menue, .neben { grid-template-columns: 1fr; } }
+
+  /* Lesbarer Aufbau: eine Zeile je Menüpunkt, Unterseiten als Kacheln nebeneinander */
+  .start { justify-content: flex-start; }
+  .linie { display: none; }
+  .menue { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 0 0 0 34px; margin-top: 16px; border-left: 3px solid #b6c8df; margin-left: 30px; }
+  .menue::before { content: none; }
+  .menue .ast { display: grid; grid-template-columns: 220px 1fr; gap: 6px 28px; align-items: start; padding: 20px 24px; }
+  .menue .ast::before { content: ""; position: absolute; top: 36px; left: -37px; width: 34px; height: 3px; background: #b6c8df; }
+  .menue .ast .nr { grid-column: 1; margin-bottom: 6px; }
+  .menue .ast h3 { grid-column: 1; font-size: 26px; }
+  .menue .ast ul { grid-column: 2; grid-row: 1 / span 3; display: flex; flex-wrap: wrap; gap: 8px; font-size: 16px; }
+  .menue .ast li { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 12px; background: #f0f5fc; border: 1px solid #dbe6f3; }
+  .menue .ast li::before { content: none; }
+  .menue .ast small { grid-column: 2; margin-top: 4px; padding-top: 0; border-top: 0; font-size: 14.5px; }
+  .menue .ast .marke { margin-left: 2px; }
+  .neben { margin-left: 64px; }
+  .neben .ast ul { display: flex; flex-wrap: wrap; gap: 8px; }
+  .neben .ast li { padding: 7px 13px; border-radius: 12px; background: rgba(255,255,255,.7); border: 1px solid #e3d4a8; }
+  .neben .ast--fuss li { border-color: #d4dde8; }
+  .neben .ast li::before { content: none; }
+  .neben .ast h3 { margin-bottom: 12px; }
+  @media (max-width: 800px) {
+    .menue { margin-left: 10px; padding-left: 18px; }
+    .menue .ast { grid-template-columns: 1fr; }
+    .menue .ast::before { left: -21px; width: 18px; }
+    .menue .ast ul, .menue .ast small { grid-column: 1; grid-row: auto; }
+    .neben { margin-left: 0; }
+  }
+  .menue .ast .nr { justify-self: start; }
+  .menue .ast { min-width: 0; }
   @media print { .vorschau { display: none; } .kopf { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 </style>
 </head>
@@ -110,7 +140,7 @@
         <span class="nr">Menü 1</span>
         <h3>Produkte</h3>
         <ul>
-          <li><span>Übersicht mit Umschalter „Für zuhause“ und „Für Gastro &amp;&nbsp;Handel“ <span class="marke m-h">Hemme</span></span></li>
+          <li><span>Übersicht: Für zuhause / Für Gastro &amp;&nbsp;Handel <span class="marke m-h">Hemme</span></span></li>
           <li>Milch</li><li>Joghurt</li><li>Butter &amp;&nbsp;Buttermilch</li><li>Quark</li><li>Milchgetränke</li><li>Dessert</li>
           <li><span>Neuheiten <span class="marke m-h">Hemme</span></span></li>
           <li><span>Der Milchbeutel <span class="marke m-k">Kick-off</span></span></li>
