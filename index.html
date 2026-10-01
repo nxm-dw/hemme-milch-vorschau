@@ -4,35 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Hemme Milch · Startseite, zwei Entwürfe</title>
+<title>Hemme Milch · Neue Website</title>
 <link rel="icon" href="assets/img/kuh-kopf.svg">
+<link rel="preload" href="assets/fonts/marke/TrueNorthDots-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/gemeinsam.css">
 <style>
-  body { background: #00376e; color: #fff; font: 400 17px/1.5 "Akko Rounded", system-ui, sans-serif; min-height: 100vh; }
-  main { max-width: 1180px; margin: 0 auto; padding: 56px 16px; }
-  .logo { width: 150px; margin-bottom: 26px; }
-  h1 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(40px, 6vw, 76px); line-height: .95; margin: 0 0 14px; }
-  p { margin: 0 0 12px; max-width: 42em; color: #d6e6fb; }
-  .wahl { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 40px; }
-  .wahl a { display: block; padding: 28px; border-radius: 28px; text-decoration: none; transition: transform .25s; }
+  body { --fokus: #f7a30a; background: var(--hm-verlauf); color: #fff; font: 500 17px/1.55 "Akko Rounded", system-ui, sans-serif; min-height: 100vh; }
+  main { max-width: 1180px; margin: 0 auto; padding: 56px 16px 72px; }
+  .logo { width: 170px; margin-bottom: 28px; filter: drop-shadow(0 12px 20px rgba(0,20,60,.35)); }
+  h1 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: .98; margin: 0 0 18px; }
+  .slogan { width: min(240px, 60%); height: auto; margin: 0 0 24px; }
+  .logo { height: auto; }
+  p { margin: 0 0 12px; max-width: 44em; color: #e3eeff; }
+  .wahl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+  .wahl a { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 28px; text-decoration: none; transition: transform .25s; }
   .wahl a:hover { transform: translateY(-4px) rotate(-1deg); }
-  .wahl b { display: block; font-size: 32px; line-height: 1; margin: 6px 0 12px; }
-  .wahl span { font-size: 15.5px; }
-  .a-k { background: #f5f9ff; color: #00376e; } .a-k b { font-family: "True North Dots"; font-weight: 800; }
-  .b-k { background: #0070e0; color: #fff; } .b-k b { font-family: "True North Dots"; font-weight: 400; }
-  small { display: block; margin-top: 40px; font-size: 15px; color: #b9cce6; }
-  a:focus-visible { outline-color: #f7a30a; }
+  .wahl .art { font-weight: 900; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+  .wahl b { font-family: "True North Dots"; font-weight: 400; font-size: 32px; line-height: 1; }
+  .wahl .text { font-size: 16px; }
+  .wahl .los { margin-top: auto; padding-top: 8px; font-weight: 900; }
+  .a-k { background: #f5f9ff; color: #0c2975; }
+  .b-k { background: #006ec6; color: #fff; border: 2px solid rgba(255,255,255,.35); }
+  .s-k { background: #f7a30a; color: #0c2975; }
+  small { display: block; margin-top: 44px; font-size: 15px; color: #c9dcf5; }
+  @media (max-width: 900px) { .wahl { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <main>
-  <img class="logo" src="assets/img/logo.webp" alt="Hemme Milch">
-  <h1>Die neue&nbsp;Startseite.<br>Zwei&nbsp;Richtungen.</h1>
-  <p>Ein erster Entwurf der Startseite, direkt im Code statt als Skizze. Beide Richtungen nutzen dieselben Inhalte, damit der Unterschied in der Gestaltung sichtbar wird. Unterseiten, Texte und Funktionen entstehen nach der Entscheidung für eine&nbsp;Richtung.</p>
-  <p>Farben und Schriften sind vorläufig, bis das neue Brandbook da ist. Gelb markierte Stellen muss Hemme noch&nbsp;bestätigen.</p>
+  <img class="logo" src="assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167">
+  <h1>Die neue Startseite.<br>Zwei Richtungen.</h1>
+  <img class="slogan" src="assets/img/marke/slogan-mit-herz-weiss.webp" alt="Frisch vom Hof. Eure Familie Hemme." width="900" height="496">
+  <p>Ein erster Entwurf der Startseite, direkt im Code statt als Skizze. Beide Richtungen nutzen dieselben Inhalte und den Markenauftritt aus dem Brandbook 2026, damit der Unterschied in der Gestaltung sichtbar wird. Unterseiten, Texte und Funktionen entstehen nach der Entscheidung für eine&nbsp;Richtung.</p>
+  <p>Gestrichelt markierte Stellen muss Hemme noch&nbsp;bestätigen.</p>
   <div class="wahl">
-    <a class="a-k" href="a/"><span>Entwurf&nbsp;A</span><b>Frisch&nbsp;gezapft</b><span>Moderne regionale Marke. Klar geführt, Produkte groß, der Weg von der Kuh ins Regal als 24-Stunden-Uhr beim&nbsp;Scrollen.</span></a>
-    <a class="b-k" href="b/"><span>Entwurf&nbsp;B</span><b>Kuhle&nbsp;Welt</b><span>Lifestyle und bewusst wilder. Packungen als Sticker zum Herumziehen, schiefe Karten, Polaroids und&nbsp;Handnotizen.</span></a>
+    <a class="a-k" href="a/"><span class="art">Entwurf&nbsp;A</span><b>Frisch&nbsp;gezapft</b><span class="text">Moderne regionale Marke. Klar geführt, Produkte groß, der Weg von der Kuh ins Regal als 24-Stunden-Uhr beim&nbsp;Scrollen.</span><span class="los">Ansehen →</span></a>
+    <a class="b-k" href="b/"><span class="art">Entwurf&nbsp;B</span><b>Kuhle&nbsp;Welt</b><span class="text">Lifestyle und verspielter. Offener Kühlschrank, Sorten zum Durchscrollen, Polaroids vom Hof und farbige&nbsp;Karten.</span><span class="los">Ansehen →</span></a>
+    <a class="s-k" href="sitemap/"><span class="art">Zur Freigabe am&nbsp;01.10.</span><b>Sitemap</b><span class="text">Aufbau der ganzen Website: Menü, Unterseiten, offene Entscheidungen und die wichtigsten Wege der&nbsp;Besucher.</span><span class="los">Ansehen →</span></a>
   </div>
   <small>Entwurf von NEXAS Media · nicht für Suchmaschinen · Stand&nbsp;01.10.2026</small>
 </main>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hemme Milch · Sitemap-Vorschlag</title>
+<link rel="icon" href="../assets/img/kuh-kopf.svg">
+<link rel="preload" href="../assets/fonts/marke/TrueNorthDots-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/gemeinsam.css">
+<style>
+  .s { --tief: var(--hm-tiefblau); --blau: var(--hm-blau-text); background: #f5f9ff; color: #0b2340; font: 500 17px/1.55 "Akko Rounded", system-ui, sans-serif; }
+  .s main { max-width: 1240px; margin: 0 auto; padding: 0 16px 96px; }
+  .s h1, .s h2, .s h3 { font-family: "True North Dots", system-ui, sans-serif; font-weight: 400; color: var(--tief); margin: 0; letter-spacing: .01em; }
+  .s p { margin: 0 0 12px; }
+
+  .kopf { position: relative; overflow: hidden; margin: 0 -16px 56px; padding: 56px 16px 64px; background: var(--hm-verlauf); color: #fff; text-align: center; }
+  .kopf img.logo { width: 150px; margin: 0 auto 18px; filter: drop-shadow(0 12px 20px rgba(0,20,60,.35)); }
+  .kopf h1 { color: #fff; font-size: clamp(40px, 5.6vw, 80px); line-height: 1; }
+  .kopf p { max-width: 40em; margin: 18px auto 0; color: #e3eeff; }
+  .termin { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 8px 18px; border-radius: 99px; background: var(--hm-gelb); color: var(--tief); font-weight: 900; }
+
+  .s h2 { font-size: clamp(30px, 3.4vw, 48px); line-height: 1.05; margin: 72px 0 10px; text-align: center; }
+  .unter { text-align: center; max-width: 42em; margin: 0 auto 28px; color: #3d5470; }
+
+  /* Visuelle Sitemap: Startseite oben, Hauptmenü darunter, Linien verbinden */
+  .baum { position: relative; }
+  .start { display: flex; justify-content: center; }
+  .start a, .start div { display: inline-flex; align-items: center; gap: 12px; padding: 14px 26px; border-radius: 99px; background: var(--tief); color: #fff; font-family: "True North Dots"; font-size: 24px; text-decoration: none; }
+  .start a:hover { background: var(--hm-blau-flaeche); }
+  .start small { font-family: "Akko Rounded"; font-weight: 700; font-size: 14px; color: #c9dcf5; }
+  .linie { height: 34px; width: 3px; margin: 0 auto; background: #b6c8df; }
+  .menue { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; padding-top: 28px; }
+  .menue::before { content: ""; position: absolute; top: 0; left: calc(100% / 12); right: calc(100% / 12); height: 3px; background: #b6c8df; }
+  .ast { position: relative; background: #fff; border-radius: 22px; padding: 20px 18px 16px; border: 2px solid #dbe6f3; }
+  .ast::before { content: ""; position: absolute; top: -30px; left: 50%; width: 3px; height: 28px; background: #b6c8df; }
+  .ast h3 { font-size: 22px; line-height: 1.05; margin-bottom: 4px; }
+  .ast .nr { display: inline-block; margin-bottom: 10px; padding: 2px 10px; border-radius: 99px; background: #e2ecfa; color: var(--tief); font-size: 13px; font-weight: 900; }
+  .ast ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 15.5px; line-height: 1.35; }
+  .ast li { display: flex; gap: 8px; }
+  .ast li::before { content: ""; flex: none; width: 7px; height: 7px; margin-top: .5em; border-radius: 50%; background: var(--hm-blau-flaeche); }
+  .ast small { display: block; margin-top: 12px; padding-top: 10px; border-top: 1px dashed #d4dfec; color: #4a6078; font-size: 14px; line-height: 1.4; }
+  .neben { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  .neben .ast::before { content: none; }
+  .ast--meta { background: #fff6e2; border-color: #f3d79b; }
+  .ast--fuss { background: #eef2f7; }
+  .ast--meta li::before { background: var(--hm-gelb); }
+  .marke { display: inline-block; margin-left: 4px; padding: 0 7px; border-radius: 99px; font-size: 11.5px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; vertical-align: 1px; white-space: nowrap; }
+  .m-k { background: #e2ecfa; color: var(--tief); }
+  .m-h { background: #e2f4d6; color: #1f5a12; }
+  .m-n { background: #ffe6b8; color: #6b4200; }
+  .legende { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin: 0 0 30px; font-size: 14.5px; }
+
+  .entfaellt { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .entfaellt span { padding: 8px 16px; border-radius: 99px; background: #fff; border: 2px dashed #c3cfdd; color: #5b6f86; text-decoration: line-through; font-weight: 700; }
+
+  .entscheid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .karte { background: #fff; border-radius: 22px; padding: 22px; border: 2px solid #dbe6f3; display: grid; gap: 8px; align-content: start; }
+  .karte h3 { font-size: 24px; }
+  .karte dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; font-size: 15px; }
+  .karte dt { color: #5b6f86; font-weight: 700; }
+  .karte dd { margin: 0; }
+  .vorschlag { margin-top: 6px; padding: 12px 14px; border-radius: 14px; background: #fff6e2; font-size: 15.5px; }
+  .vorschlag b { display: block; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #6b4200; margin-bottom: 2px; }
+  .geklaert { background: #e8f5df; }
+  .geklaert b { color: #1f5a12; }
+  .abhaken { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-weight: 800; font-size: 15px; cursor: pointer; }
+  .abhaken input { width: 22px; height: 22px; accent-color: #2f9a1f; }
+
+  .wege { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .weg { background: #fff; border-radius: 22px; padding: 20px; border: 2px solid #dbe6f3; }
+  .weg h3 { font-size: 21px; margin-bottom: 12px; }
+  .weg ol { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 8px; }
+  .weg li { counter-increment: s; display: flex; gap: 10px; font-size: 15.5px; line-height: 1.35; }
+  .weg li::before { content: counter(s); flex: none; display: grid; place-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--tief); color: #fff; font-size: 13px; font-weight: 900; }
+
+  @media (max-width: 1100px) { .menue { grid-template-columns: repeat(3, 1fr); } .menue::before, .ast::before { display: none; } .linie { display: none; } .start { margin-bottom: 20px; } }
+  @media (max-width: 640px) { .menue, .neben { grid-template-columns: 1fr; } }
+  @media print { .vorschau { display: none; } .kopf { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body class="s">
+<nav class="vorschau" aria-label="Entwürfe">
+  <span class="vorschau__hinweis">Vorschau · Stand&nbsp;01.10.2026</span>
+  <a href="../a/">Entwurf A · Frisch gezapft</a>
+  <a href="../b/">Entwurf B · Kuhle Welt</a>
+  <a href="./" aria-current="page">Sitemap</a>
+</nav>
+<main>
+  <header class="kopf">
+    <img class="logo" src="../assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167">
+    <h1>Sitemap-Vorschlag</h1>
+    <p>Zusammengeführt aus dem Kick-off vom 25.09.2026 und der Seitenliste, die Hemme am 26.09.2026 nachgereicht hat. Wo sich beides unterscheidet, steht unten ein Vorschlag zur Entscheidung.</p>
+    <span class="termin">Zur Freigabe im Termin am 01.10.2026</span>
+  </header>
+
+  <h2>So ist die Website aufgebaut</h2>
+  <p class="unter">Sechs Punkte im Hauptmenü, rechts oben Karriere, Kontakt und der Knopf für Gastro und&nbsp;Handel. Genau so ist die Navigation in beiden Entwürfen schon&nbsp;umgesetzt.</p>
+  <div class="legende">
+    <span><span class="marke m-k">Kick-off</span> aus dem Termin am 25.09.</span>
+    <span><span class="marke m-h">Hemme</span> aus der Liste vom 26.09.</span>
+    <span><span class="marke m-n">Vorschlag</span> von NEXAS&nbsp;Media</span>
+  </div>
+
+  <div class="baum">
+    <div class="start"><a href="../a/">Startseite <small>mit Aktions-Banner</small></a></div>
+    <div class="linie" aria-hidden="true"></div>
+    <div class="menue">
+      <section class="ast">
+        <span class="nr">Menü 1</span>
+        <h3>Produkte</h3>
+        <ul>
+          <li><span>Übersicht mit Umschalter „Für zuhause“ und „Für Gastro &amp;&nbsp;Handel“ <span class="marke m-h">Hemme</span></span></li>
+          <li>Milch</li><li>Joghurt</li><li>Butter &amp;&nbsp;Buttermilch</li><li>Quark</li><li>Milchgetränke</li><li>Dessert</li>
+          <li><span>Neuheiten <span class="marke m-h">Hemme</span></span></li>
+          <li><span>Der Milchbeutel <span class="marke m-k">Kick-off</span></span></li>
+        </ul>
+        <small>Eine Seite je Produktgruppe, keine Einzelseite je&nbsp;Produkt.</small>
+      </section>
+      <section class="ast">
+        <span class="nr">Menü 2</span>
+        <h3>Wo kaufen</h3>
+        <ul>
+          <li>Händlersuche nach Postleitzahl mit&nbsp;Karte</li>
+          <li>Verkaufsgebiet Berlin und&nbsp;Brandenburg</li>
+          <li>Milchladen und Milchmann-Service</li>
+        </ul>
+        <small>Bei Hemme als „Einkaufen“ geführt.</small>
+      </section>
+      <section class="ast">
+        <span class="nr">Menü 3</span>
+        <h3>Hof erleben</h3>
+        <ul>
+          <li>Landwirtschaft und&nbsp;Kälbchen</li>
+          <li>Hofmolkerei</li>
+          <li>Hofcafé &amp;&nbsp;Milchladen</li>
+          <li>Hofführungen</li>
+          <li><span>Spielplatz und Sommer&shy;attraktion <span class="marke m-h">Hemme</span></span></li>
+          <li>KuhCam</li>
+          <li><span>Hof in 360&nbsp;Grad, später <span class="marke m-h">Hemme</span></span></li>
+          <li><span>Natur und&nbsp;Wandern <span class="marke m-k">Kick-off</span></span></li>
+          <li>Öffnungszeiten und&nbsp;Anfahrt</li>
+        </ul>
+      </section>
+      <section class="ast">
+        <span class="nr">Menü 4</span>
+        <h3>Philosophie</h3>
+        <ul>
+          <li>Geschichte seit&nbsp;1589</li>
+          <li>Unsere Werte aus dem&nbsp;Brandbook</li>
+          <li>Wertschöpfung vom Futter bis zur&nbsp;Molkerei</li>
+          <li><span>Wissen rund um Milch <span class="marke m-k">Kick-off</span></span></li>
+        </ul>
+        <small>Bewusst getrennt vom Team, wie im Kick-off&nbsp;besprochen.</small>
+      </section>
+      <section class="ast">
+        <span class="nr">Menü 5</span>
+        <h3>Event&shy;location</h3>
+        <ul>
+          <li>Räume für bis zu 120&nbsp;Gäste</li>
+          <li>Pakete: Familienfeier, kleine Feier, Seminar</li>
+          <li>Anfrageformular</li>
+        </ul>
+        <small>Im Kick-off als eigener Bereich gewünscht, in der Liste vom 26.09. nicht&nbsp;enthalten.</small>
+      </section>
+      <section class="ast">
+        <span class="nr">Menü 6</span>
+        <h3>Über uns</h3>
+        <ul>
+          <li>Team: Geschäftsführung und Teamleitungen</li>
+          <li><span>Partner nach Kategorie: Handel, Frischdienste, Cafés und Eisdielen, Kooperationen, später Milchlandwirte <span class="marke m-h">Hemme</span></span></li>
+        </ul>
+      </section>
+    </div>
+    <div class="neben">
+      <section class="ast ast--meta">
+        <h3>Rechts oben</h3>
+        <ul>
+          <li>Karriere mit Stellen und Bewerbungs&shy;formular</li>
+          <li>Kontakt mit FAQ, Kontaktformular und Vertriebs&shy;kontakt</li>
+          <li><span>Knopf „Für Gastro &amp;&nbsp;Handel“ <span class="marke m-n">Vorschlag</span></span></li>
+        </ul>
+      </section>
+      <section class="ast ast--fuss">
+        <h3>Footer</h3>
+        <ul>
+          <li>Adresse, Öffnungszeiten mit Live-Status, Anfahrt</li>
+          <li>Siegel und Social&nbsp;Media</li>
+          <li>Impressum, Datenschutz, Barrierefreiheit, AGB, EU-Förderung</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <h2>Entfällt</h2>
+  <p class="unter">Veranstaltungen laufen künftig über die Eventlocation und den Aktions-Banner auf der&nbsp;Startseite.</p>
+  <div class="entfaellt"><span>Bildergalerie</span><span>Archiv</span><span>Hofladen-Beitrag</span><span>Eigene Veranstaltungs&shy;übersicht</span></div>
+
+  <h2>Bitte heute entscheiden</h2>
+  <p class="unter">Zum Abhaken im Termin. Die Häkchen bleiben nur in diesem Browser&nbsp;gespeichert.</p>
+  <div class="entscheid" data-entscheid>
+    <article class="karte">
+      <h3>Neuigkeiten</h3>
+      <dl><dt>Kick-off</dt><dd>entfällt</dd><dt>Liste 26.09.</dt><dd>eigene Seite</dd></dl>
+      <p class="vorschlag"><b>Vorschlag</b>Kein eigener Menüpunkt. Aktuelles über den Aktions-Banner und im Footer. Kommen regelmäßig Beiträge, eigene Seite unter Über&nbsp;uns.</p>
+      <label class="abhaken"><input type="checkbox" data-id="neuigkeiten"> Entschieden</label>
+    </article>
+    <article class="karte">
+      <h3>Eventlocation</h3>
+      <dl><dt>Kick-off</dt><dd>eigener starker Bereich</dd><dt>Liste 26.09.</dt><dd>nicht enthalten</dd></dl>
+      <p class="vorschlag"><b>Vorschlag</b>Im Hauptmenü lassen, weil Anfragen wirtschaftlich&nbsp;zählen.</p>
+      <label class="abhaken"><input type="checkbox" data-id="eventlocation"> Entschieden</label>
+    </article>
+    <article class="karte">
+      <h3>Karriere</h3>
+      <dl><dt>Kick-off</dt><dd>Priorität 2</dd><dt>Liste 26.09.</dt><dd>Hauptpunkt</dd></dl>
+      <p class="vorschlag"><b>Vorschlag</b>Rechts oben neben Kontakt: immer sichtbar, ohne das Hauptmenü zu&nbsp;füllen.</p>
+      <label class="abhaken"><input type="checkbox" data-id="karriere"> Entschieden</label>
+    </article>
+    <article class="karte">
+      <h3>Mehrsprachigkeit</h3>
+      <dl><dt>Kick-off</dt><dd>wird umgesetzt</dd><dt>Offen</dt><dd>welche Sprachen?</dd></dl>
+      <p class="vorschlag"><b>Vorschlag</b>Englisch und Polnisch, wegen Touristen und der Nähe zu&nbsp;Polen.</p>
+      <label class="abhaken"><input type="checkbox" data-id="sprachen"> Entschieden</label>
+    </article>
+    <article class="karte">
+      <h3>Hofführungen</h3>
+      <dl><dt>Kick-off</dt><dd>offen</dd><dt>Frage</dt><dd>online buchbar oder Anfrage?</dd></dl>
+      <p class="vorschlag"><b>Vorschlag</b>Zum Start als Anfrageformular, Online-Buchung später&nbsp;möglich.</p>
+      <label class="abhaken"><input type="checkbox" data-id="hoffuehrungen"> Entschieden</label>
+    </article>
+    <article class="karte">
+      <h3>Ansprache</h3>
+      <dl><dt>Brandbook</dt><dd>„Eure Familie Hemme“</dd></dl>
+      <p class="vorschlag geklaert"><b>Bereits umgesetzt</b>Direkte Ansprache mit „ihr“, wie im Brandbook. Beide Entwürfe sind so&nbsp;geschrieben.</p>
+      <label class="abhaken"><input type="checkbox" data-id="ansprache"> Bestätigt</label>
+    </article>
+  </div>
+
+  <h2>Wege durch die Seite</h2>
+  <p class="unter">So finden die wichtigsten Besuchergruppen in wenigen Klicks ans&nbsp;Ziel.</p>
+  <div class="wege">
+    <div class="weg"><h3>Familie aus&nbsp;Berlin</h3><ol><li>Instagram-Beitrag mit&nbsp;Kälbchen</li><li>Startseite, Hof&nbsp;erleben</li><li>Öffnungszeiten und&nbsp;Anfahrt</li></ol></div>
+    <div class="weg"><h3>Kundin im Supermarkt</h3><ol><li>Sucht „Hemme Milch&nbsp;kaufen“</li><li>Wo&nbsp;kaufen</li><li>Postleitzahl, nächster&nbsp;Markt</li></ol></div>
+    <div class="weg"><h3>Café oder Eisdiele</h3><ol><li>Startseite, „Für Gastro &amp;&nbsp;Handel“</li><li>Sortiment für Großverbraucher</li><li>Vertriebs&shy;formular</li></ol></div>
+    <div class="weg"><h3>Bewerberin oder Bewerber</h3><ol><li>Karriere, rechts&nbsp;oben</li><li>Passende&nbsp;Stelle</li><li>Bewerbungs&shy;formular</li></ol></div>
+    <div class="weg"><h3>Firma mit Sommerfest</h3><ol><li>Eventlocation</li><li>Pakete</li><li>Anfrage&shy;formular</li></ol></div>
+  </div>
+</main>
+<script>
+  /* Häkchen lokal merken (nur dieser Browser, fällt ohne Speicher still weg) */
+  document.querySelectorAll("[data-entscheid] input[data-id]").forEach(function (cb) {
+    var k = "hemme-sitemap-" + cb.dataset.id;
+    try { cb.checked = localStorage.getItem(k) === "1"; } catch (e) {}
+    cb.addEventListener("change", function () { try { localStorage.setItem(k, cb.checked ? "1" : "0"); } catch (e) {} });
+  });
+</script>
+</body>
+</html>
