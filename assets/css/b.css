@@ -563,3 +563,5 @@
 @media (min-width: 801px) { .b .hof h2 { font-size: clamp(34px, 4vw, 68px); } }
 .hof__zeiten { text-align: left; }
 .polaroid { text-align: left; }
+
+.karte--team img { object-position: 50% 30%; }

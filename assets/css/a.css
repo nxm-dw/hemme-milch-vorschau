@@ -564,3 +564,5 @@
 .gruppe__sorten span { display: flex; align-items: center; gap: 10px; }
 .gruppe__sorten span::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--scheibe); box-shadow: 0 0 0 2px var(--tief); }
 .gruppe__sorten span:not(:last-child)::after { content: none; }
+
+.team__bild { object-position: 50% 40%; }
