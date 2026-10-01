@@ -109,3 +109,7 @@ p, li, dd, dt, span, label { text-wrap: pretty; }
 .live-status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #c8102e; }
 .live-status.ist-offen { background: #e2f4d6; color: #1f5a12; }
 .live-status.ist-offen::before { background: #2f9a1f; box-shadow: 0 0 0 3px rgba(47,154,31,.25); animation: puls 1.6s 3; }
+
+/* Platzhalterbild mit Hinweis „Bild folgt“ */
+.bild-folgt { position: relative; }
+.bild-folgt span { position: absolute; z-index: 2; top: 12px; left: 12px; padding: 5px 12px; border-radius: 99px; background: #fff; color: #0c2975; border: 1.5px dashed #0c2975; font: 900 14px/1.2 "Akko Rounded", system-ui, sans-serif; }

@@ -567,3 +567,6 @@
 .karte--team img { object-position: 50% 30%; }
 
 .karte--team img { object-position: 50% 20%; }
+.s3 .bild-folgt { margin-bottom: 14px; }
+.s3 .bild-folgt img { width: 100%; aspect-ratio: 1; object-fit: cover; margin: 0; border-radius: 55% 45% 63% 37% / 42% 60% 40% 58%; transform: rotate(1deg); }
+.s3 .bild-folgt span { top: 18%; left: 18%; }
