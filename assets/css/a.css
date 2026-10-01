@@ -566,3 +566,5 @@
 .gruppe__sorten span:not(:last-child)::after { content: none; }
 
 .team__bild { object-position: 50% 40%; }
+
+.team__bild { object-position: 50% 50%; }
