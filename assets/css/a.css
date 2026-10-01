@@ -568,3 +568,11 @@
 .team__bild { object-position: 50% 40%; }
 
 .team__bild { object-position: 50% 50%; }
+
+/* Hero: Bildbereich so breit wie das Foto, Beutel am Foto verankert und nie über dem Text */
+@media (min-width: 901px) {
+  .held__bild { justify-self: end; width: min(100%, 72vh); }
+  .held__foto { max-height: none; margin-left: 0; }
+  .held__beutel { left: -5%; bottom: -5%; width: 30%; }
+  .a .held { column-gap: clamp(48px, 6vw, 110px); }
+}
