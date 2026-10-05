@@ -787,3 +787,35 @@
 .bruder-fuss__text b { display: block; font-family: "True North Dots"; font-weight: 400; font-size: 22px; color: #fff; }
 .bruder-fuss__los { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px 10px; line-height: 1; border-radius: 99px; background: #fff; color: var(--tief); font-weight: 900; }
 .station__jahr { white-space: nowrap; }
+
+/* ===== Gastro & Handel: eigene Bühne ===== */
+.sortiment--gastro:not([hidden]) { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: clamp(24px, 3vw, 40px); border-radius: 32px; background: var(--hm-verlauf); position: relative; overflow: hidden; }
+.sortiment--gastro::before { content: ""; position: absolute; right: -6%; top: -18%; width: 420px; aspect-ratio: 1; background: url("../img/marke/herz-weiss.webp") center / contain no-repeat; opacity: .07; transform: rotate(-10deg); pointer-events: none; }
+.gastro-kopf { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; position: relative; }
+.gastro-kopf__marke { display: inline-flex; align-items: center; padding: 8px 14px 6px; line-height: 1; border-radius: 99px; background: var(--gelb); color: var(--tief); font-weight: 900; font-size: 14px; }
+.gastro-kopf__text { color: #dbe7f8; font-size: 17px; }
+.g-karte { position: relative; display: flex; flex-direction: column; padding: 22px 24px 24px; border-radius: 26px; background: #fff; overflow: hidden; transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s; }
+.g-karte:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(0, 10, 40, .7); }
+.g-karte__menge { position: absolute; z-index: 2; top: 18px; left: 20px; display: flex; align-items: baseline; gap: 6px; font-family: "True North Dots"; font-size: 46px; line-height: 1; color: var(--tief); }
+.g-karte__menge span { font-family: "Akko Rounded"; font-weight: 900; font-size: 17px; color: var(--blau-text); }
+.g-karte__bild { position: relative; height: 230px; margin: 18px -24px 16px; display: grid; place-items: center; }
+.g-karte__bild::before { content: ""; position: absolute; width: 190px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #dfeafa 0%, #c3d8f2 100%); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.g-karte:hover .g-karte__bild::before { transform: scale(1.08); }
+.g-karte__bild img { position: relative; max-width: 62%; max-height: 210px; object-fit: contain; filter: drop-shadow(0 18px 18px rgba(0, 30, 70, .28)); transform: rotate(-4deg); transition: transform .5s cubic-bezier(.3,1.5,.5,1); }
+.g-karte:hover .g-karte__bild img { transform: rotate(0) translateY(-6px); }
+.g-karte h3 { font-size: 24px; line-height: 1.05; margin-bottom: 8px; }
+.g-karte > p { font-size: 15.5px; }
+.einsatz { list-style: none; margin: auto 0 0; padding: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.einsatz li { display: inline-flex; align-items: center; padding: 6px 11px 4px; line-height: 1; border-radius: 99px; background: #e8f1fb; color: var(--tief); font-weight: 800; font-size: 13.5px; }
+.milchmann { grid-column: 1 / -1; display: grid; grid-template-columns: 260px 1fr auto; align-items: center; gap: 24px; padding: 14px 28px 14px 14px; border-radius: 26px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); position: relative; }
+.milchmann__bild { width: 100%; height: 150px; object-fit: cover; border-radius: 18px; }
+.milchmann__text { display: grid; gap: 6px; justify-items: start; color: #dbe7f8; }
+.milchmann h3 { color: #fff; font-size: clamp(24px, 2.4vw, 34px); }
+.knopf--gelb-gastro { background: var(--gelb); border-color: var(--gelb); color: var(--tief); white-space: nowrap; }
+.knopf--gelb-gastro:hover { background: #fff; border-color: #fff; color: var(--tief); }
+.sortiment--gastro :focus-visible { outline-color: var(--gelb); }
+@media (max-width: 1000px) { .sortiment--gastro:not([hidden]) { grid-template-columns: 1fr 1fr; } .milchmann { grid-template-columns: 1fr; padding: 14px; } .milchmann__bild { height: 180px; } }
+@media (max-width: 640px) { .sortiment--gastro:not([hidden]) { grid-template-columns: 1fr; } }
+.sortiment--gastro .g-karte .g-karte__menge { font-size: 52px; margin: 0; }
+.sortiment--gastro .g-karte .g-karte__menge span { font-size: 18px; }
+.sortiment--gastro .g-karte__bild { margin-top: 44px; }
