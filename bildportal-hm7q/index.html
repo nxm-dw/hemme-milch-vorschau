@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Hemme Bildportal · Entwurf</title>
+<link rel="icon" href="../assets/img/kuh-kopf.svg">
+<link rel="preload" href="../assets/fonts/marke/TrueNorthDots-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/gemeinsam.css">
+<link rel="stylesheet" href="portal.css">
+</head>
+<body class="p">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+<aside class="entwurf" aria-label="Hinweis">Interner Entwurf von NEXAS Media · nicht verlinkt · Downloads und Freigaben sind&nbsp;simuliert</aside>
+
+<header class="kopf">
+  <a class="kopf__marke" href="#start" aria-label="Hemme Bildportal, Startseite">
+    <img src="../assets/img/marke/hemme-logo-oval-farbe.webp" alt="" width="300" height="167">
+    <span>Bildportal</span>
+  </a>
+  <nav class="kopf__nav" aria-label="Bereiche">
+    <a href="#bereiche">Bereiche</a>
+    <a href="#dateien">Alle&nbsp;Dateien</a>
+    <a href="#logos">Logos</a>
+    <a href="#presse">Presse</a>
+  </nav>
+  <label class="rolle">
+    <span class="rolle__titel">Ansicht&nbsp;als</span>
+    <select data-rolle>
+      <option value="marke">Markenverantwortliche</option>
+      <option value="team">Team Hemme</option>
+      <option value="agentur">Agentur</option>
+      <option value="handel">Handel &amp; Partner</option>
+      <option value="presse">Presse</option>
+    </select>
+  </label>
+</header>
+
+<main id="inhalt">
+
+  <section class="held" id="start" aria-labelledby="held-titel">
+    <img class="held__herz" src="../assets/img/marke/herz-weiss.webp" alt="" aria-hidden="true">
+    <div class="held__innen">
+      <p class="held__gruss" data-gruss>Willkommen zurück</p>
+      <h1 id="held-titel">Alles für die Marke.<br>An einem&nbsp;Ort.</h1>
+      <form class="suche" role="search" data-suche>
+        <label class="nur-sr" for="suchfeld">Dateien durchsuchen</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="suchfeld" type="search" placeholder="Suche nach Kuh, Logo, Erdbeermilch, Hofcafé …" autocomplete="off" data-suchfeld>
+        <button type="submit">Suchen</button>
+      </form>
+      <ul class="schnell" aria-label="Häufige Suchen">
+        <li><button type="button" data-schnell="Logo">Logo</button></li>
+        <li><button type="button" data-schnell="Kühe">Kühe</button></li>
+        <li><button type="button" data-schnell="Milchbeutel">Milchbeutel</button></li>
+        <li><button type="button" data-schnell="Hofcafé">Hofcafé</button></li>
+        <li><button type="button" data-schnell="Social Media">Für Social&nbsp;Media</button></li>
+      </ul>
+      <dl class="zahlen">
+        <div><dt>Dateien</dt><dd data-zahl-dateien>0</dd></div>
+        <div><dt>Bereiche</dt><dd data-zahl-bereiche>6</dd></div>
+        <div><dt>Warten auf Freigabe</dt><dd data-zahl-offen>0</dd></div>
+      </dl>
+    </div>
+    <img class="held__wiese" src="../assets/img/marke/wiese.webp" alt="" aria-hidden="true">
+  </section>
+
+  <section class="freigabe" data-freigabe aria-labelledby="freigabe-titel" hidden>
+    <div class="abschnitt-kopf">
+      <h2 id="freigabe-titel">Warten auf eure&nbsp;Freigabe</h2>
+      <p>Gestalten, intern abstimmen, Markenfreigabe, veröffentlichen: genau wie im&nbsp;Brandbook.</p>
+    </div>
+    <ul class="freigabe__liste" data-freigabe-liste></ul>
+  </section>
+
+  <section class="bereiche" id="bereiche" aria-labelledby="bereiche-titel">
+    <div class="abschnitt-kopf">
+      <h2 id="bereiche-titel">Bereiche</h2>
+      <p data-bereich-hinweis>Ihr seht alle sechs&nbsp;Bereiche.</p>
+    </div>
+    <ul class="bereiche__raster" data-bereiche></ul>
+  </section>
+
+  <section class="dateien" id="dateien" aria-labelledby="dateien-titel">
+    <div class="abschnitt-kopf">
+      <h2 id="dateien-titel" data-dateien-titel>Alle Dateien</h2>
+      <p class="treffer" data-treffer aria-live="polite"></p>
+    </div>
+    <div class="filter" role="group" aria-label="Nach Kanal filtern" data-filter>
+      <button type="button" aria-pressed="true" data-kanal="">Alle Kanäle</button>
+      <button type="button" aria-pressed="false" data-kanal="Website">Website</button>
+      <button type="button" aria-pressed="false" data-kanal="Social Media">Social&nbsp;Media</button>
+      <button type="button" aria-pressed="false" data-kanal="Print">Print</button>
+      <button type="button" aria-pressed="false" data-kanal="Presse">Presse</button>
+      <button type="button" class="filter__zurueck" data-zuruecksetzen hidden>Filter zurücksetzen ×</button>
+    </div>
+    <ul class="raster" data-raster></ul>
+    <p class="leer" data-leer hidden>Nichts gefunden. Probiert ein anderes Wort oder setzt die Filter&nbsp;zurück.</p>
+  </section>
+
+  <section class="logos" id="logos" aria-labelledby="logos-titel">
+    <div class="abschnitt-kopf">
+      <h2 id="logos-titel">Logos richtig&nbsp;einsetzen</h2>
+      <p>Aus dem Brandbook 2026. Bitte immer die Originaldateien nutzen und nie&nbsp;nachbauen.</p>
+    </div>
+    <div class="logos__varianten">
+      <figure class="logo-karte logo-karte--hell">
+        <div class="logo-karte__flaeche"><img src="../assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme-Logo oval in Farbe"></div>
+        <figcaption><b>Oval, Farbe</b><span>Standard auf hellem&nbsp;Grund</span><span class="formate">SVG · PNG · EPS</span></figcaption>
+      </figure>
+      <figure class="logo-karte logo-karte--verlauf">
+        <div class="logo-karte__flaeche"><img src="../assets/img/marke/hemme-milch-weiss-nebeneinander.webp" alt="Wortmarke Hemme Milch in Weiß"></div>
+        <figcaption><b>Wortmarke, Weiß</b><span>auf Blau und&nbsp;Fotos</span><span class="formate">SVG · PNG · EPS</span></figcaption>
+      </figure>
+      <figure class="logo-karte logo-karte--hell">
+        <div class="logo-karte__flaeche"><img src="../assets/img/marke/hemme-milch-blau-nebeneinander.webp" alt="Wortmarke Hemme Milch in Blau"></div>
+        <figcaption><b>Wortmarke, Blau</b><span>wenn das Oval keinen Platz&nbsp;hat</span><span class="formate">SVG · PNG · EPS</span></figcaption>
+      </figure>
+      <figure class="logo-karte logo-karte--verlauf">
+        <div class="logo-karte__flaeche"><img src="../assets/img/marke/slogan-mit-herz-weiss.webp" alt="Slogan Frisch vom Hof, Eure Familie Hemme"></div>
+        <figcaption><b>Slogan mit Herz</b><span>als Abbinder, nie als&nbsp;Headline</span><span class="formate">SVG · PNG</span></figcaption>
+      </figure>
+    </div>
+    <div class="regeln">
+      <div class="regel regel--ja">
+        <h3>So ist es richtig</h3>
+        <ul>
+          <li>Schutzzone rund ums Logo mindestens so breit wie das „M“ von&nbsp;Milch</li>
+          <li>Mindestbreite digital 120&nbsp;Pixel, im Druck 25&nbsp;Millimeter</li>
+          <li>Auf Fotos nur die weiße Wortmarke, auf ruhigen&nbsp;Flächen</li>
+        </ul>
+      </div>
+      <div class="regel regel--nein">
+        <h3>Bitte nicht</h3>
+        <ul>
+          <li>Logo verzerren, drehen oder neu&nbsp;einfärben</li>
+          <li>Schatten, Konturen oder Effekte&nbsp;ergänzen</li>
+          <li>Kuh und Schriftzug voneinander&nbsp;trennen</li>
+        </ul>
+      </div>
+    </div>
+    <p class="hinweis-klein">Schutzzone und Mindestgrößen sind Vorschläge von NEXAS und werden mit dem Brandbook&nbsp;abgeglichen.</p>
+  </section>
+
+  <section class="presse" id="presse" aria-labelledby="presse-titel">
+    <div class="presse__text">
+      <p class="marke">Für Redaktionen · ohne&nbsp;Login</p>
+      <h2 id="presse-titel">Pressebereich</h2>
+      <p>Pressefotos in Druckqualität, das aktuelle Fact Sheet und eine feste Ansprechperson. Jeder Download bringt den Bildnachweis&nbsp;mit.</p>
+      <div class="presse__knoepfe">
+        <button type="button" class="knopf" data-presse-filter>Pressefotos ansehen</button>
+        <a class="knopf knopf--rand" href="#presse">Fact Sheet (PDF)</a>
+      </div>
+      <div class="kontakt">
+        <img src="../assets/img/foto/gunnar-hemme-portraet.webp" alt="" width="64" height="64">
+        <p><b>Pressekontakt</b><br><span class="offen">Name und E-Mail folgen</span></p>
+      </div>
+    </div>
+    <ul class="presse__mitteilungen">
+      <li><time datetime="2026-08-12">12.08.2026</time><b>Neue Geschäftsführung und neue Attraktionen auf dem&nbsp;Hof</b><span>Märkische Oderzeitung</span></li>
+      <li><time datetime="2025-10-03">03.10.2025</time><b>Regionalmarkt am 3. Oktober auf dem&nbsp;Hemme-Hof</b><span>Pressemitteilung</span></li>
+      <li><time datetime="2025">2025</time><b>Neu auf dem Hof: das&nbsp;Maislabyrinth</b><span>Pressemitteilung</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <img src="../assets/img/marke/slogan-mit-herz-weiss.webp" alt="Frisch vom Hof. Eure Familie Hemme." width="900" height="496">
+  <p>Hemme Bildportal · Entwurf von NEXAS Media · Fragen zur Nutzung: Markenverantwortliche bei&nbsp;Hemme</p>
+</footer>
+
+<dialog class="detail" data-detail aria-labelledby="detail-titel">
+  <div class="detail__bild"><img data-detail-bild alt=""></div>
+  <div class="detail__text">
+    <button class="detail__zu" type="button" data-detail-zu aria-label="Schließen">×</button>
+    <p class="detail__bereich" data-detail-bereich></p>
+    <h2 id="detail-titel" data-detail-titel></h2>
+    <p class="detail__status" data-detail-status></p>
+    <h3>Freigegeben für</h3>
+    <ul class="kanaele" data-detail-kanaele></ul>
+    <dl class="meta" data-detail-meta></dl>
+    <h3>Herunterladen</h3>
+    <div class="formate-wahl" data-detail-formate></div>
+    <p class="detail__nachweis" data-detail-nachweis></p>
+    <button class="knopf knopf--gelb" type="button" data-detail-freigeben hidden>Jetzt freigeben</button>
+  </div>
+</dialog>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="portal.js" defer></script>
+</body>
+</html>

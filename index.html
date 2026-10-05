@@ -28,20 +28,73 @@
   .s-k { background: #f7a30a; color: #0c2975; }
   small { display: block; margin-top: 44px; font-size: 15px; color: #c9dcf5; }
   @media (max-width: 900px) { .wahl { grid-template-columns: 1fr; } }
+  .stand { margin-top: 64px; padding: 32px; border-radius: 32px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); }
+  .stand h2 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(32px, 4vw, 52px); line-height: 1; margin: 0 0 8px; }
+  .stand__kopf { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px; margin-bottom: 24px; }
+  .stand__kopf p { margin: 0; }
+  .stand__knopf { display: inline-flex; padding: 14px 24px; border-radius: 99px; background: #f7a30a; color: #0c2975; font-weight: 900; text-decoration: none; }
+  .stand__raster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .stand__raster section { padding: 20px 22px; border-radius: 20px; background: #f5f9ff; color: #0c2975; }
+  .stand__raster h3 { font-family: "True North Dots"; font-weight: 400; font-size: 21px; margin: 0 0 10px; }
+  .stand__raster ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15.5px; line-height: 1.4; }
+  .stand__raster .erledigt li::marker { content: "✓  "; color: #2f9a1f; font-weight: 900; }
+  .stand__raster .offen-liste li::marker { content: "○  "; color: #c27c00; }
+  @media (max-width: 900px) { .stand__raster { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <main>
   <img class="logo" src="assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167">
-  <h1>Die neue Startseite.<br>Weiter mit Entwurf&nbsp;A.</h1>
+  <h1>Die neue Startseite.<br>Zwei Richtungen.</h1>
   <img class="slogan" src="assets/img/marke/slogan-mit-herz-weiss.webp" alt="Frisch vom Hof. Eure Familie Hemme." width="900" height="496">
   <p>Ein erster Entwurf der Startseite, direkt im Code statt als Skizze. Beide Richtungen nutzen dieselben Inhalte und den Markenauftritt aus dem Brandbook 2026, damit der Unterschied in der Gestaltung sichtbar wird. Unterseiten, Texte und Funktionen entstehen nach der Entscheidung für eine&nbsp;Richtung.</p>
   <p>Gestrichelt markierte Stellen muss Hemme noch&nbsp;bestätigen.</p>
   <div class="wahl">
-    <a class="a-k" href="a/"><span class="art">Entwurf&nbsp;A · Favorit</span><b>Frisch&nbsp;gezapft</b><span class="text">Stand nach dem Termin am 01.10.: ruhigere Blautöne, Historie, Wertschöpfung, Kühlschrank, Polaroids und&nbsp;Partner.</span><span class="los">Ansehen →</span></a>
+    <a class="a-k" href="a/"><span class="art">Entwurf&nbsp;A</span><b>Frisch&nbsp;gezapft</b><span class="text">Moderne regionale Marke. Klar geführt, Produkte groß, der Weg von der Kuh ins Regal als 24-Stunden-Uhr beim&nbsp;Scrollen.</span><span class="los">Ansehen →</span></a>
     <a class="b-k" href="b/"><span class="art">Entwurf&nbsp;B</span><b>Kuhle&nbsp;Welt</b><span class="text">Lifestyle und verspielter. Offener Kühlschrank, Sorten zum Durchscrollen, Polaroids vom Hof und farbige&nbsp;Karten.</span><span class="los">Ansehen →</span></a>
-    <a class="s-k" href="sitemap/"><span class="art">Struktur</span><b>Sitemap</b><span class="text">Aufbau der ganzen Website: Menü, Unterseiten, offene Entscheidungen und die wichtigsten Wege der&nbsp;Besucher.</span><span class="los">Ansehen →</span></a>
+    <a class="s-k" href="sitemap/"><span class="art">Zur Freigabe am&nbsp;01.10.</span><b>Sitemap</b><span class="text">Aufbau der ganzen Website: Menü, Unterseiten, offene Entscheidungen und die wichtigsten Wege der&nbsp;Besucher.</span><span class="los">Ansehen →</span></a>
   </div>
+  <section class="stand" aria-labelledby="stand-titel">
+    <div class="stand__kopf">
+      <div>
+        <h2 id="stand-titel">Aktueller Stand</h2>
+        <p>Ergebnisse aus dem Termin am Donnerstag, 01.10.2026. Weiter geht es mit Entwurf&nbsp;A.</p>
+      </div>
+      <a class="stand__knopf" href="aktuell/">Aktuellen Stand ansehen →</a>
+    </div>
+    <div class="stand__raster">
+      <section>
+        <h3>Eindruck</h3>
+        <ul>
+          <li>Erster Eindruck sehr positiv, Entwurf A wird&nbsp;bevorzugt.</li>
+          <li>A wirkte etwas zu bunt: Produkte jetzt in Blau&shy;abstufungen der CI, Farben nur noch als Kennung je&nbsp;Kategorie.</li>
+          <li>Aus B übernommen: Wertschöpfung, Kühlschrank und&nbsp;Polaroids.</li>
+          <li>Top-Banner bleibt.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Umgesetzt</h3>
+        <ul class="erledigt">
+          <li>Historie statt „Von der Kuh zu euch“, keine 24-Stunden-Aussagen&nbsp;mehr</li>
+          <li>„Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt“</li>
+          <li>Hinweis „Noch kein Hemme in eurem Markt? Fragt gerne vor Ort&nbsp;nach!“</li>
+          <li>Partnerbereich mit Logo-Laufband</li>
+          <li>Link zu hemme-milch.de im Footer, Hinweis bei Über&nbsp;uns</li>
+          <li>Aquarell-Wiese im Footer weniger&nbsp;gezoomt</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Offen bei Hemme</h3>
+        <ul class="offen-liste">
+          <li>Partnerliste, Logos und Infos der&nbsp;Partner</li>
+          <li>Produktinformationen und&nbsp;Produktübersicht</li>
+          <li>Historische Bilder (Ansprechpartnerin:&nbsp;Ilsabe)</li>
+          <li>Inhalte zum Bruderunternehmen Hemme&nbsp;Milch</li>
+          <li>Ordnerstruktur mit Bildern für das&nbsp;Bildportal</li>
+        </ul>
+      </section>
+    </div>
+  </section>
   <small>Entwurf von NEXAS Media · nicht für Suchmaschinen · Stand&nbsp;05.10.2026</small>
 </main>
 </body>

@@ -1,4 +1,4 @@
-/* Entwurf A: Sortiment-Umschalter und 24-Stunden-Band */
+/* Entwurf A: Sortiment-Umschalter, Historien-Band, Wertschöpfungs-Linie, Logo-Laufband */
 (function () {
   "use strict";
 
@@ -26,8 +26,8 @@
     });
   });
 
-  /* 24-Stunden-Band: Auf großen Bildschirmen bleibt der Abschnitt stehen,
-     das Band wandert quer und die Uhr zählt von 0 bis 24 Stunden.
+  /* Historien-Band: Auf großen Bildschirmen bleibt der Abschnitt stehen,
+     das Band wandert quer und die Jahreszahl läuft von 1589 bis heute mit.
      Auf dem Handy und bei reduzierter Bewegung: normales Wischband. */
   var kette = document.querySelector(".kette");
   var band = document.querySelector("[data-band]");
@@ -54,9 +54,14 @@
 
   function nachlauf() { return Math.round(window.innerHeight * 0.35); }
 
+  /* Jahreszahlen der Stationen; zwischen zwei Stationen wird gleichmäßig weitergezählt */
+  var jahre = Array.prototype.map.call(band.querySelectorAll("[data-station-jahr]"), function (li) { return parseInt(li.getAttribute("data-station-jahr"), 10); });
   function setzeUhr(anteil) {
     uhr.style.setProperty("--lauf", anteil.toFixed(3));
-    zahl.textContent = Math.round(anteil * 24);
+    if (!jahre.length) return;
+    var pos = anteil * (jahre.length - 1), i = Math.min(jahre.length - 2, Math.floor(pos)), t = pos - i;
+    var jahr = jahre.length > 1 ? Math.round(jahre[i] + (jahre[i + 1] - jahre[i]) * t) : jahre[0];
+    zahl.textContent = anteil >= .999 ? "Heute" : String(jahr);
   }
 
   function scrollen() {
@@ -77,4 +82,30 @@
   gross.addEventListener("change", vermessen);
   window.addEventListener("load", vermessen);
   vermessen();
+
+  /* Wertschöpfung: gepunktete Linie zeichnet sich mit dem Scrollen */
+  var wegAbschnitt = document.querySelector(".weg");
+  var pfad = document.querySelector("[data-pfad]");
+  var ruhig = matchMedia("(prefers-reduced-motion: reduce)");
+  function wegZeichnen() {
+    if (!wegAbschnitt || !pfad) return;
+    if (ruhig.matches) { pfad.style.setProperty("--weg", "1"); return; }
+    var r = wegAbschnitt.getBoundingClientRect();
+    var anteil = (window.innerHeight * 0.75 - r.top - 260) / Math.max(1, r.height - 360);
+    pfad.style.setProperty("--weg", Math.min(1, Math.max(0, anteil)).toFixed(3));
+  }
+  window.addEventListener("scroll", function () { requestAnimationFrame(wegZeichnen); }, { passive: true });
+  wegZeichnen();
+
+  /* Logo-Laufband anhalten (WCAG 2.2.2) */
+  document.querySelectorAll("[data-logos-pause]").forEach(function (knopf) {
+    var box = knopf.closest("[data-logos]");
+    var text = knopf.querySelector("[data-logos-text]");
+    knopf.addEventListener("click", function () {
+      var an = knopf.getAttribute("aria-pressed") !== "true";
+      knopf.setAttribute("aria-pressed", String(an));
+      box.classList.toggle("ist-pausiert", an);
+      text.textContent = an ? "Logo-Laufband starten" : "Logo-Laufband anhalten";
+    });
+  });
 })();
