@@ -234,20 +234,62 @@
     </figure>
   </section>
 
-  <!-- WERTSCHÖPFUNG: aus Entwurf B übernommen, Linie zeichnet sich beim Scrollen -->
+  <!-- WERTSCHÖPFUNG: Reise entlang der Mittellinie. Der Milchbeutel wandert beim Scrollen mit, erreichte Stationen leuchten auf. -->
   <section class="weg" id="weg" aria-labelledby="weg-titel">
-    <h2 id="weg-titel">Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt</h2>
-    <p class="weg__lead">Alles auf einem Hof. Keine Umwege, keine&nbsp;Zwischenhändler.</p>
-    <svg class="weg__pfad" viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true" data-pfad>
-      <defs><mask id="pfad-maske" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1400"><path class="weg__zeichner" pathLength="1" d="M180 120 C 700 80, 900 300, 700 420 S 120 520, 260 760 S 900 820, 780 1060 S 300 1200, 420 1340"/></mask></defs>
-      <path class="weg__linie" mask="url(#pfad-maske)" d="M180 120 C 700 80, 900 300, 700 420 S 120 520, 260 760 S 900 820, 780 1060 S 300 1200, 420 1340"/>
-    </svg>
-    <ol class="weg__liste">
-      <li class="schritt s1" data-rein><img src="../assets/img/foto/raps-s.webp" alt="Blühendes Feld in der Uckermark" loading="lazy"><b>Eigene&nbsp;Felder</b><span>Rund 90 % des Futters wächst auf unseren Feldern im&nbsp;Biosphärenreservat.</span></li>
-      <li class="schritt s2" data-rein><img src="../assets/img/foto/kuh-nah-s.webp" alt="Kuh auf der Weide ganz nah" loading="lazy"><b>Eigene&nbsp;Kühe</b><span>600 Kühe auf unserem Hof und bei vier&nbsp;Partnerhöfen.</span></li>
-      <li class="schritt s3" data-rein><div class="bild-folgt"><img src="../assets/img/foto/molkerei-platzhalter-quadrat.webp" alt="Milch wird in der Molkerei umgefüllt (Platzhalterbild)" loading="lazy"><span>Bild folgt</span></div><b>Eigene&nbsp;Molkerei</b><span>Schonend pasteurisiert. Nie&nbsp;H-Milch.</span></li>
-      <li class="schritt s4" data-rein><div class="schritt__produkt"><img src="../assets/img/marke/vollmilch-vs.webp" alt="Hemme Frische Vollmilch im Standbeutel" loading="lazy"></div><b>Fertiges&nbsp;Milchprodukt</b><span>Im Kühlregal, im Milchladen und beim&nbsp;Milchmann.</span></li>
-    </ol>
+    <div class="weg__kopf">
+      <h2 id="weg-titel">Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt</h2>
+      <p class="weg__lead">Fünf Schritte, ein Hof. Keine Umwege, keine&nbsp;Zwischenhändler.</p>
+    </div>
+    <div class="reise" data-reise>
+      <div class="reise__spur" aria-hidden="true"><div class="reise__fuell"></div><img class="reise__beutel" src="../assets/img/marke/vollmilch-vs.webp" alt=""></div>
+      <ol class="reise__liste">
+      <li class="etappe">
+        <span class="etappe__punkt" aria-hidden="true">1</span>
+        <div class="etappe__bild"><img src="../assets/img/foto/raps-s.webp" alt="Blühendes Feld in der Uckermark" loading="lazy"></div>
+        <div class="etappe__text">
+          <p class="etappe__marke">Schritt 1 · Saatkorn</p>
+          <h3>Eigene&nbsp;Felder</h3>
+          <p>Auf unseren Feldern im Biosphärenreservat wächst rund 90&nbsp;% des&nbsp;Futters.</p>
+        </div>
+      </li>
+      <li class="etappe">
+        <span class="etappe__punkt" aria-hidden="true">2</span>
+        <div class="etappe__bild"><img src="../assets/img/foto/ernte-s.webp" alt="Häckselernte auf den eigenen Feldern" loading="lazy"></div>
+        <div class="etappe__text">
+          <p class="etappe__marke">Schritt 2 · Ernte</p>
+          <h3>Eigenes&nbsp;Futter</h3>
+          <p>Wir ernten selbst und lagern das Futter direkt am&nbsp;Hof.</p>
+        </div>
+      </li>
+      <li class="etappe">
+        <span class="etappe__punkt" aria-hidden="true">3</span>
+        <div class="etappe__bild"><img src="../assets/img/foto/kuh-nah-s.webp" alt="Kuh auf der Weide ganz nah" loading="lazy"></div>
+        <div class="etappe__text">
+          <p class="etappe__marke">Schritt 3 · Kühe</p>
+          <h3>Eigene&nbsp;Kühe</h3>
+          <p>600 Kühe auf unserem Hof und bei vier Partnerhöfen aus der&nbsp;Nachbarschaft.</p>
+        </div>
+      </li>
+      <li class="etappe">
+        <span class="etappe__punkt" aria-hidden="true">4</span>
+        <div class="etappe__bild"><div class="bild-folgt"><img src="../assets/img/foto/molkerei-platzhalter-quadrat.webp" alt="Milch wird in der Molkerei umgefüllt (Platzhalterbild)" loading="lazy"><span>Bild&nbsp;folgt</span></div></div>
+        <div class="etappe__text">
+          <p class="etappe__marke">Schritt 4 · Molkerei</p>
+          <h3>Eigene&nbsp;Molkerei</h3>
+          <p>Schonend pasteurisiert, niemals H-Milch. Abgefüllt im&nbsp;Milchbeutel.</p>
+        </div>
+      </li>
+      <li class="etappe etappe--ziel">
+        <span class="etappe__punkt" aria-hidden="true">5</span>
+        <div class="etappe__bild"><img src="../assets/img/marke/vollmilch-vs.webp" alt="Hemme Frische Vollmilch im Standbeutel" loading="lazy"></div>
+        <div class="etappe__text">
+          <p class="etappe__marke">Schritt 5 · Produkt</p>
+          <h3>Fertiges&nbsp;Milchprodukt</h3>
+          <p>Im Kühlregal in Berlin und Brandenburg, im Milchladen und beim&nbsp;Milchmann.</p>
+        </div>
+      </li>
+      </ol>
+    </div>
   </section>
 
   <!-- HISTORIE: ersetzt das 24-Stunden-Band. Scrollen treibt die Jahreszahl. Historische Bilder liefert Hemme. -->
@@ -312,7 +354,7 @@
         <li class="station" data-station-jahr="2026">
           <img src="../assets/img/foto/kuhnase-2-s.webp" alt="Kuh auf der Weide in der Uckermark" loading="lazy">
           <p class="station__jahr">Heute</p>
-          <h3>Auf dem Weg zu&nbsp;Null</h3>
+          <h3>Mit Blick nach&nbsp;vorn</h3>
           <p>600 Kühe, vier Partnerhöfe, Solaranlagen auf den Dächern und das Ziel einer klimaneutralen&nbsp;Produktion.</p>
         </li>
       </ol>
@@ -383,16 +425,16 @@
         <label class="nur-sr" for="plz-a">Postleitzahl</label>
         <input id="plz-a" inputmode="numeric" autocomplete="off" data-1p-ignore data-lpignore="true" maxlength="5" placeholder="Postleitzahl">
         <button class="knopf" type="submit">Märkte&nbsp;finden</button>
-        <p class="plz__ergebnis" data-haendler-ergebnis aria-live="polite"></p>
+        <div class="plz__ergebnis" data-haendler-ergebnis aria-live="polite"></div>
       </form>
-      <p class="nachfragen"><b>Noch kein Hemme in eurem Markt?</b> Fragt gerne direkt vor Ort&nbsp;nach!</p>
+      <p class="plz__test">Zum Ausprobieren: 10115 (Berlin) oder 80331&nbsp;(München)</p>
     </div>
   </section>
 
   <!-- EVENT + KARRIERE -->
   <section class="duo">
     <a class="duo__karte" id="event" href="#event" data-rein>
-      <img src="../assets/img/foto/hofcafe-s.webp" alt="" loading="lazy">
+      <img src="../assets/img/foto/eventlocation-s.webp" alt="" loading="lazy">
       <span class="duo__text">
         <span class="duo__marke">Eventlocation</span>
         <b>Feiern mit&nbsp;Uckermark-Blick</b>
@@ -429,15 +471,15 @@
       <li><b>Handel</b><span>EDEKA, REWE und viele kleine&nbsp;Läden</span></li>
       <li><b>Gastronomie</b><span>Frischdienste, Cafés und&nbsp;Eisdielen</span></li>
       <li><b>Kooperationen</b><span>zum Beispiel Spargelhof&nbsp;Klaistow</span></li>
-      <li><b>Partnerhöfe &amp;&nbsp;Sponsoring</b><span>Milchlandwirte und Vereine aus der&nbsp;Region</span></li>
+      <li><b>Höfe &amp;&nbsp;Sponsoring</b><span>Milchlandwirte und Vereine aus der&nbsp;Region</span></li>
     </ul>
     <div class="logos" data-logos>
       <button class="logos__pause" type="button" data-logos-pause aria-pressed="false"><span class="logos__symbol" aria-hidden="true"></span><span class="nur-sr" data-logos-text>Logo-Laufband anhalten</span></button>
       <div class="logos__fenster">
-        <ul class="logos__lauf" aria-label="Partner"><li><span class="partner__logo">EDEKA</span></li><li><span class="partner__logo">REWE</span></li><li><span class="partner__logo">Spargelhof Klaistow</span></li><li><span class="partner__logo">Milchviehbetrieb Wolters</span></li><li><span class="partner__logo">Welsetal Agrargesellschaft</span></li><li><span class="partner__logo">Agrar GmbH Parstein-Bölkendorf</span></li><li><span class="partner__logo">Schramm GbR</span></li><li><span class="partner__logo">Hemme Milch Sprockhof</span></li></ul>
-        <ul class="logos__lauf" aria-hidden="true"><li><span class="partner__logo">EDEKA</span></li><li><span class="partner__logo">REWE</span></li><li><span class="partner__logo">Spargelhof Klaistow</span></li><li><span class="partner__logo">Milchviehbetrieb Wolters</span></li><li><span class="partner__logo">Welsetal Agrargesellschaft</span></li><li><span class="partner__logo">Agrar GmbH Parstein-Bölkendorf</span></li><li><span class="partner__logo">Schramm GbR</span></li><li><span class="partner__logo">Hemme Milch Sprockhof</span></li></ul>
+        <ul class="logos__lauf" aria-label="Partner"><li><span class="partner__logo"><img src="../assets/img/partner/edeka.svg" alt="EDEKA" loading="lazy"></span></li><li><span class="partner__logo"><img src="../assets/img/partner/rewe.svg" alt="REWE" loading="lazy"></span></li><li><span class="partner__logo"><img src="../assets/img/partner/spargelhof-klaistow.svg" alt="Winkelmanns Spargelhof Klaistow" loading="lazy"></span></li><li><span class="partner__logo partner__logo--wort"><small>Milchviehbetrieb</small><b>Wolters</b></span></li><li><span class="partner__logo partner__logo--wort"><small>Welsetal</small><b>Agrargesellschaft</b></span></li><li><span class="partner__logo partner__logo--wort"><small>Agrar GmbH</small><b>Parstein-Bölkendorf</b></span></li><li><span class="partner__logo partner__logo--wort"><small>Familienbetrieb</small><b>Schramm</b></span></li><li><span class="partner__logo"><img src="../assets/img/partner/hemme-milch-sprockhof-blau.svg" alt="Hemme Milch Sprockhof" loading="lazy"></span></li></ul>
+        <ul class="logos__lauf" aria-hidden="true"><li><span class="partner__logo"><img src="../assets/img/partner/edeka.svg" alt="" loading="lazy"></span></li><li><span class="partner__logo"><img src="../assets/img/partner/rewe.svg" alt="" loading="lazy"></span></li><li><span class="partner__logo"><img src="../assets/img/partner/spargelhof-klaistow.svg" alt="" loading="lazy"></span></li><li><span class="partner__logo partner__logo--wort"><small>Milchviehbetrieb</small><b>Wolters</b></span></li><li><span class="partner__logo partner__logo--wort"><small>Welsetal</small><b>Agrargesellschaft</b></span></li><li><span class="partner__logo partner__logo--wort"><small>Agrar GmbH</small><b>Parstein-Bölkendorf</b></span></li><li><span class="partner__logo partner__logo--wort"><small>Familienbetrieb</small><b>Schramm</b></span></li><li><span class="partner__logo"><img src="../assets/img/partner/hemme-milch-sprockhof-blau.svg" alt="" loading="lazy"></span></li></ul>
       </div>
-      <p class="logos__hinweis">Platzhalter: Logos und Partnerliste stellt Hemme&nbsp;bereit.</p>
+      <p class="logos__hinweis">Logos von den Websites der Partner. Partnerhöfe ohne eigenes Logo als Schriftzug, vollständige Liste und Freigaben stellt Hemme&nbsp;bereit.</p>
     </div>
   </section>
 
@@ -479,10 +521,10 @@
     </div>
   </div>
 
-  <a class="bruder-fuss" href="https://www.hemme-milch.de" rel="noopener">
-    <span class="bruder-fuss__marke">Familie im&nbsp;Doppelpack</span>
-    <span class="bruder-fuss__text"><b>Hemme Milch vom Sprockhof</b> Unser Bruderunternehmen in der&nbsp;Wedemark</span>
-    <span class="bruder-fuss__los">hemme-milch.de <span aria-hidden="true">↗</span></span>
+  <a class="bruder-fuss" href="https://www.hemme-milch.de" target="_blank" rel="noopener">
+    <img class="bruder-fuss__logo" src="../assets/img/partner/hemme-milch-sprockhof-weiss.svg" alt="Hemme Milch, seit 1589" width="220" height="60">
+    <span class="bruder-fuss__text">Unser Bruderunternehmen am Sprockhof in der&nbsp;Wedemark</span>
+    <span class="bruder-fuss__los">hemme-milch.de <span aria-hidden="true">↗</span><span class="nur-sr"> (öffnet in neuem Tab)</span></span>
   </a>
   <div class="fuss__siegel">
     <p class="fuss__siegel-titel">Geprüft und&nbsp;ausgezeichnet</p>

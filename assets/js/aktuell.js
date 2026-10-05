@@ -109,3 +109,92 @@
     });
   });
 })();
+
+/* Händlersuche mit Beispieldaten: Märkte anzeigen oder, wenn keiner hinterlegt ist,
+   den Wunschzettel für die Marktleitung. Ersetzt die einfache Suche aus gemeinsam.js. */
+(function () {
+  "use strict";
+  var form = document.querySelector("[data-haendlersuche]");
+  if (!form) return;
+  var aus = form.querySelector("[data-haendler-ergebnis]");
+  /* Beispiel: In diesen PLZ-Gebieten sind Märkte hinterlegt. Die echte Liste liefert Hemme. */
+  var GEBIETE = ["10", "12", "13", "14", "15", "16"];
+  var BEISPIEL = [
+    { n: "Beispielmarkt EDEKA", km: "1,2" },
+    { n: "Beispielmarkt REWE", km: "2,8" },
+    { n: "Bioladen um die Ecke (Beispiel)", km: "3,5" }
+  ];
+  var ZETTEL = "Liebe Marktleitung,\n\nwir würden gern frische Hemme-Milchprodukte bei Ihnen kaufen: Milch im Milchbeutel, Joghurt, Fassbutter und Milchgetränke aus der Uckermark.\n\nKontakt für den Handel:\nHemme Milch GmbH & Co. KG\nHeideweg 4, 16278 Angermünde\nTelefon 03331 252525\n\nVielen Dank!";
+
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function treffer(plz) {
+    var box = el("div", "maerkte");
+    box.appendChild(el("p", "maerkte__kopf", "<b>" + BEISPIEL.length + " Märkte</b> rund um " + plz + " <span class=\"maerkte__hinweis\">Beispieldaten</span>"));
+    var ul = el("ul", "maerkte__liste");
+    BEISPIEL.forEach(function (m) { ul.appendChild(el("li", "", "<b>" + m.n + "</b><span>" + m.km + "&nbsp;km</span>")); });
+    box.appendChild(ul);
+    return box;
+  }
+
+  function keinMarkt(plz) {
+    var box = el("div", "nachfrage");
+    box.appendChild(el("div", "nachfrage__kopf",
+      "<p class=\"nachfrage__marke\">Für " + plz + " noch kein Markt&nbsp;hinterlegt</p>" +
+      "<h3>Noch kein Hemme in eurem&nbsp;Markt?</h3>" +
+      "<p>Fragt gerne direkt vor Ort nach! Je öfter Kundinnen und Kunden fragen, desto eher steht Hemme im Kühlregal. Gebt der Marktleitung einfach unseren&nbsp;Wunschzettel.</p>"));
+    var zettel = el("figure", "zettel");
+    zettel.innerHTML =
+      "<img class=\"zettel__logo\" src=\"../assets/img/marke/hemme-logo-oval-farbe.webp\" alt=\"Hemme Milch\" width=\"300\" height=\"167\">" +
+      "<figcaption class=\"zettel__titel\">Wunschzettel für die&nbsp;Marktleitung</figcaption>" +
+      "<p>Liebe Marktleitung,<br>wir würden gern frische Hemme-Milchprodukte bei Ihnen kaufen.</p>" +
+      "<ul class=\"zettel__produkte\"><li><img src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">Milch im&nbsp;Milchbeutel</li><li><img src=\"../assets/img/produkte/beerenfest-200g.webp\" alt=\"\">Joghurt</li><li><img src=\"../assets/img/produkte/fassbutter.webp\" alt=\"\">Fassbutter</li><li><img src=\"../assets/img/produkte/schokomilch-230.webp\" alt=\"\">Milch&shy;getränke</li></ul>" +
+      "<p class=\"zettel__kontakt\"><b>Kontakt für den Handel</b>Hemme Milch GmbH &amp; Co. KG · Heideweg 4 · 16278 Angermünde<br>Telefon <a href=\"tel:+493331252525\">03331&nbsp;252525</a></p>";
+    box.appendChild(zettel);
+    var knoepfe = el("div", "nachfrage__knoepfe");
+    var drucken = el("button", "knopf", "Wunschzettel&nbsp;drucken"); drucken.type = "button";
+    drucken.addEventListener("click", function () { document.body.classList.add("druck-zettel"); window.print(); setTimeout(function () { document.body.classList.remove("druck-zettel"); }, 500); });
+    var teilen = el("button", "knopf knopf--rand", "Text kopieren oder&nbsp;teilen"); teilen.type = "button";
+    teilen.addEventListener("click", function () {
+      if (navigator.share) { navigator.share({ title: "Wunsch: Hemme Milch im Markt", text: ZETTEL }).catch(function () {}); return; }
+      (navigator.clipboard ? navigator.clipboard.writeText(ZETTEL) : Promise.reject()).then(function () { teilen.innerHTML = "Text&nbsp;kopiert ✓"; }, function () { teilen.textContent = "Kopieren nicht möglich"; });
+    });
+    knoepfe.appendChild(drucken); knoepfe.appendChild(teilen);
+    box.appendChild(knoepfe);
+    box.appendChild(el("p", "nachfrage__hof", "<b>Bis dahin:</b> Im Milchladen auf dem Hof gibt es das ganze Sortiment, Mittwoch bis Sonntag von 11 bis 18&nbsp;Uhr."));
+    return box;
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault(); ev.stopImmediatePropagation();
+    var plz = (form.querySelector("input").value || "").trim();
+    aus.textContent = "";
+    if (!/^\d{5}$/.test(plz)) { aus.appendChild(el("p", "plz__fehler", "Bitte eine fünfstellige Postleitzahl eingeben, zum Beispiel&nbsp;10115.")); return; }
+    aus.appendChild(GEBIETE.indexOf(plz.slice(0, 2)) > -1 ? treffer(plz) : keinMarkt(plz));
+  }, true);
+})();
+
+/* Wertschöpfung: Linie füllt sich, Milchbeutel wandert mit, erreichte Stationen leuchten auf */
+(function () {
+  "use strict";
+  var reise = document.querySelector("[data-reise]");
+  if (!reise) return;
+  var etappen = Array.prototype.slice.call(reise.querySelectorAll(".etappe"));
+  var ruhig = matchMedia("(prefers-reduced-motion: reduce)");
+  function zeichnen() {
+    if (ruhig.matches) { reise.style.setProperty("--fuell", "1"); etappen.forEach(function (e) { e.classList.add("ist-erreicht"); }); return; }
+    var r = reise.getBoundingClientRect();
+    var mitte = window.innerHeight * 0.55;
+    var anteil = Math.min(1, Math.max(0, (mitte - r.top) / r.height));
+    reise.style.setProperty("--fuell", anteil.toFixed(4));
+    var tiefe = anteil * r.height;
+    etappen.forEach(function (e) {
+      var p = e.querySelector(".etappe__punkt").getBoundingClientRect();
+      e.classList.toggle("ist-erreicht", tiefe >= p.top + p.height / 2 - r.top - 4);
+    });
+  }
+  var wartet = false;
+  window.addEventListener("scroll", function () { if (wartet) return; wartet = true; requestAnimationFrame(function () { wartet = false; zeichnen(); }); }, { passive: true });
+  window.addEventListener("resize", zeichnen);
+  zeichnen();
+})();
