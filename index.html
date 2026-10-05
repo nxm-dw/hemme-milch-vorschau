@@ -16,7 +16,7 @@
   .slogan { width: min(240px, 60%); height: auto; margin: 0 0 24px; }
   .logo { height: auto; }
   p { margin: 0 0 12px; max-width: 44em; color: #e3eeff; }
-  .wahl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+  .wahl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 44px; }
   .wahl a { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 28px; text-decoration: none; transition: transform .25s; }
   .wahl a:hover { transform: translateY(-4px) rotate(-1deg); }
   .wahl .art { font-weight: 900; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
@@ -25,9 +25,11 @@
   .wahl .los { margin-top: auto; padding-top: 8px; font-weight: 900; }
   .a-k { background: #f5f9ff; color: #0c2975; }
   .b-k { background: #006ec6; color: #fff; border: 2px solid rgba(255,255,255,.35); }
+  .n-k { background: #61bf1a; color: #0c2975; }
   .s-k { background: #f7a30a; color: #0c2975; }
   small { display: block; margin-top: 44px; font-size: 15px; color: #c9dcf5; }
-  @media (max-width: 900px) { .wahl { grid-template-columns: 1fr; } }
+  @media (max-width: 1100px) { .wahl { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .wahl { grid-template-columns: 1fr; } }
   .stand { margin-top: 64px; padding: 32px; border-radius: 32px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); }
   .stand h2 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(32px, 4vw, 52px); line-height: 1; margin: 0 0 8px; }
   .stand__kopf { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px; margin-bottom: 24px; }
@@ -52,6 +54,7 @@
   <div class="wahl">
     <a class="a-k" href="a/"><span class="art">Entwurf&nbsp;A</span><b>Frisch&nbsp;gezapft</b><span class="text">Moderne regionale Marke. Klar geführt, Produkte groß, der Weg von der Kuh ins Regal als 24-Stunden-Uhr beim&nbsp;Scrollen.</span><span class="los">Ansehen →</span></a>
     <a class="b-k" href="b/"><span class="art">Entwurf&nbsp;B</span><b>Kuhle&nbsp;Welt</b><span class="text">Lifestyle und verspielter. Offener Kühlschrank, Sorten zum Durchscrollen, Polaroids vom Hof und farbige&nbsp;Karten.</span><span class="los">Ansehen →</span></a>
+    <a class="n-k" href="aktuell/"><span class="art">Nach dem Termin am&nbsp;01.10.</span><b>Aktueller&nbsp;Stand</b><span class="text">Entwurf A mit dem Feedback aus dem Termin: Historie, Wertschöpfung, Kühlschrank, Polaroids und&nbsp;Partner.</span><span class="los">Ansehen →</span></a>
     <a class="s-k" href="sitemap/"><span class="art">Zur Freigabe am&nbsp;01.10.</span><b>Sitemap</b><span class="text">Aufbau der ganzen Website: Menü, Unterseiten, offene Entscheidungen und die wichtigsten Wege der&nbsp;Besucher.</span><span class="los">Ansehen →</span></a>
   </div>
   <section class="stand" aria-labelledby="stand-titel">

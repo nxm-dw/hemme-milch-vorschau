@@ -7,7 +7,7 @@
   /* Bereiche und wer sie sieht */
   var BEREICHE = [
     { id: "marke", name: "Marke", text: "Logos, Brandbook, Siegel, Icons", bild: M + "label-eigen.webp", flaeche: "verlauf", rollen: ["marke", "team", "agentur", "handel"] },
-    { id: "bildwelt", name: "Bildwelt", text: "Hof, Tiere, Team, Landschaft", bild: F + "kuh-nah-s.webp", rollen: ["marke", "team", "agentur"] },
+    { id: "bildwelt", name: "Bildwelt", text: "Hof, Tiere, Team, Landschaft", bild: F + "kuhnase-s.webp", rollen: ["marke", "team", "agentur"] },
     { id: "produkte", name: "Produkte", text: "Packshots nach Kategorie", bild: P + "erdbeermilch.webp", flaeche: "hell", rollen: ["marke", "team", "agentur", "handel"] },
     { id: "kanaele", name: "Kanäle & Vorlagen", text: "Website, Social Media, Print", bild: F + "hofcafe-kuchen-s.webp", rollen: ["marke", "team", "agentur"] },
     { id: "presse", name: "Presse", text: "Pressefotos mit Bildnachweis", bild: F + "gunnar-hemme-portraet.webp", rollen: ["marke", "team", "agentur", "presse"] },
@@ -15,7 +15,7 @@
   ];
 
   var ROLLEN = {
-    marke: { gruss: "Willkommen zurück, ihr habt alles im Blick", hinweis: "Ihr seht alle sechs Bereiche und gebt neue Dateien frei." },
+    marke: { gruss: "Willkommen zurück, ihr habt alles im Blick", hinweis: "Ihr seht alles und gebt neue Dateien frei." },
     team: { gruss: "Hallo Team Hemme", hinweis: "Ihr seht alles außer Entwürfen und Rohdaten." },
     agentur: { gruss: "Hallo NEXAS", hinweis: "Ihr seht alles und könnt Entwürfe zur Freigabe einreichen." },
     handel: { gruss: "Willkommen, liebe Handelspartner", hinweis: "Für euch: Logos und Produktbilder." },
@@ -56,6 +56,7 @@
   var zustand = { rolle: "marke", suche: "", kanal: "", bereich: "" };
   var heute = new Date();
 
+  function darfSehen(b) { return b.rollen.indexOf(zustand.rolle) > -1; }
   function darfBereich(id) { return BEREICHE.filter(function (b) { return b.id === id; })[0].rollen.indexOf(zustand.rolle) > -1; }
   function sichtbar(d) {
     if (!darfBereich(d.b) && !(zustand.rolle === "handel" && d.frei) && !(zustand.rolle === "presse" && d.k.indexOf("Presse") > -1)) return false;
@@ -81,11 +82,11 @@
   /* Bereiche */
   function zeichneBereiche() {
     var ul = $("[data-bereiche]"); ul.textContent = "";
-    BEREICHE.forEach(function (b) {
-      var offen = b.rollen.indexOf(zustand.rolle) > -1 || (zustand.rolle === "presse" && b.id === "presse");
+    BEREICHE.filter(darfSehen).forEach(function (b) {
+      var offen = true;
       var li = el("li");
-      var knopf = el("button", "bereich" + (offen ? "" : " ist-gesperrt") + (zustand.bereich === b.id ? " ist-aktiv" : ""));
-      knopf.type = "button"; knopf.disabled = !offen;
+      var knopf = el("button", "bereich" + (zustand.bereich === b.id ? " ist-aktiv" : ""));
+      knopf.type = "button";
       knopf.setAttribute("aria-pressed", String(zustand.bereich === b.id));
       var bild = el("span", "bereich__bild" + (b.flaeche ? " bereich__bild--" + b.flaeche : ""));
       var img = el("img"); img.src = b.bild; img.alt = ""; img.loading = "lazy"; bild.appendChild(img);
@@ -93,9 +94,9 @@
       knopf.appendChild(bild);
       var txt = el("span", "bereich__text");
       txt.appendChild(el("b", "", b.name));
-      txt.appendChild(el("span", "", offen ? b.text : "Kein Zugriff in dieser Rolle"));
+      txt.appendChild(el("span", "", b.text));
       knopf.appendChild(txt);
-      knopf.appendChild(el("span", "bereich__zahl", offen ? String(anz) : "🔒"));
+      knopf.appendChild(el("span", "bereich__zahl", anz + (anz === 1 ? " Datei" : " Dateien")));
       knopf.addEventListener("click", function () {
         zustand.bereich = zustand.bereich === b.id ? "" : b.id;
         zeichneAlles(); $("#dateien").scrollIntoView({ behavior: "smooth" });
@@ -130,7 +131,14 @@
       txt.appendChild(k);
       knopf.appendChild(txt);
       knopf.addEventListener("click", function () { oeffne(d); });
-      li.appendChild(knopf); ul.appendChild(li);
+      li.appendChild(knopf);
+      /* Schnellaktion: direkt herunterladen, ohne Detailansicht */
+      var schnell = el("a", "karte__laden"); schnell.href = d.f; schnell.setAttribute("download", "");
+      schnell.setAttribute("aria-label", d.t + " herunterladen");
+      schnell.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14"/></svg>';
+      schnell.addEventListener("click", function () { meldung("„" + d.t + "“ wird heruntergeladen"); });
+      li.appendChild(schnell);
+      ul.appendChild(li);
     });
     $("[data-leer]").hidden = liste.length > 0;
     var titel = zustand.bereich ? name(zustand.bereich) : (zustand.suche ? "Suche: „" + zustand.suche + "“" : "Alle Dateien");
@@ -211,8 +219,20 @@
     $("[data-gruss]").textContent = ROLLEN[zustand.rolle].gruss;
     $("[data-bereich-hinweis]").textContent = ROLLEN[zustand.rolle].hinweis;
     $("[data-zahl-dateien]").textContent = String(D.filter(sichtbar).length);
-    $("[data-zahl-bereiche]").textContent = String(BEREICHE.filter(function (b) { return b.rollen.indexOf(zustand.rolle) > -1 || (zustand.rolle === "presse" && b.id === "presse"); }).length);
+    $("[data-zahl-bereiche]").textContent = String(BEREICHE.filter(darfSehen).length);
     document.body.dataset.rolle = zustand.rolle;
+    /* Abschnitte, die zur Rolle nicht passen, gar nicht erst zeigen */
+    var zeigeLogos = ["marke", "team", "agentur", "handel"].indexOf(zustand.rolle) > -1;
+    var zeigePresse = ["marke", "team", "agentur", "presse"].indexOf(zustand.rolle) > -1;
+    $("#logos").hidden = !zeigeLogos; $("#presse").hidden = !zeigePresse;
+    document.querySelector('.kopf__nav a[href="#logos"]').hidden = !zeigeLogos;
+    document.querySelector('.kopf__nav a[href="#presse"]').hidden = !zeigePresse;
+    var kanaele = { handel: ["", "Website", "Social Media", "Print"], presse: ["", "Presse"] }[zustand.rolle];
+    document.querySelectorAll("[data-kanal]").forEach(function (k) { k.hidden = !!kanaele && kanaele.indexOf(k.getAttribute("data-kanal")) < 0; });
+    document.querySelectorAll("[data-schnell]").forEach(function (k) {
+      var w = k.getAttribute("data-schnell");
+      k.parentNode.hidden = zustand.rolle === "presse" ? ["Logo", "Milchbeutel", "Hofcafé", "Social Media"].indexOf(w) > -1 : (zustand.rolle === "handel" && ["Kühe", "Hofcafé"].indexOf(w) > -1);
+    });
     zeichneBereiche(); zeichneRaster(); zeichneFreigabe();
   }
 

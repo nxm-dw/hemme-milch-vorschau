@@ -204,3 +204,52 @@
 /* Meldung */
 .toast { position: fixed; z-index: 60; left: 50%; bottom: 24px; transform: translate(-50%, 140%); padding: 14px 22px; border-radius: 99px; background: var(--tief); color: #fff; font-weight: 800; box-shadow: 0 20px 40px -20px rgba(0,0,0,.6); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
 .toast.ist-da { transform: translate(-50%, 0); }
+
+/* ===== Runde 2 ===== */
+/* Schwebende Polaroids und Packungen hinter der Suche (nur breite Bildschirme) */
+.schwebe { position: absolute; inset: 0; pointer-events: none; }
+.schwebe img { position: absolute; filter: drop-shadow(0 20px 26px rgba(0, 15, 50, .45)); animation: schweben 9s ease-in-out infinite alternate; }
+.schwebe__bild { width: clamp(120px, 11vw, 190px); aspect-ratio: 1; object-fit: cover; padding: 8px 8px 26px; background: #fff; border-radius: 4px; }
+.schwebe__pack { width: clamp(90px, 8vw, 140px); }
+.s-1 { left: 5%; top: 14%; --r: -8deg; transform: rotate(var(--r)); }
+.s-2 { left: 12%; top: 52%; --r: 6deg; transform: rotate(var(--r)); animation-delay: -3s; }
+.s-3 { left: 2%; top: 64%; --r: -12deg; transform: rotate(var(--r)); animation-delay: -6s; }
+.s-4 { right: 6%; top: 12%; --r: 7deg; transform: rotate(var(--r)); animation-delay: -2s; }
+.s-5 { right: 13%; top: 50%; --r: -5deg; transform: rotate(var(--r)); animation-delay: -5s; }
+.s-6 { right: 3%; top: 62%; --r: 10deg; transform: rotate(var(--r)); animation-delay: -7s; }
+@keyframes schweben { to { transform: rotate(calc(var(--r) * -.4)) translateY(-14px); } }
+@media (max-width: 1180px) { .schwebe { display: none; } }
+
+/* Bereiche als große Bildkarten, Überschrift immer einzeilig */
+.bereiche__raster { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.bereich { display: flex; flex-direction: column; justify-content: flex-end; gap: 0; position: relative; height: 250px; padding: 0; overflow: hidden; border: 0; color: #fff; background: var(--tief); container-type: inline-size; }
+.bereich__bild { position: absolute; inset: 0; width: auto; height: auto; border-radius: 0; background: #e8f1fb; }
+.bereich__bild img { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.bereich:hover .bereich__bild img { transform: scale(1.06); }
+.bereich__bild--hell { background: radial-gradient(circle at 70% 35%, #fff 0%, #dbe8f7 75%); }
+.bereich__bild--hell img, .bereich__bild--verlauf img { width: 52%; height: 70%; margin: 0 0 22% 32%; }
+.bereich::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12, 41, 117, 0) 30%, rgba(12, 41, 117, .92) 100%); }
+.bereich__text { position: relative; z-index: 1; padding: 0 20px 18px; }
+.bereich__text b { color: #fff; white-space: nowrap; font-size: min(26px, 9.4cqi); }
+.bereich__text span { color: #dbe7f8; }
+.bereich__zahl { position: absolute; z-index: 1; top: 14px; right: 14px; min-width: 0; height: auto; padding: 5px 12px; background: #fff; color: var(--tief); font-size: 13.5px; }
+.bereich.ist-aktiv { outline: 4px solid var(--gelb); outline-offset: 3px; }
+
+/* Dateikarten: Schnellaktion beim Darüberfahren */
+.karte { position: relative; }
+.karte__laden { position: absolute; top: 10px; right: 10px; display: grid; place-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--gelb); color: var(--tief); opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .2s; box-shadow: 0 8px 18px -8px rgba(0,0,0,.5); }
+.karte__laden svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.karte:hover .karte__laden, .karte__laden:focus-visible, .karte:focus-within .karte__laden { opacity: 1; transform: none; }
+.karte__laden:focus-visible { outline: 3px solid var(--tief); outline-offset: 2px; }
+@media (hover: none) { .karte__laden { opacity: 1; transform: none; } }
+
+/* Rollenwechsel: kurzes Einblenden */
+main { animation: rein .4s ease; }
+[data-raster] > li, [data-bereiche] > li { animation: rein .45s cubic-bezier(.2,.7,.2,1) backwards; }
+[data-raster] > li:nth-child(2n) { animation-delay: .04s; } [data-raster] > li:nth-child(3n) { animation-delay: .08s; }
+@keyframes rein { from { opacity: 0; transform: translateY(10px); } }
+.bereiche__raster { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.held__wiese { -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 25%, rgba(0,0,0,.5) 55%, #000 85%); mask-image: linear-gradient(180deg, transparent 0%, transparent 25%, rgba(0,0,0,.5) 55%, #000 85%); }
+.held__wiese { -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 30%, #000 65%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 30%, #000 65%); }
+.toast { visibility: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s .35s; }
+.toast.ist-da { visibility: visible; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
