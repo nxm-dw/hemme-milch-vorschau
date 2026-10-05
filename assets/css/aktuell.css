@@ -925,3 +925,4 @@
 .etappe__text { opacity: 1; }
 .etappe h3 { color: #b9cde8; transition: color .5s; }
 .etappe.ist-erreicht h3 { color: #fff; }
+.partner__logo--wort small { color: #4a6078; }
