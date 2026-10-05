@@ -234,62 +234,21 @@
     </figure>
   </section>
 
-  <!-- WERTSCHÖPFUNG: Reise entlang der Mittellinie. Der Milchbeutel wandert beim Scrollen mit, erreichte Stationen leuchten auf. -->
+  <!-- WERTSCHÖPFUNG: aus Entwurf B übernommen, Linie zeichnet sich beim Scrollen -->
   <section class="weg" id="weg" aria-labelledby="weg-titel">
-    <div class="weg__kopf">
-      <h2 id="weg-titel">Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt</h2>
-      <p class="weg__lead">Fünf Schritte, ein Hof. Keine Umwege, keine&nbsp;Zwischenhändler.</p>
-    </div>
-    <div class="reise" data-reise>
-      <div class="reise__spur" aria-hidden="true"><div class="reise__fuell"></div><img class="reise__beutel" src="../assets/img/marke/vollmilch-vs.webp" alt=""></div>
-      <ol class="reise__liste">
-      <li class="etappe">
-        <span class="etappe__punkt" aria-hidden="true">1</span>
-        <div class="etappe__bild"><img src="../assets/img/foto/raps-s.webp" alt="Blühendes Feld in der Uckermark" loading="lazy"></div>
-        <div class="etappe__text">
-          <p class="etappe__marke">Schritt 1 · Saatkorn</p>
-          <h3>Eigene&nbsp;Felder</h3>
-          <p>Auf unseren Feldern im Biosphärenreservat wächst rund 90&nbsp;% des&nbsp;Futters.</p>
-        </div>
-      </li>
-      <li class="etappe">
-        <span class="etappe__punkt" aria-hidden="true">2</span>
-        <div class="etappe__bild"><img src="../assets/img/foto/ernte-s.webp" alt="Häckselernte auf den eigenen Feldern" loading="lazy"></div>
-        <div class="etappe__text">
-          <p class="etappe__marke">Schritt 2 · Ernte</p>
-          <h3>Eigenes&nbsp;Futter</h3>
-          <p>Wir ernten selbst und lagern das Futter direkt am&nbsp;Hof.</p>
-        </div>
-      </li>
-      <li class="etappe">
-        <span class="etappe__punkt" aria-hidden="true">3</span>
-        <div class="etappe__bild"><img src="../assets/img/foto/kuh-nah-s.webp" alt="Kuh auf der Weide ganz nah" loading="lazy"></div>
-        <div class="etappe__text">
-          <p class="etappe__marke">Schritt 3 · Kühe</p>
-          <h3>Eigene&nbsp;Kühe</h3>
-          <p>600 Kühe auf unserem Hof und bei vier Partnerhöfen aus der&nbsp;Nachbarschaft.</p>
-        </div>
-      </li>
-      <li class="etappe">
-        <span class="etappe__punkt" aria-hidden="true">4</span>
-        <div class="etappe__bild"><div class="bild-folgt"><img src="../assets/img/foto/molkerei-platzhalter-quadrat.webp" alt="Milch wird in der Molkerei umgefüllt (Platzhalterbild)" loading="lazy"><span>Bild&nbsp;folgt</span></div></div>
-        <div class="etappe__text">
-          <p class="etappe__marke">Schritt 4 · Molkerei</p>
-          <h3>Eigene&nbsp;Molkerei</h3>
-          <p>Schonend pasteurisiert, niemals H-Milch. Abgefüllt im&nbsp;Milchbeutel.</p>
-        </div>
-      </li>
-      <li class="etappe etappe--ziel">
-        <span class="etappe__punkt" aria-hidden="true">5</span>
-        <div class="etappe__bild"><img src="../assets/img/marke/vollmilch-vs.webp" alt="Hemme Frische Vollmilch im Standbeutel" loading="lazy"></div>
-        <div class="etappe__text">
-          <p class="etappe__marke">Schritt 5 · Produkt</p>
-          <h3>Fertiges&nbsp;Milchprodukt</h3>
-          <p>Im Kühlregal in Berlin und Brandenburg, im Milchladen und beim&nbsp;Milchmann.</p>
-        </div>
-      </li>
-      </ol>
-    </div>
+    <h2 id="weg-titel">Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt</h2>
+    <p class="weg__lead">Alles auf einem Hof. Keine Umwege, keine&nbsp;Zwischenhändler.</p>
+    <svg class="weg__pfad" viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true" data-pfad>
+      <defs><mask id="pfad-maske" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1400"><path class="weg__zeichner" pathLength="1" d="M180 120 C 700 80, 900 300, 700 420 S 120 520, 260 760 S 900 820, 780 1060 S 300 1200, 420 1340"/></mask></defs>
+      <path class="weg__linie" mask="url(#pfad-maske)" d="M180 120 C 700 80, 900 300, 700 420 S 120 520, 260 760 S 900 820, 780 1060 S 300 1200, 420 1340"/>
+    </svg>
+    <img class="weg__beutel" src="../assets/img/marke/vollmilch-vs.webp" alt="" aria-hidden="true">
+    <ol class="weg__liste">
+      <li class="schritt s1" data-rein><img src="../assets/img/foto/raps-s.webp" alt="Blühendes Feld in der Uckermark" loading="lazy"><b>Eigene&nbsp;Felder</b><span>Rund 90 % des Futters wächst auf unseren Feldern im&nbsp;Biosphärenreservat.</span></li>
+      <li class="schritt s2" data-rein><img src="../assets/img/foto/kuh-nah-s.webp" alt="Kuh auf der Weide ganz nah" loading="lazy"><b>Eigene&nbsp;Kühe</b><span>600 Kühe auf unserem Hof und bei vier&nbsp;Partnerhöfen.</span></li>
+      <li class="schritt s3" data-rein><div class="bild-folgt"><img src="../assets/img/foto/molkerei-platzhalter-quadrat.webp" alt="Milch wird in der Molkerei umgefüllt (Platzhalterbild)" loading="lazy"><span>Bild folgt</span></div><b>Eigene&nbsp;Molkerei</b><span>Schonend pasteurisiert. Nie&nbsp;H-Milch.</span></li>
+      <li class="schritt s4" data-rein><div class="schritt__produkt"><img src="../assets/img/marke/vollmilch-vs.webp" alt="Hemme Frische Vollmilch im Standbeutel" loading="lazy"></div><b>Fertiges&nbsp;Milchprodukt</b><span>Im Kühlregal, im Milchladen und beim&nbsp;Milchmann.</span></li>
+    </ol>
   </section>
 
   <!-- HISTORIE: ersetzt das 24-Stunden-Band. Scrollen treibt die Jahreszahl. Historische Bilder liefert Hemme. -->
@@ -521,11 +480,6 @@
     </div>
   </div>
 
-  <a class="bruder-fuss" href="https://www.hemme-milch.de" target="_blank" rel="noopener">
-    <img class="bruder-fuss__logo" src="../assets/img/partner/hemme-milch-sprockhof-weiss.svg" alt="Hemme Milch, seit 1589" width="220" height="60">
-    <span class="bruder-fuss__text">Unser Bruderunternehmen am Sprockhof in der&nbsp;Wedemark</span>
-    <span class="bruder-fuss__los">hemme-milch.de <span aria-hidden="true">↗</span><span class="nur-sr"> (öffnet in neuem Tab)</span></span>
-  </a>
   <div class="fuss__siegel">
     <p class="fuss__siegel-titel">Geprüft und&nbsp;ausgezeichnet</p>
     <ul>
@@ -535,6 +489,15 @@
       <li><img src="../assets/img/marke/label-eigen.webp" alt="Hemme-Siegel: Eigenes Futter, eigene Kühe, eigene Molkerei" loading="lazy"></li>
     </ul>
   </div>
+
+  <a class="bruder-fuss" href="https://www.hemme-milch.de" target="_blank" rel="noopener">
+    <img class="bruder-fuss__logo" src="../assets/img/partner/hemme-milch-sprockhof-weiss.svg" alt="" width="220" height="60">
+    <span class="bruder-fuss__text">
+      <b>Hemme Milch am&nbsp;Sprockhof</b>
+      <span>Unser Bruderunternehmen in der Wedemark bei Hannover. Gleiche Familie, gleiche Haltung: Milch direkt vom eigenen&nbsp;Hof.</span>
+    </span>
+    <span class="bruder-fuss__los">hemme-milch.de <span aria-hidden="true">↗</span><span class="nur-sr"> (öffnet in neuem Tab)</span></span>
+  </a>
 
   <div class="fuss__unten">
     <p>© <span data-jahr>2026</span> Hemme&nbsp;Milch</p>

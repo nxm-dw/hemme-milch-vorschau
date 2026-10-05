@@ -913,10 +913,12 @@
 .partner__logo--wort b { font-family: "True North Dots"; font-weight: 400; font-size: 20px; color: var(--tief); line-height: 1.05; }
 
 /* ===== Bruderunternehmen im Footer: dezenter, mit Logo ===== */
-.bruder-fuss { margin-top: 28px; padding: 16px 22px; background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); gap: 14px 28px; }
+.bruder-fuss { margin: 0 0 32px; padding: 26px clamp(22px, 3vw, 40px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); gap: 14px 28px; }
 .bruder-fuss__logo { width: 190px; height: auto; flex: none; }
-.bruder-fuss__text { flex: 1; min-width: 200px; color: #dbe7f8; font-size: 15.5px; padding-left: 28px; border-left: 1px solid rgba(255,255,255,.22); }
-.bruder-fuss__los { background: transparent; border: 1.5px solid rgba(255,255,255,.6); color: #fff; font-size: 15px; }
+.bruder-fuss__text { flex: 1; min-width: 240px; display: grid; gap: 6px; color: #e6eefa; font-size: 17px; line-height: 1.45; padding-left: 28px; border-left: 1px solid rgba(255,255,255,.22); text-wrap: pretty; }
+.bruder-fuss__text b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.1; color: #fff; letter-spacing: .01em; }
+.bruder-fuss__text span { max-width: 62ch; }
+.bruder-fuss__los { background: transparent; border: 1.5px solid rgba(255,255,255,.6); color: #fff; font-size: 16px; flex: none; }
 .bruder-fuss:hover .bruder-fuss__los { background: #fff; color: var(--tief); }
 @media (max-width: 640px) { .bruder-fuss__text { padding-left: 0; border-left: 0; } }
 .reise__beutel { max-width: none; }
@@ -926,3 +928,30 @@
 .etappe h3 { color: #b9cde8; transition: color .5s; }
 .etappe.ist-erreicht h3 { color: #fff; }
 .partner__logo--wort small { color: #4a6078; }
+
+/* ===== Wertschöpfung wieder mit welliger Linie, Milchbeutel fährt mit ===== */
+.a .weg .weg__pfad { display: block; }
+.weg__beutel { position: absolute; z-index: 2; left: 0; top: 0; width: 54px; height: auto; max-width: none; pointer-events: none;
+  transform: translate(calc(var(--bx, -999px) - 50%), calc(var(--by, -999px) - 50%)) rotate(var(--br, 0deg));
+  filter: drop-shadow(0 10px 14px rgba(0, 10, 40, .55)); opacity: var(--bo, 0); transition: opacity .3s; }
+.schritt { position: relative; z-index: 1; }
+@media (max-width: 700px), (prefers-reduced-motion: reduce) { .weg__beutel { display: none; } }
+
+/* Kompaktes Ergebnis „Noch kein Hemme“, Wunschzettel im Fenster */
+.nachfrage { display: grid; grid-template-columns: 74px 1fr; gap: 6px 18px; align-items: start; padding: 20px 22px; border-radius: 24px; }
+.nachfrage__bild { grid-row: 1 / span 3; width: 74px; height: auto; transform: rotate(-8deg); filter: drop-shadow(0 12px 14px rgba(0, 10, 40, .45)); }
+.nachfrage__marke { margin-bottom: 8px; }
+.nachfrage h3 { font-size: clamp(22px, 2vw, 28px); margin-bottom: 4px; }
+.nachfrage__text > p:last-child { color: #dbe7f8; font-size: 15.5px; }
+.nachfrage__knoepfe { grid-column: 2; margin-top: 8px; }
+.nachfrage__knoepfe .knopf { padding: 12px 20px 10px; }
+.nachfrage__hof { grid-column: 2; margin-top: 8px; font-size: 14px; }
+@media (max-width: 520px) { .nachfrage { grid-template-columns: 1fr; } .nachfrage__bild { display: none; } .nachfrage__knoepfe, .nachfrage__hof { grid-column: 1; } }
+.zettel-fenster { width: min(620px, calc(100vw - 32px)); padding: 28px; border: 0; border-radius: 28px; background: var(--hm-verlauf); overflow: visible; }
+.zettel-fenster::backdrop { background: rgba(8, 25, 70, .6); backdrop-filter: blur(4px); }
+.zettel-fenster .zettel { margin: 8px 0 20px; }
+.zettel-fenster__zu { position: absolute; top: -14px; right: -14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fff; color: var(--tief); font-size: 24px; cursor: pointer; box-shadow: 0 8px 18px -8px rgba(0,0,0,.5); }
+.zettel-fenster__knoepfe { display: flex; flex-wrap: wrap; gap: 10px; }
+.zettel-fenster .knopf { background: #fff; border-color: #fff; color: var(--tief); }
+.zettel-fenster .knopf--rand { background: transparent; color: #fff; }
+.zettel-fenster :focus-visible { outline-color: var(--gelb); }

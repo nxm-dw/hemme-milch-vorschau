@@ -137,31 +137,47 @@
     return box;
   }
 
-  function keinMarkt(plz) {
-    var box = el("div", "nachfrage");
-    box.appendChild(el("div", "nachfrage__kopf",
-      "<p class=\"nachfrage__marke\">Für " + plz + " noch kein Markt&nbsp;hinterlegt</p>" +
-      "<h3>Noch kein Hemme in eurem&nbsp;Markt?</h3>" +
-      "<p>Fragt gerne direkt vor Ort nach! Je öfter Kundinnen und Kunden fragen, desto eher steht Hemme im Kühlregal. Gebt der Marktleitung einfach unseren&nbsp;Wunschzettel.</p>"));
-    var zettel = el("figure", "zettel");
-    zettel.innerHTML =
+  /* Wunschzettel im eigenen Fenster, damit das Suchergebnis kompakt bleibt */
+  var dlg = document.createElement("dialog");
+  dlg.className = "zettel-fenster";
+  dlg.setAttribute("aria-label", "Wunschzettel für die Marktleitung");
+  dlg.innerHTML =
+    "<button type=\"button\" class=\"zettel-fenster__zu\" aria-label=\"Schließen\">×</button>" +
+    "<figure class=\"zettel\">" +
       "<img class=\"zettel__logo\" src=\"../assets/img/marke/hemme-logo-oval-farbe.webp\" alt=\"Hemme Milch\" width=\"300\" height=\"167\">" +
       "<figcaption class=\"zettel__titel\">Wunschzettel für die&nbsp;Marktleitung</figcaption>" +
       "<p>Liebe Marktleitung,<br>wir würden gern frische Hemme-Milchprodukte bei Ihnen kaufen.</p>" +
       "<ul class=\"zettel__produkte\"><li><img src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">Milch im&nbsp;Milchbeutel</li><li><img src=\"../assets/img/produkte/beerenfest-200g.webp\" alt=\"\">Joghurt</li><li><img src=\"../assets/img/produkte/fassbutter.webp\" alt=\"\">Fassbutter</li><li><img src=\"../assets/img/produkte/schokomilch-230.webp\" alt=\"\">Milch&shy;getränke</li></ul>" +
-      "<p class=\"zettel__kontakt\"><b>Kontakt für den Handel</b>Hemme Milch GmbH &amp; Co. KG · Heideweg 4 · 16278 Angermünde<br>Telefon <a href=\"tel:+493331252525\">03331&nbsp;252525</a></p>";
-    box.appendChild(zettel);
+      "<p class=\"zettel__kontakt\"><b>Kontakt für den Handel</b>Hemme Milch GmbH &amp; Co. KG · Heideweg 4 · 16278 Angermünde<br>Telefon <a href=\"tel:+493331252525\">03331&nbsp;252525</a></p>" +
+    "</figure>" +
+    "<div class=\"zettel-fenster__knoepfe\"><button type=\"button\" class=\"knopf\" data-zettel-drucken>Drucken</button><button type=\"button\" class=\"knopf knopf--rand\" data-zettel-teilen>Text kopieren oder&nbsp;teilen</button></div>";
+  document.body.appendChild(dlg);
+  dlg.querySelector(".zettel-fenster__zu").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); });
+  dlg.querySelector("[data-zettel-drucken]").addEventListener("click", function () { document.body.classList.add("druck-zettel"); window.print(); setTimeout(function () { document.body.classList.remove("druck-zettel"); }, 500); });
+  function teilen(knopf) {
+    if (navigator.share) { navigator.share({ title: "Wunsch: Hemme Milch im Markt", text: ZETTEL }).catch(function () {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(ZETTEL) : Promise.reject()).then(function () { knopf.innerHTML = "Text&nbsp;kopiert ✓"; }, function () { knopf.textContent = "Kopieren nicht möglich"; });
+  }
+  dlg.querySelector("[data-zettel-teilen]").addEventListener("click", function (ev) { teilen(ev.currentTarget); });
+
+  function keinMarkt(plz) {
+    var box = el("div", "nachfrage");
+    box.innerHTML =
+      "<img class=\"nachfrage__bild\" src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">" +
+      "<div class=\"nachfrage__text\">" +
+        "<p class=\"nachfrage__marke\">Für " + plz + " noch kein Markt&nbsp;hinterlegt</p>" +
+        "<h3>Noch kein Hemme in eurem&nbsp;Markt?</h3>" +
+        "<p>Fragt gerne direkt vor Ort nach und gebt der Marktleitung unseren&nbsp;Wunschzettel.</p>" +
+      "</div>";
     var knoepfe = el("div", "nachfrage__knoepfe");
-    var drucken = el("button", "knopf", "Wunschzettel&nbsp;drucken"); drucken.type = "button";
-    drucken.addEventListener("click", function () { document.body.classList.add("druck-zettel"); window.print(); setTimeout(function () { document.body.classList.remove("druck-zettel"); }, 500); });
-    var teilen = el("button", "knopf knopf--rand", "Text kopieren oder&nbsp;teilen"); teilen.type = "button";
-    teilen.addEventListener("click", function () {
-      if (navigator.share) { navigator.share({ title: "Wunsch: Hemme Milch im Markt", text: ZETTEL }).catch(function () {}); return; }
-      (navigator.clipboard ? navigator.clipboard.writeText(ZETTEL) : Promise.reject()).then(function () { teilen.innerHTML = "Text&nbsp;kopiert ✓"; }, function () { teilen.textContent = "Kopieren nicht möglich"; });
-    });
-    knoepfe.appendChild(drucken); knoepfe.appendChild(teilen);
+    var zeigen = el("button", "knopf", "Wunschzettel&nbsp;öffnen"); zeigen.type = "button";
+    zeigen.addEventListener("click", function () { dlg.showModal(); });
+    var t = el("button", "knopf knopf--rand", "Teilen"); t.type = "button";
+    t.addEventListener("click", function () { teilen(t); });
+    knoepfe.appendChild(zeigen); knoepfe.appendChild(t);
     box.appendChild(knoepfe);
-    box.appendChild(el("p", "nachfrage__hof", "<b>Bis dahin:</b> Im Milchladen auf dem Hof gibt es das ganze Sortiment, Mittwoch bis Sonntag von 11 bis 18&nbsp;Uhr."));
+    box.appendChild(el("p", "nachfrage__hof", "Bis dahin gibt es alles im Milchladen auf dem Hof, Mi bis So 11 bis 18&nbsp;Uhr."));
     return box;
   }
 
@@ -197,4 +213,26 @@
   window.addEventListener("scroll", function () { if (wartet) return; wartet = true; requestAnimationFrame(function () { wartet = false; zeichnen(); }); }, { passive: true });
   window.addEventListener("resize", zeichnen);
   zeichnen();
+})();
+
+/* Milchbeutel fährt auf der welligen Linie mit: Position = Punkt am Ende der gezeichneten Strecke */
+(function () {
+  "use strict";
+  var weg = document.querySelector(".weg"), svg = document.querySelector("[data-pfad]"), beutel = document.querySelector(".weg__beutel");
+  if (!weg || !svg || !beutel) return;
+  var pfad = svg.querySelector(".weg__linie"), laenge = pfad.getTotalLength();
+  function setzen() {
+    var anteil = parseFloat(getComputedStyle(svg).getPropertyValue("--weg")) || 0;
+    var sr = svg.getBoundingClientRect(), wr = weg.getBoundingClientRect();
+    var sx = sr.width / 1000, sy = sr.height / 1400;
+    var pt = pfad.getPointAtLength(laenge * anteil), vor = pfad.getPointAtLength(Math.min(laenge, laenge * anteil + 4));
+    var winkel = Math.atan2((vor.y - pt.y) * sy, (vor.x - pt.x) * sx) * 180 / Math.PI;
+    weg.style.setProperty("--bx", (sr.left - wr.left + pt.x * sx).toFixed(1) + "px");
+    weg.style.setProperty("--by", (sr.top - wr.top + pt.y * sy).toFixed(1) + "px");
+    weg.style.setProperty("--br", (Math.max(-25, Math.min(25, winkel / 4))).toFixed(1) + "deg");
+    weg.style.setProperty("--bo", anteil > 0.001 ? "1" : "0");
+  }
+  window.addEventListener("scroll", function () { requestAnimationFrame(function () { requestAnimationFrame(setzen); }); }, { passive: true });
+  window.addEventListener("resize", setzen);
+  setzen();
 })();
