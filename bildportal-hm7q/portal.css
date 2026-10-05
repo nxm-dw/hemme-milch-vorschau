@@ -253,3 +253,41 @@ main { animation: rein .4s ease; }
 .held__wiese { -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 30%, #000 65%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.5) 30%, #000 65%); }
 .toast { visibility: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s .35s; }
 .toast.ist-da { visibility: visible; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+
+/* ===== Hero Runde 3 ===== */
+.held { min-height: calc(100svh - 120px); display: flex; flex-direction: column; justify-content: center; padding-top: clamp(40px, 6vw, 80px) !important; }
+.held h1 span { display: block; white-space: nowrap; }
+.held h1 { font-size: clamp(30px, 5.4vw, 92px); }
+/* Wiese randlos über die volle Breite am unteren Rand */
+.held__wiese { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; max-width: none; margin: 0; height: clamp(150px, 20vw, 320px); object-fit: cover; object-position: 50% 100%; pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 30%, #000 70%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 30%, #000 70%); }
+.held__innen { padding-bottom: clamp(140px, 17vw, 260px); }
+/* Lichtschein hinter der Suche */
+.held::before { content: ""; position: absolute; left: 50%; top: 42%; width: min(90vw, 1100px); aspect-ratio: 2 / 1; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(120, 190, 255, .35), transparent); pointer-events: none; }
+.schwebe img { z-index: 0; }
+
+/* Pillen: Akko sitzt optisch zu hoch, daher Text per Flex mittig und oben etwas mehr Luft */
+.schnell button, .held__gruss, .filter button, .marke-chip, .kanal, .bereich__zahl, .rolle__titel, .marke, .detail__status {
+  display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+.schnell button { padding: 10px 16px 8px; }
+.held__gruss { padding: 9px 16px 7px; }
+.filter button { padding: 11px 18px 9px; }
+.marke-chip { padding: 6px 10px 4px; }
+.kanal { padding: 4px 9px 2px; }
+.bereich__zahl { padding: 7px 12px 5px; }
+.marke { padding: 7px 14px 5px; }
+.detail__status { padding: 7px 12px 5px; }
+.knopf, .suche button, .format b { line-height: 1; }
+.knopf { padding-top: 16px; padding-bottom: 14px; }
+.suche button { padding: 16px 26px 14px; }
+
+/* Bereichskarten: Text links unten statt mittig */
+.bereich { align-items: stretch; text-align: left; }
+.bereich__text { justify-items: start; padding: 0 22px 20px; }
+.held h1 { font-size: clamp(30px, 4.4vw, 76px); }
+.held__wiese { height: clamp(120px, 14vw, 240px); -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.4) 35%, #000 75%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.4) 35%, #000 75%); }
+.held__innen { padding-bottom: clamp(130px, 15vw, 250px); }
+.schwebe__bild { width: clamp(110px, 9vw, 165px); }
+.s-1 { left: 4%; top: 10%; } .s-4 { right: 4%; top: 10%; }
+.s-2 { left: 10%; top: 46%; } .s-5 { right: 10%; top: 44%; }
+.s-3 { left: 3%; top: 60%; } .s-6 { right: 3%; top: 58%; }

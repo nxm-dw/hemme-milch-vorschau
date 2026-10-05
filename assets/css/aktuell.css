@@ -775,3 +775,6 @@
 .bruder { margin-top: 28px; padding: 16px 20px; border-radius: 18px; background: #e8f1fb; font-size: 16px; max-width: 34em; }
 .bruder a { font-weight: 800; color: var(--blau-text); }
 .a .schritt .bild-folgt span { color: #0c2975; font-size: 14px; }
+
+/* Linie der Wertschöpfung gehört in ihren Abschnitt (fehlte: Bezugsrahmen) */
+.a .weg { position: relative; overflow: hidden; }
