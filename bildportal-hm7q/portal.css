@@ -291,3 +291,6 @@ main { animation: rein .4s ease; }
 .s-1 { left: 4%; top: 10%; } .s-4 { right: 4%; top: 10%; }
 .s-2 { left: 10%; top: 46%; } .s-5 { right: 10%; top: 44%; }
 .s-3 { left: 3%; top: 60%; } .s-6 { right: 3%; top: 58%; }
+
+/* Ganze Aquarell-Wiese ohne Zoom (Originaldatei aus der CI) */
+.held__wiese { height: auto; aspect-ratio: 2400 / 547; object-fit: fill; }

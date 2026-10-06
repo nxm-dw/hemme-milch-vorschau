@@ -46,16 +46,42 @@
   .knopf-gelb { display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px 14px; line-height: 1; border-radius: 99px; background: #f7a30a; color: #0c2975; font-weight: 900; transition: transform .25s; }
   .haupt:hover .knopf-gelb { transform: translateX(4px); }
 
-  /* Termin */
-  .termin { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .termin section { padding: 26px 28px 28px; border-radius: 28px; background: var(--glas); border: 1px solid var(--rand); }
-  .termin h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-family: "True North Dots"; font-weight: 400; font-size: 24px; line-height: 1.1; margin: 0 0 16px; }
-  .termin h3 small { font-family: "Akko Rounded", system-ui, sans-serif; font-weight: 900; font-size: 14px; color: var(--leise); }
-  .termin ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15.5px; line-height: 1.45; color: #e3eeff; }
-  .termin li { position: relative; padding-left: 28px; text-wrap: pretty; }
-  .termin li::before { content: ""; position: absolute; left: 2px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,.55); box-sizing: border-box; }
-  .termin .erledigt li::before { border: 0; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.5' fill='none' stroke='%230c2975' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; }
-  .termin .eindruck li::before { width: 8px; height: 8px; top: 7px; left: 5px; border: 0; background: rgba(255,255,255,.7); }
+  /* Termin: Zitat, Fortschritt, zwei Listen */
+  .termin { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px; }
+  .zitat { margin: 0; padding: clamp(28px, 3.4vw, 44px); border-radius: 32px; background: var(--glas); border: 1px solid var(--rand); position: relative; overflow: hidden; }
+  .zitat::before { content: "„"; position: absolute; right: 18px; top: -70px; font-family: "True North Dots"; font-size: 300px; line-height: 1; color: rgba(255,255,255,.07); pointer-events: none; }
+  .zitat__marke { margin: 0 0 18px; font-size: 13.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--leise); }
+  .zitat blockquote { margin: 0; }
+  .zitat blockquote p { margin: 0; font-family: "True North Dots"; font-size: clamp(28px, 2.9vw, 40px); line-height: 1.08; text-wrap: balance; }
+  .zitat__punkte { list-style: none; margin: 26px 0 0; padding: 22px 0 0; border-top: 1px solid var(--rand); display: grid; gap: 8px; font-size: 15.5px; line-height: 1.45; color: #e3eeff; }
+  .zitat__punkte li { position: relative; padding-left: 20px; text-wrap: pretty; }
+  .zitat__punkte li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.65); }
+
+  .fortschritt { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: clamp(28px, 3.4vw, 44px); border-radius: 32px; background: #fff; color: #0c2975; }
+  .fortschritt__zahl { display: flex; align-items: center; gap: 18px; margin: 0; font-weight: 900; font-size: 19px; line-height: 1.2; }
+  .fortschritt__zahl b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(96px, 9vw, 132px); line-height: .8; color: #006ec6; }
+  .fortschritt__balken { display: grid; grid-template-columns: repeat(11, 1fr); gap: 5px; }
+  .fortschritt__balken i { height: 16px; border-radius: 99px; border: 2px dashed #9db3cf; }
+  .fortschritt__balken i.an { border: 0; background: var(--hm-verlauf); }
+  .fortschritt__legende { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0; font-size: 14.5px; font-weight: 700; color: #3c5574; }
+  .fortschritt__legende span { display: inline-flex; align-items: center; gap: 8px; }
+  .fortschritt__legende span::before { content: ""; width: 18px; height: 10px; border-radius: 99px; border: 2px dashed #9db3cf; }
+  .fortschritt__legende span.an::before { border: 0; background: var(--hm-verlauf); }
+
+  .liste { padding: 28px clamp(24px, 3vw, 36px) 30px; border-radius: 32px; }
+  .liste h3 { font-family: "True North Dots"; font-weight: 400; font-size: 26px; line-height: 1.1; margin: 0 0 18px; }
+  .liste ul { list-style: none; margin: 0; padding: 0; }
+  .liste--fertig { display: flex; flex-direction: column; background: var(--glas); border: 1px solid var(--rand); }
+  .liste--fertig ul { flex: 1; display: flex; flex-direction: column; justify-content: space-between; font-size: 16px; line-height: 1.45; color: #e3eeff; }
+  .liste--fertig li { position: relative; padding: 11px 0 11px 34px; border-top: 1px solid var(--rand); text-wrap: pretty; }
+  .liste--fertig li::before { content: ""; position: absolute; left: 0; top: 12px; width: 20px; height: 20px; border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.5' fill='none' stroke='%230c2975' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat; }
+  .liste--offen { border: 2px dashed rgba(255,255,255,.45); }
+  .liste--offen ul { display: grid; gap: 0; }
+  .liste--offen li { display: grid; gap: 1px; padding: 11px 0; border-top: 1px solid var(--rand); font-size: 15.5px; line-height: 1.35; }
+  .liste li:first-child { border-top: 0; padding-top: 0; }
+  .liste--fertig li:first-child::before { top: 1px; }
+  .liste--offen b { font-weight: 900; color: #fff; }
+  .liste--offen span { color: var(--leise); }
 
   /* Weitere Stände */
   .weitere { margin-top: 88px; }
@@ -117,38 +143,50 @@
     </div>
   </a>
 
-  <div class="termin" aria-label="Ergebnisse aus dem Termin am 01.10.2026">
-    <section>
-      <h3>Eindruck</h3>
-      <ul class="eindruck">
-        <li>Erster Eindruck sehr positiv, Entwurf A wird&nbsp;bevorzugt.</li>
-        <li>A wirkte etwas zu bunt: Produkte jetzt in Blau&shy;abstufungen der CI, Farben nur noch als Kennung je&nbsp;Kategorie.</li>
-        <li>Aus B übernommen: Wertschöpfung, Kühlschrank und&nbsp;Polaroids.</li>
-        <li>Top-Banner bleibt.</li>
+  <section class="termin" aria-labelledby="termin-titel">
+    <h2 class="nur-sr" id="termin-titel">Ergebnisse aus dem Termin am 01.10.2026</h2>
+
+    <figure class="zitat">
+      <p class="zitat__marke">Termin mit Hemme · Donnerstag,&nbsp;01.10.2026</p>
+      <blockquote><p>Erster Eindruck sehr positiv. Entwurf&nbsp;A wird&nbsp;bevorzugt.</p></blockquote>
+      <ul class="zitat__punkte" aria-label="Weitere Eindrücke">
+        <li>A war etwas zu bunt: Produkte jetzt in Blau&shy;abstufungen der CI, Farbe nur noch als Kennung je&nbsp;Kategorie</li>
+        <li>Aus B übernommen: Wertschöpfung, Kühlschrank und&nbsp;Polaroids</li>
+        <li>Top-Banner bleibt</li>
       </ul>
-    </section>
-    <section>
-      <h3>Umgesetzt <small>6&nbsp;Punkte</small></h3>
-      <ul class="erledigt">
+    </figure>
+
+    <div class="fortschritt">
+      <p class="fortschritt__zahl"><b>6</b><span>von 11 Punkten<br>erledigt</span></p>
+      <div class="fortschritt__balken" role="img" aria-label="6 von 11 Punkten erledigt, 5 offen bei Hemme">
+        <i class="an"></i><i class="an"></i><i class="an"></i><i class="an"></i><i class="an"></i><i class="an"></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p class="fortschritt__legende"><span class="an">Umgesetzt von&nbsp;NEXAS</span><span>Offen bei&nbsp;Hemme</span></p>
+    </div>
+
+    <section class="liste liste--fertig" aria-labelledby="fertig-titel">
+      <h3 id="fertig-titel">Umgesetzt</h3>
+      <ul>
         <li>Historie statt „Von der Kuh zu euch“, keine 24-Stunden-Aussagen&nbsp;mehr</li>
         <li>„Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt“</li>
-        <li>Hinweis „Noch kein Hemme in eurem Markt?“ mit Wunschzettel für die&nbsp;Marktleitung</li>
+        <li>„Noch kein Hemme in eurem Markt?“ mit Wunschzettel für die&nbsp;Marktleitung</li>
         <li>Partnerbereich mit&nbsp;Logos</li>
         <li>Link zu hemme-milch.de im Footer, Hinweis bei Über&nbsp;uns</li>
         <li>Aquarell-Wiese im Footer weniger&nbsp;gezoomt</li>
       </ul>
     </section>
-    <section>
-      <h3>Offen bei Hemme <small>5&nbsp;Punkte</small></h3>
+
+    <section class="liste liste--offen" aria-labelledby="offen-titel">
+      <h3 id="offen-titel">Offen bei&nbsp;Hemme</h3>
       <ul>
-        <li>Partnerliste, Logos und Infos der&nbsp;Partner</li>
-        <li>Produktinformationen und&nbsp;Produktübersicht</li>
-        <li>Historische Bilder (Ansprechpartnerin:&nbsp;Ilsabe)</li>
-        <li>Inhalte zum Bruderunternehmen Hemme&nbsp;Milch</li>
-        <li>Ordnerstruktur mit Bildern für das&nbsp;Bildportal</li>
+        <li><b>Partner</b><span>Liste, Logos und&nbsp;Infos</span></li>
+        <li><b>Produkte</b><span>Informationen und&nbsp;Übersicht</span></li>
+        <li><b>Historische Bilder</b><span>Ansprechpartnerin:&nbsp;Ilsabe</span></li>
+        <li><b>Bruderunternehmen</b><span>Inhalte zu Hemme&nbsp;Milch</span></li>
+        <li><b>Bildportal</b><span>Ordnerstruktur mit&nbsp;Bildern</span></li>
       </ul>
     </section>
-  </div>
+  </section>
 
   <section class="weitere" aria-labelledby="weitere-titel">
     <div class="weitere__kopf">
