@@ -897,11 +897,6 @@
 .nachfrage :focus-visible { outline-color: var(--gelb); }
 .nachfrage__hof { margin-top: 16px; font-size: 15px; color: #dbe7f8; }
 @media (max-width: 560px) { .zettel__produkte { grid-template-columns: 1fr 1fr; } }
-@media print {
-  body.druck-zettel * { visibility: hidden; }
-  body.druck-zettel .zettel, body.druck-zettel .zettel * { visibility: visible; }
-  body.druck-zettel .zettel { position: fixed; left: 10mm; top: 10mm; width: 180mm; transform: none; box-shadow: none; }
-}
 
 /* ===== Partner: echte Logos, Überschriften einzeilig ===== */
 .partner__kategorien li { container-type: inline-size; }

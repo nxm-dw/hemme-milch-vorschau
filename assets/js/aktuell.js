@@ -154,7 +154,20 @@
   document.body.appendChild(dlg);
   dlg.querySelector(".zettel-fenster__zu").addEventListener("click", function () { dlg.close(); });
   dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); });
-  dlg.querySelector("[data-zettel-drucken]").addEventListener("click", function () { document.body.classList.add("druck-zettel"); window.print(); setTimeout(function () { document.body.classList.remove("druck-zettel"); }, 500); });
+  // Drucken lädt nur das A4-Blatt (eigene Seite) in einen unsichtbaren Rahmen, so entsteht genau eine Seite
+  dlg.querySelector("[data-zettel-drucken]").addEventListener("click", function () {
+    var alt = document.getElementById("zettel-druck"); if (alt) alt.remove();
+    var f = document.createElement("iframe");
+    f.id = "zettel-druck"; f.title = "Wunschzettel zum Drucken"; f.setAttribute("aria-hidden", "true"); f.tabIndex = -1;
+    f.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden";
+    f.onload = function () {
+      var w = f.contentWindow;
+      try { (w.document.fonts ? w.document.fonts.ready : Promise.resolve()).then(function () { setTimeout(function () { w.focus(); w.print(); }, 150); }); }
+      catch (e) { window.open("wunschzettel/", "_blank"); }
+    };
+    f.src = "wunschzettel/";
+    document.body.appendChild(f);
+  });
   function teilen(knopf) {
     if (navigator.share) { navigator.share({ title: "Wunsch: Hemme Milch im Markt", text: ZETTEL }).catch(function () {}); return; }
     (navigator.clipboard ? navigator.clipboard.writeText(ZETTEL) : Promise.reject()).then(function () { knopf.innerHTML = "Text&nbsp;kopiert ✓"; }, function () { knopf.textContent = "Kopieren nicht möglich"; });

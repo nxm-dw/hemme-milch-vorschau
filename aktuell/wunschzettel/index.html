@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hemme Milch · Wunschzettel für die Marktleitung</title>
+<link rel="icon" href="../../assets/img/kuh-kopf.svg">
+<style>
+  @font-face { font-family: "True North Dots"; src: url("../../assets/fonts/marke/TrueNorthDots-Black.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Akko Rounded"; src: url("../../assets/fonts/marke/AkkoRoundedW01-Medium.woff2") format("woff2"); font-weight: 400 500; }
+  @font-face { font-family: "Akko Rounded"; src: url("../../assets/fonts/marke/AkkoRoundedW01-Bold.woff2") format("woff2"); font-weight: 600 700; }
+  @font-face { font-family: "Akko Rounded"; src: url("../../assets/fonts/marke/AkkoRoundedW01-Black.woff2") format("woff2"); font-weight: 800 900; }
+
+  @page { size: A4 landscape; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; }
+  body { --tief: #0c2975; --blau: #006ec6; --papier: #fffdf6; --kachel: #eef4fb; --linie: #cfdcec; background: #dfe7f1; color: var(--tief); font: 500 12pt/1.4 "Akko Rounded", system-ui, sans-serif; }
+
+  /* Ansicht am Bildschirm: Blatt mittig mit Leiste */
+  .leiste { display: flex; justify-content: center; gap: 10px; padding: 16px; }
+  .leiste button, .leiste a { display: inline-flex; align-items: center; padding: 12px 22px 10px; line-height: 1; border-radius: 99px; border: 2px solid var(--tief); background: var(--tief); color: #fff; font: 900 15px "Akko Rounded", system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+  .leiste a { background: transparent; color: var(--tief); }
+  .leiste :focus-visible { outline: 3px solid #f7a30a; outline-offset: 3px; }
+  .rahmen { padding: 0 16px 32px; overflow-x: auto; }
+
+  /* Das Blatt: genau A4 quer */
+  .blatt { position: relative; width: 297mm; height: 210mm; margin: 0 auto; overflow: hidden; background: var(--papier); box-shadow: 0 30px 60px -30px rgba(12, 41, 117, .5); padding: 15mm 18mm 0; display: flex; flex-direction: column; }
+  .blatt::before { content: ""; position: absolute; top: -3mm; left: 50%; width: 58mm; height: 13mm; transform: translateX(-50%) rotate(1.8deg); background: rgba(247, 163, 10, .8); }
+
+  .kopf { display: flex; justify-content: space-between; align-items: flex-start; gap: 12mm; }
+  h1 { margin: 2mm 0 0; font-family: "True North Dots"; font-weight: 400; font-size: 31pt; line-height: 1; letter-spacing: .01em; }
+  h1 span { display: block; }
+  .kopf__logo { width: 48mm; height: auto; flex: none; margin-top: -2mm; filter: drop-shadow(0 2mm 3mm rgba(12, 41, 117, .18)); }
+
+  .anrede { margin: 5mm 0 0; max-width: 190mm; font-size: 13pt; line-height: 1.45; }
+  .anrede b { display: block; font-weight: 900; }
+
+  .produkte { list-style: none; margin: 7mm 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+  .produkte li { display: grid; grid-template-rows: 29mm auto 1fr; justify-items: center; align-items: start; padding: 5mm 4mm 4.5mm; border-radius: 5mm; background: var(--kachel); text-align: center; }
+  .produkte img { align-self: end; height: 29mm; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 2mm 2mm rgba(12, 41, 117, .18)); }
+  .produkte b { margin-top: 3mm; font-weight: 900; font-size: 12.5pt; line-height: 1.15; }
+  .produkte span { margin-top: 1mm; font-size: 9.5pt; line-height: 1.3; color: #3c5574; }
+
+  .fuss { display: grid; grid-template-columns: 1.15fr 1fr .9fr; gap: 9mm; margin-top: 7mm; padding-top: 6mm; border-top: .6mm dashed var(--linie); }
+  .fuss h2 { margin: 0 0 2mm; font-size: 9.5pt; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--blau); }
+  .fuss p { margin: 0; font-size: 10.5pt; line-height: 1.45; }
+  .tel { display: block; margin-top: 1.5mm; font-family: "True North Dots"; font-size: 17pt; line-height: 1; letter-spacing: .02em; }
+  .gruende { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6mm; font-size: 10.5pt; line-height: 1.3; }
+  .gruende li { position: relative; padding-left: 6mm; }
+  .gruende li::before { content: ""; position: absolute; left: 0; top: .6mm; width: 4mm; height: 4mm; border-radius: 50%; background: var(--tief) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/3mm no-repeat; }
+  .feld { display: grid; gap: 4.5mm; }
+  .feld span { display: block; padding-top: 5.5mm; border-bottom: .35mm solid var(--tief); font-size: 9pt; font-weight: 700; color: #3c5574; line-height: 1; }
+  .feld span::before { content: attr(data-feld); position: relative; top: -1.5mm; }
+
+  .wiese { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 26mm; object-fit: cover; object-position: 50% 100%; -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 40%, #000 80%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 40%, #000 80%); }
+
+  @media print {
+    body { background: none; }
+    .leiste { display: none; }
+    .rahmen { padding: 0; overflow: visible; }
+    .blatt { margin: 0; box-shadow: none; page-break-after: avoid; break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="leiste">
+  <button type="button" onclick="window.print()">Drucken oder als PDF&nbsp;sichern</button>
+  <a href="../#kaufen">Zurück zur Website</a>
+</div>
+<div class="rahmen">
+<main class="blatt">
+  <div class="kopf">
+    <h1><span>Wunschzettel für</span> <span>die Marktleitung</span></h1>
+    <img class="kopf__logo" src="../../assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167">
+  </div>
+
+  <p class="anrede"><b>Liebe Marktleitung,</b>wir würden gern frische Hemme-Milchprodukte bei Ihnen kaufen. Hemme kommt direkt vom Hof in der Uckermark und ist bei Edeka, Rewe und vielen kleinen Läden in Berlin und Brandenburg schon im&nbsp;Kühlregal.</p>
+
+  <ul class="produkte">
+    <li><img src="../../assets/img/marke/vollmilch-vs.webp" alt=""><b>Milch im&nbsp;Milchbeutel</b><span>Frische Vollmilch und Teilentrahmte&nbsp;Milch</span></li>
+    <li><img src="../../assets/img/produkte/beerenfest-200g.webp" alt=""><b>Joghurt</b><span>Natur, mild und in vielen&nbsp;Fruchtsorten</span></li>
+    <li><img src="../../assets/img/produkte/fassbutter.webp" alt=""><b>Fassbutter</b><span>Aus natürlich gesäuertem&nbsp;Rahm</span></li>
+    <li><img src="../../assets/img/produkte/schokomilch-230.webp" alt=""><b>Milchgetränke</b><span>Schoko, Vanille, Erdbeere und&nbsp;Eiskaffee</span></li>
+  </ul>
+
+  <div class="fuss">
+    <div>
+      <h2>Kontakt für den Handel</h2>
+      <p>Hemme Milch GmbH &amp; Co.&nbsp;KG<br>Heideweg 4 · 16278&nbsp;Angermünde</p>
+      <span class="tel">03331&nbsp;252525</span>
+    </div>
+    <div>
+      <h2>Darum Hemme</h2>
+      <ul class="gruende">
+        <li>Eigene Felder, eigene Kühe, eigene&nbsp;Molkerei</li>
+        <li>Schonend pasteurisiert, nie&nbsp;H-Milch</li>
+        <li>Familie Hemme, Landwirtschaft seit&nbsp;1589</li>
+      </ul>
+    </div>
+    <div class="feld">
+      <span data-feld="Unser Markt"></span>
+      <span data-feld="Gewünscht von"></span>
+    </div>
+  </div>
+
+  <img class="wiese" src="../../assets/img/marke/wiese-weit.webp" alt="" width="2400" height="547">
+</main>
+</div>
+</body>
+</html>
