@@ -9,96 +9,173 @@
 <link rel="preload" href="assets/fonts/marke/TrueNorthDots-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/gemeinsam.css">
 <style>
-  body { --fokus: #f7a30a; background: var(--hm-verlauf); color: #fff; font: 500 17px/1.55 "Akko Rounded", system-ui, sans-serif; min-height: 100vh; }
-  main { max-width: 1180px; margin: 0 auto; padding: 56px 16px 72px; }
-  .logo { width: 170px; margin-bottom: 28px; filter: drop-shadow(0 12px 20px rgba(0,20,60,.35)); }
-  h1 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: .98; margin: 0 0 18px; }
-  .slogan { width: min(240px, 60%); height: auto; margin: 0 0 24px; }
-  .logo { height: auto; }
-  p { margin: 0 0 12px; max-width: 44em; color: #e3eeff; }
-  .wahl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 44px; }
-  .wahl a { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 28px; text-decoration: none; transition: transform .25s; }
-  .wahl a:hover { transform: translateY(-4px) rotate(-1deg); }
-  .wahl .art { font-weight: 900; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
-  .wahl b { font-family: "True North Dots"; font-weight: 400; font-size: 32px; line-height: 1; }
-  .wahl .text { font-size: 16px; }
-  .wahl .los { margin-top: auto; padding-top: 8px; font-weight: 900; }
-  .a-k { background: #f5f9ff; color: #0c2975; }
-  .b-k { background: #006ec6; color: #fff; border: 2px solid rgba(255,255,255,.35); }
-  .n-k { background: #61bf1a; color: #0c2975; }
-  .s-k { background: #f7a30a; color: #0c2975; }
-  small { display: block; margin-top: 44px; font-size: 15px; color: #c9dcf5; }
-  @media (max-width: 1100px) { .wahl { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .wahl { grid-template-columns: 1fr; } }
-  .stand { margin-top: 64px; padding: 32px; border-radius: 32px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); }
-  .stand h2 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(32px, 4vw, 52px); line-height: 1; margin: 0 0 8px; }
-  .stand__kopf { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 32px; margin-bottom: 24px; }
-  .stand__kopf p { margin: 0; }
-  .stand__knopf { display: inline-flex; padding: 14px 24px; border-radius: 99px; background: #f7a30a; color: #0c2975; font-weight: 900; text-decoration: none; }
-  .stand__raster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .stand__raster section { padding: 20px 22px; border-radius: 20px; background: #f5f9ff; color: #0c2975; }
-  .stand__raster h3 { font-family: "True North Dots"; font-weight: 400; font-size: 21px; margin: 0 0 10px; }
-  .stand__raster ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15.5px; line-height: 1.4; }
-  .stand__raster .erledigt li::marker { content: "✓  "; color: #2f9a1f; font-weight: 900; }
-  .stand__raster .offen-liste li::marker { content: "○  "; color: #c27c00; }
-  @media (max-width: 900px) { .stand__raster { grid-template-columns: 1fr; } }
+  body { --fokus: #f7a30a; --glas: rgba(255,255,255,.07); --rand: rgba(255,255,255,.16); --leise: #c9dcf5; margin: 0; background: #0c2975; color: #fff; font: 500 17px/1.55 "Akko Rounded", system-ui, sans-serif; overflow-x: hidden; }
+  .buehne { position: relative; background: var(--hm-verlauf); }
+  main { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 32px 16px 0; }
+  img { max-width: 100%; }
+
+  /* Kopf */
+  .kopf { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .kopf__logo { width: 132px; height: auto; filter: drop-shadow(0 10px 18px rgba(0,20,60,.35)); }
+  .kopf__stand { font-size: 14px; font-weight: 700; color: var(--leise); text-align: right; }
+
+  /* Einstieg */
+  .einstieg { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px 48px; margin: 56px 0 44px; }
+  h1 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(42px, 6.4vw, 88px); line-height: .95; margin: 0; }
+  h1 span { display: block; }
+  h1 .zart { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,.75); }
+  .einstieg p { margin: 22px 0 0; max-width: 40em; color: #e3eeff; text-wrap: pretty; }
+  .einstieg__slogan { width: 210px; height: auto; margin-bottom: 8px; }
+
+  /* Browserrahmen mit Vorschau, scrollt beim Darüberfahren durch */
+  .rahmen { position: relative; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -20px rgba(0,10,40,.6), 0 0 0 1px rgba(255,255,255,.25); }
+  .rahmen__leiste { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; background: #eef3fa; }
+  .rahmen__leiste i { width: 9px; height: 9px; border-radius: 50%; background: #c6d3e6; }
+  .rahmen__leiste span { margin-left: 10px; flex: 1; max-width: 260px; padding: 2px 10px 0; border-radius: 99px; background: #fff; color: #4a6078; font-size: 11.5px; line-height: 18px; white-space: nowrap; overflow: hidden; }
+  .rahmen__bild { display: block; width: 100%; height: var(--h, 300px); object-fit: cover; object-position: 50% 0; transition: object-position 7s cubic-bezier(.45,0,.3,1); }
+  a:hover .rahmen__bild, a:focus-visible .rahmen__bild { object-position: 50% 100%; transition-duration: 9s; }
+
+  /* Hauptkarte: aktueller Stand */
+  .haupt { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 40px 56px; padding: clamp(28px, 4vw, 56px); border-radius: 36px; background: var(--glas); border: 1px solid var(--rand); text-decoration: none; color: inherit; transition: background .3s; }
+  .haupt:hover { background: rgba(255,255,255,.11); }
+  .haupt .rahmen { --h: 440px; transform: rotate(1.5deg); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .haupt:hover .rahmen, .haupt:focus-visible .rahmen { transform: rotate(0) translateY(-6px); }
+  .marke { display: inline-flex; align-items: center; padding: 8px 14px 6px; line-height: 1; border-radius: 99px; border: 1.5px solid rgba(255,255,255,.4); font-size: 13.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+  .haupt h2 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(34px, 3.9vw, 52px); white-space: nowrap; line-height: 1; margin: 20px 0 14px; }
+  .haupt p { margin: 0 0 28px; color: #e3eeff; font-size: 18px; text-wrap: pretty; }
+  .knopf-gelb { display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px 14px; line-height: 1; border-radius: 99px; background: #f7a30a; color: #0c2975; font-weight: 900; transition: transform .25s; }
+  .haupt:hover .knopf-gelb { transform: translateX(4px); }
+
+  /* Termin */
+  .termin { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .termin section { padding: 26px 28px 28px; border-radius: 28px; background: var(--glas); border: 1px solid var(--rand); }
+  .termin h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-family: "True North Dots"; font-weight: 400; font-size: 24px; line-height: 1.1; margin: 0 0 16px; }
+  .termin h3 small { font-family: "Akko Rounded", system-ui, sans-serif; font-weight: 900; font-size: 14px; color: var(--leise); }
+  .termin ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15.5px; line-height: 1.45; color: #e3eeff; }
+  .termin li { position: relative; padding-left: 28px; text-wrap: pretty; }
+  .termin li::before { content: ""; position: absolute; left: 2px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,.55); box-sizing: border-box; }
+  .termin .erledigt li::before { border: 0; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.5' fill='none' stroke='%230c2975' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat; }
+  .termin .eindruck li::before { width: 8px; height: 8px; top: 7px; left: 5px; border: 0; background: rgba(255,255,255,.7); }
+
+  /* Weitere Stände */
+  .weitere { margin-top: 88px; }
+  .weitere__kopf { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 24px; }
+  .weitere h2 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(30px, 3.4vw, 44px); line-height: 1; margin: 0; }
+  .weitere__kopf p { margin: 0; color: var(--leise); }
+  .raster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; list-style: none; margin: 0; padding: 0; }
+  .karte { display: flex; flex-direction: column; height: 100%; padding: 14px 14px 24px; border-radius: 28px; background: var(--glas); border: 1px solid var(--rand); color: inherit; text-decoration: none; transition: background .3s, transform .3s; }
+  .karte:hover { background: rgba(255,255,255,.11); transform: translateY(-4px); }
+  .karte .rahmen { --h: 230px; border-radius: 16px; }
+  .karte__text { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 22px 12px 0; }
+  .karte__art { font-size: 13.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--leise); }
+  .karte h3 { font-family: "True North Dots"; font-weight: 400; font-size: 30px; line-height: 1; margin: 0; }
+  .karte p { margin: 0; font-size: 15.5px; line-height: 1.45; color: #e3eeff; text-wrap: pretty; }
+  .karte__los { margin-top: auto; padding-top: 10px; font-weight: 900; }
+
+  /* Fuß mit Wiese */
+  .fuss { position: relative; margin-top: 96px; }
+  .fuss p { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 16px; font-size: 14.5px; color: var(--leise); }
+  .fuss__wiese { display: block; width: 100%; height: auto; margin-top: -40px; -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.3) 30%, #000 60%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.3) 30%, #000 60%); }
+
+  @media (max-width: 960px) {
+    .haupt { grid-template-columns: 1fr; }
+    .haupt .rahmen { --h: 340px; transform: none; }
+    .termin, .raster { grid-template-columns: 1fr; }
+    .einstieg { grid-template-columns: 1fr; }
+    .einstieg__slogan { display: none; }
+  }
+  @media (max-width: 560px) { .kopf__stand { font-size: 12.5px; } .haupt { border-radius: 26px; } }
+  @media (prefers-reduced-motion: reduce) { .rahmen__bild, .haupt .rahmen, .karte, .knopf-gelb { transition: none; } a:hover .rahmen__bild, a:focus-visible .rahmen__bild { object-position: 50% 0; } }
 </style>
 </head>
 <body>
+<div class="buehne">
 <main>
-  <img class="logo" src="assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167">
-  <h1>Die neue Startseite.<br>Zwei Richtungen.</h1>
-  <img class="slogan" src="assets/img/marke/slogan-mit-herz-weiss.webp" alt="Frisch vom Hof. Eure Familie Hemme." width="900" height="496">
-  <p>Ein erster Entwurf der Startseite, direkt im Code statt als Skizze. Beide Richtungen nutzen dieselben Inhalte und den Markenauftritt aus dem Brandbook 2026, damit der Unterschied in der Gestaltung sichtbar wird. Unterseiten, Texte und Funktionen entstehen nach der Entscheidung für eine&nbsp;Richtung.</p>
-  <p>Gestrichelt markierte Stellen muss Hemme noch&nbsp;bestätigen.</p>
-  <div class="wahl">
-    <a class="a-k" href="a/"><span class="art">Entwurf&nbsp;A</span><b>Frisch&nbsp;gezapft</b><span class="text">Moderne regionale Marke. Klar geführt, Produkte groß, der Weg von der Kuh ins Regal als 24-Stunden-Uhr beim&nbsp;Scrollen.</span><span class="los">Ansehen →</span></a>
-    <a class="b-k" href="b/"><span class="art">Entwurf&nbsp;B</span><b>Kuhle&nbsp;Welt</b><span class="text">Lifestyle und verspielter. Offener Kühlschrank, Sorten zum Durchscrollen, Polaroids vom Hof und farbige&nbsp;Karten.</span><span class="los">Ansehen →</span></a>
-    <a class="n-k" href="aktuell/"><span class="art">Nach dem Termin am&nbsp;01.10.</span><b>Aktueller&nbsp;Stand</b><span class="text">Entwurf A mit dem Feedback aus dem Termin: Historie, Wertschöpfung, Kühlschrank, Polaroids und&nbsp;Partner.</span><span class="los">Ansehen →</span></a>
-    <a class="s-k" href="sitemap/"><span class="art">Zur Freigabe am&nbsp;01.10.</span><b>Sitemap</b><span class="text">Aufbau der ganzen Website: Menü, Unterseiten, offene Entscheidungen und die wichtigsten Wege der&nbsp;Besucher.</span><span class="los">Ansehen →</span></a>
+  <header class="kopf">
+    <img class="kopf__logo" src="assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167">
+    <p class="kopf__stand">Entwurf von NEXAS&nbsp;Media<br>Stand&nbsp;06.10.2026</p>
+  </header>
+
+  <div class="einstieg">
+    <div>
+      <h1><span>Die neue Website.</span> <span class="zart">Der&nbsp;Stand.</span></h1>
+      <p>Die Startseite direkt im Code statt als Skizze, mit den Inhalten und dem Markenauftritt aus dem Brandbook 2026. Unterseiten, Texte und Funktionen folgen Schritt für Schritt. Gestrichelt markierte Stellen muss Hemme noch&nbsp;bestätigen.</p>
+    </div>
+    <img class="einstieg__slogan" src="assets/img/marke/slogan-mit-herz-weiss.webp" alt="Frisch vom Hof. Eure Familie Hemme." width="900" height="496">
   </div>
-  <section class="stand" aria-labelledby="stand-titel">
-    <div class="stand__kopf">
-      <div>
-        <h2 id="stand-titel">Aktueller Stand</h2>
-        <p>Ergebnisse aus dem Termin am Donnerstag, 01.10.2026. Weiter geht es mit Entwurf&nbsp;A.</p>
-      </div>
-      <a class="stand__knopf" href="aktuell/">Aktuellen Stand ansehen →</a>
+
+  <a class="haupt" href="aktuell/">
+    <div>
+      <span class="marke">Nach dem Termin am&nbsp;01.10.</span>
+      <h2>Aktueller&nbsp;Stand</h2>
+      <p>Entwurf A mit dem Feedback aus dem Termin: Historie, Wertschöpfung, Kühlschrank, Polaroids und&nbsp;Partner.</p>
+      <span class="knopf-gelb">Aktuellen Stand ansehen <span aria-hidden="true">→</span></span>
     </div>
-    <div class="stand__raster">
-      <section>
-        <h3>Eindruck</h3>
-        <ul>
-          <li>Erster Eindruck sehr positiv, Entwurf A wird&nbsp;bevorzugt.</li>
-          <li>A wirkte etwas zu bunt: Produkte jetzt in Blau&shy;abstufungen der CI, Farben nur noch als Kennung je&nbsp;Kategorie.</li>
-          <li>Aus B übernommen: Wertschöpfung, Kühlschrank und&nbsp;Polaroids.</li>
-          <li>Top-Banner bleibt.</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Umgesetzt</h3>
-        <ul class="erledigt">
-          <li>Historie statt „Von der Kuh zu euch“, keine 24-Stunden-Aussagen&nbsp;mehr</li>
-          <li>„Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt“</li>
-          <li>Hinweis „Noch kein Hemme in eurem Markt? Fragt gerne vor Ort&nbsp;nach!“</li>
-          <li>Partnerbereich mit Logo-Laufband</li>
-          <li>Link zu hemme-milch.de im Footer, Hinweis bei Über&nbsp;uns</li>
-          <li>Aquarell-Wiese im Footer weniger&nbsp;gezoomt</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Offen bei Hemme</h3>
-        <ul class="offen-liste">
-          <li>Partnerliste, Logos und Infos der&nbsp;Partner</li>
-          <li>Produktinformationen und&nbsp;Produktübersicht</li>
-          <li>Historische Bilder (Ansprechpartnerin:&nbsp;Ilsabe)</li>
-          <li>Inhalte zum Bruderunternehmen Hemme&nbsp;Milch</li>
-          <li>Ordnerstruktur mit Bildern für das&nbsp;Bildportal</li>
-        </ul>
-      </section>
+    <div class="rahmen" aria-hidden="true">
+      <div class="rahmen__leiste"><i></i><i></i><i></i><span>hemme-uckermark.de</span></div>
+      <img class="rahmen__bild" src="assets/img/vorschau/aktuell.jpg" alt="" width="720" height="1500">
     </div>
+  </a>
+
+  <div class="termin" aria-label="Ergebnisse aus dem Termin am 01.10.2026">
+    <section>
+      <h3>Eindruck</h3>
+      <ul class="eindruck">
+        <li>Erster Eindruck sehr positiv, Entwurf A wird&nbsp;bevorzugt.</li>
+        <li>A wirkte etwas zu bunt: Produkte jetzt in Blau&shy;abstufungen der CI, Farben nur noch als Kennung je&nbsp;Kategorie.</li>
+        <li>Aus B übernommen: Wertschöpfung, Kühlschrank und&nbsp;Polaroids.</li>
+        <li>Top-Banner bleibt.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Umgesetzt <small>6&nbsp;Punkte</small></h3>
+      <ul class="erledigt">
+        <li>Historie statt „Von der Kuh zu euch“, keine 24-Stunden-Aussagen&nbsp;mehr</li>
+        <li>„Vom Saatkorn bis zum fertigen&nbsp;Milchprodukt“</li>
+        <li>Hinweis „Noch kein Hemme in eurem Markt?“ mit Wunschzettel für die&nbsp;Marktleitung</li>
+        <li>Partnerbereich mit&nbsp;Logos</li>
+        <li>Link zu hemme-milch.de im Footer, Hinweis bei Über&nbsp;uns</li>
+        <li>Aquarell-Wiese im Footer weniger&nbsp;gezoomt</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Offen bei Hemme <small>5&nbsp;Punkte</small></h3>
+      <ul>
+        <li>Partnerliste, Logos und Infos der&nbsp;Partner</li>
+        <li>Produktinformationen und&nbsp;Produktübersicht</li>
+        <li>Historische Bilder (Ansprechpartnerin:&nbsp;Ilsabe)</li>
+        <li>Inhalte zum Bruderunternehmen Hemme&nbsp;Milch</li>
+        <li>Ordnerstruktur mit Bildern für das&nbsp;Bildportal</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="weitere" aria-labelledby="weitere-titel">
+    <div class="weitere__kopf">
+      <h2 id="weitere-titel">Bisherige Stände</h2>
+      <p>Die beiden ersten Richtungen und die&nbsp;Sitemap</p>
+    </div>
+    <ul class="raster">
+      <li><a class="karte" href="a/">
+        <div class="rahmen" aria-hidden="true"><div class="rahmen__leiste"><i></i><i></i><i></i><span>Entwurf A</span></div><img class="rahmen__bild" src="assets/img/vorschau/a.jpg" alt="" width="720" height="1500" loading="lazy"></div>
+        <div class="karte__text"><span class="karte__art">Entwurf&nbsp;A</span><h3>Frisch&nbsp;gezapft</h3><p>Moderne regionale Marke. Klar geführt, Produkte groß, der Weg von der Kuh ins Regal beim&nbsp;Scrollen.</p><span class="karte__los">Ansehen <span aria-hidden="true">→</span></span></div>
+      </a></li>
+      <li><a class="karte" href="b/">
+        <div class="rahmen" aria-hidden="true"><div class="rahmen__leiste"><i></i><i></i><i></i><span>Entwurf B</span></div><img class="rahmen__bild" src="assets/img/vorschau/b.jpg" alt="" width="720" height="1500" loading="lazy"></div>
+        <div class="karte__text"><span class="karte__art">Entwurf&nbsp;B</span><h3>Kuhle&nbsp;Welt</h3><p>Lifestyle und verspielter. Offener Kühlschrank, Sorten zum Durchscrollen, Polaroids vom Hof und farbige&nbsp;Karten.</p><span class="karte__los">Ansehen <span aria-hidden="true">→</span></span></div>
+      </a></li>
+      <li><a class="karte" href="sitemap/">
+        <div class="rahmen" aria-hidden="true"><div class="rahmen__leiste"><i></i><i></i><i></i><span>Sitemap</span></div><img class="rahmen__bild" src="assets/img/vorschau/sitemap.jpg" alt="" width="720" height="1500" loading="lazy"></div>
+        <div class="karte__text"><span class="karte__art">Zur Freigabe am&nbsp;01.10.</span><h3>Sitemap</h3><p>Aufbau der ganzen Website: Menü, Unterseiten, offene Entscheidungen und die wichtigsten Wege der&nbsp;Besucher.</p><span class="karte__los">Ansehen <span aria-hidden="true">→</span></span></div>
+      </a></li>
+    </ul>
   </section>
-  <small>Entwurf von NEXAS Media · nicht für Suchmaschinen · Stand&nbsp;05.10.2026</small>
 </main>
+
+<footer class="fuss">
+  <p>Entwurf von NEXAS Media · nicht für&nbsp;Suchmaschinen</p>
+  <img class="fuss__wiese" src="assets/img/marke/wiese-weit.webp" srcset="assets/img/marke/wiese-weit-s.webp 1200w, assets/img/marke/wiese-weit.webp 2400w" sizes="100vw" alt="" width="2400" height="547" loading="lazy">
+</footer>
+</div>
 </body>
 </html>
