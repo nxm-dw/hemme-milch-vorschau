@@ -220,13 +220,29 @@
   "use strict";
   var weg = document.querySelector(".weg"), svg = document.querySelector("[data-pfad]"), beutel = document.querySelector(".weg__beutel");
   if (!weg || !svg || !beutel) return;
-  var pfad = svg.querySelector(".weg__linie"), laenge = pfad.getTotalLength();
+  var pfad = svg.querySelector(".weg__linie"), laenge = pfad.getTotalLength(), zeichner = svg.querySelector(".weg__zeichner");
+  zeichner.removeAttribute("pathLength");
+  // Die Maske zeichnet in Bildschirmlänge (non-scaling-stroke, gestreckte Grafik).
+  // Darum den Anteil über die gestreckte Länge auf die Pfadlänge umrechnen.
+  var N = 400, proben = [];
+  for (var i = 0; i <= N; i++) proben.push(pfad.getPointAtLength(laenge * i / N));
+  function punkt(anteil, sx, sy) {
+    var summe = [0];
+    for (var i = 1; i <= N; i++) summe.push(summe[i - 1] + Math.hypot((proben[i].x - proben[i - 1].x) * sx, (proben[i].y - proben[i - 1].y) * sy));
+    var ziel = summe[N] * anteil, k = 1;
+    while (k < N && summe[k] < ziel) k++;
+    var t = (ziel - summe[k - 1]) / ((summe[k] - summe[k - 1]) || 1), a = proben[k - 1], b = proben[k];
+    return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t, dx: (b.x - a.x) * sx, dy: (b.y - a.y) * sy, gesamt: summe[N] };
+  }
   function setzen() {
     var anteil = parseFloat(getComputedStyle(svg).getPropertyValue("--weg")) || 0;
     var sr = svg.getBoundingClientRect(), wr = weg.getBoundingClientRect();
     var sx = sr.width / 1000, sy = sr.height / 1400;
-    var pt = pfad.getPointAtLength(laenge * anteil), vor = pfad.getPointAtLength(Math.min(laenge, laenge * anteil + 4));
-    var winkel = Math.atan2((vor.y - pt.y) * sy, (vor.x - pt.x) * sx) * 180 / Math.PI;
+    var pt = punkt(anteil, sx, sy);
+    var winkel = Math.atan2(pt.dy, pt.dx) * 180 / Math.PI;
+    // Maske in Bildschirmpixeln setzen, damit Linienspitze und Beutel zusammenfallen
+    zeichner.style.strokeDasharray = pt.gesamt.toFixed(1) + " " + pt.gesamt.toFixed(1);
+    zeichner.style.strokeDashoffset = (pt.gesamt * (1 - anteil)).toFixed(1);
     weg.style.setProperty("--bx", (sr.left - wr.left + pt.x * sx).toFixed(1) + "px");
     weg.style.setProperty("--by", (sr.top - wr.top + pt.y * sy).toFixed(1) + "px");
     weg.style.setProperty("--br", (Math.max(-25, Math.min(25, winkel / 4))).toFixed(1) + "deg");
