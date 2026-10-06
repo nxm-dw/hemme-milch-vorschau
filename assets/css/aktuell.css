@@ -863,7 +863,7 @@
 @media (prefers-reduced-motion: reduce) { .reise__beutel { display: none; } }
 
 /* ===== Gastro-Duo: Bild Eventlocation, weicher Hintergrund ===== */
-.a .kaufen { background: #e8f1fb; padding-bottom: clamp(40px, 5vw, 72px); }
+.a .kaufen { background: #e8f1fb; padding-bottom: clamp(88px, 9vw, 140px); }
 .a .duo { background: linear-gradient(180deg, #e8f1fb 0%, var(--milch) 100%); }
 
 /* ===== Händlersuche: Treffer und Wunschzettel ===== */
