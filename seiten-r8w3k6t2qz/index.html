@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Unterseiten · Hemme Milch · intern</title>
+<link rel="icon" href="../assets/img/kuh-kopf.svg">
+<link rel="preload" href="../assets/fonts/marke/TrueNorthDots-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/gemeinsam.css">
+<style>
+  body { --fokus: #f7a30a; --glas: rgba(255,255,255,.07); --rand: rgba(255,255,255,.16); --leise: #c9dcf5; margin: 0; background: #0c2975; color: #fff; font: 500 17px/1.55 "Akko Rounded", system-ui, sans-serif; }
+  .buehne { background: var(--hm-verlauf); min-height: 100vh; }
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 16px 80px; }
+  img { max-width: 100%; }
+  .kopf { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .kopf img { width: 120px; height: auto; }
+  .intern { display: inline-flex; padding: 8px 14px 6px; line-height: 1; border-radius: 99px; background: #f7a30a; color: #0c2975; font-weight: 900; font-size: 13.5px; letter-spacing: .06em; text-transform: uppercase; }
+  h1 { font-family: "True North Dots"; font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: .95; margin: 48px 0 0; }
+  .lead { max-width: 46em; margin: 20px 0 0; color: #e3eeff; text-wrap: pretty; }
+  .schritte { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0 0; padding: 0; list-style: none; counter-reset: s; }
+  .schritte li { counter-increment: s; padding: 20px 22px; border-radius: 22px; background: var(--glas); border: 1px solid var(--rand); font-size: 15.5px; line-height: 1.45; color: #e3eeff; }
+  .schritte li::before { content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 10px; border-radius: 50%; background: #fff; color: #0c2975; font-family: "True North Dots"; font-size: 18px; }
+  .schritte b { display: block; color: #fff; font-size: 17px; margin-bottom: 2px; }
+  .liste { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .seite { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 22px; padding: 14px; border-radius: 28px; background: var(--glas); border: 1px solid var(--rand); }
+  .seite__bild { display: block; height: 250px; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 20px 40px -20px rgba(0,10,40,.6); }
+  .seite__bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transition: object-position 6s cubic-bezier(.45,0,.3,1); }
+  .seite:hover .seite__bild img { object-position: 50% 100%; }
+  .seite__text { display: flex; flex-direction: column; gap: 8px; padding: 6px 8px 6px 0; }
+  .seite__status { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+  .chip { display: inline-flex; padding: 6px 11px 4px; line-height: 1; border-radius: 99px; font-size: 13px; font-weight: 900; }
+  .chip--entwurf { background: #fff; color: #0c2975; }
+  .chip--offen { border: 1.5px dashed rgba(255,255,255,.6); color: #fff; }
+  .seite h2 { margin: 4px 0 0; font-family: "True North Dots"; font-weight: 400; font-size: 28px; line-height: 1.05; }
+  .seite h2 a { color: #fff; text-decoration: none; }
+  .seite h2 a:hover { text-decoration: underline; }
+  .seite p { margin: 0; font-size: 15px; line-height: 1.5; color: #e3eeff; text-wrap: pretty; }
+  .seite__quelle { color: var(--leise) !important; font-size: 13.5px !important; }
+  details { margin-top: auto; padding-top: 6px; font-size: 14px; }
+  summary { cursor: pointer; font-weight: 900; color: #fff; }
+  details ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px; color: #e3eeff; line-height: 1.45; }
+  .block { margin-top: 64px; padding: clamp(24px, 3vw, 40px); border-radius: 32px; background: var(--glas); border: 1px solid var(--rand); }
+  .block h2 { margin: 0 0 16px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(26px, 3vw, 38px); }
+  .block ul { margin: 0; padding-left: 20px; display: grid; gap: 10px; color: #e3eeff; line-height: 1.5; }
+  .block--weiss { background: #fff; color: #0c2975; border: 0; }
+  .block--weiss ul { color: #1f3556; }
+  small { display: block; margin-top: 48px; color: var(--leise); font-size: 14px; }
+  @media (max-width: 960px) { .liste, .schritte { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .seite { grid-template-columns: 1fr; } .seite__bild { height: 200px; } }
+  @media (prefers-reduced-motion: reduce) { .seite__bild img { transition: none; } .seite:hover .seite__bild img { object-position: 50% 0; } }
+</style>
+</head>
+<body>
+<div class="buehne">
+<main>
+  <header class="kopf"><img src="../assets/img/marke/hemme-logo-oval-farbe.webp" alt="Hemme Milch" width="300" height="167"><span class="intern">Nur intern · Stand&nbsp;09.10.2026</span></header>
+  <h1>Die&nbsp;Unterseiten.<br>Erster&nbsp;Entwurf.</h1>
+  <p class="lead">Elf Unterseiten nach der Seitenliste von Hemme vom 26.09. und der Sitemap. Alle Inhalte stammen von der bestehenden Website, aus dem Brandbook, der Partnerliste und unseren Kundenunterlagen. Was fehlt, steht gestrichelt als „Liefert Hemme“ auf der Seite, insgesamt 24&nbsp;Punkte.</p>
+  <ol class="schritte">
+    <li><b>Intern prüfen</b>Wir sehen uns jede Seite an und korrigieren&nbsp;Inhalte.</li>
+    <li><b>Freigeben</b>Freigegebene Seiten bekommen hier den Status&nbsp;„Freigegeben“.</li>
+    <li><b>An Hemme</b>Erst dann verlinken wir sie in der Kundenvorschau, mit den offenen&nbsp;Fragen.</li>
+  </ol>
+  <ul class="liste">
+<li class="seite">
+  <a class="seite__bild" href="produkte/" aria-hidden="true" tabindex="-1"><img src="vorschau/produkte.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">3&nbsp;offen</span></p>
+    <h2><a href="produkte/">Produkte</a></h2>
+    <p>Alle sechs Produktgruppen mit Sorten, Fettgehalt und Größe, der Milchbeutel und die Großgebinde für&nbsp;Gastro.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website /produkte, Produktunterlagen, Brandbook&nbsp;(Beutel)</p>
+    <details><summary>Liefert Hemme (3)</summary><ul><li>Neues Produkt „High Protein Kaffee Toffee-Karamell“ (laut Pressebericht vom August 2026): Produktbild, Größe und&nbsp;Beschreibung.</li><li>Fettstufe und Beschreibung von Alsahna Natur, gern auch die Geschichte hinter dem&nbsp;Namen.</li><li>Bitte bestätigen: Gewicht 14 oder 16 Gramm (Brandbook und FAQ der alten Website weichen ab) und ob die Mikrowellen-Eignung hier genannt werden&nbsp;soll.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="wo-kaufen/" aria-hidden="true" tabindex="-1"><img src="vorschau/wo-kaufen.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">2&nbsp;offen</span></p>
+    <h2><a href="wo-kaufen/">Wo kaufen</a></h2>
+    <p>Handel laut Partnerliste, Platz für die Märktesuche mit Karte, Milchladen, Milchtelefon und&nbsp;Wunschzettel.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Partnerliste 07.10., Startseite alt, Pressebericht&nbsp;08/2026</p>
+    <details><summary>Liefert Hemme (2)</summary><ul><li>Liste der Verkaufsstellen mit Adressen für Karte und Postleitzahl-Suche. Bitte auch bestätigen, ob Hemme in Mecklenburg-Vorpommern im Handel&nbsp;ist.</li><li>Gibt es Online-Shop und Haustür-Lieferung mit Mehrwegflaschen noch? Wenn ja: Link zum Shop und&nbsp;Liefergebiet.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="hof-erleben/" aria-hidden="true" tabindex="-1"><img src="vorschau/hof-erleben.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">4&nbsp;offen</span></p>
+    <h2><a href="hof-erleben/">Hof erleben</a></h2>
+    <p>Hofcafé und Milchladen, drei Arten Hofführung, Erlebnishof mit Maislabyrinth, KuhCam, Natur und&nbsp;Anfahrt.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website Hofladen-Artikel, KuhCam, Kontakt, Pressebericht&nbsp;08/2026</p>
+    <details><summary>Liefert Hemme (4)</summary><ul><li>Termine und Zeiten für 2027 bestätigen (auf der alten Website steht „ab 07.04.2024“). Entscheidung: Hofführungen online buchbar oder nur auf Anfrage? E-Mail-Adresse für&nbsp;Anmeldungen.</li><li>Öffnungszeiten und Saison des Maislabyrinths 2027, Fotos von Spielbereich, Archehof und&nbsp;Sprunghügel.</li><li>Einbindung des Livestreams (bisher YouTube) klären, wegen Datenschutz mit&nbsp;Zwei-Klick-Lösung.</li><li>Linie des WelterbeBus bestätigen: Die alte Website nennt sowohl Linie 491 als auch Linie&nbsp;497.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="philosophie/" aria-hidden="true" tabindex="-1"><img src="vorschau/philosophie.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">1&nbsp;offen</span></p>
+    <h2><a href="philosophie/">Philosophie</a></h2>
+    <p>Werte aus dem Brandbook, Wertschöpfungskette, Zahlen, gentechnikfreies Futter, Weg zu Null und&nbsp;Siegel.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Brandbook, Website Start/Über uns/FAQ,&nbsp;Pressebericht</p>
+    <details><summary>Liefert Hemme (1)</summary><ul><li>Zahlen und Fotos zu Solaranlagen und Biogasanlage, falls Hemme sie zeigen&nbsp;möchte.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="eventlocation/" aria-hidden="true" tabindex="-1"><img src="vorschau/eventlocation.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">2&nbsp;offen</span></p>
+    <h2><a href="eventlocation/">Eventlocation</a></h2>
+    <p>Raum für bis zu 120 Gäste, Anlässe, drei Pakete und&nbsp;Anfrage.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website&nbsp;/eventlocation</p>
+    <details><summary>Liefert Hemme (2)</summary><ul><li>Inhalte und Preise der drei Pakete (bisher als PDF auf der alten Website). Bitte aktuelle Fassungen schicken, dann bauen wir sie als Text auf, statt nur PDFs zu&nbsp;verlinken.</li><li>E-Mail-Adresse für Eventanfragen und weitere Fotos vom Raum, gern auch eingedeckt und mit&nbsp;Gästen.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="ueber-uns/" aria-hidden="true" tabindex="-1"><img src="vorschau/ueber-uns.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">3&nbsp;offen</span></p>
+    <h2><a href="ueber-uns/">Über uns</a></h2>
+    <p>Doppelte Geschäftsführung, Team, Interview mit Gunnar Hemme, Geschichte mit Albumfotos und&nbsp;Bruderunternehmen.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website /ueber-uns, Pressebericht 08/2026,&nbsp;Familienalbum</p>
+    <details><summary>Liefert Hemme (3)</summary><ul><li>Foto von Ilsabe Hemme, Freigabe der Texte. Teamleitungen mit Namen, Bereich und Foto für die Teamvorstellung (bekannt: Felix Broeckmann, Betriebsleiter Landwirtschaft, noch zu&nbsp;bestätigen).</li><li>Historische Bilder für 1589, 1992 und&nbsp;2023.</li><li>Inhalte zum Bruderunternehmen: Was soll hier stehen, und wie grenzen wir beide Marken für Besucher klar&nbsp;ab?</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="partner/" aria-hidden="true" tabindex="-1"><img src="vorschau/partner.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">1&nbsp;offen</span></p>
+    <h2><a href="partner/">Partner</a></h2>
+    <p>Partnerhöfe, Handel, Partner aus der Region, Radio, Sponsoring mit&nbsp;Fotos.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website /ueber-uns, Partnerliste 07.10., Fotos von&nbsp;Hemme</p>
+    <details><summary>Liefert Hemme (1)</summary><ul><li>Pro Partner ein Logo, ein Satz zur Zusammenarbeit und ein Link. Freigabe, dass wir die Partner nennen&nbsp;dürfen.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="karriere/" aria-hidden="true" tabindex="-1"><img src="vorschau/karriere.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">3&nbsp;offen</span></p>
+    <h2><a href="karriere/">Karriere</a></h2>
+    <p>Offene Stellen, Ausbildung, Arbeiten auf dem Hof und&nbsp;Initiativbewerbung.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website /karriere, Notiz Karriere&nbsp;05/2026</p>
+    <details><summary>Liefert Hemme (3)</summary><ul><li>Aktuelle Stellen mit Beschreibung, Aufgaben, Profil und Ansprechperson. Die Liste hier stammt von der alten Website und aus unseren Notizen vom Mai 2026 und kann veraltet&nbsp;sein.</li><li>Was bietet Hemme seinen Mitarbeitenden (zum Beispiel Rabatt auf Produkte, Fahrtkosten, Weiterbildung)? Zwei bis drei Stimmen aus dem Team mit&nbsp;Foto.</li><li>E-Mail-Adresse oder Formular für&nbsp;Bewerbungen.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="kontakt/" aria-hidden="true" tabindex="-1"><img src="vorschau/kontakt.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">2&nbsp;offen</span></p>
+    <h2><a href="kontakt/">Kontakt & FAQ</a></h2>
+    <p>Adresse, Telefonzeiten, Formular (noch ohne Versand), Anfahrt und sieben häufige&nbsp;Fragen.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website /kontakt, /faq,&nbsp;Hofladen-Artikel</p>
+    <details><summary>Liefert Hemme (2)</summary><ul><li>Zentrale E-Mail-Adresse und je Thema eine Ansprechperson, inklusive&nbsp;Vertretung.</li><li>Antworten bitte gegenlesen. Auf der alten Website weichen einzelne Angaben ab: Anzahl der Partnerbetriebe (drei oder vier), Beutelgewicht (14 oder 16 Gramm), Mehrwegflaschen beim Milchmann (noch&nbsp;aktuell?).</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="gastro-handel/" aria-hidden="true" tabindex="-1"><img src="vorschau/gastro-handel.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">2&nbsp;offen</span></p>
+    <h2><a href="gastro-handel/">Für Gastro & Handel</a></h2>
+    <p>Milchmann-Service, Großgebinde, Handel und&nbsp;Anfrage.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Produktunterlagen, Website Start, Pressebericht,&nbsp;REWE-Beitrag</p>
+    <details><summary>Liefert Hemme (2)</summary><ul><li>Gastro-Sortiment und Gebinde bestätigen, Restlaufzeiten, Mindestbestellmenge, Liefertage und&nbsp;Liefergebiet.</li><li>Unterlagen für den Handel (Produktdatenblätter, Listungsinfos) und Ansprechperson&nbsp;Vertrieb.</li></ul></details>
+  </div>
+</li>
+<li class="seite">
+  <a class="seite__bild" href="neuigkeiten/" aria-hidden="true" tabindex="-1"><img src="vorschau/neuigkeiten.jpg" alt="" loading="lazy" width="640" height="1156"></a>
+  <div class="seite__text">
+    <p class="seite__status"><span class="chip chip--entwurf">Entwurf NEXAS</span><span class="chip chip--offen">1&nbsp;offen</span></p>
+    <h2><a href="neuigkeiten/">Neuigkeiten</a></h2>
+    <p>Vier Beiträge von der alten Website. Ob es diese Seite gibt, ist noch&nbsp;offen.</p>
+    <p class="seite__quelle"><b>Quellen:</b> Website&nbsp;Aktuelles</p>
+    <details><summary>Liefert Hemme (1)</summary><ul><li>Entscheidung: Soll es Neuigkeiten als eigene Seite geben? Im Kick-off stand der Bereich auf „entfällt“, in der Seitenliste vom 26.09. ist er wieder drin. Wenn ja: Wer pflegt die Beiträge und wie&nbsp;oft?</li></ul></details>
+  </div>
+</li>
+  </ul>
+  <section class="block block--weiss" aria-labelledby="widerspruch">
+    <h2 id="widerspruch">Widersprüche in den&nbsp;Quellen</h2>
+    <ul>
+      <li><b>Beutelgewicht:</b> Brandbook und Produktseite sagen 14 Gramm, die FAQ der alten Website 16&nbsp;Gramm.</li>
+      <li><b>Herkunft der Milch:</b> Über uns nennt eigene Kühe und vier Partnerhöfe, die FAQ „überwiegend vom benachbarten Betrieb“ und drei&nbsp;Partnerbetriebe.</li>
+      <li><b>WelterbeBus:</b> Kontakt nennt Linie 491, Hofseite und Regionalmarkt nennen Linie&nbsp;497.</li>
+      <li><b>Hofführungen:</b> Die Termine auf der alten Website stammen von&nbsp;2024.</li>
+      <li><b>Mehrwegflaschen und Haustür-Lieferung:</b> nur in der FAQ erwähnt, ob noch aktuell ist&nbsp;unklar.</li>
+      <li><b>Maislabyrinth:</b> 2025 in Kuhform, laut Pressebericht 2026 als Mähdrescher, Öffnungszeiten nur für&nbsp;2025.</li>
+      <li><b>„24 Stunden“:</b> steht auf der alten Website, wurde im Termin am 01.10. gestrichen und kommt hier nicht&nbsp;vor.</li>
+    </ul>
+  </section>
+  <section class="block" aria-labelledby="fehlt">
+    <h2 id="fehlt">Noch nicht&nbsp;gebaut</h2>
+    <ul>
+      <li>Impressum, Datenschutz, Barrierefreiheit, AGB und EU-Förderung: Rechtstexte übernehmen wir erst nach Prüfung, nicht im&nbsp;Entwurf.</li>
+      <li>Produkt-Einzelseiten: bewusst nicht, Produkte laufen als Gruppen auf einer&nbsp;Seite.</li>
+      <li>Hof in 360 Grad: laut Seitenliste&nbsp;perspektivisch.</li>
+      <li>Englisch oder Polnisch: Sprachen sind noch nicht&nbsp;entschieden.</li>
+    </ul>
+  </section>
+  <small>Nicht verlinkt, für Suchmaschinen gesperrt. Startseite: <a href="../aktuell/">Aktueller Stand</a></small>
+</main>
+</div>
+</body>
+</html>
