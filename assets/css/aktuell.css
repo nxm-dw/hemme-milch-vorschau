@@ -950,3 +950,19 @@
 .zettel-fenster .knopf { background: #fff; border-color: #fff; color: var(--tief); }
 .zettel-fenster .knopf--rand { background: transparent; color: #fff; }
 .zettel-fenster :focus-visible { outline-color: var(--gelb); }
+
+/* Fotos aus dem Familienalbum: als Abzug mit weißem Rand */
+.station .album { position: relative; margin: 0 0 18px; padding: 10px 10px 34px; background: #fff; border-radius: 4px; box-shadow: 0 18px 30px -16px rgba(0, 20, 60, .55); transform: rotate(-1.2deg); }
+.station:nth-child(even) .album { transform: rotate(1deg); }
+.station .album img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; margin: 0; filter: saturate(.9); }
+.station .album figcaption { position: absolute; left: 12px; right: 12px; bottom: 8px; font-size: 13px; font-weight: 700; color: #4a6078; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.station .album img[src*="biosphaere"] { object-position: 50% 30%; }
+
+/* Partner: Vor Ort dabei */
+.vorort { margin-top: 56px; }
+.vorort h3 { margin: 0 0 26px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(26px, 2.6vw, 34px); color: var(--tief); text-align: center; }
+.vorort__fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto; }
+.vorort .polaroid img { aspect-ratio: 1; }
+@media (max-width: 800px) { .vorort__fotos { grid-template-columns: 1fr; max-width: 420px; } }
+.partner__logo img[src*="exner"] { max-height: 64px; width: auto; }
+.partner__kategorien li { align-content: start; }
