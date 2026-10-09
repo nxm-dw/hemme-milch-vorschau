@@ -191,3 +191,106 @@
   .u-sorte span { font-size: 13px; }
 }
 .u .u-held__bild img { height: auto; aspect-ratio: 4 / 3; }
+
+/* =================== Version 2: mehr Bühne =================== */
+
+/* Seitenkopf mit Polaroid-Collage und Wellenkante */
+.u .u-held { padding-bottom: clamp(110px, 12vw, 170px); }
+.u-held__innen { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+.u-held__marke { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding: 8px 14px 6px; line-height: 1; border-radius: 99px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); font-size: 13.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.u-held__welle { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(40px, 6vw, 90px); display: block; z-index: 2; }
+.u-held__welle path { fill: var(--nach, #e8f1fb); }
+.u-collage { position: relative; min-height: clamp(320px, 34vw, 480px); }
+.u-pola { position: absolute; margin: 0; padding: 10px 10px 42px; background: #fff; border-radius: 4px; box-shadow: 0 30px 50px -24px rgba(0, 10, 40, .75); }
+.u-pola img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: 2px; }
+.u-pola figcaption { position: absolute; left: 14px; right: 14px; bottom: 12px; font-weight: 800; font-size: 15px; line-height: 1.2; color: var(--tief); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.u-pola::before { content: ""; position: absolute; top: -12px; left: 50%; width: 96px; height: 26px; transform: translateX(-50%) rotate(-3deg); background: rgba(247, 163, 10, .8); z-index: 1; }
+.u-pola--1 { width: 72%; left: 0; top: 4%; transform: rotate(-4deg); animation: u-schweben 9s ease-in-out infinite; }
+.u-pola--2 { width: 58%; right: 0; bottom: 0; transform: rotate(5deg); z-index: 1; animation: u-schweben 11s ease-in-out -3s infinite; }
+.u-pola--2::before { transform: translateX(-50%) rotate(4deg); }
+.u-collage--eins .u-pola--1 { width: 86%; left: 6%; top: 6%; }
+.u-collage__pack { position: absolute; z-index: 3; left: -2%; bottom: -4%; width: 30%; max-width: none; height: auto; filter: drop-shadow(0 24px 26px rgba(0, 10, 40, .5)); transform: rotate(-8deg); animation: u-schweben 8s ease-in-out -2s infinite; }
+.u-collage__siegel { position: absolute; z-index: 4; right: -2%; top: -6%; width: clamp(84px, 9vw, 124px); height: auto; max-width: none; border-radius: 50%; box-shadow: 0 16px 26px -12px rgba(0, 10, 40, .6); animation: u-drehen 28s linear infinite; }
+@keyframes u-schweben { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@keyframes u-drehen { to { rotate: 360deg; } }
+
+/* Auf einen Blick: zieht über die Wellenkante */
+.u .u-teil--blick { padding-top: 0; background: #e8f1fb; }
+.u-blick { position: relative; z-index: 3; margin-top: clamp(-90px, -6vw, -48px) !important; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 24px clamp(28px, 4vw, 56px); padding: clamp(26px, 3.4vw, 44px); border-radius: 32px; background: #fff; box-shadow: 0 40px 70px -40px rgba(0, 20, 60, .55); }
+.u-blick h2 { margin: 0 0 12px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); color: var(--blau); }
+.u-blick__satz { margin: 0; font-size: 18px; line-height: 1.6; color: #1f3556; text-wrap: pretty; }
+.u-blick__fakten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.u-blick__fakten div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px; padding: 16px 18px; border-radius: 20px; background: #eef4fb; }
+.u-blick__fakten dd { margin: 0; font-family: "True North Dots"; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.05; color: var(--tief); }
+.u-blick__fakten dt { font-size: 14.5px; font-weight: 700; line-height: 1.35; color: #3c5574; }
+
+/* Blaue Flächen als abgerundete Bühne mit Herz */
+.u .u-teil--blau { position: relative; overflow: hidden; margin: clamp(16px, 2vw, 28px) max(8px, calc((100vw - 1440px) / 2)); border-radius: clamp(28px, 4vw, 56px); background: var(--hm-verlauf); }
+.u .u-teil--blau::after { content: ""; position: absolute; right: -8%; bottom: -30%; width: min(60vw, 640px); aspect-ratio: 1; background: url("../img/marke/herz-weiss.webp") center / contain no-repeat; opacity: .07; transform: rotate(12deg); pointer-events: none; }
+.u .u-teil--blau > * { position: relative; z-index: 1; }
+
+/* Text mit Polaroid im Zickzack */
+.u-pola-statisch { position: relative; margin: 0; padding: 12px 12px 48px; background: #fff; border-radius: 4px; box-shadow: 0 30px 50px -28px rgba(0, 20, 60, .6); transform: rotate(2deg); }
+.u-zwei--bild-links .u-pola-statisch { transform: rotate(-2deg); }
+.u-pola-statisch img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+.u-pola-statisch figcaption { position: absolute; left: 16px; right: 16px; bottom: 14px; font-weight: 800; font-size: 16px; color: var(--tief); }
+.u-pola-statisch::before { content: ""; position: absolute; top: -12px; left: 50%; width: 110px; height: 28px; transform: translateX(-50%) rotate(-2deg); background: rgba(247, 163, 10, .8); }
+
+/* Sorten im Regal mit Kategoriefarbe */
+.u-regal { position: relative; padding: clamp(18px, 2.4vw, 28px); border-radius: 30px; background: #fff; box-shadow: 0 30px 60px -44px rgba(0, 20, 60, .6); }
+.u-teil--weiss .u-regal { background: #eef4fb; box-shadow: none; }
+.u-regal::before { content: ""; position: absolute; top: 0; left: 32px; width: 64px; height: 8px; border-radius: 0 0 6px 6px; background: var(--kat, #006ec6); }
+.u-regal .u-sorte { background: linear-gradient(180deg, transparent 0 62%, var(--scheibe, #e3edf9) 62% 100%); border-radius: 20px; }
+.u-teil--weiss .u-regal .u-sorte { background: linear-gradient(180deg, #fff 0 62%, var(--scheibe, #e3edf9) 62% 100%); }
+.u-regal--milch { --kat: #006ec6; --scheibe: #dcebfa; }
+.u-regal--getraenke { --kat: #8a5a3c; --scheibe: #d8e6f6; }
+.u-regal--joghurt { --kat: #d6336c; --scheibe: #dfeaf8; }
+.u-regal--butter { --kat: #f7a30a; --scheibe: #e1ecf9; }
+.u-regal--quark { --kat: #61bf1a; --scheibe: #dbe9f7; }
+.u-regal--dessert { --kat: #8e5bd0; --scheibe: #e3edf9; }
+
+/* Seitenspezifische Fragen */
+.u-fragen--breit { max-width: none; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+
+/* Fließtext breiter lesbar mit Zwischenüberschriften */
+.u-lesen { max-width: 820px !important; display: grid; gap: 18px; font-size: 18px; line-height: 1.7; color: #1f3556; }
+.u-lesen p { margin: 0; text-wrap: pretty; }
+.u-lesen h3 { margin: 12px 0 0; font-family: "True North Dots"; font-weight: 400; font-size: 26px; line-height: 1.1; color: var(--tief); }
+
+/* Karten: Hover und Akzent */
+.u-karte { transition: transform .3s cubic-bezier(.3, 1.4, .5, 1), box-shadow .3s; border-top: 5px solid transparent; }
+.u-teil--hell .u-karte, .u-teil--weiss .u-karte { border-top-color: var(--blau); }
+.u-karte:has(> img), .u-karte:has(> .u-karte__leer) { border-top: 0; }
+@media (hover: hover) { .u-karte:hover { transform: translateY(-6px) rotate(-.4deg); box-shadow: 0 30px 50px -30px rgba(0, 20, 60, .6); } }
+
+@media (max-width: 900px) {
+  .u-collage { min-height: 0; aspect-ratio: 5 / 4; max-width: 520px; width: 100%; justify-self: center; margin-top: 10px; }
+  .u-blick { grid-template-columns: minmax(0, 1fr); }
+  .u-fragen--breit { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) { .u-blick__fakten { grid-template-columns: minmax(0, 1fr); } .u-pola figcaption { font-size: 13px; } }
+@media (prefers-reduced-motion: reduce) { .u-pola, .u-collage__pack, .u-collage__siegel { animation: none; } .u-karte { transition: none; } }
+
+/* =================== Überschriften sauber setzen =================== */
+.u-held__innen > div:first-child { min-width: 0; }
+.u .u-held h1 { font-size: clamp(32px, 5.4vw, 82px); line-height: .96; letter-spacing: .005em; }
+.u-held h1 .z { display: block; white-space: nowrap; }
+.u-kopf h2, .u-weiter h2, .u-blick h2 { overflow-wrap: normal; hyphens: manual; }
+.u-karte h3 { font-size: clamp(19px, 1.5vw, 22px); line-height: 1.12; hyphens: manual; }
+.u-zeit h3 { font-size: clamp(20px, 1.8vw, 24px); }
+.u-pola figcaption { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.15; font-size: clamp(12.5px, 1.05vw, 15px); }
+.u-pola { padding-bottom: 46px; }
+.u-blick__fakten dd { font-size: clamp(20px, 2vw, 28px); hyphens: manual; }
+@media (max-width: 900px) { .u-held__innen { grid-template-columns: minmax(0, 1fr); } }
+.u .u-teil--blick { padding-bottom: clamp(8px, 2vw, 24px); }
+@media (max-width: 600px) {
+  .u-collage__pack { display: none; }
+  .u-blick__fakten { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .u-blick__fakten div { padding: 12px 12px; }
+  .u-blick__fakten dd { font-size: 18px; }
+  .u-blick__fakten dt { font-size: 13px; }
+}
+.u-karten--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.u-karten--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+.u-karte > .u-karte__logo { width: auto; height: 76px; max-width: 180px; margin: 0 0 6px; aspect-ratio: auto; object-fit: contain; border-radius: 0; }
+.u .fuss { margin-top: 0; }
