@@ -225,6 +225,9 @@
     var zeigeLogos = ["marke", "team", "agentur", "handel"].indexOf(zustand.rolle) > -1;
     var zeigePresse = ["marke", "team", "agentur", "presse"].indexOf(zustand.rolle) > -1;
     $("#logos").hidden = !zeigeLogos; $("#presse").hidden = !zeigePresse;
+    var zeigeStil = ["marke", "team", "agentur", "handel"].indexOf(zustand.rolle) > -1;
+    $("#styleguide").hidden = !zeigeStil;
+    document.querySelector('.kopf__nav a[href="#styleguide"]').hidden = !zeigeStil;
     document.querySelector('.kopf__nav a[href="#logos"]').hidden = !zeigeLogos;
     document.querySelector('.kopf__nav a[href="#presse"]').hidden = !zeigePresse;
     var kanaele = { handel: ["", "Website", "Social Media", "Print"], presse: ["", "Presse"] }[zustand.rolle];
@@ -235,6 +238,23 @@
     });
     zeichneBereiche(); zeichneRaster(); zeichneFreigabe();
   }
+
+  /* Styleguide: Farbcodes kopieren */
+  function kopieren(text, rueck) {
+    var fertig = function () { meldung(rueck); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(fertig, function () { meldung("Kopieren nicht möglich: " + text); });
+    else meldung(text);
+  }
+  document.querySelectorAll("[data-kopieren]").forEach(function (k) {
+    k.addEventListener("click", function () { var c = k.getAttribute("data-kopieren"); kopieren(c, c + " kopiert"); });
+  });
+  var liste = $("[data-farbliste]");
+  if (liste) liste.addEventListener("click", function () {
+    var zeilen = [];
+    document.querySelectorAll(".farbe").forEach(function (f) { zeilen.push(f.querySelector("b").textContent + ": " + f.querySelector("[data-kopieren]").getAttribute("data-kopieren")); });
+    document.querySelectorAll(".kat").forEach(function (f) { zeilen.push("Kategorie " + f.querySelector(".kat__chip").textContent + ": " + f.querySelector("[data-kopieren]").getAttribute("data-kopieren")); });
+    kopieren(zeilen.join("\n"), "Alle Farbcodes kopiert");
+  });
 
   /* Bedienung */
   $("[data-rolle]").addEventListener("change", function (ev) {

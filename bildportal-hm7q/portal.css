@@ -294,3 +294,85 @@ main { animation: rein .4s ease; }
 
 /* Ganze Aquarell-Wiese ohne Zoom (Originaldatei aus der CI) */
 .held__wiese { height: auto; aspect-ratio: 2400 / 547; object-fit: fill; }
+
+/* ===== Styleguide ===== */
+.stil { background: #fff; }
+.stil__titel { margin: 44px 0 18px !important; font-size: clamp(24px, 2.4vw, 32px); }
+.stil > .stil__titel:first-of-type { margin-top: 8px !important; }
+.stil__hinweis { margin-top: 14px !important; max-width: 62em; font-size: 14.5px; color: var(--leise); text-wrap: pretty; }
+.farben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.farbe { display: grid; gap: 4px; align-content: start; }
+.farbe b { font-size: 16px; color: var(--tief); }
+.farbe > span { font-size: 13.5px; line-height: 1.4; color: var(--leise); text-wrap: pretty; }
+.farbe__feld, .kat__feld { position: relative; display: flex; align-items: flex-end; width: 100%; aspect-ratio: 4 / 3; margin-bottom: 8px; padding: 12px 14px; border: 0; border-radius: 20px; font: inherit; font-weight: 900; font-size: 14px; text-align: left; cursor: copy; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); transition: transform .2s; }
+.farbe__feld:hover, .kat__feld:hover { transform: translateY(-3px); }
+.farbe__feld:focus-visible, .kat__feld:focus-visible { outline: 3px solid var(--gelb); outline-offset: 3px; }
+.farbe__feld span { overflow-wrap: anywhere; }
+.farbe:last-child .farbe__feld span { font-size: 12px; }
+
+.stil__kat { margin-top: 48px; padding: clamp(24px, 3vw, 40px); border-radius: 32px; background: var(--papier); border: 2px dashed #b8c9e0; }
+.stil__kat > p { max-width: 52em; color: #1f3556; }
+.stil__kat-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-bottom: 10px; }
+.stil__kat-kopf .stil__titel { margin: 0 !important; }
+.vorschlag { display: inline-flex; padding: 7px 12px 5px; line-height: 1; border-radius: 99px; border: 1.5px dashed var(--tief); color: var(--tief); font-size: 13px; font-weight: 900; }
+.kats { list-style: none; margin: 24px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.kat { display: grid; gap: 8px; justify-items: start; }
+.kat__feld { justify-content: center; align-items: center; background: linear-gradient(180deg, #fff 0 64%, #dbe8f7 64% 100%); padding: 10px; }
+.kat__feld::before { content: ""; position: absolute; top: 0; left: 18px; width: 48px; height: 8px; border-radius: 0 0 6px 6px; background: var(--kat); }
+.kat__feld img { height: 82%; width: auto; max-width: 90%; object-fit: contain; filter: drop-shadow(0 10px 12px rgba(12,41,117,.2)); }
+.kat__chip { display: inline-flex; padding: 7px 11px 5px; line-height: 1.1; border-radius: 99px; background: var(--kat); color: var(--kat-schrift); font-weight: 900; font-size: 13.5px; }
+.kat__code { font-size: 13px; color: var(--leise); font-weight: 700; }
+.stil__kat .regeln { margin-top: 20px; }
+
+.posts { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 24px; }
+.post { margin: 0; display: grid; gap: 10px; }
+.post figcaption { font-size: 13.5px; font-weight: 800; color: var(--leise); }
+.post__bild { position: relative; overflow: hidden; border-radius: 22px; background: var(--hm-verlauf); box-shadow: 0 24px 40px -26px rgba(0,20,60,.7); }
+.post--feed .post__bild { width: clamp(220px, 24vw, 300px); aspect-ratio: 1; }
+.post--story .post__bild { width: clamp(170px, 17vw, 210px); aspect-ratio: 9 / 16; }
+.post__streifen { position: absolute; top: 0; left: 22px; width: 56px; height: 10px; border-radius: 0 0 7px 7px; background: var(--kat); }
+.post__chip { position: absolute; top: 24px; left: 18px; padding: 6px 10px 4px; line-height: 1; border-radius: 99px; background: var(--kat); color: var(--kat-schrift); font-weight: 900; font-size: 12px; }
+.post__herz { position: absolute; right: -18%; top: -10%; width: 80%; opacity: .1; transform: rotate(-10deg); }
+.post__pack { position: absolute; left: 50%; top: 52%; width: 50%; transform: translate(-50%, -50%) rotate(-6deg); filter: drop-shadow(0 16px 18px rgba(0,10,40,.5)); }
+.post--story .post__pack { top: 46%; width: 66%; }
+.post__titel { position: absolute; left: 18px; right: 18px; bottom: 18px; margin: 0; font-family: "True North Dots"; font-size: clamp(22px, 2.2vw, 28px); line-height: 1; color: #fff; text-transform: uppercase; }
+.post--story .post__titel { bottom: 62px; }
+.post__text { position: absolute; left: 18px; bottom: 42px; margin: 0; font-size: 12.5px; font-weight: 800; color: #dbe7f8; }
+.post__logo { position: absolute; right: 14px; bottom: 14px; width: 54px; height: auto; }
+.post--feed .post__titel { right: 80px; }
+.post--story .post__logo { right: auto; left: 18px; bottom: 16px; }
+
+.stil__zwei { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; margin-top: 8px; }
+.schrift { display: grid; gap: 4px; padding: 22px 24px; margin-bottom: 14px; border-radius: 22px; background: var(--papier); }
+.schrift__probe { font-size: clamp(26px, 2.8vw, 38px); line-height: 1.1; color: var(--tief); margin-bottom: 8px; }
+.schrift--dots .schrift__probe { font-family: "True North Dots"; text-transform: uppercase; }
+.schrift--akko .schrift__probe { font-family: "Akko Rounded"; font-weight: 900; font-size: clamp(20px, 2vw, 26px); }
+.schrift b { color: var(--tief); }
+.schrift > span:last-child { font-size: 14.5px; color: var(--leise); }
+.ton__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ton__liste li { padding: 16px 20px; border-radius: 18px; background: var(--papier); font-size: 15.5px; line-height: 1.5; text-wrap: pretty; }
+.ton__liste b { color: var(--tief); }
+
+.elemente { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.elemente li { display: grid; gap: 4px; align-content: start; }
+.elemente b { color: var(--tief); }
+.elemente span { font-size: 13.5px; color: var(--leise); line-height: 1.4; }
+.element { display: grid; place-items: center; aspect-ratio: 4 / 3; margin-bottom: 8px; border-radius: 20px; background: var(--papier); overflow: hidden; }
+.element img { max-height: 70%; max-width: 70%; width: auto; height: auto; object-fit: contain; }
+.element--blau { background: var(--hm-verlauf); }
+.element--icons { grid-template-columns: repeat(2, auto); gap: 10px 18px; align-content: center; justify-content: center; }
+.element--icons img { width: 52px; height: 52px; }
+.element--wiese img { max-width: none; max-height: none; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
+.stil .knopf--rand { color: var(--tief); border-color: var(--tief); margin-top: 32px; }
+
+@media (max-width: 1100px) { .farben, .kats { grid-template-columns: repeat(3, minmax(0, 1fr)); } .elemente { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 800px) { .stil__zwei { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .farben, .kats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .posts { justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .farbe__feld, .kat__feld { transition: none; } }
+.element--icons img { width: 76px; height: 76px; }
+.post__bild { container-type: inline-size; }
+.post__titel { font-size: 11cqi; }
+.post--feed .post__titel { right: 30%; }
+.post--story .post__titel { font-size: 15cqi; }
+.post--feed .post__logo { top: 14px; bottom: auto; }
+.post--feed .post__titel { right: 18px; font-size: 10.5cqi; }
