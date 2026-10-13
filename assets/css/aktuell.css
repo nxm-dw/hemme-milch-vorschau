@@ -980,16 +980,37 @@
 .held__lid { display: block; width: 100%; height: 118%; transform: translateY(-104%); }
 .held__auge.zwinkert .held__lid { animation: zwinkern .7s cubic-bezier(.45, 0, .3, 1); }
 @keyframes zwinkern { 0% { transform: translateY(-104%); } 30% { transform: translateY(-6%); } 58% { transform: translateY(-6%); } 100% { transform: translateY(-104%); } }
-.held__text > * { transition: opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
-.held__text > :nth-child(2) { transition-delay: .08s; }
-.held__text > :nth-child(3) { transition-delay: .18s; }
-.held__text > :nth-child(4) { transition-delay: .28s; }
-.intro .held__text > * { opacity: 0; transform: translateY(22px); }
 .intro .held__beutel, .intro .held__siegel { animation: none; opacity: 0; }
-.intro .held__foto { transform: scale(1.05); box-shadow: 0 50px 90px -30px rgba(0, 55, 110, .6); }
-@media (max-width: 900px) { .intro .held__foto { transform: scale(1.03); } }
-@media (prefers-reduced-motion: reduce) { .held__auge.zwinkert .held__lid { animation: none; } .held__foto, .held__text > * { transition: none; } }
-/* Desktop: Kuh startet in der Bildschirmmitte und gleitet dann an ihren Platz */
-.held__bild { transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
-@media (min-width: 901px) { .intro .held__bild { transform: translateX(var(--zur-mitte, -40%)); } }
-@media (prefers-reduced-motion: reduce) { .held__bild { transition: none; } }
+
+/* Einstieg, Version 2: Foto zieht vom Auge aus auf, Kuh zwinkert mit Herz, danach kommen die Inhalte der Reihe nach */
+.intro .held__foto { animation: iris 1.15s cubic-bezier(.65, 0, .25, 1) both; }
+@keyframes iris {
+  0% { clip-path: circle(0 at var(--auge-x, 52%) var(--auge-y, 28%)); }
+  35% { clip-path: circle(12% at var(--auge-x, 52%) var(--auge-y, 28%)); }
+  100% { clip-path: circle(150% at var(--auge-x, 52%) var(--auge-y, 28%)); }
+}
+.held__foto img.held__herzchen { object-fit: contain; animation: none; position: absolute; z-index: 2; left: 0; top: 0; width: var(--hz, 34px); height: auto; max-width: none; opacity: 0; pointer-events: none;
+  transform: translate(calc(var(--lx, -999px) + var(--lw, 0px) + 4px), calc(var(--ly, -999px) - var(--lh, 0px) * .55)); filter: drop-shadow(0 4px 10px rgba(0, 20, 60, .45)); }
+.held__foto.herz-an img.held__herzchen { animation: herzchen 1.5s cubic-bezier(.2, .8, .2, 1); }
+@keyframes herzchen {
+  0% { opacity: 0; scale: .2; rotate: -18deg; translate: 0 0; }
+  22% { opacity: 1; scale: 1.15; rotate: 6deg; translate: 0 -6px; }
+  40% { scale: 1; rotate: 0deg; }
+  100% { opacity: 0; scale: .9; translate: 10px -60px; }
+}
+.held__ort, .held__titel span, .held__lead, .held__knoepfe { transition: opacity .6s ease, transform .75s cubic-bezier(.2, .8, .2, 1); }
+.held__slogan { transition: clip-path 1s cubic-bezier(.65, 0, .35, 1) .38s, opacity .2s .38s; }
+.held__titel span:nth-of-type(1) { transition-delay: .08s; }
+.held__titel span:nth-of-type(2) { transition-delay: .2s; }
+.held__lead { transition-delay: .55s; }
+.held__knoepfe { transition-delay: .68s; }
+.intro .held__ort, .intro .held__lead, .intro .held__knoepfe { opacity: 0; transform: translateY(20px); }
+.intro .held__titel span { opacity: 0; transform: translateY(.35em) rotate(-2deg); }
+.intro .held__slogan { clip-path: inset(0 100% 0 0); opacity: 0; }
+.held__slogan { clip-path: inset(0 0 0 0); }
+.held__beutel { animation-delay: .75s; }
+.held__siegel { animation-delay: .9s; }
+@media (prefers-reduced-motion: reduce) {
+  .held__auge.zwinkert .held__lid, .held__foto.herz-an img.held__herzchen { animation: none; }
+  .held__ort, .held__titel span, .held__lead, .held__knoepfe, .held__slogan { transition: none; }
+}

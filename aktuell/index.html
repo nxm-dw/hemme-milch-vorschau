@@ -9,8 +9,8 @@
 <link rel="icon" href="../assets/img/kuh-kopf.svg">
 <link rel="preload" href="../assets/fonts/marke/TrueNorthDots-Black.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js");
-/* Einstieg: Erst steht die Kuh im Fokus und zwinkert, dann kommt der Rest. Sicherung: spätestens nach 3 Sekunden ist alles sichtbar. */
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.documentElement.classList.add("intro"); setTimeout(function () { document.documentElement.classList.remove("intro"); }, 3000); }</script>
+/* Einstieg: Erst steht die Kuh im Fokus und zwinkert, dann kommt der Rest. Sicherung: spätestens nach 4,5 Sekunden ist alles sichtbar. */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.documentElement.classList.add("intro"); setTimeout(function () { document.documentElement.classList.remove("intro"); }, 4500); }</script>
 <link rel="stylesheet" href="../assets/css/gemeinsam.css">
 <link rel="stylesheet" href="../assets/css/aktuell.css">
 </head>
@@ -79,14 +79,16 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
     <div class="held__bild">
       <div class="held__foto">
         <img src="../assets/img/foto/kuhnase.webp" srcset="../assets/img/foto/kuhnase-s.webp 900w, ../assets/img/foto/kuhnase.webp 1800w" sizes="(max-width: 900px) 100vw, 55vw" alt="Eine schwarz-weiße Kuh schaut neugierig direkt in die Kamera, dahinter die Weide in der Uckermark" fetchpriority="high">
-        <span class="held__auge" data-lid aria-hidden="true"><svg class="held__lid" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><radialGradient id="lid-farbe" cx="48%" cy="40%" r="62%"><stop offset="0" stop-color="#2c2d31"/><stop offset=".6" stop-color="#202124"/><stop offset="1" stop-color="#161719"/></radialGradient><filter id="lid-fell" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".35 1.6" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .52  0 0 0 .55 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><path d="M-5 -5 H105 V72 Q50 104 -5 72 Z" fill="url(#lid-farbe)"/><path d="M-5 -5 H105 V72 Q50 104 -5 72 Z" fill="#000" filter="url(#lid-fell)" opacity=".22"/><path d="M18 22 Q50 12 82 22" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="2"/><path d="M4 72 Q50 100 96 72" fill="none" stroke="#0b0b0d" stroke-width="3.2" stroke-linecap="round"/><g stroke="#0b0b0d" stroke-width="1.6" stroke-linecap="round"><path d="M14 79 l-2 7"/><path d="M24 85 l-1.5 7"/><path d="M34 89 l-1 7"/><path d="M44 91 l-0.4 7"/><path d="M54 91 l0.4 7"/><path d="M64 89 l1 7"/><path d="M74 85 l1.5 7"/><path d="M84 79 l2 7"/></g></svg></span>
+        <img class="held__herzchen" src="../assets/img/marke/herz-weiss.webp" alt="" aria-hidden="true" width="80" height="80"><span class="held__auge" data-lid aria-hidden="true"><svg class="held__lid" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><radialGradient id="lid-farbe" cx="48%" cy="40%" r="62%"><stop offset="0" stop-color="#2c2d31"/><stop offset=".6" stop-color="#202124"/><stop offset="1" stop-color="#161719"/></radialGradient><filter id="lid-fell" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".35 1.6" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .52  0 0 0 .55 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><path d="M-5 -5 H105 V72 Q50 104 -5 72 Z" fill="url(#lid-farbe)"/><path d="M-5 -5 H105 V72 Q50 104 -5 72 Z" fill="#000" filter="url(#lid-fell)" opacity=".22"/><path d="M18 22 Q50 12 82 22" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="2"/><path d="M4 72 Q50 100 96 72" fill="none" stroke="#0b0b0d" stroke-width="3.2" stroke-linecap="round"/><g stroke="#0b0b0d" stroke-width="1.6" stroke-linecap="round"><path d="M14 79 l-2 7"/><path d="M24 85 l-1.5 7"/><path d="M34 89 l-1 7"/><path d="M44 91 l-0.4 7"/><path d="M54 91 l0.4 7"/><path d="M64 89 l1 7"/><path d="M74 85 l1.5 7"/><path d="M84 79 l2 7"/></g></svg></span>
       </div>
       <img class="held__beutel" src="../assets/img/marke/vollmilch-vs.webp" alt="Hemme Vollmilch 3,7 % im Standbeutel" width="280" height="420">
       <img class="held__siegel" src="../assets/img/marke/label-eigen.webp" alt="Siegel: Eigenes Futter, eigene Kühe, eigene Molkerei" width="150" height="150">
     </div>
   </section>
-  <script>/* Einstieg: Versatz der Kuh zur Bildschirmmitte, bevor die Seite gezeichnet wird */
-  (function () { var b = document.querySelector(".held__bild"); if (!b || !document.documentElement.classList.contains("intro")) return; b.style.transition = "none"; b.style.transform = "none"; var r = b.getBoundingClientRect(); b.style.transform = ""; b.style.setProperty("--zur-mitte", Math.round(document.documentElement.clientWidth / 2 - (r.left + r.width / 2)) + "px"); b.offsetWidth; b.style.transition = ""; })();</script>
+  <script>/* Einstieg: Mittelpunkt des Auges für das Aufziehen des Fotos, bevor die Seite gezeichnet wird */
+  (function () { var f = document.querySelector(".held__foto"); if (!f) return; var w = f.offsetWidth, h = f.offsetHeight, s = Math.max(w / 1800, h / 1201) * 1.04;
+    var ox = (w - 1800 * s) * .95 + (w - w * 1.04) / 2 * 0, oy = (h - 1201 * s) * .4;
+    f.style.setProperty("--auge-x", Math.round(ox + 935 * s) + "px"); f.style.setProperty("--auge-y", Math.round(oy + 335 * s) + "px"); })();</script>
 
   <!-- Drei Wahrheiten in einer Zeile -->
   <ul class="fakten" aria-label="Hemme in Zahlen">
