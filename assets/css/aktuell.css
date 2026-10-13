@@ -966,3 +966,30 @@
 @media (max-width: 800px) { .vorort__fotos { grid-template-columns: 1fr; max-width: 420px; } }
 .partner__logo img[src*="exner"] { max-height: 64px; width: auto; }
 .partner__kategorien li { align-content: start; }
+
+/* ===== Hero-Einstieg: Kuh im Fokus, zwinkert, dann kommt der Rest ===== */
+.held__foto { position: relative; transition: transform 1s cubic-bezier(.2,.7,.2,1), box-shadow 1s; }
+/* Augenlid über dem linken Auge (Bildkoordinaten ca. 895 bis 975 / 300 bis 370 von 1800 × 1201), Lage setzt aktuell.js.
+   Die Augenöffnung schneidet zu, das Lid fährt von oben herein: gebogene Kante wie bei einem echten Lid. */
+.held__auge {
+  position: absolute; left: 0; top: 0; z-index: 1; width: var(--lw, 0); height: var(--lh, 0);
+  transform: translate(var(--lx, -999px), var(--ly, -999px));
+  overflow: hidden; border-radius: 50% 50% 48% 48% / 52% 52% 48% 48%; pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%);
+}
+.held__lid { display: block; width: 100%; height: 118%; transform: translateY(-104%); }
+.held__auge.zwinkert .held__lid { animation: zwinkern .7s cubic-bezier(.45, 0, .3, 1); }
+@keyframes zwinkern { 0% { transform: translateY(-104%); } 30% { transform: translateY(-6%); } 58% { transform: translateY(-6%); } 100% { transform: translateY(-104%); } }
+.held__text > * { transition: opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.held__text > :nth-child(2) { transition-delay: .08s; }
+.held__text > :nth-child(3) { transition-delay: .18s; }
+.held__text > :nth-child(4) { transition-delay: .28s; }
+.intro .held__text > * { opacity: 0; transform: translateY(22px); }
+.intro .held__beutel, .intro .held__siegel { animation: none; opacity: 0; }
+.intro .held__foto { transform: scale(1.05); box-shadow: 0 50px 90px -30px rgba(0, 55, 110, .6); }
+@media (max-width: 900px) { .intro .held__foto { transform: scale(1.03); } }
+@media (prefers-reduced-motion: reduce) { .held__auge.zwinkert .held__lid { animation: none; } .held__foto, .held__text > * { transition: none; } }
+/* Desktop: Kuh startet in der Bildschirmmitte und gleitet dann an ihren Platz */
+.held__bild { transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+@media (min-width: 901px) { .intro .held__bild { transform: translateX(var(--zur-mitte, -40%)); } }
+@media (prefers-reduced-motion: reduce) { .held__bild { transition: none; } }

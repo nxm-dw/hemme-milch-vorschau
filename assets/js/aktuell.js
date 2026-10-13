@@ -265,3 +265,44 @@
   window.addEventListener("resize", setzen);
   setzen();
 })();
+
+/* Hero: Augenlid auf das Auge der Kuh legen und zwinkern lassen */
+(function () {
+  var foto = document.querySelector(".held__foto"), lid = document.querySelector("[data-lid]");
+  if (!foto || !lid) return;
+  var bild = foto.querySelector("img"), html = document.documentElement;
+  var B = 1800, Hh = 1201, AUGE = { x: 894, y: 298, w: 82, h: 72 };
+  function setzen() {
+    var fr = foto.getBoundingClientRect(), ir = bild.getBoundingClientRect();
+    var pos = getComputedStyle(bild).objectPosition.split(" ").map(function (v) { return parseFloat(v) / 100; });
+    var s = Math.max(ir.width / B, ir.height / Hh), rw = B * s, rh = Hh * s;
+    var ox = ir.left - fr.left + (ir.width - rw) * (pos[0] || .5), oy = ir.top - fr.top + (ir.height - rh) * (pos[1] || .5);
+    /* Auf den Rahmen von .held__foto zurückrechnen, falls er selbst skaliert ist */
+    var k = foto.offsetWidth / fr.width || 1;
+    lid.style.setProperty("--lx", ((ox + AUGE.x * s) * k).toFixed(1) + "px");
+    lid.style.setProperty("--ly", ((oy + AUGE.y * s) * k).toFixed(1) + "px");
+    lid.style.setProperty("--lw", (AUGE.w * s * k).toFixed(1) + "px");
+    lid.style.setProperty("--lh", (AUGE.h * s * k).toFixed(1) + "px");
+  }
+  var laeuft = true;
+  function mitlaufen() { setzen(); if (laeuft) requestAnimationFrame(mitlaufen); }
+  requestAnimationFrame(mitlaufen);
+  setTimeout(function () { laeuft = false; setzen(); }, 3200);
+  window.addEventListener("resize", setzen);
+
+  var ruhig = matchMedia("(prefers-reduced-motion: reduce)").matches, zuletzt = 0;
+  function zwinkern() {
+    if (ruhig || Date.now() - zuletzt < 1200) return;
+    zuletzt = Date.now(); setzen();
+    lid.classList.remove("zwinkert"); void lid.offsetWidth; lid.classList.add("zwinkert");
+  }
+  lid.addEventListener("animationend", function () { lid.classList.remove("zwinkert"); }, true);
+  function introEnde() { html.classList.remove("intro"); }
+  ["wheel", "touchstart", "keydown"].forEach(function (t) { window.addEventListener(t, introEnde, { once: true, passive: true }); });
+  var bereit = bild.decode ? bild.decode().catch(function () {}) : Promise.resolve();
+  bereit.then(function () {
+    setTimeout(zwinkern, html.classList.contains("intro") ? 750 : 200);
+    setTimeout(introEnde, 1700);
+  });
+  foto.addEventListener("mouseenter", zwinkern);
+})();
