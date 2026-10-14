@@ -270,7 +270,7 @@
 (function () {
   var foto = document.querySelector(".held__foto"), lid = document.querySelector("[data-lid]");
   if (!foto || !lid) return;
-  var bild = foto.querySelector("img"), html = document.documentElement, herz = foto.querySelector(".held__herzchen");
+  var bild = foto.querySelector("img"), html = document.documentElement;
   var B = 1800, Hh = 1201, AUGE = { x: 894, y: 298, w: 82, h: 72 };
   function setzen() {
     var fr = foto.getBoundingClientRect(), ir = bild.getBoundingClientRect();
@@ -283,7 +283,6 @@
     lid.style.setProperty("--ly", ((oy + AUGE.y * s) * k).toFixed(1) + "px");
     lid.style.setProperty("--lw", (AUGE.w * s * k).toFixed(1) + "px");
     lid.style.setProperty("--lh", (AUGE.h * s * k).toFixed(1) + "px");
-    if (herz) { ["--lx", "--ly", "--lw", "--lh"].forEach(function (v) { herz.style.setProperty(v, lid.style.getPropertyValue(v)); }); herz.style.setProperty("--hz", Math.max(22, AUGE.w * s * k * .8).toFixed(0) + "px"); }
   }
   var laeuft = true;
   function mitlaufen() { setzen(); if (laeuft) requestAnimationFrame(mitlaufen); }
@@ -295,12 +294,10 @@
   function zwinkern() {
     if (ruhig || Date.now() - zuletzt < 1200) return;
     zuletzt = Date.now(); setzen();
-    lid.classList.remove("zwinkert"); foto.classList.remove("herz-an"); void lid.offsetWidth;
-    lid.classList.add("zwinkert"); setTimeout(function () { foto.classList.add("herz-an"); }, 260);
+    lid.classList.remove("zwinkert"); void lid.offsetWidth; lid.classList.add("zwinkert");
   }
   /* Erst wenn das Auge wieder offen ist, kommen die Inhalte */
   lid.addEventListener("animationend", function () { lid.classList.remove("zwinkert"); introEnde(); }, true);
-  if (herz) herz.addEventListener("animationend", function () { foto.classList.remove("herz-an"); });
   function introEnde() { html.classList.remove("intro"); }
   ["wheel", "touchstart", "keydown"].forEach(function (t) { window.addEventListener(t, introEnde, { once: true, passive: true }); });
   var bereit = bild.decode ? bild.decode().catch(function () {}) : Promise.resolve();
