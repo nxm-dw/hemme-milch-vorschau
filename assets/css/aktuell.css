@@ -1005,3 +1005,31 @@
   .held__auge.zwinkert .held__lid { animation: none; }
   .held__ort, .held__titel span, .held__lead, .held__knoepfe, .held__slogan { transition: none; }
 }
+
+/* ===== Dafür stehen wir: Darstellung aus Entwurf B, Themen farbig hinterlegt, dazu Genuss ===== */
+.a .werte--b .werte__kopf { flex-direction: column; justify-content: center; gap: 0; margin-bottom: 52px; text-align: center; }
+.a .werte--b .werte__kopf h2 { position: relative; z-index: 1; }
+.a .werte--b .werte__siegel { position: absolute; right: 0; top: 50%; translate: 0 -50%; width: clamp(96px, 9vw, 140px); rotate: 8deg; }
+.a .werte--b .werte__liste { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px 22px; }
+.a .werte--b .werte__liste li { grid-column: span 2; padding: 26px 24px 28px; border-radius: 30px; background: var(--f); color: var(--tief); border: 3px solid #001d3d; border-top-width: 3px; box-shadow: 6px 7px 0 #001d3d; }
+.a .werte--b .werte__liste li:nth-child(4) { grid-column: 2 / span 2; }
+.a .werte--b .werte__liste li:nth-child(odd) { rotate: -1.2deg; }
+.a .werte--b .werte__liste li:nth-child(even) { rotate: 1.2deg; translate: 0 12px; }
+.a .werte--b .werte__liste h3 { color: var(--tief); font-size: clamp(24px, 2vw, 30px); line-height: 1; margin-bottom: 12px; }
+.a .werte--b .werte__liste p { font-size: 16.5px; line-height: 1.5; color: var(--tief); }
+.a .werte--b .werte__liste b { font-weight: 900; }
+@media (hover: hover) { .a .werte--b .werte__liste li { transition: rotate .3s cubic-bezier(.3,1.6,.5,1), translate .3s, box-shadow .3s; } .a .werte--b .werte__liste li:hover { rotate: 0deg; translate: 0 -4px; box-shadow: 9px 11px 0 #001d3d; } }
+@media (max-width: 1000px) {
+  .a .werte--b .werte__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .a .werte--b .werte__liste li, .a .werte--b .werte__liste li:nth-child(4) { grid-column: auto; }
+  .a .werte--b .werte__liste li:nth-child(5) { grid-column: 1 / -1; justify-self: center; max-width: calc(50% - 11px); }
+  .a .werte--b .werte__siegel { position: static; translate: none; margin-top: 18px; }
+}
+@media (max-width: 560px) {
+  .a .werte--b .werte__liste { grid-template-columns: minmax(0, 1fr); }
+  .a .werte--b .werte__liste li:nth-child(5) { max-width: none; }
+  .a .werte--b .werte__liste li { rotate: 0deg !important; translate: none !important; }
+}
+@media (prefers-reduced-motion: reduce) { .a .werte--b .werte__liste li { transition: none; } }
+.a .werte--b .werte__herzlich { margin-top: clamp(48px, 5vw, 72px); }
+@media (max-width: 600px) { .a #beutel-titel { font-size: min(38px, 8.2vw); } }

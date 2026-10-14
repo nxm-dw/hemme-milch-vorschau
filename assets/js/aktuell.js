@@ -117,14 +117,14 @@
   var form = document.querySelector("[data-haendlersuche]");
   if (!form) return;
   var aus = form.querySelector("[data-haendler-ergebnis]");
-  /* Beispiel: In diesen PLZ-Gebieten sind Märkte hinterlegt. Die echte Liste liefert Hemme. */
+  /* Beispiel: In diesen PLZ-Gebieten sind Märkte hinterlegt. Die echte Liste liefert Hemme Milch. */
   var GEBIETE = ["10", "12", "13", "14", "15", "16"];
   var BEISPIEL = [
     { n: "Beispielmarkt EDEKA", km: "1,2" },
     { n: "Beispielmarkt REWE", km: "2,8" },
     { n: "Bioladen um die Ecke (Beispiel)", km: "3,5" }
   ];
-  var ZETTEL = "Liebe Marktleitung,\n\nwir würden gern frische Hemme-Milchprodukte bei Ihnen kaufen: Milch im Milchbeutel, Joghurt, Fassbutter und Milchgetränke aus der Uckermark.\n\nKontakt für den Handel:\nHemme Milch GmbH & Co. KG\nHeideweg 4, 16278 Angermünde\nTelefon 03331 252525\n\nVielen Dank!";
+  var ZETTEL = "Liebe Marktleitung,\n\nwir würden gern frische Hemme Milchprodukte bei Ihnen kaufen: Milch im Milchbeutel, Joghurt, Fassbutter und Milchgetränke aus der Uckermark.\n\nKontakt für den Handel:\nHemme Milch GmbH & Co. KG\nHeideweg 4, 16278 Angermünde\nTelefon 03331 252525\n\nVielen Dank!";
 
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
 
@@ -146,7 +146,7 @@
     "<figure class=\"zettel\">" +
       "<img class=\"zettel__logo\" src=\"../assets/img/marke/hemme-logo-oval-farbe.webp\" alt=\"Hemme Milch\" width=\"300\" height=\"167\">" +
       "<figcaption class=\"zettel__titel\">Wunschzettel für die&nbsp;Marktleitung</figcaption>" +
-      "<p>Liebe Marktleitung,<br>wir würden gern frische Hemme-Milchprodukte bei Ihnen kaufen.</p>" +
+      "<p>Liebe Marktleitung,<br>wir würden gern frische Hemme Milchprodukte bei Ihnen kaufen.</p>" +
       "<ul class=\"zettel__produkte\"><li><img src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">Milch im&nbsp;Milchbeutel</li><li><img src=\"../assets/img/produkte/beerenfest-200g.webp\" alt=\"\">Joghurt</li><li><img src=\"../assets/img/produkte/fassbutter.webp\" alt=\"\">Fassbutter</li><li><img src=\"../assets/img/produkte/schokomilch-230.webp\" alt=\"\">Milch&shy;getränke</li></ul>" +
       "<p class=\"zettel__kontakt\"><b>Kontakt für den Handel</b>Hemme Milch GmbH &amp; Co. KG · Heideweg 4 · 16278 Angermünde<br>Telefon <a href=\"tel:+493331252525\">03331&nbsp;252525</a></p>" +
     "</figure>" +
@@ -180,7 +180,7 @@
       "<img class=\"nachfrage__bild\" src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">" +
       "<div class=\"nachfrage__text\">" +
         "<p class=\"nachfrage__marke\">Für " + plz + " noch kein Markt&nbsp;hinterlegt</p>" +
-        "<h3>Noch kein Hemme in eurem&nbsp;Markt?</h3>" +
+        "<h3>Noch keine Hemme Milch in eurem&nbsp;Markt?</h3>" +
         "<p>Fragt gerne direkt vor Ort nach und gebt der Marktleitung unseren&nbsp;Wunschzettel.</p>" +
       "</div>";
     var knoepfe = el("div", "nachfrage__knoepfe");
