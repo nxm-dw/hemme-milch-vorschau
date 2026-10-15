@@ -1033,3 +1033,6 @@
 @media (prefers-reduced-motion: reduce) { .a .werte--b .werte__liste li { transition: none; } }
 .a .werte--b .werte__herzlich { margin-top: clamp(48px, 5vw, 72px); }
 @media (max-width: 600px) { .a #beutel-titel { font-size: min(38px, 8.2vw); } }
+/* Dafür stehen wir: nur Markenfarben. Auf Blau und Tiefblau weiße Schrift */
+.a .werte--b .werte__liste li.werte__karte--dunkel, .a .werte--b .werte__liste li.werte__karte--dunkel h3, .a .werte--b .werte__liste li.werte__karte--dunkel p { color: #fff; }
+.a .werte--b .werte__liste li.werte__karte--tief { border-color: #fff; box-shadow: 6px 7px 0 #001d3d, 0 0 0 1px rgba(255,255,255,.25); }
