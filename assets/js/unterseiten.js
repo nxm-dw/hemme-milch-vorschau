@@ -4,10 +4,16 @@
   function einpassen() {
     document.querySelectorAll("[data-einpassen]").forEach(function (h) {
       var max = parseFloat(getComputedStyle(h).getPropertyValue("--max")) || 82;
+      h.classList.remove("ist-eng");
       h.style.fontSize = max + "px";
       var breite = h.clientWidth, laengste = 0;
       h.querySelectorAll(".z").forEach(function (z) { laengste = Math.max(laengste, z.scrollWidth); });
-      if (laengste > breite) h.style.fontSize = Math.max(26, Math.floor(max * breite / laengste * 0.98)) + "px";
+      if (laengste > breite) {
+        var ziel = Math.floor(max * breite / laengste * 0.98);
+        h.style.fontSize = Math.max(30, ziel) + "px";
+        /* Sehr schmal: Zeilen dürfen umbrechen, statt über den Rand zu laufen */
+        if (ziel < 30) h.classList.add("ist-eng");
+      }
     });
     /* Sicherung: Läuft eine Überschrift trotzdem über, wird sie schrittweise kleiner. */
     document.querySelectorAll("main h2, main h3, .u-blick__fakten dd").forEach(function (el) {
@@ -20,6 +26,9 @@
   function spaeter() { clearTimeout(warte); warte = setTimeout(einpassen, 80); }
   einpassen();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(einpassen);
+  /* Erst wenn die Hausschrift wirklich geladen ist, stimmen die Breiten */
+  if (document.fonts && document.fonts.load) document.fonts.load('400 40px "True North Dots"').then(einpassen, function () {});
+  window.addEventListener("load", einpassen);
   window.addEventListener("resize", spaeter);
 
   document.querySelectorAll("[data-formular-vorschau]").forEach(function (form) {
