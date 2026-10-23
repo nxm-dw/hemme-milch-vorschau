@@ -18,7 +18,7 @@
     /* Sicherung: Läuft eine Überschrift trotzdem über, wird sie schrittweise kleiner. */
     document.querySelectorAll("main h2, main h3, .u-blick__fakten dd").forEach(function (el) {
       el.style.fontSize = "";
-      var g = parseFloat(getComputedStyle(el).fontSize), min = g * 0.7;
+      var g = parseFloat(getComputedStyle(el).fontSize), min = Math.min(g * 0.55, 16);
       while (el.scrollWidth > el.clientWidth + 1 && g > min) { g -= 1; el.style.fontSize = g + "px"; }
     });
   }

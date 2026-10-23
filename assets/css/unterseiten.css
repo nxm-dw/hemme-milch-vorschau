@@ -473,3 +473,12 @@
 .u-weiter > div { min-width: 0; flex: 1 1 240px; }
 .u-faq__seite { grid-template-columns: minmax(0, 1fr); }
 .u-pola figcaption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(11.5px, 1vw, 15px); }
+/* Überschriften nie mitten im Wort umbrechen: lieber kleinere Schrift (unterseiten.js) */
+.u main h1, .u main h2, .u main h3, .u .u-faq__seite h2, .u-frage__text, .u-blick__fakten dd { overflow-wrap: normal !important; word-break: normal !important; hyphens: manual !important; }
+@media (max-width: 600px) {
+  .u-stelle { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+  .u-stelle__chips { grid-column: 1; grid-row: auto; }
+  .u-stelle__los { grid-column: 1; grid-row: auto; justify-self: end; margin-top: -48px; width: 44px; height: 44px; }
+  .u-stelle__chips { padding-right: 56px; }
+}
+.u-sorte b { font-size: clamp(14px, 1.2vw, 16.5px); }
