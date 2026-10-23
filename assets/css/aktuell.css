@@ -1036,3 +1036,21 @@
 /* Dafür stehen wir: nur Markenfarben. Auf Blau und Tiefblau weiße Schrift */
 .a .werte--b .werte__liste li.werte__karte--dunkel, .a .werte--b .werte__liste li.werte__karte--dunkel h3, .a .werte--b .werte__liste li.werte__karte--dunkel p { color: #fff; }
 .a .werte--b .werte__liste li.werte__karte--tief { border-color: #fff; box-shadow: 6px 7px 0 #001d3d, 0 0 0 1px rgba(255,255,255,.25); }
+
+/* ===== Partner-Kategorien: Kennzahl-Karten auf dem Markenverlauf ===== */
+.pk-liste { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0 0 48px; }
+.partner__kategorien li.pk { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 10px; padding: 28px 26px 26px; border: 0; border-radius: 30px; background: var(--hm-verlauf); color: #fff; box-shadow: 0 30px 50px -34px rgba(0, 20, 60, .8); container-type: normal; }
+.pk::after { content: ""; position: absolute; right: -50px; bottom: -60px; width: 200px; aspect-ratio: 1; background: url("../img/marke/herz-weiss.webp") center / contain no-repeat; opacity: .08; transform: rotate(-12deg); pointer-events: none; }
+.pk:nth-child(even) { background: linear-gradient(135deg, #0c2975 0%, #006ec6 100%); }
+.pk__zahl { display: flex; align-items: baseline; gap: 8px; margin: 0; line-height: .85; }
+.pk__zahl b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(64px, 6vw, 92px); color: #fff; white-space: nowrap; }
+.pk__zahl span { font-family: "True North Dots"; font-size: clamp(18px, 1.5vw, 22px); color: var(--gelb); text-transform: uppercase; }
+.a .pk h3 { margin: 4px 0 4px; font-size: clamp(22px, 1.9vw, 28px); line-height: 1.05; color: #fff; white-space: nowrap; }
+.pk__chips { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 0; padding-top: 6px; }
+.pk__chips > span { display: inline-flex; padding: 7px 11px 5px; line-height: 1.05; border-radius: 99px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .3); font-size: 13.5px; font-weight: 800; color: #fff; white-space: nowrap; }
+.pk__chips > .pk__zusatz { background: none; border: 0; padding-left: 2px; color: #dbe7f8; font-weight: 700; white-space: normal; }
+@media (hover: hover) { .pk { transition: transform .35s cubic-bezier(.3,1.4,.5,1); } .pk:hover { transform: translateY(-6px) rotate(-.6deg); } }
+@media (max-width: 1100px) { .pk-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pk-liste { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .pk { transition: none; } }
+.pk__chips { margin-top: 4px; } .pk-liste { align-items: stretch; }
