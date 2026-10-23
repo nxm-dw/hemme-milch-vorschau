@@ -1054,3 +1054,14 @@
 @media (max-width: 560px) { .pk-liste { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .pk { transition: none; } }
 .pk__chips { margin-top: 4px; } .pk-liste { align-items: stretch; }
+
+/* Partner-Kategorien, ruhige Fassung: helle Kacheln, Anzahl klein am Titel */
+.partner__kategorien li.pk { gap: 14px; padding: 24px 24px 26px; border-radius: 24px; background: #f0f5fc; color: var(--tief); box-shadow: none; border-top: 5px solid var(--blau); }
+.partner__kategorien li.pk:nth-child(even) { background: #f0f5fc; }
+.pk::after { content: none; }
+.a .pk h3 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: clamp(20px, 1.7vw, 24px); color: var(--tief); }
+.pk__anzahl { display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 4px 8px 2px; border-radius: 99px; background: var(--tief); color: #fff; font-family: "Akko Rounded", system-ui, sans-serif; font-size: 14px; font-weight: 900; line-height: 1; }
+.pk__chips { margin: 0; padding: 0; }
+.pk__chips > span { background: #fff; border: 1px solid #d6e2f1; color: var(--tief); font-weight: 700; }
+.pk__chips > .pk__zusatz { color: #4a6078; }
+@media (hover: hover) { .pk:hover { transform: none; } }
