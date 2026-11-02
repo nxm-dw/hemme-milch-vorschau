@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 240" role="img" aria-label="Eimer mit 5 Kilogramm">
+  <path d="M40 58 C40 4 180 4 180 58" fill="none" stroke="#9fb3cc" stroke-width="6" stroke-linecap="round"/>
+  <path d="M30 62 H190 L176 226 Q175 234 166 234 H54 Q45 234 44 226 Z" fill="#fff" stroke="#d3deeb" stroke-width="3"/>
+  <rect x="22" y="46" width="176" height="24" rx="8" fill="#006ec6"/>
+  <rect x="22" y="46" width="176" height="8" rx="4" fill="#3d97e0"/>
+  <path d="M48 104 H172 L166 182 H54 Z" fill="#e8f1fb"/>
+  <path d="M110 162 C93 150 86 140 86 131 C86 123 92 118 99 118 C104 118 108 121 110 125 C112 121 116 118 121 118 C128 118 134 123 134 131 C134 140 127 150 110 162 Z" fill="#006ec6"/>
+  <text x="110" y="212" text-anchor="middle" font-family="Akko Rounded, Arial, sans-serif" font-weight="900" font-size="22" fill="#0c2975">5 kg</text>
+</svg>

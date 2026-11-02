@@ -482,3 +482,146 @@
   .u-stelle__chips { padding-right: 56px; }
 }
 .u-sorte b { font-size: clamp(14px, 1.2vw, 16.5px); }
+
+/* ===== Stand 02.11.2026: Marktfinder, Siegelwand, Milchbeutel in Zahlen, Ansprechperson, Großgebinde ===== */
+
+/* Marktfinder Berlin */
+.mf { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(24px, 3vw, 44px); align-items: start; }
+.mf__seite { display: grid; gap: 18px; min-width: 0; }
+.mf__suche { display: grid; gap: 10px; padding: 22px; border-radius: 24px; background: #fff; box-shadow: 0 20px 40px -30px rgba(0, 20, 60, .45); }
+.mf__suche label { font-weight: 900; color: var(--tief); }
+.mf__feld { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+.mf__feld input { min-width: 0; font: inherit; font-size: 18px; padding: 13px 18px; border-radius: 99px; border: 2px solid #9db4d3; background: #f5f9ff; color: var(--tief); }
+.mf__feld input:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px; border-color: var(--blau-text); }
+.mf__feld .knopf { padding: 13px 22px; }
+.mf__suche .mf__ort { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 0; border: 0; background: none; font: inherit; font-weight: 800; color: var(--blau-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.mf__suche .mf__ort::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 3px solid currentColor; box-sizing: border-box; }
+.mf__ketten { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mf__ketten legend { width: 100%; margin-bottom: 8px; font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: #3f5673; }
+.mf__ketten button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px 8px 10px; border-radius: 99px; border: 2px solid #c8d6e8; background: #fff; font: inherit; font-weight: 800; color: var(--tief); cursor: pointer; }
+.mf__ketten button::before { content: ""; width: 16px; height: 16px; border-radius: 50%; background: var(--k); box-shadow: inset 0 0 0 2px var(--tief); }
+.mf__ketten button small { font-size: 13px; font-weight: 800; color: #4a6078; }
+.mf__ketten button[aria-pressed="false"] { opacity: .55; text-decoration: line-through; border-style: dashed; }
+.mf__ketten button:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px; }
+.mf__status { margin: 0; font-weight: 700; color: #2c4466; text-wrap: pretty; }
+.mf__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.mf__markt { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 16px 12px 12px; border-radius: 18px; background: #fff; border: 1px solid #dfe8f3; }
+.mf__nr { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--tief); color: #fff; font-weight: 900; font-size: 15px; }
+.mf__name { margin: 0; font-weight: 800; color: var(--tief); line-height: 1.3; }
+.mf__adr { margin: 2px 0 0; font-size: 15px; color: #3f5673; }
+.mf__kette { display: inline-block; padding: 3px 8px 2px; margin-right: 4px; border-radius: 6px; font-size: 12.5px; font-weight: 900; letter-spacing: .03em; color: #fff; vertical-align: 1px; }
+.mf__kette--R { background: #b0061a; }
+.mf__kette--E { background: #ffd400; color: #0c2975; }
+.mf__kette--K { background: #0c2975; }
+.mf__rechts { display: grid; justify-items: end; gap: 2px; font-size: 14.5px; }
+.mf__rechts b { color: var(--tief); white-space: nowrap; }
+.mf__rechts a { font-weight: 800; color: var(--blau-text); }
+.mf__karte { margin: 0; position: sticky; top: 100px; padding: clamp(12px, 2vw, 24px); border-radius: 28px; background: #fff; box-shadow: 0 30px 60px -40px rgba(0, 20, 60, .5); }
+.mf__karte svg { display: block; width: 100%; height: auto; }
+.mf__karte figcaption { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-size: 13.5px; color: #4a6078; }
+.mf__karte figcaption b { color: var(--tief); }
+.mf__land { fill: #e3eefb; stroke: #8fb0d8; stroke-width: 2; stroke-linejoin: round; }
+.mf__p { stroke: #fff; stroke-width: 1.4; cursor: pointer; transition: opacity .2s; }
+.mf__p--R { fill: #b0061a; } .mf__p--E { fill: #ffd400; stroke: #0c2975; } .mf__p--K { fill: #0c2975; }
+.mf__p.ist-aus { opacity: 0; pointer-events: none; }
+.mf__p:hover { r: 8; }
+.mf__umkreis { fill: rgba(0, 112, 224, .12); stroke: rgba(0, 112, 224, .45); stroke-width: 2; stroke-dasharray: 5 5; }
+.mf__ort { fill: var(--blau-text, #0066cc); stroke: #fff; stroke-width: 4; }
+.mf__nadel circle { fill: var(--tief); stroke: #fff; stroke-width: 3; }
+.mf__nadel text { fill: #fff; font: 900 15px "Akko Rounded", system-ui, sans-serif; }
+.mf__legende { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; margin: 0; padding: 0; }
+.mf__legende li { display: inline-flex; align-items: center; gap: 6px; }
+.mf__legende li::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--k); box-shadow: inset 0 0 0 1.5px var(--tief); }
+@media (max-width: 900px) { .mf { grid-template-columns: minmax(0, 1fr); } .mf__karte { position: static; order: -1; } }
+@media (max-width: 480px) { .mf__feld { grid-template-columns: minmax(0, 1fr); } .mf__markt { grid-template-columns: 28px minmax(0, 1fr); } .mf__rechts { grid-column: 2; justify-items: start; grid-auto-flow: column; justify-content: start; gap: 14px; } }
+
+/* Siegel groß */
+.u-siegelwand { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 18px; }
+.u-siegel { display: grid; grid-template-rows: 170px auto 1fr; gap: 10px; padding: 26px 24px 24px; border-radius: 26px; background: #f3f7fc; border: 1px solid #e1e9f4; text-align: center; }
+.u-siegel__bild { display: grid; place-items: center; }
+.u-siegel__bild img { max-width: 100%; max-height: 160px; width: auto; height: auto; object-fit: contain; }
+.u-siegel h3 { margin: 6px 0 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.1; color: var(--tief); text-wrap: balance; }
+.u-siegel p { margin: 0; font-size: 15.5px; line-height: 1.5; color: #2c4466; text-wrap: pretty; }
+
+/* Milchbeutel in Zahlen */
+.u-beutel { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.u-beutel__bild { margin: 0; display: grid; place-items: center; }
+.u-beutel__bild img { width: min(100%, 380px); height: auto; filter: drop-shadow(0 30px 30px rgba(0, 10, 40, .45)); transform: rotate(-4deg); }
+.u-beutel__zahlen { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.u-beutel__zahlen li { padding: 20px 22px; border-radius: 22px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .22); }
+.u-beutel__zahlen b { display: block; font-family: "True North Dots"; font-weight: 400; font-size: clamp(36px, 3.6vw, 52px); line-height: 1; color: var(--gelb); }
+.u-beutel__zahlen h3 { margin: 10px 0 6px; font-family: "True North Dots"; font-weight: 400; font-size: 20px; color: #fff; }
+.u-beutel__zahlen p { margin: 0; font-size: 15.5px; line-height: 1.5; color: #dbe7f8; }
+.u-beutel__text { margin-top: 22px; font-size: 17px; line-height: 1.6; color: #dbe7f8; }
+.u-beutel .u-offen { margin-top: 18px; }
+@media (max-width: 900px) { .u-beutel { grid-template-columns: minmax(0, 1fr); } .u-beutel__bild img { width: min(70%, 280px); } }
+@media (max-width: 520px) { .u-beutel__zahlen { grid-template-columns: minmax(0, 1fr); } }
+
+/* Ansprechperson Karriere */
+.u-person { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; padding: clamp(20px, 3vw, 36px); border-radius: 30px; background: var(--hm-verlauf); color: #fff; position: relative; overflow: hidden; }
+.u-person__bild { margin: 0; padding: 10px 10px 40px; background: #fff; border-radius: 6px; transform: rotate(-2deg); box-shadow: 0 24px 40px -24px rgba(0, 10, 40, .7); position: relative; }
+.u-person__bild img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
+.u-person__bild figcaption { position: absolute; left: 12px; right: 12px; bottom: 11px; font-weight: 800; font-size: 15px; color: var(--tief); }
+.u-person h2 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(28px, 3vw, 44px); line-height: 1.02; color: #fff; text-wrap: balance; }
+.u-person p { margin: 12px 0 0; max-width: 34em; font-size: 17.5px; line-height: 1.6; color: #e6efff; text-wrap: pretty; }
+.u-person__knoepfe { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.u-person .knopf { background: var(--gelb); border-color: var(--gelb); color: var(--tief); }
+.u-person .knopf--rand { background: transparent; border-color: #fff; color: #fff; }
+.u-person :focus-visible { outline-color: var(--gelb); }
+.u-person .u-offen { margin-top: 18px; background: rgba(255, 255, 255, .08); color: #fff; border-color: rgba(255, 255, 255, .5); }
+@media (max-width: 700px) { .u-person { grid-template-columns: minmax(0, 1fr); } .u-person__bild { max-width: 220px; } }
+
+/* Zeitleiste: mehrere Bilder je Station */
+.u-zeit__bilder { display: grid; gap: 14px; }
+.u-zeit__bilder figure:nth-child(2) { transform: rotate(1.6deg); margin-left: 18px; }
+
+/* Großgebinde: Sortenliste in der Karte */
+.u-gebinde__liste { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
+.u-gebinde__liste li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 12px; border-radius: 12px; background: rgba(255, 255, 255, .12); font-size: 15px; font-weight: 700; color: #fff; }
+.u-gebinde__liste li small { font-size: 13px; font-weight: 800; color: var(--gelb); white-space: nowrap; }
+.u-gebinde-liste--vier { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.u-person .u-offen b { color: #fff; }
+/* Siegel im Seitenkopf größer, dreht sich nur einmal beim Laden */
+.u-collage__siegel { width: clamp(110px, 12vw, 172px); top: -10%; right: -4%; animation: u-drehen 5s cubic-bezier(.2,.7,.2,1) 1; }
+@media (max-width: 900px) { .u-collage__siegel { width: clamp(92px, 22vw, 130px); } }
+.u-beutel__zahlen--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.u-beutel__zahlen--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .u-beutel__zahlen--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .u-beutel__zahlen--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .u-beutel__zahlen--4 { grid-template-columns: minmax(0, 1fr); } }
+.mf__schnell { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.mf__schnell span { width: 100%; font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: #3f5673; }
+.mf__schnell button { min-height: 40px; padding: 8px 14px; border-radius: 99px; border: 0; background: #fff; box-shadow: inset 0 0 0 1.5px #c8d6e8; font: inherit; font-size: 15px; font-weight: 800; color: var(--tief); cursor: pointer; }
+.mf__schnell button:hover, .mf__schnell button[aria-pressed="true"] { background: var(--tief); color: #fff; box-shadow: none; }
+.mf__schnell button:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px; }
+.mf__karte svg { transition: none; }
+.mf__ganz { position: absolute; z-index: 2; top: clamp(18px, 2.4vw, 32px); right: clamp(18px, 2.4vw, 32px); min-height: 40px; padding: 8px 16px; border-radius: 99px; border: 0; background: var(--tief); color: #fff; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+.mf__ganz:focus-visible { outline: 3px solid var(--gelb); outline-offset: 2px; }
+.mf__karte { overflow: hidden; }
+.u-gebinde-liste--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .u-gebinde-liste--drei { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .u-gebinde-liste--drei { grid-template-columns: minmax(0, 1fr); } }
+.u-siegelwand { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.u-siegel h3 { white-space: normal; }
+.u-person { align-items: center; }
+.u-person__bild { align-self: center; }
+.u .u-person__bild img { height: auto; max-height: none; aspect-ratio: 4 / 5; }
+/* Zeitleiste: Bilder nebeneinander statt gestapelt, weniger Leerraum */
+.u-zeit li { grid-template-columns: minmax(0, 1fr) auto; }
+.u-zeit li > div:first-child { max-width: 40em; }
+.u-zeit li > figure, .u-zeit__bilder figure { width: 230px; max-width: 230px; }
+.u-zeit__bilder { grid-auto-flow: column; gap: 18px; }
+.u-zeit__bilder figure:nth-child(2) { margin-left: 0; margin-top: 18px; }
+@media (max-width: 900px) { .u-zeit li { grid-template-columns: minmax(0, 1fr); } .u-zeit__bilder { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 200px)); } .u-zeit li > figure, .u-zeit__bilder figure { width: auto; max-width: 260px; } .u-zeit__bilder figure:nth-child(2) { margin-top: 0; } }
+@media (max-width: 480px) { .u-zeit__bilder { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .u-zeit figcaption { font-size: 11.5px; } }
+/* Siegel: letzte Reihe mittig */
+.u-siegelwand { display: flex; flex-wrap: wrap; justify-content: center; }
+.u-siegel { flex: 1 1 340px; max-width: calc((100% - 36px) / 3); }
+@media (max-width: 1100px) { .u-siegel { max-width: calc((100% - 18px) / 2); } }
+@media (max-width: 640px) { .u-siegel { max-width: 100%; } }
+.u-siegel { grid-template-columns: minmax(0, 1fr); }
+.u-siegel > * { min-width: 0; }
+.u-siegel h3 { font-size: clamp(17px, 1.35vw, 21px); }
+.u-gebinde__liste li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; }
+.u-gebinde__liste li small { white-space: normal; }
+@media (max-width: 400px) { .u-zeit__bilder { grid-template-columns: minmax(0, 260px); } }

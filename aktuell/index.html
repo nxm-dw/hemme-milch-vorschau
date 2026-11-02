@@ -18,11 +18,12 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
 <a class="sprung" href="#inhalt">Zum Inhalt&nbsp;springen</a>
 
 <nav class="vorschau" aria-label="Entwürfe">
-  <span class="vorschau__hinweis">Aktueller Stand nach dem Termin am 01.10. · Stand&nbsp;09.10.2026</span>
+  <span class="vorschau__hinweis">Aktueller Stand · Stand&nbsp;02.11.2026</span>
   <a href="../">Übersicht</a>
   <a href="../a/">Entwurf A</a>
   <a href="../b/">Entwurf B</a>
   <a href="./" aria-current="page">Aktueller Stand</a>
+  <a href="../unterseiten-p4x9/produkte/">Unterseiten</a>
   <a href="../sitemap/">Sitemap</a>
 </nav>
 
@@ -179,10 +180,17 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
         <p class="gastro-kopf__text">Großgebinde aus unserer eigenen Molkerei, frisch geliefert in Berlin und&nbsp;Brandenburg.</p>
       </div>
       <article class="g-karte">
+        <p class="g-karte__menge">5<span>Kilo</span></p>
+        <div class="g-karte__bild"><img src="../assets/img/marke/eimer-5kg.svg" alt="" loading="lazy"></div>
+        <h3>Im&nbsp;Eimer</h3>
+        <p>Sahne, Naturjoghurt, Fruchtjoghurt, Quark und&nbsp;Fassbutter.</p>
+        <ul class="einsatz" aria-label="Einsatz"><li>Küche</li><li>Konditorei</li><li>Buffet</li></ul>
+      </article>
+      <article class="g-karte">
         <p class="g-karte__menge">10<span>Liter</span></p>
         <div class="g-karte__bild"><img src="../assets/img/marke/vollmilch-vs.webp" alt="" loading="lazy"></div>
-        <h3>Frischmilch im&nbsp;Großbeutel</h3>
-        <p>Schonend pasteurisiert, 1,8&nbsp;% oder 3,7&nbsp;% Fett.</p>
+        <h3>Milch im&nbsp;Schlauchbeutel</h3>
+        <p>Schonend pasteurisiert, frisch für Kaffee und&nbsp;Küche.</p>
         <ul class="einsatz" aria-label="Einsatz"><li>Siebträger</li><li>Milchschaum</li><li>Küche</li></ul>
       </article>
       <article class="g-karte">
@@ -195,10 +203,11 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
       <article class="g-karte">
         <p class="g-karte__menge">230<span>ml</span></p>
         <div class="g-karte__bild"><img src="../assets/img/produkte/schokomilch-230.webp" alt="" loading="lazy"></div>
-        <h3>Milchgetränke to&nbsp;go</h3>
-        <p>Schoko, Vanille und Eiskaffee, acht Stück pro&nbsp;Karton.</p>
+        <h3>Milchgetränke</h3>
+        <p>Schoko, Vanille und Eiskaffee, auch im 600-ml-Beutel. Erdbeere von April bis&nbsp;Oktober.</p>
         <ul class="einsatz" aria-label="Einsatz"><li>Kühltheke</li><li>Kantine</li><li>Café</li></ul>
       </article>
+      <p class="gastro-mehr">Außerdem für Großverbraucher: Milch im 1-Liter-Beutel, Buttermilch und Naturjoghurt im 600-Gramm-Becher.</p>
       <div class="milchmann" id="gastro">
         <img class="milchmann__bild" src="../assets/img/foto/milchmann-hof-s.webp" alt="Hemme-Lieferwagen vor dem Hof" loading="lazy">
         <div class="milchmann__text">
@@ -268,7 +277,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
           <span class="uhr__zahl" data-uhr>1589</span>
         </div>
       </div>
-      <ol class="kette__band" data-band tabindex="0" aria-label="Unsere Geschichte in zwölf Stationen">
+      <ol class="kette__band" data-band tabindex="0" aria-label="Unsere Geschichte in fünfzehn Stationen">
         <li class="station" data-station-jahr="1589">
           <div class="bild-folgt"><img src="../assets/img/foto/historie-1589.webp" alt="Felder (Platzhalter für ein historisches Bild)" loading="lazy"><span>Historisches Bild&nbsp;folgt</span></div>
           <p class="station__jahr">1589</p>
@@ -316,6 +325,24 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
           <p class="station__jahr">Die ersten Jahre</p>
           <h3>Grüße vom&nbsp;Sprockhof</h3>
           <p>Besuch aus der Wedemark: Die Familie vom Sprockhof bringt ein Banner mit. „Sprockhof grüßt&nbsp;Schmargendorf.“</p>
+        </li>
+        <li class="station" data-station-jahr="2005">
+          <figure class="album"><img src="../assets/img/foto/historie-2005-halle.webp" alt="Die neue Halle im Rohbau auf der grünen Wiese, Frühjahr 2005" loading="lazy"><figcaption>Die neue Halle&nbsp;2005</figcaption></figure>
+          <p class="station__jahr">2004 bis 2005</p>
+          <h3>Der&nbsp;Neubau</h3>
+          <p>Im Winter 2004 beginnen die Bauarbeiten, im Frühjahr 2005 steht die neue&nbsp;Halle.</p>
+        </li>
+        <li class="station" data-station-jahr="2014">
+          <figure class="album"><img src="../assets/img/foto/historie-2014-tanks.webp" alt="Neue Milchtanks mit Hemme-Logo werden per Kran aufgestellt" loading="lazy"><figcaption>Tanks am&nbsp;Haken</figcaption></figure>
+          <p class="station__jahr">2014</p>
+          <h3>Neue&nbsp;Milchtanks</h3>
+          <p>Für die Molkerei kommen neue Tanks auf den Hof, das Hemme-Logo ist schon&nbsp;drauf.</p>
+        </li>
+        <li class="station" data-station-jahr="2018">
+          <figure class="album"><img src="../assets/img/foto/historie-2018-luftbild.webp" alt="Luftbild des Hemme-Hofs mit Molkerei, Lager und Ställen" loading="lazy"><figcaption>Der Hof von oben,&nbsp;2018</figcaption></figure>
+          <p class="station__jahr">2018</p>
+          <h3>Alles an einem&nbsp;Ort</h3>
+          <p>Molkerei, Lager, Ställe und Felder liegen beieinander. Aus der Luft sieht man, wie kurz die Wege&nbsp;sind.</p>
         </li>
         <li class="station" data-station-jahr="2023">
           <div class="bild-folgt"><img src="../assets/img/foto/historie-2023.webp" alt="Hofgarten (Platzhalter für ein historisches Bild)" loading="lazy"><span>Historisches Bild&nbsp;folgt</span></div>
@@ -404,14 +431,14 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
     </div>
     <div class="kaufen__text">
       <h2 id="kaufen-titel">Wo gibt's Hemme&nbsp;Milch bei&nbsp;euch?</h2>
-      <p>In Berlin und Brandenburg stehen wir bei Edeka, Rewe und vielen kleinen Läden im Kühlregal. Gebt eure Postleitzahl&nbsp;ein.</p>
+      <p>In Berlin und Brandenburg stehen wir bei EDEKA, REWE, Kaufland und vielen kleinen Läden im Kühlregal. Gebt eure Postleitzahl&nbsp;ein.</p>
       <form class="plz" data-haendlersuche>
         <label class="nur-sr" for="plz-a">Postleitzahl</label>
         <input id="plz-a" inputmode="numeric" autocomplete="off" data-1p-ignore data-lpignore="true" maxlength="5" placeholder="Postleitzahl">
         <button class="knopf" type="submit">Märkte&nbsp;finden</button>
         <div class="plz__ergebnis" data-haendler-ergebnis aria-live="polite"></div>
       </form>
-      <p class="plz__test">Zum Ausprobieren: 10115 (Berlin) oder 80331&nbsp;(München)</p>
+      <p class="plz__test">Zum Ausprobieren: 10115 (Berlin-Mitte) oder 16278&nbsp;(Angermünde)</p>
     </div>
   </section>
 
@@ -514,6 +541,8 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
       <li><img src="../assets/img/marke/gentechnik-gruen.webp" alt="Ohne Gentechnik" loading="lazy"></li>
       <li><img src="../assets/img/marke/uckermark-farbe.webp" alt="Regionalmarke Uckermark" loading="lazy"></li>
       <li><img src="../assets/img/marke/schorfheide-siegel-farbe.webp" alt="Prüfzeichen Biosphärenreservat Schorfheide-Chorin" loading="lazy"></li>
+      <li><img src="../assets/img/marke/natuerlich-brandenburg.webp" alt="natürlich Brandenburg" loading="lazy"></li>
+      <li><img src="../assets/img/marke/pro-agro.webp" alt="pro agro" loading="lazy"></li>
       <li><img src="../assets/img/marke/label-eigen.webp" alt="Hemme-Siegel: Eigenes Futter, eigene Kühe, eigene Molkerei" loading="lazy"></li>
     </ul>
   </div>
@@ -537,6 +566,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
 </footer>
 
 <script src="../assets/js/gemeinsam.js" defer></script>
+<script src="../assets/js/maerkte-berlin.js" defer></script>
 <script src="../assets/js/aktuell.js" defer></script>
 </body>
 </html>

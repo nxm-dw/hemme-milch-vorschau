@@ -117,22 +117,22 @@
   var form = document.querySelector("[data-haendlersuche]");
   if (!form) return;
   var aus = form.querySelector("[data-haendler-ergebnis]");
-  /* Beispiel: In diesen PLZ-Gebieten sind Märkte hinterlegt. Die echte Liste liefert Hemme Milch. */
-  var GEBIETE = ["10", "12", "13", "14", "15", "16"];
-  var BEISPIEL = [
-    { n: "Beispielmarkt EDEKA", km: "1,2" },
-    { n: "Beispielmarkt REWE", km: "2,8" },
-    { n: "Bioladen um die Ecke (Beispiel)", km: "3,5" }
-  ];
+  /* Märkte von REWE, EDEKA und Kaufland in Berlin aus maerkte-berlin.js (OpenStreetMap). Die Listung je Markt bestätigt Hemme Milch. */
+  var D = window.HEMME_MAERKTE || { m: [], plz: {} };
+  var KETTE = { R: "REWE", E: "EDEKA", K: "Kaufland" };
+  function km(a, b, c, d) { var r = Math.PI / 180, x = (d - b) * r * Math.cos((a + c) / 2 * r), y = (c - a) * r; return Math.sqrt(x * x + y * y) * 6371; }
   var ZETTEL = "Liebe Marktleitung,\n\nwir würden gern frische Hemme Milchprodukte bei Ihnen kaufen: Milch im Milchbeutel, Joghurt, Fassbutter und Milchgetränke aus der Uckermark.\n\nKontakt für den Handel:\nHemme Milch GmbH & Co. KG\nHeideweg 4, 16278 Angermünde\nTelefon 03331 252525\n\nVielen Dank!";
 
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
 
   function treffer(plz) {
+    var c = D.plz[plz];
+    var naechste = D.m.map(function (m) { return { m: m, d: km(c[0], c[1], m[4], m[5]) }; })
+      .sort(function (a, b) { return a.d - b.d; }).slice(0, 3);
     var box = el("div", "maerkte");
-    box.appendChild(el("p", "maerkte__kopf", "<b>" + BEISPIEL.length + " Märkte</b> rund um " + plz + " <span class=\"maerkte__hinweis\">Beispieldaten</span>"));
+    box.appendChild(el("p", "maerkte__kopf", "<b>Die 3 nächsten Märkte</b> rund um " + plz));
     var ul = el("ul", "maerkte__liste");
-    BEISPIEL.forEach(function (m) { ul.appendChild(el("li", "", "<b>" + m.n + "</b><span>" + m.km + "&nbsp;km</span>")); });
+    naechste.forEach(function (t) { ul.appendChild(el("li", "", "<b>" + KETTE[t.m[0]] + ", " + t.m[2] + "</b><span>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</span>")); });
     box.appendChild(ul);
     return box;
   }
@@ -199,7 +199,7 @@
     var plz = (form.querySelector("input").value || "").trim();
     aus.textContent = "";
     if (!/^\d{5}$/.test(plz)) { aus.appendChild(el("p", "plz__fehler", "Bitte eine fünfstellige Postleitzahl eingeben, zum Beispiel&nbsp;10115.")); return; }
-    aus.appendChild(GEBIETE.indexOf(plz.slice(0, 2)) > -1 ? treffer(plz) : keinMarkt(plz));
+    aus.appendChild(D.plz[plz] ? treffer(plz) : keinMarkt(plz));
   }, true);
 })();
 
