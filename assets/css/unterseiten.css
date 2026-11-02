@@ -655,3 +655,27 @@
 .u-zitat figcaption span { font-size: 15px; font-weight: 700; color: #cfe0f7; }
 .u-karte__initialen { display: grid; place-items: center; aspect-ratio: 4 / 3; margin: -1px -1px 0; background: var(--hm-verlauf); }
 .u-karte__initialen span { display: grid; place-items: center; width: 108px; height: 108px; border-radius: 50%; background: #fff; color: var(--tief); font: 400 44px/1 "True North Dots", sans-serif; padding-top: 6px; }
+.u-zitat__zeichen { top: -36px; width: 68px; height: 68px; padding: 0; font-size: 0; }
+/* Philosophie: Siegel unten links neben dem Foto, Kuh bleibt frei */
+.u-collage--siegel-gross.u-collage--eins .u-collage__siegel { width: clamp(150px, 15vw, 220px); top: auto; bottom: -14%; left: -20%; }
+@media (max-width: 900px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { width: clamp(110px, 30vw, 160px); left: auto; right: -4%; bottom: -20%; } }
+/* Logowände: Reihen mittig, gleich breite Kacheln */
+.u-logowand { display: flex; flex-wrap: wrap; justify-content: center; }
+.u-logowand .u-logo { flex: 0 1 calc((100% - 64px) / 5); min-width: 170px; }
+@media (max-width: 600px) { .u-logowand .u-logo { flex-basis: calc((100% - 16px) / 2); min-width: 0; } }
+.u-logo img[src*="netto.svg"], .u-logo img[src*="lidl"], .u-logo img[src*="kaufland"], .u-logo img[src*="penny"] { max-height: 64px; }
+/* Siegel: vier in einer Reihe */
+.u-siegelwand { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.u-siegel { max-width: none; }
+.u-siegel__bild img { max-height: 130px; }
+@media (max-width: 1100px) { .u-siegelwand { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .u-siegelwand { grid-template-columns: minmax(0, 1fr); } }
+.u-collage--siegel-gross.u-collage--eins .u-collage__siegel { left: auto; right: -9%; bottom: -17%; top: auto; width: clamp(160px, 15vw, 220px); }
+.u-logowand .u-logo { flex-basis: calc((100% - 48px) / 4); }
+@media (max-width: 600px) { .u-logowand .u-logo { flex-basis: calc((100% - 16px) / 2); } }
+.u-logo img[src*="penny"] { max-height: 76px; }
+.u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: -5%; }
+@media (max-width: 1200px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: -1%; width: clamp(130px, 15vw, 180px); } }
+@media (max-width: 900px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: 0; bottom: -16%; width: clamp(110px, 30vw, 150px); } }
+@media (min-width: 1201px) and (max-width: 1420px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: -1%; } }
+@media (max-width: 400px) { .u-logowand { gap: 10px; } .u-logowand .u-logo { flex-basis: calc((100% - 10px) / 2); padding: 14px 8px; min-height: 104px; } .u-logo b { font-size: 16px; } .u-logo small { font-size: 11px; letter-spacing: .04em; } }
