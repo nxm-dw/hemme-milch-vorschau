@@ -39,3 +39,19 @@
     });
   });
 })();
+
+/* Zwei-Klick: Externe Inhalte (KuhCam auf YouTube) laden erst nach Klick */
+document.querySelectorAll("[data-zweiklick]").forEach(function (box) {
+  var knopf = box.querySelector("[data-zweiklick-start]");
+  if (!knopf) return;
+  knopf.addEventListener("click", function () {
+    var f = document.createElement("iframe");
+    f.src = box.getAttribute("data-zweiklick");
+    f.title = box.getAttribute("data-zweiklick-titel") || "Eingebettetes Video";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    box.textContent = "";
+    box.appendChild(f);
+    f.focus();
+  });
+});
