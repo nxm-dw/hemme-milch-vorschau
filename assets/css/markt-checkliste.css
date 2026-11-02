@@ -1,0 +1,63 @@
+/* Versteckte Marktliste zum Abhaken (markt-checkliste-q8m3z) */
+.mc > * { max-width: 1100px; }
+.mc__schritte { list-style: none; margin: 0 auto 32px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
+.mc__schritte li { counter-increment: s; position: relative; padding: 20px 20px 20px 66px; border-radius: 20px; background: #fff; font-size: 15.5px; line-height: 1.5; color: #2c4466; }
+.mc__schritte li::before { content: counter(s); position: absolute; left: 18px; top: 18px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--tief); color: #fff; font-weight: 900; }
+.mc__schritte b { display: block; font-family: "True North Dots"; font-weight: 400; font-size: 19px; color: var(--tief); }
+.mc__leiste { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 18px; align-items: center; margin-left: auto; margin-right: auto; padding: 16px 18px; border-radius: 22px; background: #fff; box-shadow: 0 18px 34px -26px rgba(0, 20, 60, .5); }
+.mc__suche input { width: 100%; font: inherit; font-size: 17px; padding: 12px 18px; border-radius: 99px; border: 2px solid #9db4d3; background: #f5f9ff; color: var(--tief); }
+.mc__suche input:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px; }
+.mc__ketten { display: flex; flex-wrap: wrap; gap: 8px; }
+.mc__ketten button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border-radius: 99px; border: 2px solid #c8d6e8; background: #fff; font: inherit; font-weight: 800; color: var(--tief); cursor: pointer; }
+.mc__ketten button[data-mc-kette]::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--k); box-shadow: inset 0 0 0 2px var(--tief); }
+.mc__ketten button[aria-pressed="false"] { opacity: .55; text-decoration: line-through; border-style: dashed; }
+.mc__ketten .mc__nur[aria-pressed="false"] { opacity: 1; text-decoration: none; border-style: solid; }
+.mc__ketten .mc__nur[aria-pressed="true"] { background: var(--tief); border-color: var(--tief); color: #fff; }
+.mc__ketten button:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px; }
+.mc__zaehler { grid-column: 1 / -1; margin: 0; font-weight: 700; color: #2c4466; }
+.mc__zaehler b { font-family: "True North Dots"; font-weight: 400; font-size: 22px; color: var(--tief); }
+.mc__sammel { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px auto 12px; }
+.mc__liste { display: grid; gap: 6px; margin-left: auto; margin-right: auto; }
+.mc__liste[data-leer]:not([data-leer=""])::before { content: attr(data-leer); padding: 18px; color: #2c4466; font-weight: 700; }
+.mc__markt { display: grid; grid-template-columns: 28px 92px minmax(0, 1fr) minmax(0, 1.3fr) 130px; gap: 12px; align-items: center; padding: 10px 16px; border-radius: 14px; background: #fff; border: 1px solid #dfe8f3; cursor: pointer; }
+.mc__markt[hidden] { display: none; }
+.mc__markt:has(input:checked) { background: #eaf6e1; border-color: #8fc96a; }
+.mc__markt input { width: 22px; height: 22px; accent-color: #2f7a12; cursor: pointer; }
+.mc__markt:focus-within { outline: 3px solid var(--blau-text); outline-offset: 2px; }
+.mc__kette { justify-self: start; padding: 3px 8px 2px; border-radius: 6px; font-size: 12.5px; font-weight: 900; color: #fff; }
+.mc__kette--R { background: #b0061a; } .mc__kette--E { background: #ffd400; color: #0c2975; } .mc__kette--K { background: #0c2975; }
+.mc__name { font-weight: 800; color: var(--tief); }
+.mc__adr, .mc__plz { color: #2c4466; font-size: 15px; }
+.mc__ergaenzen { margin: 40px auto 0; padding: clamp(20px, 3vw, 32px); border-radius: 26px; background: #fff; }
+.mc__ergaenzen h2, .mc__fertig h2 { margin: 0 0 8px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); color: var(--tief); }
+.mc__ergaenzen > p { margin: 0 0 18px; color: #2c4466; }
+.mc__neu { position: relative; display: grid; grid-template-columns: 1.3fr 1.3fr 90px 1fr 1.6fr; gap: 10px; margin: 0 0 12px; padding: 0 44px 12px 0; border: 0; border-bottom: 1px solid #e3eaf3; }
+.mc__feld { display: grid; gap: 4px; font-size: 13px; font-weight: 800; color: #3f5673; }
+.mc__feld input { min-width: 0; font: inherit; font-size: 16px; font-weight: 400; padding: 10px 12px; border-radius: 10px; border: 2px solid #c8d6e8; background: #f5f9ff; color: var(--tief); }
+.mc__feld input:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 1px; }
+.mc__weg { position: absolute; right: 0; bottom: 14px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #f0f4fa; color: var(--tief); font-size: 22px; line-height: 1; cursor: pointer; }
+.mc__weg:focus-visible { outline: 3px solid var(--blau-text); outline-offset: 2px; }
+.mc__fertig { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 32px; align-items: center; margin: 24px auto 0; padding: clamp(22px, 3vw, 36px); border-radius: 26px; background: var(--hm-verlauf); color: #fff; }
+.mc__fertig h2 { color: #fff; }
+.mc__fertig p { margin: 0; color: #e6efff; max-width: 40em; }
+.mc__knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
+.mc__fertig .knopf:not(.knopf--hell) { background: var(--gelb); border-color: var(--gelb); color: var(--tief); }
+.mc__fertig :focus-visible { outline-color: var(--gelb); }
+.mc__quelle { margin: 18px auto 0; font-size: 13.5px; color: #3f5673; }
+@media (max-width: 900px) {
+  .mc__schritte { grid-template-columns: minmax(0, 1fr); }
+  .mc__leiste { grid-template-columns: minmax(0, 1fr); }
+  .mc__markt { grid-template-columns: 28px minmax(0, 1fr); gap: 2px 12px; }
+  .mc__markt input { grid-row: span 4; }
+  .mc__kette, .mc__name { display: inline; }
+  .mc__neu { grid-template-columns: 1fr 1fr; padding-right: 0; padding-bottom: 54px; }
+  .mc__feld--notiz { grid-column: 1 / -1; }
+  .mc__fertig { grid-template-columns: minmax(0, 1fr); }
+}
+@media print {
+  .vorschau, .mc__leiste, .mc__sammel, .mc__fertig .mc__knoepfe, .mc__weg, [data-mc-neu-zeile], .u-held, .mc__schritte { display: none !important; }
+  .mc__markt { break-inside: avoid; padding: 4px 8px; }
+  .mc__markt[hidden] { display: none !important; }
+}
+.mc__block { max-width: 1100px; }
+@media (max-width: 900px) { .mc__leiste { position: static; } }

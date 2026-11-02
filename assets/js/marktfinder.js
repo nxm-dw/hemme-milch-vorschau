@@ -5,12 +5,12 @@
   var D = window.HEMME_MAERKTE, box = document.querySelector("[data-marktfinder]");
   if (!D || !box) return;
   var SVGNS = "http://www.w3.org/2000/svg";
-  var NAME = { R: "REWE", E: "EDEKA", K: "Kaufland" };
+  var NAME = { R: "REWE", E: "EDEKA", K: "Kaufland", L: "Laden" };  /* L = von Hemme ergänzte Läden */
   var ANZAHL = 6;
   var form = box.querySelector("[data-mf-form]"), feld = form.querySelector("input");
   var status = box.querySelector("[data-mf-status]"), liste = box.querySelector("[data-mf-liste]");
   var svg = box.querySelector("[data-mf-karte]");
-  var aktiv = { R: true, E: true, K: true }, punkt = null, ortName = "";
+  var aktiv = { R: true, E: true, K: true, L: true }, punkt = null, ortName = "";
 
   function ohneWaise(t) { return t.replace(/ (\S+)$/, " $1"); }
   function km(a, b, c, d) {

@@ -696,3 +696,4 @@
 @media (max-width: 900px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: 0; bottom: -10%; width: clamp(120px, 34vw, 170px); } }
 .u-siegel__bild img { max-width: min(100%, 250px); }
 .u .u-siegel h3 { font-size: clamp(15px, 1.1vw, 17px) !important; }
+.mf__p--L { fill: #3f8f1f; } .mf__kette--L { background: #2f7a12; }

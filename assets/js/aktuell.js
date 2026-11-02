@@ -132,7 +132,7 @@
     var box = el("div", "maerkte");
     box.appendChild(el("p", "maerkte__kopf", "<b>Die 3 nächsten Märkte</b> rund um " + plz));
     var ul = el("ul", "maerkte__liste");
-    naechste.forEach(function (t) { ul.appendChild(el("li", "", "<b>" + KETTE[t.m[0]] + ", " + t.m[2] + "</b><span>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</span>")); });
+    naechste.forEach(function (t) { ul.appendChild(el("li", "", "<b>" + (t.m[0] === "L" ? t.m[1] : KETTE[t.m[0]]) + ", " + t.m[2] + "</b><span>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</span>")); });
     box.appendChild(ul);
     return box;
   }
