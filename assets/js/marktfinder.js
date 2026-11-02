@@ -5,12 +5,28 @@
   var D = window.HEMME_MAERKTE, box = document.querySelector("[data-marktfinder]");
   if (!D || !box) return;
   var SVGNS = "http://www.w3.org/2000/svg";
-  var NAME = { R: "REWE", E: "EDEKA", K: "Kaufland", L: "Laden" };  /* L = von Hemme ergänzte Läden */
+  /* Ketten aus den Daten: Code → [Name, Logo, Punktfarbe]. X = von Hemme ergänzte Läden */
+  var KETTEN = D.ketten || { R: ["REWE", "", "#b0061a"], E: ["EDEKA", "", "#ffd400"], K: ["Kaufland", "", "#0c2975"] };
+  var NAME = {}; Object.keys(KETTEN).forEach(function (k) { NAME[k] = KETTEN[k][0]; });
   var ANZAHL = 6;
   var form = box.querySelector("[data-mf-form]"), feld = form.querySelector("input");
   var status = box.querySelector("[data-mf-status]"), liste = box.querySelector("[data-mf-liste]");
   var svg = box.querySelector("[data-mf-karte]");
-  var aktiv = { R: true, E: true, K: true, L: true }, punkt = null, ortName = "";
+  var aktiv = {}, punkt = null, ortName = "";
+  Object.keys(KETTEN).forEach(function (k) { aktiv[k] = true; });
+  /* Filterknöpfe nur für Ketten, die in den Daten vorkommen */
+  var kettenBox = box.querySelector("[data-mf-ketten]");
+  if (kettenBox) Object.keys(KETTEN).forEach(function (k) {
+    var n = D.m.filter(function (m) { return m[0] === k; }).length;
+    if (!n) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("data-mf-kette", k); b.setAttribute("aria-pressed", "true"); b.style.setProperty("--k", KETTEN[k][2]);
+    b.innerHTML = KETTEN[k][0] + " <small>" + n + "</small>";
+    kettenBox.appendChild(b);
+  });
+  function marke(k) {
+    return KETTEN[k] && KETTEN[k][1] ? "<img class=\"mf__logo\" src=\"../../assets/img/" + KETTEN[k][1] + "\" alt=\"" + KETTEN[k][0] + "\">" : "<span class=\"mf__kette mf__kette--" + k + "\">" + NAME[k] + "</span>";
+  }
 
   function ohneWaise(t) { return t.replace(/ (\S+)$/, " $1"); }
   function km(a, b, c, d) {
@@ -28,7 +44,7 @@
   svg.appendChild(gPunkte); svg.appendChild(gOrt); svg.appendChild(gTreffer);
   var kreise = D.m.map(function (m) {
     var p = xy(m[4], m[5]);
-    var c = el("circle", { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: 5.5, "class": "mf__p mf__p--" + m[0] });
+    var c = el("circle", { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: 5.5, "class": "mf__p mf__p--" + m[0], fill: (KETTEN[m[0]] || [])[2] || "#0c2975" });
     c.addEventListener("click", function () { setzen(m[4], m[5], "rund um " + m[1] + ", " + m[2]); });
     gPunkte.appendChild(c);
     return c;
@@ -55,12 +71,6 @@
   }
   if (ganz) ganz.addEventListener("click", function () { punkt = null; zeichnen(); status.textContent = ohneWaise("Gebt eure Postleitzahl ein oder tippt auf einen Punkt in der Karte."); });
 
-  function zaehlen() {
-    box.querySelectorAll("[data-mf-kette]").forEach(function (k) {
-      var n = D.m.filter(function (m) { return m[0] === k.getAttribute("data-mf-kette"); }).length;
-      k.querySelector("small").textContent = n;
-    });
-  }
 
   function zeichnen() {
     kreise.forEach(function (c, i) { c.classList.toggle("ist-aus", !aktiv[D.m[i][0]]); });
@@ -87,7 +97,7 @@
       var route = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(m[1] + ", " + m[2] + ", " + m[3] + " Berlin");
       li.className = "mf__markt";
       li.innerHTML = "<span class=\"mf__nr\" aria-hidden=\"true\">" + (k + 1) + "</span>" +
-        "<div><p class=\"mf__name\"><span class=\"mf__kette mf__kette--" + m[0] + "\">" + NAME[m[0]] + "</span> " + (m[1] === NAME[m[0]] ? "" : m[1].replace(NAME[m[0]] + " ", "")) + "</p>" +
+        "<div><p class=\"mf__name\">" + marke(m[0]) + " " + (m[1] === NAME[m[0]] ? "" : m[1].replace(NAME[m[0]] + " ", "")) + "</p>" +
         "<p class=\"mf__adr\">" + m[2] + ", " + m[3] + "&nbsp;Berlin</p></div>" +
         "<div class=\"mf__rechts\"><b>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</b>" +
         "<a href=\"" + route + "\" target=\"_blank\" rel=\"noopener\">Route<span class=\"nur-sr\"> zu " + NAME[m[0]] + ", " + m[2] + " (öffnet Google Maps in neuem Tab)</span></a></div>";
@@ -148,7 +158,6 @@
     b.setAttribute("aria-pressed", "false");
   });
 
-  zaehlen();
   box.querySelector("[data-mf-gesamt]").textContent = D.m.length;
   zeichnen();
   status.textContent = ohneWaise("Gebt eure Postleitzahl ein oder tippt auf einen Punkt in der Karte.");

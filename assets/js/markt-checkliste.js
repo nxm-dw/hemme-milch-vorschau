@@ -4,7 +4,8 @@
   "use strict";
   var D = window.HEMME_MAERKTE, liste = document.querySelector("[data-mc-liste]");
   if (!D || !liste) return;
-  var NAME = { R: "REWE", E: "EDEKA", K: "Kaufland" };
+  var KETTEN = D.ketten || { R: ["REWE", "", "#b0061a"], E: ["EDEKA", "", "#ffd400"], K: ["Kaufland", "", "#0c2975"] };
+  var NAME = {}; Object.keys(KETTEN).forEach(function (k) { NAME[k] = KETTEN[k][0]; });
   var SPEICHER = "hemme-marktliste-v1";
   var zustand = { haken: {}, neu: [] };
   try { var alt = JSON.parse(localStorage.getItem(SPEICHER) || "null"); if (alt) zustand = alt; } catch (e) {}
@@ -12,7 +13,17 @@
   function sichern() { try { localStorage.setItem(SPEICHER, JSON.stringify(zustand)); } catch (e) {} }
   function id(m) { return m[0] + "|" + m[2] + "|" + m[3]; }
 
-  var aktiv = { R: true, E: true, K: true }, nurHaken = false, suche = "";
+  var aktiv = {}, nurHaken = false, suche = "";
+  var kettenBox = document.querySelector("[data-mc-ketten]"), nurKnopf = document.querySelector("[data-mc-nur]");
+  Object.keys(KETTEN).forEach(function (k) {
+    aktiv[k] = true;
+    var n = D.m.filter(function (m) { return m[0] === k; }).length;
+    if (!n) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("data-mc-kette", k); b.setAttribute("aria-pressed", "true"); b.style.setProperty("--k", KETTEN[k][2]);
+    b.innerHTML = KETTEN[k][0] + " <small>" + n + "</small>";
+    kettenBox.insertBefore(b, nurKnopf);
+  });
   var anzahl = document.querySelector("[data-mc-anzahl]");
   document.querySelector("[data-mc-gesamt]").textContent = D.m.length;
 
@@ -26,9 +37,9 @@
       if (cb.checked) zustand.haken[id(m)] = 1; else delete zustand.haken[id(m)];
       sichern(); zaehlen();
     });
-    var name = m[1] === NAME[m[0]] ? "" : " " + m[1].replace(NAME[m[0]] + " ", "");
+    var name = m[1];
     lab.appendChild(cb);
-    lab.insertAdjacentHTML("beforeend", "<span class=\"mc__kette mc__kette--" + m[0] + "\">" + NAME[m[0]] + "</span><span class=\"mc__name\">" + name.trim() + "</span><span class=\"mc__adr\">" + m[2] + "</span><span class=\"mc__plz\">" + m[3] + " Berlin</span>");
+    lab.insertAdjacentHTML("beforeend", (KETTEN[m[0]][1] ? "<span class=\"mc__marke\"><img src=\"../assets/img/" + KETTEN[m[0]][1] + "\" alt=\"" + NAME[m[0]] + "\"></span>" : "<span class=\"mc__kette\">" + NAME[m[0]] + "</span>") + "<span class=\"mc__name\">" + name.trim() + "</span><span class=\"mc__adr\">" + m[2] + "</span><span class=\"mc__plz\">" + m[3] + " Berlin</span>");
     liste.appendChild(lab);
     return { el: lab, cb: cb, m: m, text: (NAME[m[0]] + " " + m[1] + " " + m[2] + " " + m[3]).toLowerCase() };
   });

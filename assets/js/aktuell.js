@@ -119,7 +119,7 @@
   var aus = form.querySelector("[data-haendler-ergebnis]");
   /* Märkte von REWE, EDEKA und Kaufland in Berlin aus maerkte-berlin.js (OpenStreetMap). Die Listung je Markt bestätigt Hemme Milch. */
   var D = window.HEMME_MAERKTE || { m: [], plz: {} };
-  var KETTE = { R: "REWE", E: "EDEKA", K: "Kaufland" };
+  var KETTE = {}; Object.keys(D.ketten || { R: ["REWE"], E: ["EDEKA"], K: ["Kaufland"] }).forEach(function (k) { KETTE[k] = (D.ketten || { R: ["REWE"], E: ["EDEKA"], K: ["Kaufland"] })[k][0]; });
   function km(a, b, c, d) { var r = Math.PI / 180, x = (d - b) * r * Math.cos((a + c) / 2 * r), y = (c - a) * r; return Math.sqrt(x * x + y * y) * 6371; }
   var ZETTEL = "Liebe Marktleitung,\n\nwir würden gern frische Hemme Milchprodukte bei Ihnen kaufen: Milch im Milchbeutel, Joghurt, Fassbutter und Milchgetränke aus der Uckermark.\n\nKontakt für den Handel:\nHemme Milch GmbH & Co. KG\nHeideweg 4, 16278 Angermünde\nTelefon 03331 252525\n\nVielen Dank!";
 
@@ -132,7 +132,7 @@
     var box = el("div", "maerkte");
     box.appendChild(el("p", "maerkte__kopf", "<b>Die 3 nächsten Märkte</b> rund um " + plz));
     var ul = el("ul", "maerkte__liste");
-    naechste.forEach(function (t) { ul.appendChild(el("li", "", "<b>" + (t.m[0] === "L" ? t.m[1] : KETTE[t.m[0]]) + ", " + t.m[2] + "</b><span>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</span>")); });
+    naechste.forEach(function (t) { ul.appendChild(el("li", "", "<b>" + (t.m[0] === "X" ? t.m[1] : KETTE[t.m[0]]) + ", " + t.m[2] + "</b><span>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</span>")); });
     box.appendChild(ul);
     return box;
   }

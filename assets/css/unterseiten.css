@@ -697,3 +697,7 @@
 .u-siegel__bild img { max-width: min(100%, 250px); }
 .u .u-siegel h3 { font-size: clamp(15px, 1.1vw, 17px) !important; }
 .mf__p--L { fill: #3f8f1f; } .mf__kette--L { background: #2f7a12; }
+.mf__logo { height: 22px; width: auto; max-width: 70px; vertical-align: -5px; margin-right: 4px; }
+.mf__p--X { fill: #2f7a12; } .mf__kette--X { background: #2f7a12; }
+.mf__p--E { stroke: #0c2975; }
+.mf__p--L { fill: #0aa0e0; } .mf__kette--L { background: #0aa0e0; }
