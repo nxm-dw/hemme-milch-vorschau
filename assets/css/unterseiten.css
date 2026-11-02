@@ -679,3 +679,6 @@
 @media (max-width: 900px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: 0; bottom: -16%; width: clamp(110px, 30vw, 150px); } }
 @media (min-width: 1201px) and (max-width: 1420px) { .u-collage--siegel-gross.u-collage--eins .u-collage__siegel { right: -1%; } }
 @media (max-width: 400px) { .u-logowand { gap: 10px; } .u-logowand .u-logo { flex-basis: calc((100% - 10px) / 2); padding: 14px 8px; min-height: 104px; } .u-logo b { font-size: 16px; } .u-logo small { font-size: 11px; letter-spacing: .04em; } }
+.u-logo img[src*="netto.svg"], .u-logo img[src*="lidl"], .u-logo img[src*="kaufland"], .u-logo img[src*="penny"] { max-height: 86px; height: 86px; width: auto; }
+.u-logo img[src*="netto-marken"] { max-height: 70px; max-width: 170px; }
+.u-logo:has(img[src*="netto.svg"]) small { margin-top: -2px; }
