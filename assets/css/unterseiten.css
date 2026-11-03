@@ -701,3 +701,22 @@
 .mf__p--X { fill: #2f7a12; } .mf__kette--X { background: #2f7a12; }
 .mf__p--E { stroke: #0c2975; }
 .mf__p--L { fill: #0aa0e0; } .mf__kette--L { background: #0aa0e0; }
+/* Rechtsseiten */
+.u-held--recht { padding-bottom: clamp(40px, 5vw, 64px); }
+.u-held--recht h1 { font-size: clamp(38px, 5vw, 72px); }
+.u-recht { max-width: 860px; }
+.u-recht h2 { margin: 40px 0 10px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.15; color: var(--tief); text-wrap: balance; scroll-margin-top: 110px; }
+.u-recht h2:first-of-type { margin-top: 28px; }
+.u-recht h3 { margin: 26px 0 8px; font-family: "True North Dots"; font-weight: 400; font-size: 20px; color: var(--tief); }
+.u-recht p, .u-recht li { font-size: 17px; line-height: 1.65; color: #1f3556; text-wrap: pretty; }
+.u-recht p { margin: 0 0 12px; }
+.u-recht a { color: var(--blau-text); }
+.u-recht__liste { margin: 0 0 12px; padding-left: 1.2em; }
+.u-recht__liste li { margin-bottom: 6px; }
+.u-recht__stand { font-weight: 800; }
+.u-recht__plakat { margin: 20px 0; }
+.u-recht__plakat img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 20px 40px -30px rgba(0, 20, 60, .6); }
+.u-entwurf { display: grid; gap: 4px; padding: 16px 20px; border-radius: 16px; background: #fff6d6; border: 2px solid #e7b400; color: #4a3700; }
+.u-entwurf b { font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.u-entwurf span { font-size: 15.5px; line-height: 1.5; }
+mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; color: #3b2b00; }
