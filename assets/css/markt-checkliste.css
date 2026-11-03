@@ -64,3 +64,10 @@
 .mc__marke { display: grid; place-items: center start; height: 30px; } .mc__marke img { max-height: 28px; max-width: 86px; width: auto; }
 .mc__ketten button small { font-size: 12.5px; font-weight: 800; color: #4a6078; }
 .mc__leiste { grid-template-columns: minmax(0, 1fr); }
+/* Live-Status */
+.mc__live { grid-column: 1 / -1; margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: #2c4466; }
+.mc__live::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: #8fa3bb; }
+.mc__live--ok::before { background: #2f9e19; box-shadow: 0 0 0 4px rgba(47, 158, 25, .18); }
+.mc__live--speichert::before { background: #e7a600; }
+.mc__live--fehler { color: #8a1c00; }
+.mc__live--fehler::before { background: #c2410c; }
