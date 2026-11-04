@@ -720,3 +720,26 @@
 .u-entwurf b { font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .u-entwurf span { font-size: 15.5px; line-height: 1.5; }
 mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; color: #3b2b00; }
+
+/* Eventlocation: Pakete mit Zeiten und Preis, Buchungsschritte */
+.u-pakete { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 22px; }
+.u-paket { display: flex; flex-direction: column; gap: 12px; padding: 26px 26px 24px; border-radius: 26px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); color: #e6efff; }
+.u-paket__gaeste { align-self: flex-start; padding: 6px 12px 4px; line-height: 1; border-radius: 99px; background: var(--gelb); color: var(--tief); font-size: 13.5px; font-weight: 900; }
+.u-paket h3 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: 26px; line-height: 1.1; color: #fff; text-wrap: balance; }
+.u-paket > p { margin: 0; font-size: 16px; line-height: 1.55; text-wrap: pretty; }
+.u-paket__zeiten { margin: 2px 0 0; display: grid; gap: 8px; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, .18); border-bottom: 1px solid rgba(255, 255, 255, .18); }
+.u-paket__zeiten div { display: flex; justify-content: space-between; gap: 12px; font-size: 15.5px; }
+.u-paket__zeiten dt { color: #b9cbe6; }
+.u-paket__zeiten dd { margin: 0; font-weight: 800; color: #fff; text-align: right; }
+.u-paket .u-paket__preis { margin-top: auto; display: flex; flex-direction: column; gap: 4px; }
+.u-paket__preis b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(36px, 3.6vw, 46px); line-height: 1; color: var(--gelb); }
+.u-paket__preis span { font-size: 14px; color: #b9cbe6; }
+.u-paket-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 22px; margin-top: 22px; }
+.u-paket-info > div { padding: 26px; border-radius: 26px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); color: #e6efff; }
+.u-paket-info h3 { margin: 0 0 16px; font-family: "True North Dots"; font-weight: 400; font-size: 24px; color: #fff; }
+.u-paket-info .u-haken { font-size: 16px; gap: 10px; }
+.u-schritte { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 22px; counter-reset: schritt; }
+.u-schritte li { counter-increment: schritt; position: relative; padding: 26px 24px 24px; border-radius: 26px; background: #fff; box-shadow: 0 20px 40px -32px rgba(0, 20, 60, .6); color: #1f3556; }
+.u-schritte li::before { content: counter(schritt); display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border-radius: 50%; background: var(--blau-flaeche, #006ec6); color: #fff; font-family: "True North Dots"; font-size: 24px; line-height: 1; }
+.u-schritte h3 { margin: 0 0 8px; font-family: "True North Dots"; font-weight: 400; font-size: 22px; line-height: 1.15; color: var(--tief); }
+.u-schritte p { margin: 0; font-size: 16px; line-height: 1.55; text-wrap: pretty; }
