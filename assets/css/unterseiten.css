@@ -743,3 +743,8 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-schritte li::before { content: counter(schritt); display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border-radius: 50%; background: var(--blau-flaeche, #006ec6); color: #fff; font-family: "True North Dots"; font-size: 24px; line-height: 1; }
 .u-schritte h3 { margin: 0 0 8px; font-family: "True North Dots"; font-weight: 400; font-size: 22px; line-height: 1.15; color: var(--tief); }
 .u-schritte p { margin: 0; font-size: 16px; line-height: 1.55; text-wrap: pretty; }
+
+/* Regale mit wenigen Sorten nicht zusammenschieben; Namen mit Bindestrich wie die übrigen Namen */
+.u-gruppe .u-regal { flex-shrink: 0; }
+.u-sorte b .u-nw { font-size: inherit; color: inherit; line-height: inherit; }
+@media (min-width: 601px) { .u .u-gruppe .u-regal .u-sorte { flex: 0 0 196px; } }
