@@ -872,3 +872,30 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 }
 @media (max-width: 1100px) { .u-rezepte { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .u-rezepte { grid-template-columns: 1fr; gap: 16px; } .u-rezept__kopf { height: 140px; } .u-rezept__kopf svg { width: 72px; height: 72px; } }
+
+/* Über uns: Führung nach Organigramm, Molkerei blau, Landwirtschaft grün */
+.u-fuehrung { --akzent: var(--hm-blau-flaeche); --akzent-hell: #e6f1fc; --akzent-text: #0a4f96; padding: clamp(24px, 3.4vw, 40px); border-radius: 32px; background: #fff; box-shadow: 0 26px 50px -36px rgba(0, 20, 60, .6); }
+.u-fuehrung + .u-fuehrung { margin-top: 24px; }
+.u-fuehrung--landwirtschaft { --akzent: #2f8a2a; --akzent-hell: #e9f6e3; --akzent-text: #23661f; }
+.u-fuehrung__kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding-bottom: 18px; border-bottom: 3px dotted var(--akzent); }
+.u .u-fuehrung__kopf h3 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(28px, 3vw, 40px); line-height: 1; color: var(--akzent-text); }
+.u-fuehrung__kopf span { font-weight: 700; color: #4a5f7a; }
+.u .u-fuehrung__ebene { margin: 26px 0 14px; font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #4a5f7a; }
+.u-fuehrung__gruppen { display: flex; flex-wrap: wrap; gap: 0 44px; }
+.u-fuehrung__gruppe + .u-fuehrung__gruppe { padding-left: 44px; border-left: 3px dotted var(--akzent-hell); }
+.u-fuehrung__leute { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 22px; }
+.u-fuehrung__person { width: 200px; }
+.u-fuehrung__person { display: grid; align-content: start; gap: 6px; }
+.u-fuehrung__bild { aspect-ratio: 4 / 5; margin-bottom: 8px; overflow: hidden; border-radius: 22px; background: var(--akzent-hell); }
+.u-fuehrung__bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.u-person-platz { display: grid; place-content: center; justify-items: center; gap: 10px; width: 100%; height: 100%; background: radial-gradient(90% 70% at 50% 30%, #fff 0%, var(--akzent-hell) 70%); }
+.u-person-platz b { display: grid; place-items: center; width: 88px; height: 88px; border-radius: 50%; background: var(--akzent); color: #fff; font-family: "True North Dots"; font-weight: 400; font-size: 34px; line-height: 1; letter-spacing: .02em; padding-top: 4px; }
+.u-person-platz small { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--akzent-text); }
+.u .u-fuehrung__person h4 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: 21px; line-height: 1.1; color: var(--tief); }
+.u-fuehrung__text { display: grid; gap: 2px; font-size: 15px; line-height: 1.4; hyphens: manual; }
+.u-fuehrung__rolle { font-weight: 800; color: var(--akzent-text); }
+.u-fuehrung__bereich { color: #2c4466; }
+.u .u-teil > .u-fuehrung + .u-lesen { margin-top: 32px; }
+@media (max-width: 1100px) { .u-fuehrung__gruppe + .u-fuehrung__gruppe { padding-left: 0; border-left: 0; } }
+@media (max-width: 600px) { .u-fuehrung__gruppe { width: 100%; } .u-fuehrung__leute { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; } .u-fuehrung__person { width: auto; } }
+@media (max-width: 400px) { .u-fuehrung__leute { gap: 14px; } .u .u-fuehrung__person h4 { font-size: 18px; } .u-fuehrung__text { font-size: 14px; } }
