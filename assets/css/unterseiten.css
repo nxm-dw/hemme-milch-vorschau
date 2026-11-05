@@ -1,6 +1,6 @@
 /* Unterseiten im Stil des aktuellen Stands (Entwurf A). Baut auf gemeinsam.css und aktuell.css auf. */
 
-.u { background: var(--milch, #f5f9ff); }
+.u { background: #fff; }
 .u main { overflow-x: clip; }
 
 /* Seitenkopf: Verlauf, große Headline, ein Foto als Abzug */
@@ -199,7 +199,7 @@
 .u-held__innen { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
 .u-held__marke { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding: 8px 14px 6px; line-height: 1; border-radius: 99px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); font-size: 13.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
 .u-held__welle { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(40px, 6vw, 90px); display: block; z-index: 2; }
-.u-held__welle path { fill: var(--nach, #e8f1fb); }
+.u-held__welle path { fill: #fff; }
 .u-collage { position: relative; min-height: clamp(320px, 34vw, 480px); }
 .u-pola { position: absolute; margin: 0; padding: 10px 10px 42px; background: #fff; border-radius: 4px; box-shadow: 0 30px 50px -24px rgba(0, 10, 40, .75); }
 .u-pola img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; border-radius: 2px; }
@@ -215,7 +215,7 @@
 @keyframes u-drehen { to { rotate: 360deg; } }
 
 /* Auf einen Blick: zieht über die Wellenkante */
-.u .u-teil--blick { padding-top: 0; background: #e8f1fb; }
+.u .u-teil--blick { padding-top: 0; background: #fff; }
 .u-blick { position: relative; z-index: 3; margin-top: clamp(-90px, -6vw, -48px) !important; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 24px clamp(28px, 4vw, 56px); padding: clamp(26px, 3.4vw, 44px); border-radius: 32px; background: #fff; box-shadow: 0 40px 70px -40px rgba(0, 20, 60, .55); }
 .u-blick h2 { margin: 0 0 12px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); color: var(--blau); }
 .u-blick__satz { margin: 0; font-size: 18px; line-height: 1.6; color: #1f3556; text-wrap: pretty; }
@@ -850,3 +850,25 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 @media (max-width: 600px) { .u-heiss__werte div { padding: 14px 18px; column-gap: 16px; } }
 .u-ablauf b { display: block; margin-top: 4px; text-wrap: balance; }
 @media (max-width: 400px) { .u .u-kachel--produkte h3 { font-size: 26px; } .u-kachel--produkte .u-kachel__text { padding: 0 20px 22px; } }
+
+/* Rezeptideen */
+.u-rezepte { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.u-rezept { display: flex; flex-direction: column; overflow: hidden; border-radius: 28px; background: #fff; box-shadow: 0 26px 46px -32px rgba(0, 20, 60, .6); transition: transform .3s ease, box-shadow .3s ease; }
+.u-rezept__kopf { position: relative; height: 170px; overflow: hidden; }
+.u-rezept--schoko .u-rezept__kopf { background: radial-gradient(120% 120% at 20% 10%, #9a5d3a 0%, #6b3720 55%, #3f1d0f 100%); color: #ffe8d2; }
+.u-rezept--vanille .u-rezept__kopf { background: radial-gradient(120% 120% at 20% 10%, #fff3c4 0%, #f7d873 55%, #ecb93a 100%); color: #6a4700; }
+.u-rezept__kopf svg { position: absolute; left: 22px; top: 50%; width: 92px; height: 92px; padding: 14px; border-radius: 50%; background: rgba(255, 255, 255, .16); transform: translateY(-50%); }
+.u-rezept--vanille .u-rezept__kopf svg { background: rgba(255, 255, 255, .5); }
+.u-rezept__kopf img { position: absolute; right: 6px; bottom: -16px; width: 104px; height: auto; transform: rotate(9deg); filter: drop-shadow(0 16px 18px rgba(0, 0, 0, .35)); transition: transform .35s ease; }
+.u-rezept__text { display: grid; align-content: start; gap: 10px; padding: 22px 24px 26px; }
+.u-rezept__mit { justify-self: start; padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; }
+.u-rezept--schoko .u-rezept__mit { background: #f4e6dc; color: #5b2e18; }
+.u-rezept--vanille .u-rezept__mit { background: #fdf1c9; color: #5c3f00; }
+.u-rezept h3 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: 23px; line-height: 1.1; color: var(--tief); text-wrap: balance; }
+.u-rezept p { margin: 0; font-size: 16px; line-height: 1.55; color: #1f3556; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .u-rezept:hover { transform: translateY(-6px); box-shadow: 0 34px 52px -30px rgba(0, 20, 60, .65); }
+  .u-rezept:hover .u-rezept__kopf img { transform: rotate(3deg) translateY(-12px); }
+}
+@media (max-width: 1100px) { .u-rezepte { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .u-rezepte { grid-template-columns: 1fr; gap: 16px; } .u-rezept__kopf { height: 140px; } .u-rezept__kopf svg { width: 72px; height: 72px; } }
