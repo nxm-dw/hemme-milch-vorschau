@@ -753,16 +753,14 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-held__gruss { display: block; width: min(300px, 70%); height: auto; margin: 18px 0 4px; }
 .u-sozial-knopf { display: inline-flex; align-items: center; gap: 10px; }
 .u-sozial-knopf svg { width: 20px; height: 20px; flex: none; }
-.u-24 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
-.u-uhr { position: relative; width: min(100%, 260px); margin: 0 auto; aspect-ratio: 1; }
-.u-uhr svg { display: block; width: 100%; height: 100%; }
-@media (prefers-reduced-motion: no-preference) {
-  .u-uhr__ring { animation: ring-laufen 24s linear infinite; }
-}
+.u-weg { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.u-ring { position: relative; width: min(100%, 260px); margin: 0 auto; aspect-ratio: 1; }
+.u-ring svg { display: block; width: 100%; height: 100%; }
+@media (prefers-reduced-motion: no-preference) { .u-ring__bogen { animation: ring-laufen 24s linear infinite; } }
 @keyframes ring-laufen { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
-.u-uhr__zahl { position: absolute; inset: 0; display: grid; place-content: center; margin: 0; text-align: center; pointer-events: none; }
-.u-uhr__zahl b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(64px, 7vw, 92px); line-height: .9; color: var(--gelb); text-shadow: 0 0 0 transparent; }
-.u-uhr__zahl span { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: 14px; color: #fff; }
+.u-ring__mitte { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 8px; text-align: center; }
+.u-ring__mitte img { width: 34%; height: auto; margin: 0 auto; }
+.u-ring__mitte span { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; color: #fff; }
 .u-ablauf.u-ablauf--vier { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .u-bento { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(340px, auto); gap: 20px; }
 .u-kachel { position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; border-radius: 28px; background: var(--tief); color: #fff; box-shadow: 0 24px 44px -30px rgba(0, 20, 60, .7); isolation: isolate; }
@@ -795,8 +793,8 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 @keyframes live-puls { 0%, 100% { box-shadow: 0 0 0 0 rgba(227, 0, 27, .55); } 60% { box-shadow: 0 0 0 7px rgba(227, 0, 27, 0); } }
 .u-chip { background: var(--gelb); color: var(--tief); }
 @media (max-width: 1100px) {
-  .u-24 { grid-template-columns: 1fr; }
-  .u-uhr { width: min(70%, 220px); }
+  .u-weg { grid-template-columns: 1fr; }
+  .u-ring { width: min(70%, 220px); }
   .u-ablauf.u-ablauf--vier { grid-template-columns: 1fr; }
   .u-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .u-kachel--produkte, .u-kachel--termine { grid-column: span 2; }
