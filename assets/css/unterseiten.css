@@ -876,7 +876,7 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 /* Über uns: Führung nach Organigramm, Molkerei blau, Landwirtschaft grün */
 .u-fuehrung { --akzent: var(--hm-blau-flaeche); --akzent-hell: #e6f1fc; --akzent-text: #0a4f96; padding: clamp(24px, 3.4vw, 40px); border-radius: 32px; background: #fff; box-shadow: 0 26px 50px -36px rgba(0, 20, 60, .6); }
 .u-fuehrung + .u-fuehrung { margin-top: 24px; }
-.u-fuehrung--landwirtschaft { --akzent: #2f8a2a; --akzent-hell: #e9f6e3; --akzent-text: #23661f; }
+.u-fuehrung--landwirtschaft { --akzent: #267a22; --akzent-hell: #e9f6e3; --akzent-text: #23661f; }
 .u-fuehrung__kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding-bottom: 18px; border-bottom: 3px dotted var(--akzent); }
 .u .u-fuehrung__kopf h3 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(28px, 3vw, 40px); line-height: 1; color: var(--akzent-text); }
 .u-fuehrung__kopf span { font-weight: 700; color: #4a5f7a; }
