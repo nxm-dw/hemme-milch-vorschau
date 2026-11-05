@@ -40,7 +40,6 @@
     { t: "Vollmilch im Milchbeutel", b: "produkte", f: M + "vollmilch-vs.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Vollmilch Milchbeutel Beutel Milch Produkt Verpackung", typ: "Packshot", fot: "Druckdatei 1000 ml", frei: true },
     { t: "Erdbeermilch 600 ml", b: "produkte", f: P + "erdbeermilch.webp", k: ["Website", "Social Media", "Print"], s: "Erdbeermilch Milchgetränk Milchbeutel Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
     { t: "Schokomilch to go", b: "produkte", f: P + "schokomilch-230.webp", k: ["Website", "Social Media", "Print"], s: "Schokomilch Milchgetränk to go Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
-    { t: "Joghurt Beerenfest", b: "produkte", f: P + "beerenfest-200g.webp", k: ["Website", "Social Media", "Print"], s: "Joghurt Beerenfest Jubiläum Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
     { t: "Fassbutter 200 g", b: "produkte", f: P + "fassbutter.webp", k: ["Website", "Print"], s: "Butter Fassbutter Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
     { t: "Porridge Apfel-Zimt", b: "produkte", f: P + "porridge-vegan.webp", k: ["Website", "Social Media"], s: "Porridge vegan Dessert Produkt Aktion", typ: "Packshot", fot: "Produktfotos", frei: true, bis: "2026-10-31" },
     { t: "Logo oval, Farbe", b: "marke", f: M + "hemme-logo-oval-farbe.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Logo Oval Kuh Marke", typ: "Logo", fot: "Brandbook 2026", frei: true, logo: true },

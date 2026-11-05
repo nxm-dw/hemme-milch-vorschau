@@ -914,3 +914,6 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 }
 .u-blick__punkte { gap: 10px; font-size: 17px; font-weight: 600; color: #1f3556; }
 @media (max-width: 600px) { .u-blick__punkte { font-size: 16px; } }
+.u-blick__punkte li { white-space: nowrap; }
+@media (max-width: 400px) { .u-blick__punkte { font-size: 15px; } .u-blick__punkte li { padding-left: 30px; } }
+@media (max-width: 340px) { .u-blick__punkte { font-size: 13.5px; } .u-blick__punkte li { padding-left: 28px; } }

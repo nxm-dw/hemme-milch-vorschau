@@ -147,7 +147,7 @@
       "<img class=\"zettel__logo\" src=\"../assets/img/marke/hemme-logo-oval-farbe.webp\" alt=\"Hemme Milch\" width=\"300\" height=\"167\">" +
       "<figcaption class=\"zettel__titel\">Wunschzettel für die&nbsp;Marktleitung</figcaption>" +
       "<p>Liebe Marktleitung,<br>wir würden gern frische Hemme Milchprodukte bei Ihnen kaufen.</p>" +
-      "<ul class=\"zettel__produkte\"><li><img src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">Milch im&nbsp;Milchbeutel</li><li><img src=\"../assets/img/produkte/beerenfest-200g.webp\" alt=\"\">Joghurt</li><li><img src=\"../assets/img/produkte/fassbutter.webp\" alt=\"\">Fassbutter</li><li><img src=\"../assets/img/produkte/schokomilch-230.webp\" alt=\"\">Milch&shy;getränke</li></ul>" +
+      "<ul class=\"zettel__produkte\"><li><img src=\"../assets/img/marke/vollmilch-vs.webp\" alt=\"\">Milch im&nbsp;Milchbeutel</li><li><img src=\"../assets/img/produkte/jo-heidelbeere-200.webp\" alt=\"\">Joghurt</li><li><img src=\"../assets/img/produkte/fassbutter.webp\" alt=\"\">Fassbutter</li><li><img src=\"../assets/img/produkte/schokomilch-230.webp\" alt=\"\">Milch&shy;getränke</li></ul>" +
       "<p class=\"zettel__kontakt\"><b>Kontakt für den Handel</b>Hemme Milch GmbH &amp; Co. KG · Heideweg 4 · 16278 Angermünde<br>Telefon <a href=\"tel:+493331252525\">03331&nbsp;252525</a></p>" +
     "</figure>" +
     "<div class=\"zettel-fenster__knoepfe\"><button type=\"button\" class=\"knopf\" data-zettel-drucken>Drucken</button><button type=\"button\" class=\"knopf knopf--rand\" data-zettel-teilen>Text kopieren oder&nbsp;teilen</button></div>";
