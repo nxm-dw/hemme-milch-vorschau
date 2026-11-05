@@ -912,3 +912,5 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
   .u .u-fuehrung__person h4 { align-self: end; font-size: min(20px, 5.6cqi); }
   .u-fuehrung__text { align-self: start; }
 }
+.u-blick__punkte { gap: 10px; font-size: 17px; font-weight: 600; color: #1f3556; }
+@media (max-width: 600px) { .u-blick__punkte { font-size: 16px; } }
