@@ -760,3 +760,22 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-weiter .u-held__knoepfe { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; }
 @media (prefers-reduced-motion: reduce) { .u-tuer { transition: none; } .u-tuer:hover { transform: none; } }
 @media (max-width: 600px) { .u-tuer > img { aspect-ratio: 16 / 9; } }
+
+/* Heiße Milch (QR-Code am Verkaufsort): Beutel links, Schritte rechts */
+.u-pos { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+.u-pos__packs { position: relative; display: flex; justify-content: center; align-items: flex-end; margin: 0; padding: 40px 0 0; }
+.u-pos__pack { width: 48%; max-width: 230px; height: auto; filter: drop-shadow(0 22px 26px rgba(0, 20, 60, .22)); }
+.u-pos__pack + .u-pos__pack { margin-left: -6%; transform: rotate(6deg) translateY(-8px); }
+.u-pos__pack:first-child { transform: rotate(-5deg); }
+.u-pos__siegel { position: absolute; top: 0; right: 2%; width: clamp(92px, 11vw, 128px); height: auto; transform: rotate(10deg); filter: drop-shadow(0 10px 16px rgba(0, 20, 60, .25)); }
+.u-schritte--pos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 16px; }
+.u-teil--weiss .u-schritte--pos li { background: #eef4fb; box-shadow: none; }
+.u-schritte--pos h3 { margin: 0 0 6px; }
+.u-schritte--pos p { margin: 0; }
+.u .u-teil > .u-pos + .u-lesen { margin-top: 32px; }
+@media (max-width: 860px) { .u-pos { grid-template-columns: 1fr; } .u-pos__packs { max-width: 420px; margin: 0 auto; } }
+@media (max-width: 600px) {
+  .u-schritte--pos { gap: 10px; }
+  .u-schritte--pos li { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; padding: 16px 18px; }
+  .u-schritte--pos li::before { grid-row: span 2; width: 40px; height: 40px; margin: 0; font-size: 21px; }
+}
