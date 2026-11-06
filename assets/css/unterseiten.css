@@ -31,7 +31,7 @@
 .u-kopf { display: grid; gap: 14px; margin-bottom: clamp(28px, 4vw, 48px); }
 .u-kopf h2 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.02; color: var(--tief); text-wrap: balance; }
 .u-teil--blau .u-kopf h2 { color: #fff; }
-.u-kopf p { margin: 0; max-width: 46em; font-size: 18px; line-height: 1.6; color: #2c4466; text-wrap: pretty; }
+.u-kopf p { margin: 0; max-width: none; font-size: 18px; line-height: 1.6; color: #2c4466; text-wrap: pretty; }
 .u-teil--blau .u-kopf p { color: #dbe7f8; }
 .u-kopf--mitte { text-align: center; justify-items: center; }
 .u-marke { display: inline-flex; align-items: center; justify-self: start; padding: 8px 14px 6px; line-height: 1; border-radius: 99px; background: var(--tief); color: #fff; font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
@@ -1146,3 +1146,12 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 }
 .u-gebinde__zahl--mehr { flex-wrap: nowrap; gap: 8px; }
 @media (max-width: 480px) { .u-gebinde__zahl--mehr b { font-size: 46px; } .u-gebinde__zahl--mehr .u-gebinde__groesse span { font-size: 21px; } .u-gebinde__zahl--mehr .u-gebinde__oder { font-size: 24px; } .u-gebinde__groesse { gap: 6px; } }
+
+/* Fließtext unter Regalen und Karten: volle Inhaltsbreite, ab genug Platz in zwei Spalten */
+.u .u-teil > .u-lesen { max-width: var(--breite, 1320px) !important; width: 100%; container-type: inline-size; }
+@container (min-width: 900px) {
+  .u-teil > .u-lesen > * { margin: 0; }
+}
+.u .u-teil > .u-lesen:has(> p + p) { display: block; columns: 2 380px; column-gap: 56px; }
+.u .u-teil > .u-lesen:has(> p + p) > p { break-inside: avoid; margin: 0 0 18px; }
+.u .u-teil > .u-lesen:has(> p + p) > h3 { column-span: all; margin: 12px 0 10px; }
