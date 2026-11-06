@@ -1155,3 +1155,21 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u .u-teil > .u-lesen:has(> p + p) { display: block; columns: 2 380px; column-gap: 56px; }
 .u .u-teil > .u-lesen:has(> p + p) > p { break-inside: avoid; margin: 0 0 18px; }
 .u .u-teil > .u-lesen:has(> p + p) > h3 { column-span: all; margin: 12px 0 10px; }
+
+/* Gebinde kompakter (Wunsch 06.11.: weniger hoch, weniger wuchtig) */
+.u .u-gebinde { padding: 22px 24px 24px; gap: 8px; }
+.u-gebinde--bild { padding-top: 18px !important; }
+.u-gebinde__buehne { height: 150px; margin-bottom: 4px; }
+.u-gebinde__buehne::before { width: 140px; height: 140px; }
+.u-gebinde__buehne img, .u-gebinde__buehne--1 img { height: 128px; }
+.u-gebinde__buehne--3 img { height: 116px; }
+.u-gebinde__zahl b { font-size: clamp(50px, 4.2vw, 68px); }
+.u-gebinde__zahl span { font-size: clamp(20px, 1.7vw, 25px); }
+.u-gebinde__zahl--mehr b { font-size: clamp(44px, 3.6vw, 58px); }
+.u-gebinde__oder { font-size: 26px; }
+.u .u-gebinde h3 { font-size: clamp(20px, 1.6vw, 23px); }
+.u-gebinde__text { font-size: 15.5px; line-height: 1.5; }
+.u-gebinde__liste li { padding: 7px 12px; }
+@media (max-width: 480px) { .u-gebinde__zahl--mehr b { font-size: 42px; } .u-gebinde__buehne { height: 140px; } }
+.u .u-gebinde__liste li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; }
+.u .u-gebinde__liste li small { white-space: nowrap; }
