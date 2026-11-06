@@ -1,6 +1,6 @@
 /* Wo kaufen: Regionen-Auswahl und Marktkarte für Berlin, Brandenburg, Mecklenburg-Vorpommern, Thüringen und Sachsen.
    Daten aus maerkte-regionen.js, Karte mit Leaflet aus assets/vendor. Ohne Klick keine Fremdaufrufe:
-   Straßen- und Satellitenbilder lädt erst der Knopf „Straßenkarte laden“. */
+   Straßenkarte (basemap.de) und Luftbilder der Länder lädt erst der Knopf „Straßenkarte laden“. */
 (function () {
   "use strict";
   var D = window.HEMME_REGIONEN;
@@ -115,10 +115,24 @@
   /* Straßen- und Satellitenbilder erst nach Klick */
   var ansicht = box.querySelector("[data-mk-ansicht]");
   box.querySelector("[data-mk-laden]").addEventListener("click", function () {
+    /* Amtliche Karten, kostenfrei und ohne Schlüssel: Straßenkarte basemap.de (BKG, CC BY 4.0),
+       Luftbilder der Länder (Brandenburg mit Berlin, Mecklenburg-Vorpommern, Thüringen, Sachsen), darunter basemap.de für den Rest */
+    var BASIS = "https://sgx.geodatenzentrum.de/wmts_basemapde/tile/1.0.0/de_basemapde_web_raster_farbe/default/GLOBAL_WEBMERCATOR/{z}/{y}/{x}.png";
+    var QUELLE_BASIS = "© <a href=\"https://basemap.de\" rel=\"noopener\">basemap.de</a> / BKG 2026";
+    function dop(url, schicht, box) {
+      return L.tileLayer.wms(url, { layers: schicht, format: "image/png", transparent: true, version: "1.3.0", bounds: box, maxZoom: 19, tileSize: 512, zoomOffset: -1 });
+    }
     schichten = {
-      strassen: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© <a href=\"https://www.openstreetmap.org/copyright\" rel=\"noopener\">OpenStreetMap</a>-Mitwirkende" }),
-      satellit: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "Bilder © Esri, Maxar, Earthstar Geographics" })
+      strassen: L.tileLayer(BASIS, { maxZoom: 19, maxNativeZoom: 18, attribution: QUELLE_BASIS }),
+      satellit: L.layerGroup([
+        L.tileLayer(BASIS, { maxZoom: 19, maxNativeZoom: 18, attribution: QUELLE_BASIS }),
+        dop("https://isk.geobasis-bb.de/mapproxy/dop20c/service/wms", "bebb_dop20c", [[51.3, 11.2], [53.6, 14.8]]),
+        dop("https://www.geodaten-mv.de/dienste/adv_dop", "mv_dop", [[53.05, 10.55], [54.7, 14.45]]),
+        dop("https://www.geoproxy.geoportal-th.de/geoproxy/services/DOP", "th_dop200rgb", [[50.15, 9.85], [51.7, 12.7]]),
+        dop("https://geodienste.sachsen.de/wms_geosn_dop-rgb/guest", "sn_dop_020", [[50.15, 11.85], [51.7, 15.05]])
+      ])
     };
+    schichten.satellit.getLayers()[1].options.attribution = "Luftbilder © GeoBasis-DE/LGB, © GeoBasis-DE/M-V 2026, © GDI-Th, © GeoSN";
     schichten.strassen.addTo(karte);
     grenzenStil();
     box.querySelector("[data-mk-freigabe]").hidden = true;
