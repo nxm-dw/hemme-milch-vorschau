@@ -1110,3 +1110,19 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-produkt__zu:focus-visible { outline: 3px solid var(--hm-blau-text, #006ec6); outline-offset: 2px; }
 @media (max-width: 640px) { .u-produkt__innen { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 22px 20px 24px; } .u-produkt__bild { padding: 14px; } .u-produkt__bild img { max-height: 170px; } .u .u-produkt h2 { padding-right: 40px; } }
 @media (prefers-reduced-motion: reduce) { .u-produkt[open] { animation: none; } .u-sorte__knopf, .u-sorte__knopf img { transition: none; } }
+
+/* Milchbeutel: Zahlen nach verfügbarer Breite, bei wenig Platz als Zeilen mit der Zahl links */
+.u-beutel > div { container-type: inline-size; min-width: 0; }
+.u-beutel__zahlen b { white-space: nowrap; }
+.u main .u-beutel p { hyphens: manual; }
+@container (max-width: 760px) {
+  .u-beutel__zahlen.u-beutel__zahlen--3 { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .u-beutel__zahlen--3 li { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 20px; align-items: center; padding: 18px 22px; }
+  .u-beutel__zahlen--3 b { grid-row: 1 / 3; }
+  .u-beutel__zahlen--3 h3 { margin: 0 0 4px; }
+}
+@container (max-width: 420px) {
+  .u-beutel__zahlen--3 li { grid-template-columns: minmax(0, 1fr); }
+  .u-beutel__zahlen--3 b { grid-row: auto; }
+  .u-beutel__zahlen--3 h3 { margin-top: 8px; }
+}
