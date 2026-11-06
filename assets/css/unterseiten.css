@@ -1010,7 +1010,6 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .mk__rechts { display: grid; justify-items: end; gap: 2px; font-size: 14.5px; }
 .mk__rechts b { color: var(--tief); white-space: nowrap; }
 .mk__rechts a { font-weight: 800; color: var(--hm-blau-text); }
-.mk__rechts .mk__zettel { color: #8a5a00; }
 .mk__rahmen { position: sticky; top: 96px; margin: 0; padding: 10px; border-radius: 28px; background: #fff; box-shadow: 0 30px 60px -40px rgba(0, 20, 60, .5); }
 .mk__karte { height: min(640px, 72vh); border-radius: 20px; background: #f6f9fd; z-index: 0; }
 .mk__karte .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 38px; color: var(--tief); font-size: 22px; }

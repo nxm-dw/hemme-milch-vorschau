@@ -35,7 +35,7 @@
   if (!D || !L || !box) return;
   var K = D.ketten, ANZAHL = 8, WEIT = 25;
   var REGION = { bebb: ["BE", "BB"], mv: ["MV"], thsn: ["TH", "SN"] };
-  var NUR_MILCH = { M: 1, P: 1, L: 1 }, WUNSCH = { R: 1, E: 1 };
+  var NUR_MILCH = { M: 1, P: 1, L: 1 };
   var form = box.querySelector("[data-mk-form]"), feld = form.querySelector("input");
   var status = box.querySelector("[data-mk-status]"), liste = box.querySelector("[data-mk-liste]");
   var wunsch = box.querySelector("[data-mk-wunsch]");
@@ -48,16 +48,11 @@
   }
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
   function adresse(m) { return [m[2], ((m[3] || "") + " " + (m[4] || "")).trim()].filter(Boolean).join(", ") || D.land[m[7]]; }
-  function wunschLink(m) {
-    return "../../aktuell/wunschzettel/?markt=" + encodeURIComponent(m[1] + ", " + adresse(m));
-  }
 
   /* Karte: zuerst nur Ländergrenzen von unserem Server, keine Kartenbilder */
-  var karte = L.map(box.querySelector("[data-mk-karte]"), { preferCanvas: true, zoomControl: false, scrollWheelZoom: false, minZoom: 5, maxZoom: 18, zoomSnap: 0.5 });
+  var karte = L.map(box.querySelector("[data-mk-karte]"), { preferCanvas: true, zoomControl: false, scrollWheelZoom: true, wheelPxPerZoomLevel: 90, minZoom: 5, maxZoom: 18, zoomSnap: 0.5 });
   L.control.zoom({ zoomInTitle: "Hineinzoomen", zoomOutTitle: "Herauszoomen" }).addTo(karte);
   karte.attributionControl.setPrefix('<a href="https://leafletjs.com" rel="noopener">Leaflet</a>');
-  karte.on("click", function () { karte.scrollWheelZoom.enable(); });
-  karte.on("mouseout", function () { karte.scrollWheelZoom.disable(); });
   var HEMME = { BE: 1, BB: 1, MV: 1, TH: 1, SN: 1 };
   var flaechen = L.layerGroup().addTo(karte);
   Object.keys(D.grenzen).forEach(function (c) {
@@ -93,7 +88,7 @@
     return "<div class=\"mk__blase\"><b>" + esc(m[1]) + "</b><br>" + esc(adresse(m)) +
       (NUR_MILCH[m[0]] ? "<br><em>Nur Vollmilch 3,7&nbsp;%</em>" : "") +
       "<p><a href=\"" + route + "\" target=\"_blank\" rel=\"noopener\">Route</a>" +
-      (WUNSCH[m[0]] ? " · <a href=\"" + wunschLink(m) + "\">Wunschzettel</a>" : "") + "</p></div>";
+      "</p></div>";
   }
 
   /* Filter je Kette */
@@ -167,8 +162,7 @@
         "<p class=\"mk__adr\">" + esc(adresse(m)) + "</p>" +
         (NUR_MILCH[m[0]] ? "<p class=\"mk__hinweis\">Nur Vollmilch 3,7&nbsp;%</p>" : "") + "</div>" +
         "<div class=\"mk__rechts\"><b>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</b>" +
-        "<a href=\"" + route + "\" target=\"_blank\" rel=\"noopener\">Route<span class=\"nur-sr\"> zu " + esc(m[1]) + " (öffnet Google Maps in neuem Tab)</span></a>" +
-        (WUNSCH[m[0]] ? "<a class=\"mk__zettel\" href=\"" + wunschLink(m) + "\">Wunschzettel<span class=\"nur-sr\"> für " + esc(m[1]) + "</span></a>" : "") + "</div>";
+        "<a href=\"" + route + "\" target=\"_blank\" rel=\"noopener\">Route<span class=\"nur-sr\"> zu " + esc(m[1]) + " (öffnet Google Maps in neuem Tab)</span></a></div>";
       liste.appendChild(li);
     });
     var b = L.latLngBounds([punkt].concat(zeigen.map(function (t) { return [t.m[5], t.m[6]]; })));
@@ -202,7 +196,7 @@
     if (c) { setzen(c[0], c[1], "rund um " + plz + " (" + D.land[c[2]] + ")"); melden(plz, c[2], true); return; }
     var fremd = D.fremd[plz.slice(0, 3)];
     if (fremd) { leeren("In " + D.land[fremd] + " gibt es Hemme Milch noch nicht im Handel. Ihr findet uns in Berlin, Brandenburg, Mecklenburg-Vorpommern, Thüringen und Sachsen."); melden(plz, fremd, false); return; }
-    leeren("Die Postleitzahl " + plz + " kennen wir nicht. Bitte prüft die Eingabe."); melden(plz, "", false);
+    leeren("Die Postleitzahl " + plz + " kennen wir nicht. Bitte prüft die Eingabe."); wunsch.hidden = true; melden(plz, "", false);
   });
 
   var ortKnopf = box.querySelector("[data-mk-ort]");
