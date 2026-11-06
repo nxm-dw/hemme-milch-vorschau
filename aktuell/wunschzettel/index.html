@@ -23,6 +23,8 @@
   .leiste a { background: transparent; color: var(--tief); }
   .leiste :focus-visible { outline: 3px solid #f7a30a; outline-offset: 3px; }
   .rahmen { padding: 0 16px 32px; overflow-x: auto; }
+  .hinweis { margin: -4px auto 16px; max-width: 640px; padding: 0 16px; text-align: center; font-weight: 700; color: var(--tief); }
+  .feld span.ist-gefuellt::after { content: attr(data-wert); position: relative; top: -1.5mm; margin-left: 2mm; font-size: 11pt; font-weight: 800; color: var(--tief); }
 
   /* Das Blatt: genau A4 quer */
   .blatt { position: relative; width: 297mm; height: 210mm; margin: 0 auto; overflow: hidden; background: var(--papier); box-shadow: 0 30px 60px -30px rgba(12, 41, 117, .5); padding: 15mm 18mm 0; display: flex; flex-direction: column; }
@@ -57,7 +59,7 @@
 
   @media print {
     body { background: none; }
-    .leiste { display: none; }
+    .leiste, .hinweis { display: none; }
     .rahmen { padding: 0; overflow: visible; }
     .blatt { margin: 0; box-shadow: none; page-break-after: avoid; break-after: avoid; }
   }
@@ -68,6 +70,7 @@
   <button type="button" onclick="window.print()">Drucken oder als PDF&nbsp;sichern</button>
   <a href="../#kaufen">Zurück zur Website</a>
 </div>
+<p class="hinweis">Für die Marktleitung von REWE- und EDEKA-Märkten. Ausdrucken, ausfüllen und im Markt&nbsp;abgeben.</p>
 <div class="rahmen">
 <main class="blatt">
   <div class="kopf">
@@ -78,7 +81,7 @@
   <p class="anrede"><b>Liebe Marktleitung,</b>wir würden gern frische Hemme Milchprodukte bei Ihnen kaufen. Hemme Milch kommt direkt vom Hof in der Uckermark und ist bei Edeka, Rewe und vielen kleinen Läden in Berlin und Brandenburg schon im&nbsp;Kühlregal.</p>
 
   <ul class="produkte">
-    <li><img src="../../assets/img/marke/vollmilch-vs.webp" alt=""><b>Milch im&nbsp;Milchbeutel</b><span>Frische Vollmilch und Teilentrahmte&nbsp;Milch</span></li>
+    <li><img src="../../assets/img/marke/vollmilch-vs.webp" alt=""><b>Milch im&nbsp;Milchbeutel</b><span>Vollmilch, fettarme und laktosefreie&nbsp;Milch</span></li>
     <li><img src="../../assets/img/produkte/jo-heidelbeere-200.webp" alt=""><b>Joghurt</b><span>Natur, mild und in vielen&nbsp;Fruchtsorten</span></li>
     <li><img src="../../assets/img/produkte/fassbutter.webp" alt=""><b>Fassbutter</b><span>Aus natürlich gesäuertem&nbsp;Rahm</span></li>
     <li><img src="../../assets/img/produkte/schokomilch-230.webp" alt=""><b>Milchgetränke</b><span>Schoko, Vanille, Erdbeere und&nbsp;Eiskaffee</span></li>
@@ -107,5 +110,12 @@
   <img class="wiese" src="../../assets/img/marke/wiese-weit.webp" alt="" width="2400" height="547">
 </main>
 </div>
+<script>
+  /* Markt aus der Marktsuche übernehmen: ?markt=REWE, Straße, PLZ Ort */
+  (function () {
+    var m = new URLSearchParams(location.search).get("markt"), f = document.querySelector("[data-feld=\"Unser Markt\"]");
+    if (m && f) { f.setAttribute("data-wert", m.slice(0, 90)); f.classList.add("ist-gefuellt"); }
+  })();
+</script>
 </body>
 </html>

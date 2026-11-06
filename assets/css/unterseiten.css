@@ -917,3 +917,108 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-blick__punkte li { white-space: nowrap; }
 @media (max-width: 400px) { .u-blick__punkte { font-size: 15px; } .u-blick__punkte li { padding-left: 30px; } }
 @media (max-width: 340px) { .u-blick__punkte { font-size: 13.5px; } .u-blick__punkte li { padding-left: 28px; } }
+
+/* Wo kaufen: Regionen mit Karte der fünf Bundesländer */
+.rk { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.rk__karte { margin: 0; }
+.rk__svg { display: block; width: 100%; height: auto; max-height: 640px; overflow: visible; }
+.rk__nachbar { fill: #eef2f7; stroke: #fff; stroke-width: 2; }
+.rk__region path { stroke: #fff; stroke-width: 2.5; stroke-linejoin: round; transition: filter .25s, opacity .25s; cursor: pointer; }
+.rk__region--bebb path { fill: #006ec6; } .rk__region--mv path { fill: #4d9ee0; } .rk__region--thsn path { fill: #9ccaf0; }
+.rk__region--bebb path:last-child { fill: #0c2975; }
+.rk__svg:has(.ist-aktiv) .rk__region:not(.ist-aktiv) path { opacity: .45; }
+.rk__region.ist-aktiv path { filter: drop-shadow(0 6px 10px rgba(12, 41, 117, .35)); }
+.rk__name { font: 900 19px "Akko Rounded", system-ui, sans-serif; fill: #fff; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: rgba(12, 41, 117, .35); stroke-width: 3px; }
+.rk__name--dunkel { fill: var(--tief); stroke: rgba(255, 255, 255, .7); }
+.rk__name--klein { font-size: 14px; }
+.rk__name--grau { fill: #7a8da3; stroke: none; font-weight: 800; font-size: 15px; }
+.rk__hof circle { fill: var(--gelb); stroke: #fff; stroke-width: 3; }
+.rk__hof path { fill: var(--tief); transform: translateY(1px); }
+.rk__hof text { font: 900 17px "Akko Rounded", system-ui, sans-serif; fill: var(--tief); paint-order: stroke; stroke: #fff; stroke-width: 4px; }
+.rk__karte figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 14px; font-size: 14px; font-weight: 700; color: #3f5673; }
+.rk__karte figcaption span { display: inline-flex; align-items: center; gap: 8px; }
+.rk__farbe { display: inline-block; width: 16px; height: 16px; border-radius: 50%; flex: none; }
+.rk__farbe--bebb { background: #006ec6; } .rk__farbe--mv { background: #4d9ee0; } .rk__farbe--thsn { background: #9ccaf0; }
+.rk__seite { display: grid; gap: 18px; min-width: 0; }
+.rk__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.rk__tabs button { display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 10px 14px; border-radius: 18px; border: 2px solid #d5e1ef; background: #fff; font: inherit; text-align: left; color: var(--tief); cursor: pointer; transition: border-color .2s, background .2s; }
+.rk__tabtext { display: grid; font-weight: 900; font-size: 15px; line-height: 1.2; }
+.rk__tabtext small { font-size: 13px; font-weight: 700; color: #4a6078; }
+.rk__tabs button[aria-selected="true"] { border-color: var(--tief); background: #eef4fb; box-shadow: 0 12px 24px -18px rgba(12, 41, 117, .7); }
+.rk__tabs button:focus-visible { outline: 3px solid var(--hm-blau-text); outline-offset: 2px; }
+.rk__panel { padding: clamp(22px, 3vw, 34px); border-radius: 28px; background: #f3f7fc; }
+.rk__panel:focus-visible { outline: 3px solid var(--hm-blau-text); outline-offset: 3px; }
+.u .rk__panel h3 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.05; color: var(--tief); }
+.rk__zahl { margin: 6px 0 20px; font-weight: 700; color: #3f5673; }
+.rk__zahl b { font-family: "True North Dots"; font-weight: 400; font-size: 22px; color: var(--hm-blau-flaeche); }
+.rk__ketten { list-style: none; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+.rk__ketten li { display: grid; justify-items: center; align-content: start; gap: 8px; text-align: center; }
+.rk__logo { display: grid; place-items: center; width: 100%; height: 96px; padding: 14px; border-radius: 20px; background: #fff; box-shadow: 0 12px 24px -20px rgba(0, 20, 60, .5); }
+.rk__logo img { max-height: 62px; max-width: 120px; width: auto; height: auto; object-fit: contain; }
+.rk__ketten small { font-size: 13.5px; font-weight: 800; line-height: 1.3; color: var(--tief); }
+@media (max-width: 1000px) { .rk { grid-template-columns: 1fr; } .rk__karte { max-width: 460px; width: 100%; margin: 0 auto; } }
+@media (max-width: 600px) { .rk__tabs { grid-template-columns: 1fr; } .rk__tabs button { min-height: 52px; } .rk__tabtext { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 8px; } .rk__ketten { grid-template-columns: repeat(2, minmax(0, 1fr)); } .rk__logo { height: 80px; } }
+
+/* Wo kaufen: Marktkarte */
+.mk { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(24px, 3vw, 40px); align-items: start; }
+.mk__seite { display: grid; gap: 18px; min-width: 0; }
+.mk__suche { display: grid; gap: 10px; padding: 22px; border-radius: 24px; background: #fff; box-shadow: 0 20px 40px -30px rgba(0, 20, 60, .45); }
+.mk__suche label { font-weight: 900; color: var(--tief); }
+.mk__feld { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+.mk__feld input { min-width: 0; font: inherit; font-size: 18px; padding: 13px 18px; border-radius: 99px; border: 2px solid #9db4d3; background: #f5f9ff; color: var(--tief); }
+.mk__feld input:focus-visible { outline: 3px solid var(--hm-blau-text); outline-offset: 2px; border-color: var(--hm-blau-text); }
+.mk__feld .knopf { padding: 13px 22px; }
+.mk__ort { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 0; border: 0; background: none; font: inherit; font-weight: 800; color: var(--hm-blau-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.mk__ort::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 3px solid currentColor; box-sizing: border-box; }
+.mk__schnell { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.mk__schnell span, .mk__ketten legend { width: 100%; font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: #3f5673; }
+.mk__schnell button { min-height: 40px; padding: 8px 14px; border-radius: 99px; border: 0; background: #fff; box-shadow: inset 0 0 0 1.5px #c8d6e8; font: inherit; font-size: 15px; font-weight: 800; color: var(--tief); cursor: pointer; }
+.mk__schnell button:hover, .mk__schnell button[aria-pressed="true"] { background: var(--tief); color: #fff; box-shadow: none; }
+.mk__ketten { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mk__ketten legend { margin-bottom: 8px; }
+.mk__ketten button { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 14px 6px 8px; border-radius: 99px; border: 2px solid #c8d6e8; background: #fff; font: inherit; font-size: 15px; font-weight: 800; color: var(--tief); cursor: pointer; }
+.mk__ketten button::before { content: ""; width: 16px; height: 16px; border-radius: 50%; background: var(--k); box-shadow: inset 0 0 0 2px #fff, 0 0 0 1px #9db4d3; }
+.mk__ketten button small { font-size: 13px; font-weight: 800; color: #4a6078; }
+.mk__ketten button[aria-pressed="false"] { opacity: .55; text-decoration: line-through; border-style: dashed; }
+.mk button:focus-visible, .mk a:focus-visible { outline: 3px solid var(--hm-blau-text); outline-offset: 2px; }
+.mk__status { margin: 0; font-weight: 700; color: #2c4466; text-wrap: pretty; }
+.mk__wunsch { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; align-items: center; padding: 18px 20px; border-radius: 22px; background: #fff7e3; border: 2px solid #f7c867; }
+.mk__wunsch[hidden] { display: none; }
+.mk__wunsch img { width: 72px; height: auto; transform: rotate(-6deg); }
+.mk__wunsch p { margin: 0 0 10px; font-size: 15.5px; color: #3a3220; }
+.mk__wunsch .mk__wunsch-titel { margin-bottom: 4px; font-weight: 900; font-size: 17px; color: var(--tief); }
+.mk__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.mk__markt { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 16px 12px 12px; border-radius: 18px; background: #fff; border: 1px solid #dfe8f3; }
+.mk__nr { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--tief); color: #fff; font-weight: 900; font-size: 15px; }
+.mk__name { margin: 0; font-weight: 800; color: var(--tief); line-height: 1.3; }
+.mk__logo { height: 22px; width: auto; max-width: 72px; vertical-align: -5px; margin-right: 4px; }
+.mk__adr { margin: 2px 0 0; font-size: 15px; color: #3f5673; }
+.mk__hinweis { display: inline-block; margin: 6px 0 0; padding: 2px 10px; border-radius: 99px; background: #eef4fb; font-size: 13px; font-weight: 800; color: var(--tief); }
+.mk__rechts { display: grid; justify-items: end; gap: 2px; font-size: 14.5px; }
+.mk__rechts b { color: var(--tief); white-space: nowrap; }
+.mk__rechts a { font-weight: 800; color: var(--hm-blau-text); }
+.mk__rechts .mk__zettel { color: #8a5a00; }
+.mk__rahmen { position: sticky; top: 96px; margin: 0; padding: 10px; border-radius: 28px; background: #fff; box-shadow: 0 30px 60px -40px rgba(0, 20, 60, .5); }
+.mk__karte { height: min(640px, 72vh); border-radius: 20px; background: #f6f9fd; z-index: 0; }
+.mk__karte .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 38px; color: var(--tief); font-size: 22px; }
+.mk__karte .leaflet-control-attribution { font-size: 11px; }
+.mk__freigabe { position: absolute; left: 22px; right: 22px; bottom: 58px; z-index: 500; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 16px; border-radius: 18px; background: rgba(12, 41, 117, .94); color: #fff; box-shadow: 0 16px 30px -16px rgba(0, 0, 0, .5); }
+.mk__freigabe[hidden] { display: none; }
+.mk__freigabe p { flex: 1 1 260px; margin: 0; font-size: 14px; line-height: 1.45; color: #dbe7f8; }
+.mk__freigabe b { color: #fff; }
+.mk__freigabe a { color: #fff; }
+.mk__freigabe .knopf:focus-visible, .mk__freigabe a:focus-visible { outline-color: var(--gelb); }
+.mk__ansicht { position: absolute; top: 22px; right: 22px; z-index: 500; display: flex; padding: 4px; border-radius: 99px; background: #fff; box-shadow: 0 8px 20px -10px rgba(0, 20, 60, .5); }
+.mk__ansicht[hidden] { display: none; }
+.mk__ansicht button { min-height: 38px; padding: 6px 16px; border: 0; border-radius: 99px; background: none; font: inherit; font-size: 14.5px; font-weight: 800; color: var(--tief); cursor: pointer; }
+.mk__ansicht button[aria-pressed="true"] { background: var(--tief); color: #fff; }
+.mk__rahmen figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 10px 8px 2px; font-size: 13px; color: #4a6078; }
+.mk__rahmen figcaption b { color: var(--tief); }
+.mk__karte .mk__nadel { display: grid; place-items: center; border-radius: 50%; background: var(--tief); color: #fff; font: 900 14px "Akko Rounded", system-ui, sans-serif; box-shadow: 0 0 0 3px #fff, 0 6px 12px rgba(0, 0, 0, .3); }
+.mk__blase { font: 500 14px/1.45 "Akko Rounded", system-ui, sans-serif; color: #1f3556; }
+.mk__blase b { color: var(--tief); font-weight: 900; }
+.mk__blase em { font-style: normal; font-weight: 800; color: var(--tief); }
+.mk__blase p { margin: 6px 0 0 !important; }
+.mk__blase a { font-weight: 800; color: var(--hm-blau-text); }
+@media (max-width: 1000px) { .mk { grid-template-columns: minmax(0, 1fr); } .mk__rahmen { position: relative; top: auto; order: -1; } .mk__karte { height: 460px; } }
+@media (max-width: 480px) { .mk__feld { grid-template-columns: minmax(0, 1fr); } .mk__markt { grid-template-columns: 28px minmax(0, 1fr); } .mk__rechts { grid-column: 2; justify-items: start; grid-auto-flow: column; justify-content: start; gap: 14px; } .mk__karte { height: 400px; } .mk__freigabe { left: 14px; right: 14px; bottom: 50px; } }
