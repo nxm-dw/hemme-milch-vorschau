@@ -97,7 +97,7 @@
     var n = D.m.filter(function (m) { return m[0] === k; }).length;
     if (!n) return;
     var b = document.createElement("button");
-    b.type = "button"; b.setAttribute("aria-pressed", "true"); b.style.setProperty("--k", K[k][2]);
+    b.type = "button"; b.setAttribute("aria-pressed", "true"); b.style.setProperty("--k", K[k][2]); if (k === "E") b.setAttribute("data-hell", "");
     b.innerHTML = K[k][0] + " <small>" + n.toLocaleString("de-DE") + "</small>";
     b.addEventListener("click", function () {
       aktiv[k] = !aktiv[k]; b.setAttribute("aria-pressed", String(aktiv[k]));
@@ -152,17 +152,24 @@
     L.circleMarker(punkt, { radius: 11, weight: 4, color: "#fff", fillColor: "#f7a30a", fillOpacity: 1 }).addTo(treffer);
     var zeigen = nah.length ? nah : auswahl.slice(0, 3);
     zeigen.forEach(function (t, i) {
-      L.marker([t.m[5], t.m[6]], { icon: L.divIcon({ className: "mk__nadel", html: "<span>" + (i + 1) + "</span>", iconSize: [30, 30], iconAnchor: [15, 15] }), keyboard: false })
-        .bindPopup(blase(t.m)).addTo(treffer);
       var m = t.m, li = document.createElement("li");
+      var nadel = L.marker([m[5], m[6]], { icon: L.divIcon({ className: "mk__nadel", html: "<span style=\"--k:" + K[m[0]][2] + "\">" + (i + 1) + "</span>", iconSize: [34, 34], iconAnchor: [17, 17] }), keyboard: false })
+        .bindPopup(blase(m)).addTo(treffer);
       var route = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(m[1] + ", " + adresse(m));
+      var km1 = t.d < 10 ? t.d.toFixed(1).replace(".", ",") : t.d.toFixed(0);
       li.className = "mk__markt";
-      li.innerHTML = "<span class=\"mk__nr\" aria-hidden=\"true\">" + (i + 1) + "</span>" +
-        "<div><p class=\"mk__name\"><img class=\"mk__logo\" src=\"../../assets/img/" + K[m[0]][1] + "\" alt=\"" + K[m[0]][0] + "\"> " + esc(m[1] === K[m[0]][0] ? "" : m[1].replace(K[m[0]][0] + " ", "")) + "</p>" +
+      li.style.setProperty("--k", K[m[0]][2]);
+      li.innerHTML = "<span class=\"mk__marke\"><img src=\"../../assets/img/" + K[m[0]][1] + "\" alt=\"\"><span class=\"mk__nr\" aria-hidden=\"true\">" + (i + 1) + "</span></span>" +
+        "<div class=\"mk__info\"><button type=\"button\" class=\"mk__name\">" + esc(m[1]) + "<span class=\"nur-sr\">, auf der Karte zeigen</span></button>" +
         "<p class=\"mk__adr\">" + esc(adresse(m)) + "</p>" +
         (NUR_MILCH[m[0]] ? "<p class=\"mk__hinweis\">Nur Vollmilch 3,7&nbsp;%</p>" : "") + "</div>" +
-        "<div class=\"mk__rechts\"><b>" + t.d.toFixed(1).replace(".", ",") + "&nbsp;km</b>" +
-        "<a href=\"" + route + "\" target=\"_blank\" rel=\"noopener\">Route<span class=\"nur-sr\"> zu " + esc(m[1]) + " (öffnet Google Maps in neuem Tab)</span></a></div>";
+        "<div class=\"mk__rechts\"><p class=\"mk__weg\"><b>" + km1 + "</b> km</p>" +
+        "<a class=\"mk__route\" href=\"" + route + "\" target=\"_blank\" rel=\"noopener\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 2.8l9.2 9.2-9.2 9.2L2.8 12z\"/><path d=\"M9 14v-2.5c0-.8.7-1.5 1.5-1.5H15m-2-2l2 2-2 2\"/></svg>Route<span class=\"nur-sr\"> zu " + esc(m[1]) + " (öffnet Google Maps in neuem Tab)</span></a></div>";
+      li.querySelector(".mk__name").addEventListener("click", function () {
+        karte.setView([m[5], m[6]], Math.max(karte.getZoom(), 15)); nadel.openPopup();
+      });
+      li.addEventListener("mouseenter", function () { var e = nadel.getElement(); if (e) e.classList.add("ist-hell"); });
+      li.addEventListener("mouseleave", function () { var e = nadel.getElement(); if (e) e.classList.remove("ist-hell"); });
       liste.appendChild(li);
     });
     var b = L.latLngBounds([punkt].concat(zeigen.map(function (t) { return [t.m[5], t.m[6]]; })));
