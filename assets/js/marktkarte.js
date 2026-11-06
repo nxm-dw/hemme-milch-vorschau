@@ -183,10 +183,15 @@
       status.textContent = ohneWaise("Keine Märkte mit dieser Auswahl. Schaltet oben eine Kette dazu.");
     }
   }
-  function setzen(lat, lon, name) { punkt = [lat, lon]; ortName = name; suchen(); }
+  /* Ergebnis sichtbar machen: liegt die Meldung unterhalb des Bildschirms, scrollen wir hin */
+  function hinScrollen() {
+    var r = status.getBoundingClientRect();
+    if (r.top > innerHeight - 160 || r.top < 80) status.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  }
+  function setzen(lat, lon, name) { punkt = [lat, lon]; ortName = name; suchen(); hinScrollen(); }
   function leeren(text) {
     punkt = null; treffer.clearLayers(); liste.textContent = ""; karte.fitBounds(grenzen);
-    status.textContent = ohneWaise(text); wunsch.hidden = false;
+    status.textContent = ohneWaise(text); wunsch.hidden = false; hinScrollen();
   }
 
   /* Für später: Zählung der eingegebenen Postleitzahlen. Hier wird nichts gesendet, nur ein Ereignis ausgelöst,

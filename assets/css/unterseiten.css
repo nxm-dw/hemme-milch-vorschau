@@ -1000,12 +1000,18 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .mk__ketten button[aria-pressed="false"] { color: #5d7088; border-style: dashed; }
 .mk__ketten button[aria-pressed="false"]::before { background: #fff; box-shadow: inset 0 0 0 2px var(--k), 0 0 0 1px rgba(0, 0, 0, .12); }
 .mk button:focus-visible, .mk a:focus-visible { outline: 3px solid var(--hm-blau-text); outline-offset: 2px; }
-.mk__status { margin: 0; font-weight: 700; color: #2c4466; text-wrap: pretty; }
-.mk__wunsch { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; align-items: center; padding: 18px 20px; border-radius: 22px; background: #fff7e3; border: 2px solid #f7c867; }
+.mk__status { margin: 0; font-weight: 700; color: #2c4466; text-wrap: pretty; hyphens: manual; scroll-margin-top: 110px; }
+.mk__status:not(:empty) { padding: 14px 18px; border-radius: 18px; background: #fff; border-left: 5px solid var(--hm-blau-flaeche); font-size: 16.5px; font-weight: 800; color: var(--tief); animation: mk-rein .4s cubic-bezier(.2, .8, .2, 1) both; }
+.mk__wunsch { position: relative; display: grid; hyphens: manual; grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: center; padding: 22px 22px 24px; border-radius: 26px; background: var(--tief); color: #fff; box-shadow: 0 24px 40px -26px rgba(12, 41, 117, .9); overflow: hidden; animation: mk-rein .5s .08s cubic-bezier(.2, .8, .2, 1) both; }
+.mk__wunsch::before { content: ""; position: absolute; right: -60px; top: -60px; width: 180px; height: 180px; border-radius: 50%; background: rgba(247, 163, 10, .18); }
 .mk__wunsch[hidden] { display: none; }
-.mk__wunsch img { width: 72px; height: auto; transform: rotate(-6deg); }
-.mk__wunsch p { margin: 0 0 10px; font-size: 15.5px; color: #3a3220; }
-.mk__wunsch .mk__wunsch-titel { margin-bottom: 4px; font-weight: 900; font-size: 17px; color: var(--tief); }
+.mk__wunsch img { position: relative; width: 96px; height: auto; transform: rotate(-8deg); filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .35)); }
+.mk__wunsch > div { position: relative; }
+.mk__wunsch p { margin: 0 0 14px; hyphens: manual; font-size: 15.5px; line-height: 1.45; color: #dbe7f8; }
+.mk__wunsch .mk__wunsch-marke { margin-bottom: 4px; font-size: 12.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--gelb); }
+.mk__wunsch .mk__wunsch-titel { margin-bottom: 8px; font-family: "True North Dots"; font-weight: 400; font-size: 25px; line-height: 1.1; color: #fff; }
+.mk__wunsch .knopf:focus-visible { outline-color: var(--gelb); }
+@media (max-width: 400px) { .mk__wunsch { grid-template-columns: minmax(0, 1fr); } .mk__wunsch img { width: 64px; position: absolute; right: 16px; top: 14px; z-index: 1; } .mk__wunsch .mk__wunsch-marke { min-height: 60px; padding-right: 76px; } .mk__wunsch .mk__wunsch-titel { font-size: 22px; } }
 .mk__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: markt; }
 .mk__markt { position: relative; display: grid; grid-template-columns: 60px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 16px 14px 14px; border-radius: 22px; background: #fff; box-shadow: 0 14px 28px -24px rgba(0, 20, 60, .55); border: 2px solid transparent; transition: border-color .2s, transform .2s, box-shadow .2s; animation: mk-rein .45s cubic-bezier(.2, .8, .2, 1) both; }
 .mk__markt:nth-child(2) { animation-delay: .04s; } .mk__markt:nth-child(3) { animation-delay: .08s; } .mk__markt:nth-child(4) { animation-delay: .12s; }
@@ -1056,3 +1062,5 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .mk__blase a { font-weight: 800; color: var(--hm-blau-text); }
 @media (max-width: 1000px) { .mk { grid-template-columns: minmax(0, 1fr); } .mk__rahmen { position: relative; top: auto; order: -1; } .mk__karte { height: 460px; } }
 @media (max-width: 480px) { .mk__feld { grid-template-columns: minmax(0, 1fr); } .mk__markt { grid-template-columns: 52px minmax(0, 1fr); gap: 12px; } .mk__marke { width: 52px; height: 52px; } .mk__rechts { grid-column: 2; justify-items: start; grid-auto-flow: column; justify-content: space-between; align-items: center; } .mk__karte { height: 400px; } .mk__freigabe { left: 14px; right: 14px; bottom: 50px; } }
+.mk__wunsch .knopf { background: var(--gelb); border-color: var(--gelb); color: var(--tief); }
+.mk__wunsch .knopf:hover { background: #fff; border-color: #fff; color: var(--tief); }
