@@ -4,8 +4,8 @@
 /* Hausschriften laut Brandbook 2026: True North Dots für Headlines und Produktnamen,
    Akko Rounded für Texte. Vor dem Livegang Web-Lizenzen bei MyFonts/Linotype klären. */
 @font-face { font-family: "True North Dots"; src: url("../fonts/marke/TrueNorthDots-Black.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
-@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Medium.woff2") format("woff2"); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Light.woff2") format("woff2"); font-weight: 300 400; font-display: swap; }
+@font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
 @font-face { font-family: "Akko Rounded"; src: url("../fonts/marke/AkkoRoundedW01-Black.woff2") format("woff2"); font-weight: 800 900; font-display: swap; }
 
