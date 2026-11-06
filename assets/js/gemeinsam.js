@@ -17,13 +17,6 @@
      Zum Testen: ?heute=2026-12-01 an die Adresse hängen. */
   var AKTIONEN = [
     {
-      von: "2026-09-01", bis: "2026-10-31",
-      marke: "Neu im Kühlregal",
-      text: "Porridge Apfel-Zimt, vegan und frisch aus Schmargendorf.",
-      bild: "../assets/img/produkte/porridge-vegan.webp",
-      link: "#produkte", linktext: "Jetzt entdecken"
-    },
-    {
       von: "2026-11-01", bis: "2026-12-23",
       marke: "Advent auf dem Hof",
       text: "Heiße Schokolade im Hofcafé, Mi bis So von 11 bis 18 Uhr.",

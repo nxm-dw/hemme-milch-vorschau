@@ -300,7 +300,7 @@ main { animation: rein .4s ease; }
 .stil__titel { margin: 44px 0 18px !important; font-size: clamp(24px, 2.4vw, 32px); }
 .stil > .stil__titel:first-of-type { margin-top: 8px !important; }
 .stil__hinweis { margin-top: 14px !important; max-width: 62em; font-size: 14.5px; color: var(--leise); text-wrap: pretty; }
-.farben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.farben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .farbe { display: grid; gap: 4px; align-content: start; }
 .farbe b { font-size: 16px; color: var(--tief); }
 .farbe > span { font-size: 13.5px; line-height: 1.4; color: var(--leise); text-wrap: pretty; }
@@ -315,7 +315,7 @@ main { animation: rein .4s ease; }
 .stil__kat-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-bottom: 10px; }
 .stil__kat-kopf .stil__titel { margin: 0 !important; }
 .vorschlag { display: inline-flex; padding: 7px 12px 5px; line-height: 1; border-radius: 99px; border: 1.5px dashed var(--tief); color: var(--tief); font-size: 13px; font-weight: 900; }
-.kats { list-style: none; margin: 24px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.kats { list-style: none; margin: 24px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .kat { display: grid; gap: 8px; justify-items: start; }
 .kat__feld { justify-content: center; align-items: center; background: linear-gradient(180deg, #fff 0 64%, #dbe8f7 64% 100%); padding: 10px; }
 .kat__feld::before { content: ""; position: absolute; top: 0; left: 18px; width: 48px; height: 8px; border-radius: 0 0 6px 6px; background: var(--kat); }

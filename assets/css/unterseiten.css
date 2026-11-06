@@ -1064,3 +1064,7 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 @media (max-width: 480px) { .mk__feld { grid-template-columns: minmax(0, 1fr); } .mk__markt { grid-template-columns: 52px minmax(0, 1fr); gap: 12px; } .mk__marke { width: 52px; height: 52px; } .mk__rechts { grid-column: 2; justify-items: start; grid-auto-flow: column; justify-content: space-between; align-items: center; } .mk__karte { height: 400px; } .mk__freigabe { left: 14px; right: 14px; bottom: 50px; } }
 .mk__wunsch .knopf { background: var(--gelb); border-color: var(--gelb); color: var(--tief); }
 .mk__wunsch .knopf:hover { background: #fff; border-color: #fff; color: var(--tief); }
+.u-gebinde__bild { position: absolute; top: 24px; right: 24px; z-index: 1; display: grid; place-items: center; width: 96px; height: 96px; border-radius: 50%; background: #fff; box-shadow: 0 16px 28px -16px rgba(0, 10, 40, .7); }
+.u-gebinde__bild img { width: 74px; height: 74px; object-fit: contain; transform: rotate(-4deg); }
+.u-gebinde--bild .u-gebinde__zahl { padding-right: 108px; }
+@media (max-width: 400px) { .u-gebinde__bild { width: 88px; height: 88px; top: 18px; right: 18px; } .u-gebinde__bild img { width: 66px; height: 66px; } .u-gebinde--bild .u-gebinde__zahl { padding-right: 96px; } }
