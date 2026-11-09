@@ -1108,3 +1108,32 @@
 .kaufen__mehr { margin-top: 18px; }
 .kette__mehr { margin-left: auto; align-self: center; white-space: nowrap; }
 @media (max-width: 700px) { .kette__kopf { flex-wrap: wrap; } .kette__mehr { order: 3; margin-left: 0; padding: 10px 18px; } }
+
+/* Gastro-Reiter: sechs Gebinde nach Größe, Glas-Karten auf Blau wie auf der Produktseite */
+.sortiment--gastro:not([hidden]) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gk { position: relative; display: flex; flex-direction: column; padding: 18px 22px 22px; border-radius: 26px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .2); color: #fff; transition: transform .3s cubic-bezier(.2, .7, .2, 1), background .3s; }
+.gk:hover { transform: translateY(-5px); background: rgba(255, 255, 255, .14); }
+.gk__buehne { position: relative; display: flex; justify-content: center; align-items: flex-end; height: 150px; margin-bottom: 6px; }
+.gk__buehne::before { content: ""; position: absolute; left: 50%; bottom: 0; width: 140px; height: 140px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .34), rgba(255, 255, 255, .1) 70%); transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+.gk__buehne img { position: relative; height: 128px; width: auto; max-width: 75%; object-fit: contain; filter: drop-shadow(0 16px 14px rgba(0, 10, 40, .45)); transition: transform .45s cubic-bezier(.3, 1.4, .5, 1); }
+.gk__buehne--3 img { height: 114px; max-width: 40%; margin: 0 -5%; }
+.gk__buehne--3 img:nth-child(1) { transform: rotate(-8deg); }
+.gk__buehne--3 img:nth-child(2) { z-index: 1; transform: translateY(-10px); }
+.gk__buehne--3 img:nth-child(3) { transform: rotate(8deg); }
+.gk:hover .gk__buehne::before { transform: translateX(-50%) scale(1.08); }
+.gk:hover .gk__buehne--1 img { transform: scale(1.12) rotate(-3deg); }
+.gk:hover .gk__buehne--3 img:nth-child(1) { transform: translate(-12px, -6px) rotate(-14deg) scale(1.08); }
+.gk:hover .gk__buehne--3 img:nth-child(2) { transform: translateY(-22px) scale(1.12); }
+.gk:hover .gk__buehne--3 img:nth-child(3) { transform: translate(12px, -6px) rotate(14deg) scale(1.08); }
+.gk__menge { display: flex; align-items: baseline; gap: 8px; margin: 0; line-height: .9; }
+.gk__menge b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(44px, 3.8vw, 58px); color: #fff; }
+.gk__menge span { font-family: "True North Dots"; font-size: clamp(18px, 1.5vw, 22px); color: var(--gelb); text-transform: uppercase; }
+.gk h3 { margin: 10px 0 6px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.1; color: #fff; }
+.gk__text { margin: 0; font-size: 15px; line-height: 1.5; color: #dbe7f8; }
+.gk__einsatz { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 0; padding: 14px 0 0; }
+.gk__einsatz li { padding: 6px 11px 4px; line-height: 1; border-radius: 99px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .28); font-size: 13px; font-weight: 800; }
+@media (max-width: 1000px) { .sortiment--gastro:not([hidden]) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .sortiment--gastro:not([hidden]) { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .gk, .gk__buehne img, .gk__buehne::before { transition: none; } }
+/* Frischmilch mit drei Beuteln (Vollmilch, fettarm, laktosefrei) */
+.gruppe--milch .gruppe__bilder img:nth-last-child(3), .gruppe--milch .gruppe__bilder img:nth-last-child(3) ~ img { width: 44%; max-width: 250px; margin: 0 -7%; }

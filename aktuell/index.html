@@ -114,11 +114,12 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
         <span class="gruppe__kennung" aria-hidden="true"></span>
         <span class="gruppe__name">Frischmilch</span>
         <span class="gruppe__info">Schonend pasteurisiert, nie&nbsp;H-Milch</span>
-        <span class="gruppe__sorten"><span>1,8&nbsp;%</span><span>3,7&nbsp;%</span><span>1&nbsp;Liter</span><span>10 Liter für&nbsp;Gastro</span></span>
+        <span class="gruppe__sorten"><span>1,8&nbsp;%</span><span>3,7&nbsp;%</span><span>laktosefrei</span><span>1&nbsp;Liter</span><span>10 Liter für&nbsp;Gastro</span></span>
         <span class="gruppe__mehr">Alle Sorten&nbsp;ansehen <span aria-hidden="true">→</span></span>
         <span class="gruppe__bilder">
           <img src="../assets/img/produkte/teilrahmen-milch.webp" alt="" loading="lazy">
           <img src="../assets/img/marke/vollmilch-vs.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/milch-laktosefrei.webp" alt="" loading="lazy">
         </span>
       </a>
       <a class="gruppe gruppe--joghurt" href="../unterseiten-p4x9/produkte/#joghurt" data-rein>
@@ -126,9 +127,9 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
         <span class="gruppe__name">Joghurt</span>
         <span class="gruppe__info">Natur, mild und neun&nbsp;Sorten</span>
         <span class="gruppe__bilder">
+          <img src="../assets/img/produkte/naturjoghurt-3-7-prozent.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/jo-stracciatella-200.webp" alt="" loading="lazy">
           <img src="../assets/img/produkte/jo-kirsche-400.webp" alt="" loading="lazy">
-          <img src="../assets/img/produkte/jo-mango-vanille-200.webp" alt="" loading="lazy">
-          <img src="../assets/img/produkte/jo-heidelbeere-400.webp" alt="" loading="lazy">
         </span>
       </a>
       <a class="gruppe gruppe--getraenke" href="../unterseiten-p4x9/produkte/#getraenke" data-rein>
@@ -137,7 +138,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
         <span class="gruppe__info">Schoko, Vanille, Erdbeere, Eiskaffee, Mango&nbsp;Lassi</span>
         <span class="gruppe__bilder">
           <img src="../assets/img/produkte/schokomilch-230.webp" alt="" loading="lazy">
-          <img src="../assets/img/produkte/erdbeermilch.webp" alt="" loading="lazy">
+          <img src="../assets/img/produkte/eiskaffe-600.webp" alt="" loading="lazy">
           <img src="../assets/img/produkte/vanillemilch-230.webp" alt="" loading="lazy">
         </span>
       </a>
@@ -169,35 +170,48 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { document.document
         <p class="gastro-kopf__marke">Für Gastronomie, Bäckerei und&nbsp;Handel</p>
         <p class="gastro-kopf__text">Großgebinde aus unserer eigenen Molkerei, frisch geliefert in Berlin und&nbsp;Brandenburg.</p>
       </div>
-      <article class="g-karte">
-        <p class="g-karte__menge">10<span>Liter</span></p>
-        <div class="g-karte__bild"><img src="../assets/img/produkte/milch-10-liter.webp" alt="" loading="lazy"></div>
-        <h3>Milch im&nbsp;Schlauchbeutel</h3>
-        <p>Schonend pasteurisiert, frisch für Kaffee und&nbsp;Küche.</p>
-        <ul class="einsatz" aria-label="Einsatz"><li>Siebträger</li><li>Milchschaum</li><li>Küche</li></ul>
-      </article>
-      <article class="g-karte">
-        <p class="g-karte__menge">12<span>Kilo</span></p>
-        <div class="g-karte__bild"><img src="../assets/img/produkte/fassbutter-block.webp" alt="" loading="lazy"></div>
+      <article class="gk">
+        <div class="gk__buehne gk__buehne--1" aria-hidden="true"><img src="../assets/img/produkte/fassbutter-block.webp" alt="" loading="lazy"></div>
+        <p class="gk__menge"><b>12</b><span>kg</span></p>
         <h3>Fassbutter im&nbsp;Block</h3>
-        <p>Aus natürlich gesäuertem Rahm, für Teige mit vollem&nbsp;Aroma.</p>
-        <ul class="einsatz" aria-label="Einsatz"><li>Bäckerei</li><li>Konditorei</li><li>Küche</li></ul>
+        <p class="gk__text">Aus natürlich gesäuertem Rahm, für Teige mit vollem&nbsp;Aroma.</p>
+        <ul class="gk__einsatz" aria-label="Einsatz"><li>Bäckerei</li><li>Konditorei</li><li>Küche</li></ul>
       </article>
-      <article class="g-karte">
-        <p class="g-karte__menge">250<span>Gramm</span></p>
-        <div class="g-karte__bild"><img src="../assets/img/produkte/speisequark-250.webp" alt="" loading="lazy"></div>
+      <article class="gk">
+        <div class="gk__buehne gk__buehne--1" aria-hidden="true"><img src="../assets/img/produkte/milch-10-liter.webp" alt="" loading="lazy"></div>
+        <p class="gk__menge"><b>10</b><span>Liter</span></p>
+        <h3>Milch im&nbsp;Schlauchbeutel</h3>
+        <p class="gk__text">Schonend pasteurisiert, frisch für Kaffee und&nbsp;Küche.</p>
+        <ul class="gk__einsatz" aria-label="Einsatz"><li>Siebträger</li><li>Milchschaum</li><li>Küche</li></ul>
+      </article>
+      <article class="gk">
+        <div class="gk__buehne gk__buehne--1" aria-hidden="true"><img src="../assets/img/produkte/speisequark-250.webp" alt="" loading="lazy"></div>
+        <p class="gk__menge"><b>250</b><span>g</span></p>
         <h3>Speisequark</h3>
-        <p>Mit 40&nbsp;% Fett i.&nbsp;Tr., cremig für Küche und&nbsp;Backstube.</p>
-        <ul class="einsatz" aria-label="Einsatz"><li>Küche</li><li>Backstube</li><li>Buffet</li></ul>
+        <p class="gk__text">Mit 40&nbsp;% Fett i.&nbsp;Tr., cremig für Küche und&nbsp;Backstube.</p>
+        <ul class="gk__einsatz" aria-label="Einsatz"><li>Küche</li><li>Backstube</li><li>Buffet</li></ul>
       </article>
-      <article class="g-karte">
-        <p class="g-karte__menge">230<span>ml</span></p>
-        <div class="g-karte__bild"><img src="../assets/img/produkte/schokomilch-230.webp" alt="" loading="lazy"></div>
-        <h3>Milchgetränke</h3>
-        <p>Schoko, Vanille und Eiskaffee, auch im 600-ml-Beutel. Erdbeere von April bis&nbsp;Oktober.</p>
-        <ul class="einsatz" aria-label="Einsatz"><li>Kühltheke</li><li>Kantine</li><li>Café</li></ul>
+      <article class="gk">
+        <div class="gk__buehne gk__buehne--3" aria-hidden="true"><img src="../assets/img/produkte/teilrahmen-milch.webp" alt="" loading="lazy"><img src="../assets/img/produkte/vollmilch-3-5.webp" alt="" loading="lazy"><img src="../assets/img/produkte/milch-laktosefrei.webp" alt="" loading="lazy"></div>
+        <p class="gk__menge"><b>1</b><span>Liter</span></p>
+        <h3>Frische&nbsp;Milch</h3>
+        <p class="gk__text">Vollmilch, fettarme und laktosefreie Milch im&nbsp;Beutel.</p>
+        <ul class="gk__einsatz" aria-label="Einsatz"><li>Café</li><li>Kantine</li><li>Frühstück</li></ul>
       </article>
-      <p class="gastro-mehr">Außerdem für Großverbraucher: Milch im 1-Liter-Beutel, Buttermilch und Naturjoghurt im 600-Gramm-Becher.</p>
+      <article class="gk">
+        <div class="gk__buehne gk__buehne--3" aria-hidden="true"><img src="../assets/img/produkte/schokomilch-600.webp" alt="" loading="lazy"><img src="../assets/img/produkte/buttermilch-600.webp" alt="" loading="lazy"><img src="../assets/img/produkte/naturjogurt-600.webp" alt="" loading="lazy"></div>
+        <p class="gk__menge"><b>600</b><span>ml / g</span></p>
+        <h3>Im&nbsp;Beutel</h3>
+        <p class="gk__text">Milchgetränke, Buttermilch und Joghurt&nbsp;mild.</p>
+        <ul class="gk__einsatz" aria-label="Einsatz"><li>Kühltheke</li><li>Küche</li><li>Café</li></ul>
+      </article>
+      <article class="gk">
+        <div class="gk__buehne gk__buehne--3" aria-hidden="true"><img src="../assets/img/produkte/schokomilch-230.webp" alt="" loading="lazy"><img src="../assets/img/produkte/protein-kaffee-230.webp" alt="" loading="lazy"><img src="../assets/img/produkte/mango-lassi-230.webp" alt="" loading="lazy"></div>
+        <p class="gk__menge"><b>230</b><span>ml</span></p>
+        <h3>Milchgetränke to&nbsp;go</h3>
+        <p class="gk__text">Schoko, Vanille, Eiskaffee, High Protein Kaffee und Mango&nbsp;Lassi.</p>
+        <ul class="gk__einsatz" aria-label="Einsatz"><li>Kühltheke</li><li>Kantine</li><li>Café</li></ul>
+      </article>
       <div class="milchmann" id="gastro">
         <img class="milchmann__bild" src="../assets/img/foto/milchmann-hof-s.webp" alt="Hemme-Lieferwagen vor dem Hof" loading="lazy">
         <div class="milchmann__text">
