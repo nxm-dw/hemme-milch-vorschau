@@ -55,3 +55,27 @@ document.querySelectorAll("[data-zweiklick]").forEach(function (box) {
     f.focus();
   });
 });
+
+/* Philosophie: gepunktete Linie der Wertschöpfung genau zwischen den Bildern ziehen */
+(function () {
+  "use strict";
+  var w = document.querySelector(".u-wert");
+  if (!w) return;
+  var svg = w.querySelector(".u-wert__linie"), pfad = svg.querySelector("path");
+  function zeichnen() {
+    var r = w.getBoundingClientRect(), b = w.querySelectorAll(".u-wert__bild"), d = "";
+    svg.setAttribute("viewBox", "0 0 " + r.width + " " + r.height);
+    for (var i = 0; i < b.length - 1; i++) {
+      var a = b[i].getBoundingClientRect(), z = b[i + 1].getBoundingClientRect();
+      var rechts = a.left < z.left;
+      var x1 = (rechts ? a.right : a.left) - r.left, y1 = a.top + a.height / 2 - r.top;
+      var x2 = (rechts ? z.left : z.right) - r.left, y2 = z.top + z.height / 2 - r.top;
+      var mx = (x1 + x2) / 2;
+      d += "M" + x1 + " " + y1 + " C " + mx + " " + y1 + ", " + mx + " " + y2 + ", " + x2 + " " + y2 + " ";
+    }
+    pfad.setAttribute("d", d);
+  }
+  zeichnen();
+  window.addEventListener("resize", zeichnen);
+  window.addEventListener("load", zeichnen);
+})();

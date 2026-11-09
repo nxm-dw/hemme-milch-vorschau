@@ -1183,3 +1183,52 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-person__schritte span { font-size: 14.5px; line-height: 1.4; color: #dbe7f8; }
 @media (max-width: 1100px) { .u-person:has(.u-person__schritte) { grid-template-columns: 220px minmax(0, 1fr); row-gap: 20px; } .u-person__schritte { grid-column: 2; } }
 @media (max-width: 700px) { .u-person:has(.u-person__schritte) { grid-template-columns: minmax(0, 1fr); } .u-person__schritte { grid-column: auto; } }
+
+/* Philosophie: Wertschöpfung im Zickzack mit gepunkteter Linie */
+.u-wert { position: relative; max-width: 1100px; margin: 0 auto; }
+.u-wert__linie { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.u-wert__linie path { fill: none; stroke: var(--gelb); stroke-width: 5; stroke-dasharray: 2 16; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.u-wert__liste { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(40px, 8vw, 140px); row-gap: 0; }
+.u-wert__schritt { position: relative; max-width: 440px; }
+.u-wert__schritt:nth-child(odd) { grid-column: 1; justify-self: start; }
+.u-wert__schritt:nth-child(even) { grid-column: 2; justify-self: end; margin-top: 160px; }
+.u-wert__schritt:nth-child(3) { margin-top: -60px; }
+.u-wert__bild { position: relative; width: min(100%, 380px); aspect-ratio: 1; overflow: hidden; border-radius: 58% 42% 46% 54% / 52% 44% 56% 48%; background: #e8f1fb; box-shadow: 0 30px 50px -34px rgba(0, 20, 60, .6); }
+.u-wert__schritt:nth-child(even) .u-wert__bild { border-radius: 44% 56% 52% 48% / 46% 58% 42% 54%; }
+.u-wert__bild img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+.u-wert__schritt:hover .u-wert__bild img { transform: scale(1.06); }
+.u-wert__bild--produkt { display: grid; place-items: center; background: radial-gradient(circle at 50% 55%, #cfe2f7 0 56%, #e8f1fb 57%); }
+.u-wert__bild--produkt img { width: 62%; height: auto; object-fit: contain; transform: rotate(-5deg); filter: drop-shadow(0 24px 22px rgba(12, 41, 117, .35)); }
+.u-wert__schritt:hover .u-wert__bild--produkt img { transform: rotate(0) translateY(-6px); }
+.u-wert__nr { position: absolute; z-index: 2; top: 6px; left: 6px; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--gelb); color: var(--tief); font-family: "True North Dots"; font-size: 26px; line-height: 1; box-shadow: 0 0 0 5px #fff; }
+.u .u-wert h3 { margin: 22px 0 6px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.05; color: var(--tief); }
+.u-wert p { margin: 0; font-size: 17px; line-height: 1.6; color: #2c4466; text-wrap: pretty; }
+@media (max-width: 760px) {
+  .u-wert__linie { display: none; }
+  .u-wert__liste { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .u-wert__schritt:nth-child(n) { grid-column: 1; justify-self: stretch; margin-top: 0; max-width: none; }
+  .u-wert__bild { width: min(100%, 320px); }
+}
+
+/* Philosophie: Was den Beutel ausmacht (wie auf der Startseite) */
+.u-bv { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px) minmax(0, 1fr); align-items: center; gap: clamp(16px, 3vw, 44px); }
+.u-bv__fakten { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.u-bv__fakten li { display: grid; gap: 4px; padding: 18px 22px; border-radius: 20px; background: rgba(0, 25, 70, .4); border: 1px solid rgba(255, 255, 255, .18); color: #e6efff; }
+.u-bv__fakten b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(30px, 2.8vw, 42px); line-height: 1; color: var(--gelb); }
+.u-bv__fakten span { font-size: 16px; line-height: 1.45; }
+.u-bv__fakten li.u-bv__icon { grid-template-columns: 56px minmax(0, 1fr); align-items: center; column-gap: 16px; }
+.u-bv__icon img { width: 56px; height: 56px; object-fit: contain; }
+.u-bv__icon strong { display: block; font-family: "True North Dots"; font-weight: 400; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.05; color: var(--gelb); }
+.u-bv__mitte { position: relative; }
+.u-bv__mitte::before { content: ""; position: absolute; left: 50%; top: 52%; width: 120%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, .22), rgba(255, 255, 255, 0) 68%); }
+.u-bv__mitte img { position: relative; width: 100%; transform: rotate(-5deg); filter: drop-shadow(0 36px 36px rgba(0, 20, 60, .5)); transition: transform .5s cubic-bezier(.3, 1.4, .5, 1); }
+.u-bv__mitte:hover img { transform: rotate(0) translateY(-8px) scale(1.03); }
+.u-bv__vergleich { max-width: 760px; margin: clamp(32px, 4vw, 56px) auto 0; padding: 24px 28px; border-radius: 24px; background: #fff; color: var(--tief); }
+.u-bv__vergleich figcaption { margin-bottom: 14px; font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.u-bv__zeile { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: center; gap: 16px; margin-top: 10px; font-weight: 800; }
+.u-bv__balken { display: block; width: calc(var(--anteil) * 100%); padding: 9px 14px 7px; border-radius: 10px; background: #dde8f5; font-size: 14px; }
+.u-bv__zeile--hemme .u-bv__balken { background: var(--gelb); }
+.u-bv__balken b { font-weight: 900; white-space: nowrap; }
+@media (max-width: 1000px) { .u-bv { grid-template-columns: repeat(2, minmax(0, 1fr)); } .u-bv__mitte { grid-column: 1 / -1; grid-row: 1; width: min(60%, 300px); margin: 0 auto; } }
+@media (max-width: 640px) { .u-bv { grid-template-columns: minmax(0, 1fr); } .u-bv__zeile { grid-template-columns: minmax(0, 1fr); gap: 6px; } .u-bv__balken { width: max(60%, calc(var(--anteil) * 100%)); } }
+@media (prefers-reduced-motion: reduce) { .u-wert__bild img, .u-bv__mitte img { transition: none; } }
