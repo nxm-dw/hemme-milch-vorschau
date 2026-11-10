@@ -1241,3 +1241,11 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 @media (max-width: 1100px) { .u-gebinde-liste--gross { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .u-gebinde-liste--gross { grid-template-columns: minmax(0, 1fr); } .u-gebinde-liste--gross .u-gebinde--breit { grid-column: auto; } }
 @media (max-width: 420px) { .u-gebinde--breit .u-gebinde__liste { grid-template-columns: minmax(0, 1fr); } }
+
+/* 10.11.2026: Collage mit drei Fotos (Hof erleben), versetzt, damit alle Bildunterschriften frei bleiben */
+.u-collage--drei { min-height: clamp(400px, 42vw, 590px); }
+.u-collage--drei .u-pola--1 { width: 54%; left: 0; top: 0; }
+.u-collage--drei .u-pola--2 { width: 50%; right: 0; top: 7%; bottom: auto; }
+.u-collage--drei .u-pola--3 { width: 50%; left: 22%; top: 53%; z-index: 2; transform: rotate(-2deg); animation: u-schweben 10s ease-in-out -5s infinite; }
+.u-collage--drei .u-pola--3::before { transform: translateX(-50%) rotate(-5deg); }
+@media (max-width: 900px) { .u-collage--drei { min-height: 0; aspect-ratio: 1 / 1.1; } .u-collage--drei .u-pola--3 { top: 55%; } }
