@@ -1232,3 +1232,12 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 @media (max-width: 1000px) { .u-bv { grid-template-columns: repeat(2, minmax(0, 1fr)); } .u-bv__mitte { grid-column: 1 / -1; grid-row: 1; width: min(60%, 300px); margin: 0 auto; } }
 @media (max-width: 640px) { .u-bv { grid-template-columns: minmax(0, 1fr); } .u-bv__zeile { grid-template-columns: minmax(0, 1fr); gap: 6px; } .u-bv__balken { width: max(60%, calc(var(--anteil) * 100%)); } }
 @media (prefers-reduced-motion: reduce) { .u-wert__bild img, .u-bv__mitte img { transition: none; } }
+
+/* 10.11.2026: Großverbraucher mit Eimern, vier Spalten, die Eimer-Karte doppelt breit */
+.u-gebinde-liste--gross { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.u-gebinde-liste--gross .u-gebinde--breit { grid-column: span 2; }
+.u-gebinde--breit .u-gebinde__liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.u-gebinde-liste--gross .u .u-gebinde, .u-gebinde-liste--gross .u-gebinde { padding-left: 20px; padding-right: 20px; }
+@media (max-width: 1100px) { .u-gebinde-liste--gross { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .u-gebinde-liste--gross { grid-template-columns: minmax(0, 1fr); } .u-gebinde-liste--gross .u-gebinde--breit { grid-column: auto; } }
+@media (max-width: 420px) { .u-gebinde--breit .u-gebinde__liste { grid-template-columns: minmax(0, 1fr); } }
