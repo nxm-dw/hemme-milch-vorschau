@@ -1249,3 +1249,10 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-collage--drei .u-pola--3 { width: 50%; left: 22%; top: 53%; z-index: 2; transform: rotate(-2deg); animation: u-schweben 10s ease-in-out -5s infinite; }
 .u-collage--drei .u-pola--3::before { transform: translateX(-50%) rotate(-5deg); }
 @media (max-width: 900px) { .u-collage--drei { min-height: 0; aspect-ratio: 1 / 1.1; } .u-collage--drei .u-pola--3 { top: 55%; } }
+
+/* 10.11.2026: E-Mail-Adresse unter dem Milchtelefon */
+.u-faq__mail { display: grid; gap: 2px; justify-self: start; padding: 12px 20px 11px; border-radius: 18px; background: #fff; border: 2px solid var(--hm-hell, #cfe0f4); color: var(--tief); font-weight: 800; font-size: 16px; text-decoration: none; overflow-wrap: anywhere; }
+.u-faq__mail span { font-size: 12.5px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--blau, #006ec6); }
+.u-faq__mail:hover { text-decoration: underline; text-decoration-color: var(--gelb); text-underline-offset: 4px; }
+.u-faq__mail:focus-visible { outline: 3px solid var(--gelb); outline-offset: 3px; }
+.u-adresse a[href^="mailto:"] { font-weight: 800; font-size: 17px; text-decoration-color: var(--gelb); text-decoration-thickness: 2px; text-underline-offset: 4px; overflow-wrap: anywhere; }
