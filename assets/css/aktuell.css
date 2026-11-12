@@ -1120,6 +1120,11 @@
 .gk__buehne--3 img:nth-child(1) { transform: rotate(-8deg); }
 .gk__buehne--3 img:nth-child(2) { z-index: 1; transform: translateY(-10px); }
 .gk__buehne--3 img:nth-child(3) { transform: rotate(8deg); }
+.gk__buehne--2 img { height: 118px; max-width: 48%; }
+.gk__buehne--2 img:nth-child(1) { margin-right: -6%; transform: rotate(-6deg); }
+.gk__buehne--2 img:nth-child(2) { z-index: 1; height: 96px; }
+.gk:hover .gk__buehne--2 img:nth-child(1) { transform: translate(-8px, -4px) rotate(-10deg) scale(1.06); }
+.gk:hover .gk__buehne--2 img:nth-child(2) { transform: translateY(-8px) scale(1.1); }
 .gk:hover .gk__buehne::before { transform: translateX(-50%) scale(1.08); }
 .gk:hover .gk__buehne--1 img { transform: scale(1.12) rotate(-3deg); }
 .gk:hover .gk__buehne--3 img:nth-child(1) { transform: translate(-12px, -6px) rotate(-14deg) scale(1.08); }

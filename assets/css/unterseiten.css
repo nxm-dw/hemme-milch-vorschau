@@ -1074,6 +1074,11 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-gebinde__buehne--3 img:nth-child(1) { transform: rotate(-8deg); }
 .u-gebinde__buehne--3 img:nth-child(2) { z-index: 1; transform: translateY(-12px); }
 .u-gebinde__buehne--3 img:nth-child(3) { transform: rotate(8deg); }
+.u-gebinde__buehne--2 img { height: 150px; max-width: 48%; }
+.u-gebinde__buehne--2 img:nth-child(1) { margin-right: -6%; transform: rotate(-6deg); }
+.u-gebinde__buehne--2 img:nth-child(2) { z-index: 1; height: 120px; }
+.u-gebinde:hover .u-gebinde__buehne--2 img:nth-child(1) { transform: translate(-10px, -4px) rotate(-10deg) scale(1.06); }
+.u-gebinde:hover .u-gebinde__buehne--2 img:nth-child(2) { transform: translateY(-10px) scale(1.1); }
 .u-gebinde:hover .u-gebinde__buehne::before { transform: translateX(-50%) scale(1.08); }
 .u-gebinde:hover .u-gebinde__buehne--1 img { transform: scale(1.14) rotate(-3deg); }
 .u-gebinde:hover .u-gebinde__buehne--3 img:nth-child(1) { transform: translate(-14px, -6px) rotate(-14deg) scale(1.1); }
@@ -1163,6 +1168,8 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-gebinde__buehne::before { width: 140px; height: 140px; }
 .u-gebinde__buehne img, .u-gebinde__buehne--1 img { height: 128px; }
 .u-gebinde__buehne--3 img { height: 116px; }
+.u-gebinde__buehne--2 img { height: 124px; }
+.u-gebinde__buehne--2 img:nth-child(2) { height: 100px; }
 .u-gebinde__zahl b { font-size: clamp(50px, 4.2vw, 68px); }
 .u-gebinde__zahl span { font-size: clamp(20px, 1.7vw, 25px); }
 .u-gebinde__zahl--mehr b { font-size: clamp(44px, 3.6vw, 58px); }
