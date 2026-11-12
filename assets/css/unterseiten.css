@@ -273,7 +273,7 @@
 
 /* =================== Überschriften sauber setzen =================== */
 .u-held__innen > div:first-child { min-width: 0; }
-.u .u-held h1 { font-size: clamp(32px, 5.4vw, 82px); line-height: .96; letter-spacing: .005em; }
+.u .u-held h1 { font-size: clamp(32px, 5.4vw, 82px); line-height: .96; letter-spacing: var(--tn-ls); }
 .u-held h1 .z { display: block; white-space: nowrap; }
 .u-kopf h2, .u-weiter h2, .u-blick h2 { overflow-wrap: normal; hyphens: manual; }
 .u-karte h3 { font-size: clamp(19px, 1.5vw, 22px); line-height: 1.12; hyphens: manual; }
@@ -319,7 +319,7 @@
 .u-gebinde { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 10px; padding: 30px 30px 28px; border-radius: 32px; background: var(--hm-verlauf); color: #fff; box-shadow: 0 34px 60px -38px rgba(0, 20, 60, .8); }
 .u-gebinde::after { content: ""; position: absolute; right: -60px; bottom: -70px; width: 240px; aspect-ratio: 1; background: url("../img/marke/herz-weiss.webp") center / contain no-repeat; opacity: .08; transform: rotate(-12deg); pointer-events: none; }
 .u-gebinde__zahl { display: flex; align-items: baseline; gap: 10px; margin: 0 0 6px; line-height: .85; }
-.u-gebinde__zahl b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(76px, 7vw, 110px); color: #fff; letter-spacing: .01em; }
+.u-gebinde__zahl b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(76px, 7vw, 110px); color: #fff; letter-spacing: var(--tn-ls); }
 .u-gebinde__zahl span { font-family: "True North Dots"; font-size: clamp(26px, 2.2vw, 34px); color: var(--gelb); text-transform: uppercase; }
 .u .u-gebinde h3 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: clamp(24px, 2vw, 28px); line-height: 1.05; color: #fff; }
 .u-gebinde__text { position: relative; z-index: 1; margin: 0; font-size: 16.5px; line-height: 1.55; color: #e3eeff; text-wrap: pretty; }
@@ -889,7 +889,7 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-fuehrung__bild { aspect-ratio: 4 / 5; margin-bottom: 8px; overflow: hidden; border-radius: 22px; background: var(--akzent-hell); }
 .u-fuehrung__bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
 .u-person-platz { display: grid; place-content: center; justify-items: center; gap: 10px; width: 100%; height: 100%; background: radial-gradient(90% 70% at 50% 30%, #fff 0%, var(--akzent-hell) 70%); }
-.u-person-platz b { display: grid; place-items: center; width: 88px; height: 88px; border-radius: 50%; background: var(--akzent); color: #fff; font-family: "True North Dots"; font-weight: 400; font-size: 34px; line-height: 1; letter-spacing: .02em; padding-top: 4px; }
+.u-person-platz b { display: grid; place-items: center; width: 88px; height: 88px; border-radius: 50%; background: var(--akzent); color: #fff; font-family: "True North Dots"; font-weight: 400; font-size: 34px; line-height: 1; letter-spacing: var(--tn-ls); padding-top: 4px; }
 .u-person-platz small { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--akzent-text); }
 .u .u-fuehrung__person h4 { margin: 0; font-family: "True North Dots"; font-weight: 400; font-size: 21px; line-height: 1.1; color: var(--tief); }
 .u-fuehrung__text { display: grid; gap: 2px; font-size: 15px; line-height: 1.4; hyphens: manual; }
@@ -1125,7 +1125,7 @@ mark.u-pruefen { padding: 1px 6px; border-radius: 4px; background: #ffe58a; colo
 .u-produkt__detail { margin: 0 0 6px; font-size: 14px; font-weight: 900; letter-spacing: .02em; color: var(--hm-blau-text, #006ec6); }
 .u .u-produkt h2 { margin: 0 0 12px; font-family: "True North Dots"; font-weight: 400; font-size: clamp(28px, 3vw, 36px); line-height: 1.05; color: var(--tief); }
 .u-produkt p { margin: 0; font-size: 17px; line-height: 1.6; }
-.u .u-produkt h3 { margin: 22px 0 8px; font-size: 15px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--tief); }
+.u .u-produkt h3 { margin: 22px 0 8px; font-size: 15px; font-weight: 900; letter-spacing: var(--tn-ls); text-transform: uppercase; color: var(--tief); }
 .u-produkt .u-produkt__zutaten { padding: 12px 16px; border-radius: 14px; border: 2px dashed #b9cee6; background: #f5f9fe; font-size: 15.5px; color: #3c5574; }
 .u-produkt__zu { position: absolute; top: 14px; right: 14px; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #eef4fb; cursor: pointer; }
 .u-produkt__zu svg { width: 20px; height: 20px; fill: none; stroke: var(--tief); stroke-width: 2.6; stroke-linecap: round; }

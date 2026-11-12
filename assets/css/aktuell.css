@@ -18,8 +18,8 @@
   font: 400 17px/1.55 "Akko Rounded", system-ui, sans-serif;
 }
 .a h1, .a h2, .a h3 { font-family: "True North Dots", system-ui, sans-serif; color: var(--tief); margin: 0; }
-.a h2 { font-size: clamp(34px, 4.6vw, 64px); font-weight: 800; line-height: .98; letter-spacing: .01em; }
-.a h3 { font-size: 22px; font-weight: 700; letter-spacing: .01em; }
+.a h2 { font-size: clamp(34px, 4.6vw, 64px); font-weight: 800; line-height: .98; letter-spacing: var(--tn-ls); }
+.a h3 { font-size: 22px; font-weight: 700; letter-spacing: var(--tn-ls); }
 :where(.a) p { margin: 0; }
 .a section { padding: clamp(64px, 9vw, 128px) max(var(--rand), calc((100vw - var(--breite)) / 2)); }
 
@@ -89,7 +89,7 @@
   min-height: min(84vh, 800px); padding-top: clamp(24px, 3vw, 48px); padding-bottom: clamp(56px, 6vw, 96px);
 }
 .held__ort { font-weight: 600; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--blau-text); margin-bottom: 20px; }
-.held__titel { font-size: clamp(52px, 7vw, 116px); font-weight: 400; line-height: .92; letter-spacing: .01em; }
+.held__titel { font-size: clamp(52px, 7vw, 116px); font-weight: 400; line-height: .92; letter-spacing: var(--tn-ls); }
 .held__slogan { display: block; width: min(92%, 470px); height: auto; margin: .14em 0 0 -.02em; }
 .held__titel span { display: block; white-space: nowrap; }
 .held__titel em { font-style: normal; color: var(--blau); position: relative; white-space: nowrap; }
@@ -203,7 +203,7 @@
 .gruppe--butter .gruppe__bilder img { width: 52%; max-width: 230px; }
 .gruppe--quark .gruppe__bilder img { width: 62%; max-width: 250px; }
 
-.gruppe__name { padding-right: 56px; font-family: "True North Dots"; font-weight: 800; font-size: clamp(28px, 2.6vw, 38px); line-height: 1; letter-spacing: .01em; color: var(--tief); }
+.gruppe__name { padding-right: 56px; font-family: "True North Dots"; font-weight: 800; font-size: clamp(28px, 2.6vw, 38px); line-height: 1; letter-spacing: var(--tn-ls); color: var(--tief); }
 .gruppe__info { margin-top: 8px; font-size: 15px; }
 .gruppe__bilder { position: relative; flex: 1; display: flex; justify-content: center; align-items: flex-end; margin-top: 16px; }
 .gruppe__bilder img {
@@ -263,7 +263,7 @@
   position: relative; display: grid; gap: 4px; padding: 20px 22px; border-radius: 22px;
   background: rgba(0, 30, 80, .32); border: 1px solid rgba(255,255,255,.18); text-align: left;
 }
-.beutel__fakten b { font-family: "True North Dots"; font-weight: 800; font-size: clamp(34px, 3.2vw, 48px); line-height: 1; letter-spacing: .01em; color: var(--gelb); }
+.beutel__fakten b { font-family: "True North Dots"; font-weight: 800; font-size: clamp(34px, 3.2vw, 48px); line-height: 1; letter-spacing: var(--tn-ls); color: var(--gelb); }
 .beutel__fakten span { font-size: 16.5px; line-height: 1.45; }
 /* Verbindungslinie mit Punkt Richtung Beutel */
 .beutel__fakten li::after { content: ""; position: absolute; top: 50%; width: clamp(16px, 3vw, 48px); border-top: 2px dashed rgba(255,255,255,.55); }
@@ -307,7 +307,7 @@
 .uhr circle { fill: none; stroke-width: 7; }
 .uhr__ring { stroke: #d5e3f5; }
 .uhr__lauf { stroke: var(--gelb); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--lauf, 0) * 100); }
-.uhr__zahl { position: absolute; inset: 0; display: grid; place-content: center; font-family: "True North Dots"; font-weight: 800; font-size: 54px; color: var(--tief); letter-spacing: .01em; }
+.uhr__zahl { position: absolute; inset: 0; display: grid; place-content: center; font-family: "True North Dots"; font-weight: 800; font-size: 54px; color: var(--tief); letter-spacing: var(--tn-ls); }
 .uhr__h { position: absolute; right: 30px; bottom: 44px; font-weight: 700; color: var(--blau-text); }
 
 .kette__band {
@@ -402,13 +402,13 @@
 .fuss:hover .fuss__kuh { transform: rotate(4deg) translateY(-8px); }
 .fuss__slogan {
   margin: 0 0 56px; padding-right: 200px; font-family: "True North Dots"; font-weight: 800;
-  font-size: clamp(40px, 6.4vw, 96px); line-height: .92; letter-spacing: .01em; color: #fff;
+  font-size: clamp(40px, 6.4vw, 96px); line-height: .92; letter-spacing: var(--tn-ls); color: #fff;
 }
 .fuss__slogan span { display: block; }
 .fuss__slogan span + span { color: var(--gelb); }
 .fuss__raster { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 20px; }
 .fuss__block { padding: 26px; border-radius: 24px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12); }
-.fuss h2 { font-family: "True North Dots"; font-size: 20px; font-weight: 800; color: #fff; margin: 0 0 14px; letter-spacing: .01em; }
+.fuss h2 { font-family: "True North Dots"; font-size: 20px; font-weight: 800; color: #fff; margin: 0 0 14px; letter-spacing: var(--tn-ls); }
 .fuss p { margin: 0 0 12px; }
 .fuss a { color: #fff; }
 .fuss__klein { font-size: 15px; color: #c3d6ef; }
@@ -417,7 +417,7 @@
   background: var(--gelb); color: var(--tief) !important; font-weight: 700; text-decoration: none; transition: transform .2s;
 }
 .fuss__knopf:hover { transform: translateY(-2px); }
-.fuss__tel { font-family: "True North Dots"; font-weight: 800; font-size: 30px; letter-spacing: .01em; text-decoration: none; }
+.fuss__tel { font-family: "True North Dots"; font-weight: 800; font-size: 30px; letter-spacing: var(--tn-ls); text-decoration: none; }
 .fuss__tel:hover { text-decoration: underline; text-decoration-color: var(--gelb); text-underline-offset: 5px; }
 .status { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 99px; background: rgba(255,255,255,.1); font-weight: 700; color: #fff; }
 .status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #9fb3c8; }
@@ -912,7 +912,7 @@
 .bruder-fuss { margin: 0 0 32px; padding: 26px clamp(22px, 3vw, 40px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); gap: 14px 28px; }
 .bruder-fuss__logo { width: 190px; height: auto; flex: none; }
 .bruder-fuss__text { flex: 1; min-width: 240px; display: grid; gap: 6px; color: #e6eefa; font-size: 17px; line-height: 1.45; padding-left: 28px; border-left: 1px solid rgba(255,255,255,.22); text-wrap: pretty; }
-.bruder-fuss__text b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.1; color: #fff; letter-spacing: .01em; }
+.bruder-fuss__text b { font-family: "True North Dots"; font-weight: 400; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.1; color: #fff; letter-spacing: var(--tn-ls); }
 .bruder-fuss__text span { max-width: 62ch; }
 .bruder-fuss__los { background: transparent; border: 1.5px solid rgba(255,255,255,.6); color: #fff; font-size: 16px; flex: none; }
 .bruder-fuss:hover .bruder-fuss__los { background: #fff; color: var(--tief); }
@@ -1154,3 +1154,11 @@
 .fuss__mail { display: inline-block; margin-top: -4px; font-weight: 800; font-size: 17px; color: inherit; text-decoration: underline; text-decoration-color: var(--gelb); text-decoration-thickness: 2px; text-underline-offset: 4px; overflow-wrap: anywhere; }
 .fuss__mail:hover { text-decoration-thickness: 3px; }
 .fuss__mail:focus-visible { outline: 3px solid var(--gelb); outline-offset: 3px; }
+
+/* Laufweite True North Dots (Wunsch Hemme 12.11.2026): auf hellem Grund enger, damit die Schrift geschlossen wirkt wie weiß auf Blau */
+:root { --tn-ls: -.03em; }
+.u-held, .weg, .beutel, .werte--b, .duo__text, .fakten, .fuss, .bruder-fuss, .gk, .milchmann, .werte__karte--dunkel,
+.u-teil--blau, .u-gebinde, .u-paket, .u-paket-info, .u-faq__tel, .mk__wunsch, .u-adresse, .u-einsatz__liste, .u-kachel__text, .u-kachel--produkte,
+.u-person, .u-person-platz, .u-weiter, .u-zitat, .mit-icon, .u-bv__icon, .u-bv__fakten, .u-sticker--dunkel, .u-heiss__werte, .beutel__fakten, .u-beutel__zahlen { --tn-ls: .01em; }
+.u-sticker:not(.u-sticker--dunkel), .werte__liste > li:not(.werte__karte--dunkel) { --tn-ls: -.03em; }
+.a h4, .station__jahr, .u-zeit__jahr, .zettel__titel { letter-spacing: var(--tn-ls); }
