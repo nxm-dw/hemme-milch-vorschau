@@ -35,10 +35,56 @@
     { t: "Hofcafé innen", b: "kanaele", f: F + "hofcafe.webp", k: ["Website", "Print"], s: "Hofcafé Café Eventlocation Raum", typ: "Foto", fot: "Bildarchiv Hemme" },
     { t: "Hemme-Lieferwagen", b: "bildwelt", f: F + "milchmann.webp", k: ["Website", "Social Media", "Presse"], s: "Milchmann Lieferung Auto Hof Vertrieb", typ: "Foto", fot: "Bildarchiv Hemme" },
     { t: "Gunnar Hemme auf der Weide", b: "presse", f: F + "gunnar-hemme-portraet.webp", k: ["Website", "Presse"], s: "Gunnar Hemme Gründer Team Person Presse Kühe", typ: "Pressefoto", fot: "Bildnachweis: Hemme Milch", person: true },
-    { t: "Hof aus der Luft (Platzhalter)", b: "intern", f: F + "feld-linien.webp", k: ["Website"], s: "Drohne Luft Feld Hof", typ: "Foto", fot: "Beispiel-Entwurf", status: "entwurf" },
+    { t: "Kuh ganz nah", b: "bildwelt", f: F + "kuh-nah.webp", k: ["Website", "Social Media", "Print"], s: "Kuh Kühe Tier nah Weide", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Kälbchen schaut in die Kamera", b: "bildwelt", f: F + "kalb-nase.webp", k: ["Website", "Social Media", "Print"], s: "Kalb Kälbchen Tier Kühe Stall", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Kälbchen an der Hand", b: "bildwelt", f: F + "kalb-hand.webp", k: ["Website", "Social Media"], s: "Kalb Kälbchen Hand Tier Kühe", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Kalb im Stall", b: "bildwelt", f: F + "kuh-stall.webp", k: ["Website", "Social Media"], s: "Kalb Stall Tier Kühe", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Kind und Kuh", b: "bildwelt", f: F + "kind-kuh-2.webp", k: ["Website", "Social Media"], s: "Kind Kuh Familie Hof erleben Kühe", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Kuhnase", b: "bildwelt", f: F + "kuhnase-2.webp", k: ["Website", "Social Media"], s: "Kuh Nase Tier Kühe lustig", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Team auf der Weide", b: "bildwelt", f: F + "weide-team.webp", k: ["Website", "Social Media", "Presse"], s: "Team Weide Menschen Hof Kühe", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Milchmann auf dem Hof", b: "bildwelt", f: F + "milchmann-hof.webp", k: ["Website", "Social Media", "Print"], s: "Milchmann Lieferung Auto Hof Vertrieb", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Hof aus der Luft", b: "bildwelt", f: F + "historie-2018-luftbild.webp", k: ["Website", "Print", "Presse"], s: "Luftbild Drohne Hof Molkerei Sprockhof", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Hofgarten", b: "bildwelt", f: F + "hofgarten.webp", k: ["Website", "Social Media"], s: "Hofgarten Garten Hof erleben", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Arbeitsplatz im Büro", b: "bildwelt", f: F + "arbeitsplatz.webp", k: ["Website", "Social Media"], s: "Büro Arbeitsplatz Team Milchtelefon Kontakt", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Hofcafé mit Torte und Milchkaffee", b: "kanaele", f: F + "hofcafe-torte.webp", k: ["Website", "Social Media", "Print"], s: "Hofcafé Torte Kuchen Kaffee Café Milchladen", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Maislabyrinth", b: "kanaele", f: F + "maislabyrinth-weg.webp", k: ["Website", "Social Media", "Print"], s: "Maislabyrinth Mais Hof erleben Familie Sommer", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Maislabyrinth, Schild", b: "kanaele", f: F + "maislabyrinth-schild.webp", k: ["Website", "Social Media"], s: "Maislabyrinth Schild Hof erleben", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Hüpfkissen im Spielbereich", b: "kanaele", f: F + "huepfkissen.webp", k: ["Website", "Social Media"], s: "Hüpfkissen Spielplatz Kinder Hof erleben", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation", b: "kanaele", f: F + "eventlocation.webp", k: ["Website", "Social Media", "Print"], s: "Eventlocation Feier Raum Hochzeit", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Raum", b: "kanaele", f: F + "event-raum.webp", k: ["Website", "Social Media", "Print"], s: "Eventlocation Raum Feier Hochzeit", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Panorama", b: "kanaele", f: F + "event-panorama.webp", k: ["Website", "Social Media", "Print"], s: "Eventlocation Blick Uckermark Feier", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Buffet", b: "kanaele", f: F + "event-buffet.webp", k: ["Website", "Social Media"], s: "Eventlocation Buffet Essen Feier", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Deko", b: "kanaele", f: F + "event-deko.webp", k: ["Website", "Social Media"], s: "Eventlocation Deko Tisch Hochzeit", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Gäste", b: "kanaele", f: F + "event-gaeste.webp", k: ["Website", "Social Media"], s: "Eventlocation Gäste Feier Menschen", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Tanz", b: "kanaele", f: F + "event-tanz.webp", k: ["Website", "Social Media"], s: "Eventlocation Tanz Feier Party", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eventlocation, Bühne", b: "kanaele", f: F + "event-buehne.webp", k: ["Website", "Social Media"], s: "Eventlocation Bühne Musik Feier", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Eisschmiede Pinnow", b: "kanaele", f: F + "eisschmiede-pinnow.webp", k: ["Website", "Social Media"], s: "Partner Eis Eisschmiede Pinnow Region", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Kinderstrandfest Wolletzsee", b: "kanaele", f: F + "kinderstrandfest-wolletzsee.webp", k: ["Website", "Social Media"], s: "Partner Fest Kinder Wolletzsee Region Engagement", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Uckermark gegen Leukämie", b: "kanaele", f: F + "uckermark-gegen-leukaemie.webp", k: ["Website", "Social Media"], s: "Partner Engagement Spende Region", typ: "Foto", fot: "Bildarchiv Hemme" },
+    { t: "Gunnar Hemme, Hochformat", b: "presse", f: F + "gunnar-hemme-hoch.webp", k: ["Website", "Presse"], s: "Gunnar Hemme Gründer Person Presse Porträt", typ: "Pressefoto", fot: "Bildnachweis: Hemme Milch", person: true },
+    { t: "Sandra Lichtenstein", b: "presse", f: F + "sandra-lichtenstein.webp", k: ["Website", "Presse"], s: "Sandra Lichtenstein Team Person Karriere Ansprechperson", typ: "Pressefoto", fot: "Bildnachweis: Hemme Milch", person: true },
+    { t: "Historie: Hof 1589", b: "presse", f: F + "historie-1589.webp", k: ["Website", "Presse"], s: "Historie Geschichte 1589 Hof Familie", typ: "Pressefoto", fot: "Archiv Familie Hemme" },
+    { t: "Historie: Baustart Molkerei 2004", b: "presse", f: F + "historie-2004-baustart.webp", k: ["Website", "Presse"], s: "Historie Geschichte Molkerei Bau 2004", typ: "Pressefoto", fot: "Archiv Familie Hemme" },
+    { t: "Album: Winter 1999", b: "presse", f: F + "album-winter-1999.webp", k: ["Website", "Presse"], s: "Historie Album Winter Hof 1999", typ: "Pressefoto", fot: "Archiv Familie Hemme" },
+    { t: "Album: Milchwagen", b: "presse", f: F + "album-milchwagen.webp", k: ["Website", "Presse"], s: "Historie Album Milchwagen Lieferung", typ: "Pressefoto", fot: "Archiv Familie Hemme" },
+    { t: "Album: Team der Molkerei", b: "presse", f: F + "album-molkerei-team.webp", k: ["Website", "Presse"], s: "Historie Album Molkerei Team Menschen", typ: "Pressefoto", fot: "Archiv Familie Hemme" },
+    { t: "Felder von oben (Platzhalter)", b: "intern", f: F + "feld-linien.webp", k: ["Website"], s: "Drohne Luft Feld Hof", typ: "Foto", fot: "Beispiel-Entwurf", status: "entwurf" },
     { t: "Molkerei, Abfüllung", b: "intern", f: F + "molkerei-platzhalter.webp", k: ["Website", "Social Media"], s: "Molkerei Abfüllung Milch Produktion", typ: "Foto", fot: "Stockbild, Lizenz prüfen", status: "entwurf", bis: "2026-12-31" },
-    { t: "Vollmilch im Milchbeutel", b: "produkte", f: M + "vollmilch-vs.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Vollmilch Milchbeutel Beutel Milch Produkt Verpackung", typ: "Packshot", fot: "Druckdatei 1000 ml", frei: true },
-    { t: "Erdbeermilch 600 ml", b: "produkte", f: P + "erdbeermilch.webp", k: ["Website", "Social Media", "Print"], s: "Erdbeermilch Milchgetränk Milchbeutel Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
+    { t: "Vollmilch im Milchbeutel", b: "produkte", f: M + "vollmilch-vs.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Vollmilch Milchbeutel Beutel Milch Produkt Verpackung", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Fettarme Milch im Milchbeutel", b: "produkte", f: P + "teilrahmen-milch.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Fettarme Milch 1,8 Milchbeutel Beutel Milch Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Laktosefreie Vollmilch im Milchbeutel", b: "produkte", f: P + "milch-laktosefrei.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Laktosefrei Vollmilch Milchbeutel Beutel Milch Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Schokomilch 600 ml", b: "produkte", f: P + "schokomilch-600.webp", k: ["Website", "Social Media", "Print"], s: "Schokomilch Kakao Milchgetränk Milchbeutel Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Vanillemilch 600 ml", b: "produkte", f: P + "vanillemilch-600.webp", k: ["Website", "Social Media", "Print"], s: "Vanillemilch Milchgetränk Milchbeutel Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Eiskaffee 600 ml", b: "produkte", f: P + "eiskaffe-600.webp", k: ["Website", "Social Media", "Print"], s: "Eiskaffee Kaffee Milchgetränk Milchbeutel Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Buttermilch 600 g", b: "produkte", f: P + "buttermilch-600.webp", k: ["Website", "Social Media", "Print"], s: "Buttermilch Milchbeutel Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Joghurt mild 600 g", b: "produkte", f: P + "naturjogurt-600.webp", k: ["Website", "Social Media", "Print"], s: "Joghurt mild Natur Milchbeutel Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
+    { t: "Milch 10 Liter, Schlauchbeutel", b: "produkte", f: P + "milch-10-liter-etikett.webp", k: ["Website", "Social Media", "Print"], s: "Gastro Großverbraucher 10 Liter Schlauchbeutel Milch Produkt", typ: "Packshot", fot: "Produktfoto mit Originaletikett, MHD geschwärzt", frei: true },
+    { t: "Fassbutter 12 kg", b: "produkte", f: P + "fassbutter-12kg-etikett.webp", k: ["Website", "Social Media", "Print"], s: "Gastro Großverbraucher Fassbutter Butter 12 kg Produkt", typ: "Packshot", fot: "Produktfoto mit Originaletikett, MHD geschwärzt", frei: true },
+    { t: "Fassbutter 4,5 kg im Eimer", b: "produkte", f: P + "eimer-fassbutter.webp", k: ["Website", "Print"], s: "Gastro Großverbraucher Fassbutter Butter Eimer Produkt", typ: "Packshot", fot: "Hemme Milch", frei: true },
+    { t: "Sahne 5 kg im Eimer", b: "produkte", f: P + "eimer-sahne.webp", k: ["Website", "Print"], s: "Gastro Großverbraucher Sahne Schlagsahne Eimer Produkt", typ: "Packshot", fot: "Hemme Milch", frei: true },
+    { t: "Joghurt mild 5 kg im Eimer", b: "produkte", f: P + "eimer-joghurt.webp", k: ["Website", "Print"], s: "Gastro Großverbraucher Joghurt Eimer Produkt", typ: "Packshot", fot: "Hemme Milch", frei: true },
+    { t: "Speisequark 5 kg im Eimer", b: "produkte", f: P + "eimer-quark.webp", k: ["Website", "Print"], s: "Gastro Großverbraucher Quark Speisequark Eimer Produkt", typ: "Packshot", fot: "Hemme Milch", frei: true },
+    { t: "Erdbeermilch 600 ml", b: "produkte", f: P + "erdbeermilch.webp", k: ["Website", "Social Media", "Print"], s: "Erdbeermilch Milchgetränk Milchbeutel Produkt", typ: "Packshot", fot: "Verpackungsagentur, aufgehellt 11/2026", frei: true },
     { t: "Schokomilch to go", b: "produkte", f: P + "schokomilch-230.webp", k: ["Website", "Social Media", "Print"], s: "Schokomilch Milchgetränk to go Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
     { t: "Fassbutter 200 g", b: "produkte", f: P + "fassbutter.webp", k: ["Website", "Print"], s: "Butter Fassbutter Produkt", typ: "Packshot", fot: "Produktfotos", frei: true },
     { t: "Logo oval, Farbe", b: "marke", f: M + "hemme-logo-oval-farbe.webp", k: ["Website", "Social Media", "Print", "Presse"], s: "Logo Oval Kuh Marke", typ: "Logo", fot: "Brandbook 2026", frei: true, logo: true },
@@ -110,7 +156,6 @@
     liste.forEach(function (d) {
       var li = el("li", "karte");
       var knopf = el("button", "karte__knopf"); knopf.type = "button";
-      knopf.setAttribute("aria-label", d.t + ", Details öffnen");
       var bild = el("span", "karte__bild" + (d.logo ? " karte__bild--logo" : "") + (d.dunkel ? " karte__bild--dunkel" : ""));
       var img = el("img"); img.src = d.f.replace(/(foto\/[^.]+)\.webp$/, "$1-s.webp").replace("-s-s.webp", "-s.webp"); img.alt = ""; img.loading = "lazy";
       img.onerror = function () { img.onerror = null; img.src = d.f; };
@@ -127,6 +172,7 @@
       var k = el("span", "karte__kanaele");
       d.k.forEach(function (x) { k.appendChild(el("span", "kanal kanal--" + x.toLowerCase().replace(/\s/g, "-"), x)); });
       txt.appendChild(k);
+      txt.appendChild(el("span", "nur-sr", ", Details öffnen"));
       knopf.appendChild(txt);
       knopf.addEventListener("click", function () { oeffne(d); });
       li.appendChild(knopf);

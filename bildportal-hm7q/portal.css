@@ -7,7 +7,7 @@
   --seite: max(16px, calc((100vw - 1320px) / 2));
   background: var(--papier); color: #0b2340; font: 500 16.5px/1.55 "Akko Rounded", system-ui, sans-serif;
 }
-.p h1, .p h2, .p h3 { font-family: "True North Dots", system-ui, sans-serif; font-weight: 400; color: var(--tief); margin: 0; letter-spacing: .01em; }
+.p h1, .p h2, .p h3 { font-family: "True North Dots", system-ui, sans-serif; font-weight: 400; color: var(--tief); margin: 0; letter-spacing: var(--tn-ls); }
 :where(.p) p { margin: 0; }
 .p section { padding: clamp(48px, 6vw, 88px) var(--seite); }
 
@@ -21,7 +21,7 @@
 }
 .kopf__marke { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .kopf__marke img { width: 92px; height: auto; }
-.kopf__marke span { font-family: "True North Dots"; font-size: 22px; color: var(--tief); padding-left: 12px; border-left: 2px solid var(--linie); }
+.kopf__marke span { font-family: "True North Dots"; letter-spacing: var(--tn-ls); font-size: 22px; color: var(--tief); padding-left: 12px; border-left: 2px solid var(--linie); }
 .kopf__nav { display: flex; gap: 22px; flex: 1; font-weight: 700; font-size: 15.5px; }
 .kopf__nav a { color: var(--tief); text-decoration: none; padding: 6px 0; background: linear-gradient(var(--gelb), var(--gelb)) 0 100% / 0 3px no-repeat; transition: background-size .25s; }
 .kopf__nav a:hover { background-size: 100% 3px; }
@@ -345,7 +345,7 @@ main { animation: rein .4s ease; }
 .stil__zwei { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; margin-top: 8px; }
 .schrift { display: grid; gap: 4px; padding: 22px 24px; margin-bottom: 14px; border-radius: 22px; background: var(--papier); }
 .schrift__probe { font-size: clamp(26px, 2.8vw, 38px); line-height: 1.1; color: var(--tief); margin-bottom: 8px; }
-.schrift--dots .schrift__probe { font-family: "True North Dots"; text-transform: uppercase; }
+.schrift--dots .schrift__probe { font-family: "True North Dots"; letter-spacing: var(--tn-ls); text-transform: uppercase; }
 .schrift--akko .schrift__probe { font-family: "Akko Rounded"; font-weight: 900; font-size: clamp(20px, 2vw, 26px); }
 .schrift b { color: var(--tief); }
 .schrift > span:last-child { font-size: 14.5px; color: var(--leise); }
@@ -376,3 +376,8 @@ main { animation: rein .4s ease; }
 .post--story .post__titel { font-size: 15cqi; }
 .post--feed .post__logo { top: 14px; bottom: auto; }
 .post--feed .post__titel { right: 18px; font-size: 10.5cqi; }
+
+/* Laufweite True North Dots wie auf der Website: auf hellem Grund −0,03 em, weiß auf dunklem Grund 0,01 em */
+:root { --tn-ls: -.03em; }
+.held, .presse, .bereich, .post__bild, .zahlen { --tn-ls: .01em; }
+.zahlen dd, .bereich__text b, .post__titel { letter-spacing: var(--tn-ls); }
