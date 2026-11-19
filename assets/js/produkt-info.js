@@ -5,6 +5,7 @@
   if (!d || typeof d.showModal !== "function") return;
   var bild = d.querySelector("[data-produkt-bild]"), name = d.querySelector("[data-produkt-name]");
   var detail = d.querySelector("[data-produkt-detail]"), text = d.querySelector("[data-produkt-beschreibung]");
+  var zutaten = d.querySelector("[data-produkt-zutaten]");
   var ausloeser = null;
   document.querySelectorAll(".u-sorte__knopf").forEach(function (k) {
     k.addEventListener("click", function () {
@@ -13,6 +14,10 @@
       name.textContent = k.getAttribute("data-name");
       detail.textContent = k.getAttribute("data-detail");
       text.textContent = k.getAttribute("data-text");
+      /* Zutaten kommen aus dem eigenen Seitengenerator (Allergene fett), fehlt die Liste, steht der Hinweis */
+      var z = k.getAttribute("data-zutaten");
+      zutaten.classList.toggle("u-produkt__zutaten--folgt", !z);
+      if (z) zutaten.innerHTML = z; else zutaten.textContent = "Die Zutatenliste ergänzen wir in\u00a0Kürze.";
       d.showModal();
     });
   });
